@@ -1,4 +1,4 @@
-6 Dec 2019
+21 Jan 2021
 
 To clone this repository: 
 	git clone https://github.com/seddon-software/python-course.git
