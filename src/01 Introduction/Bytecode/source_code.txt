@@ -1,0 +1,31 @@
+   case BINARY_ADD:
+            w = POP();
+            v = TOP();
+            if (PyInt_CheckExact(v) && PyInt_CheckExact(w)) {
+                /* INLINE: int + int */
+                register long a, b, i;
+                a = PyInt_AS_LONG(v);
+                b = PyInt_AS_LONG(w);
+                /* cast to avoid undefined behaviour
+                   on overflow */
+                i = (long)((unsigned long)a + b);
+                if ((i^a) < 0 && (i^b) < 0)
+                    goto slow_add;
+                x = PyInt_FromLong(i);
+            }
+            else if (PyString_CheckExact(v) &&
+                     PyString_CheckExact(w)) {
+                x = string_concatenate(v, w, f, next_instr);
+                /* string_concatenate consumed the ref to v */
+                goto skip_decref_vx;
+            }
+            else {
+              slow_add:
+                x = PyNumber_Add(v, w);
+            }
+            Py_DECREF(v);
+          skip_decref_vx:
+            Py_DECREF(w);
+            SET_TOP(x);
+            if (x != NULL) continue;
+            break;

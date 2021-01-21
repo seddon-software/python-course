@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="library.xsd">
+  <title>Essential XML</title>
+  <author>Don Box</author><author>Aaron Skonnard</author><author>John Lam</author>
+  <publisher>Addison Wesley</publisher><pubdate>2000</pubdate>
+  <cost>23.50</cost>
+</book>

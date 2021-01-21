@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module lxml.builder</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="lxml.html"><font color="#ffffff">lxml</font></a>.builder</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/lxml/builder.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/lxml/builder.py</a></font></td></tr></table>
+    <p><tt>The&nbsp;``E``&nbsp;Element&nbsp;factory&nbsp;for&nbsp;generating&nbsp;XML&nbsp;documents.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="lxml.etree.html">lxml.etree</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="lxml.builder.html#ElementMaker">ElementMaker</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ElementMaker">class <strong>ElementMaker</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Element&nbsp;generator&nbsp;factory.<br>
+&nbsp;<br>
+Unlike&nbsp;the&nbsp;ordinary&nbsp;Element&nbsp;factory,&nbsp;the&nbsp;E&nbsp;factory&nbsp;allows&nbsp;you&nbsp;to&nbsp;pass&nbsp;in<br>
+more&nbsp;than&nbsp;just&nbsp;a&nbsp;tag&nbsp;and&nbsp;some&nbsp;optional&nbsp;attributes;&nbsp;you&nbsp;can&nbsp;also&nbsp;pass&nbsp;in<br>
+text&nbsp;and&nbsp;other&nbsp;elements.&nbsp;&nbsp;The&nbsp;text&nbsp;is&nbsp;added&nbsp;as&nbsp;either&nbsp;text&nbsp;or&nbsp;tail<br>
+attributes,&nbsp;and&nbsp;elements&nbsp;are&nbsp;inserted&nbsp;at&nbsp;the&nbsp;right&nbsp;spot.&nbsp;&nbsp;Some&nbsp;small<br>
+examples::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;from&nbsp;lxml&nbsp;import&nbsp;etree&nbsp;as&nbsp;ET<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;from&nbsp;lxml.builder&nbsp;import&nbsp;E<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E("tag"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag/&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E("tag",&nbsp;"text"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag&gt;text&lt;/tag&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E("tag",&nbsp;"text",&nbsp;key="value"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag&nbsp;key="value"&gt;text&lt;/tag&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E("tag",&nbsp;E("subtag",&nbsp;"text"),&nbsp;"tail"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag&gt;&lt;subtag&gt;text&lt;/subtag&gt;tail&lt;/tag&gt;'<br>
+&nbsp;<br>
+For&nbsp;simple&nbsp;tags,&nbsp;the&nbsp;factory&nbsp;also&nbsp;allows&nbsp;you&nbsp;to&nbsp;write&nbsp;``E.tag(...)``&nbsp;instead<br>
+of&nbsp;``E('tag',&nbsp;...)``::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E.tag())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag/&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E.tag("text"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag&gt;text&lt;/tag&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;ET.tostring(E.tag(E.subtag("text"),&nbsp;"tail"))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;tag&gt;&lt;subtag&gt;text&lt;/subtag&gt;tail&lt;/tag&gt;'<br>
+&nbsp;<br>
+Here's&nbsp;a&nbsp;somewhat&nbsp;larger&nbsp;example;&nbsp;this&nbsp;shows&nbsp;how&nbsp;to&nbsp;generate&nbsp;HTML<br>
+documents,&nbsp;using&nbsp;a&nbsp;mix&nbsp;of&nbsp;prepared&nbsp;factory&nbsp;functions&nbsp;for&nbsp;inline&nbsp;elements,<br>
+nested&nbsp;``E.tag``&nbsp;calls,&nbsp;and&nbsp;embedded&nbsp;XHTML&nbsp;fragments::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;some&nbsp;common&nbsp;inline&nbsp;elements<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;=&nbsp;E.a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;=&nbsp;E.i<br>
+&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;=&nbsp;E.b<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;CLASS(v):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;helper&nbsp;function,&nbsp;'class'&nbsp;is&nbsp;a&nbsp;reserved&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{'class':&nbsp;v}<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;page&nbsp;=&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.html(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.head(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.title("This&nbsp;is&nbsp;a&nbsp;sample&nbsp;document")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.body(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.h1("Hello!",&nbsp;CLASS("title")),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.p("This&nbsp;is&nbsp;a&nbsp;paragraph&nbsp;with&nbsp;",&nbsp;B("bold"),&nbsp;"&nbsp;text&nbsp;in&nbsp;it!"),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.p("This&nbsp;is&nbsp;another&nbsp;paragraph,&nbsp;with&nbsp;a&nbsp;",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A("link",&nbsp;href="<a href="http://www.python.org">http://www.python.org</a>"),&nbsp;"."),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E.p("Here&nbsp;are&nbsp;some&nbsp;reservered&nbsp;characters:&nbsp;&lt;spam&amp;egg&gt;."),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ET.XML("&lt;p&gt;And&nbsp;finally,&nbsp;here&nbsp;is&nbsp;an&nbsp;embedded&nbsp;XHTML&nbsp;fragment.&lt;/p&gt;"),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;ET.tostring(page)<br>
+&nbsp;<br>
+Here's&nbsp;a&nbsp;prettyprinted&nbsp;version&nbsp;of&nbsp;the&nbsp;output&nbsp;from&nbsp;the&nbsp;above&nbsp;script::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;This&nbsp;is&nbsp;a&nbsp;sample&nbsp;document&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&nbsp;class="title"&gt;Hello!&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This&nbsp;is&nbsp;a&nbsp;paragraph&nbsp;with&nbsp;&lt;b&gt;bold&lt;/b&gt;&nbsp;text&nbsp;in&nbsp;it!&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This&nbsp;is&nbsp;another&nbsp;paragraph,&nbsp;with&nbsp;&lt;a&nbsp;href="<a href="http://www.python.org&quot;&gt;link&lt;/a&gt;.&lt;/p">http://www.python.org&quot;&gt;link&lt;/a&gt;.&lt;/p</a>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Here&nbsp;are&nbsp;some&nbsp;reservered&nbsp;characters:&nbsp;&amp;lt;spam&amp;amp;egg&amp;gt;.&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;And&nbsp;finally,&nbsp;here&nbsp;is&nbsp;an&nbsp;embedded&nbsp;XHTML&nbsp;fragment.&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/html&gt;<br>
+&nbsp;<br>
+For&nbsp;namespace&nbsp;support,&nbsp;you&nbsp;can&nbsp;pass&nbsp;a&nbsp;namespace&nbsp;map&nbsp;(``nsmap``)<br>
+and/or&nbsp;a&nbsp;specific&nbsp;target&nbsp;``namespace``&nbsp;to&nbsp;the&nbsp;<a href="#ElementMaker">ElementMaker</a>&nbsp;class::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;E&nbsp;=&nbsp;<a href="#ElementMaker">ElementMaker</a>(namespace="<a href="http://my.ns/">http://my.ns/</a>")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;print(ET.tostring(&nbsp;E.test&nbsp;))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;test&nbsp;xmlns="<a href="http://my.ns/&quot;/">http://my.ns/&quot;/</a>&gt;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;E&nbsp;=&nbsp;<a href="#ElementMaker">ElementMaker</a>(namespace="<a href="http://my.ns/">http://my.ns/</a>",&nbsp;nsmap={'p':'<a href="http://my.ns/">http://my.ns/</a>'})<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;print(ET.tostring(&nbsp;E.test&nbsp;))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p:test&nbsp;xmlns:p="<a href="http://my.ns/&quot;/">http://my.ns/&quot;/</a>&gt;<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ElementMaker-__call__"><strong>__call__</strong></a>(self, tag, *children, **attrib)</dt></dl>
+
+<dl><dt><a name="ElementMaker-__getattr__"><strong>__getattr__</strong></a>(self, tag)</dt></dl>
+
+<dl><dt><a name="ElementMaker-__init__"><strong>__init__</strong></a>(self, typemap<font color="#909090">=None</font>, namespace<font color="#909090">=None</font>, nsmap<font color="#909090">=None</font>, makeelement<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>E</strong> = &lt;lxml.builder.ElementMaker object&gt;</td></tr></table>
+</body></html>

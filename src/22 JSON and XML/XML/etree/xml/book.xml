@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<book xmlns="http://www.demo.com/book">
+  <title>XMLBeans</title>
+  <author first="Sue" last="Sart"/>
+  <publisher>Wiley</publisher>
+  <pubdate>2007-06+01:00</pubdate>
+  <cost>23.79</cost>
+</book>

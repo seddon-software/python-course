@@ -1,0 +1,4 @@
+DEBUG    2013-03-31 17:22:08,191 FILTER IP: 192.2.2.53      User: Sheila   A debug message
+INFO     2013-03-31 17:22:08,193 FILTER IP: 192.1.1.13      User: Tom      An info message
+DEBUG    2016-09-02 10:50:02,458 FILTER IP: 192.2.2.53      User: Sheila   A debug message
+INFO     2016-09-02 10:50:02,458 FILTER IP: 192.1.1.13      User: Tom      An info message

@@ -1,0 +1,20 @@
+Working with StockPrices.xlsx:
+
+1.  Get the data from excel and put in an array/list. 
+2.  Put the data in a data frame.
+3.  Create a function for stock returns.
+4.  Calculate logarithmic returns for both stocks in a loop, where: 
+        returns=ln⁡((today's price )/(yesterday' s price))
+5.  Calculate logarithmic returns using the data frame.
+6.  Feed returns back in the excel sheet.
+7.  Count the number of data points for each stock.
+8.  Calculate the yearly returns.
+9.  Plot a chart where date is the x-axis and returns are the y-axis.
+10. Change colour scheme of chart. 
+11. Calculate the variance of the returns using the data frame. 
+12. Calculate the standard deviation, (square root of variance).
+13. Calculate the yearly covariance of the stocks using Pandas.
+14. Create a function to calculate the 99% Historical Value at risk for 10,000 NIKE stocks 
+ a)  Multiply %returns by 10,000 
+ b)  Sort returns from best to worst 
+ c)  Find the 1% percentile on the sorted returns.

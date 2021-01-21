@@ -1,0 +1,9 @@
+25
+300
+Invalid line
+17
+55
+Another invalid line
+127
+99
+125

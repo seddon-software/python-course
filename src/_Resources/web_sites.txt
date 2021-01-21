@@ -1,0 +1,4 @@
+Python Site:                    http://www.python.org/
+PyPi:                           http://pypi.python.org/pypi
+Python Module of the Week:      http://pymotw.com/2/
+Closure Gotchas:                http://me.veekun.com/blog/2011/04/24/gotcha-python-scoping-closures/

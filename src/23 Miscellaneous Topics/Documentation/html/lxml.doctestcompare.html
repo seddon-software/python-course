@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module lxml.doctestcompare</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="lxml.html"><font color="#ffffff">lxml</font></a>.doctestcompare</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/lxml/doctestcompare.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/lxml/doctestcompare.py</a></font></td></tr></table>
+    <p><tt>lxml-based&nbsp;doctest&nbsp;output&nbsp;comparison.<br>
+&nbsp;<br>
+Note:&nbsp;normally,&nbsp;you&nbsp;should&nbsp;just&nbsp;import&nbsp;the&nbsp;`lxml.usedoctest`&nbsp;and<br>
+`lxml.html.usedoctest`&nbsp;modules&nbsp;from&nbsp;within&nbsp;a&nbsp;doctest,&nbsp;instead&nbsp;of&nbsp;this<br>
+one::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;import&nbsp;lxml.usedoctest&nbsp;#&nbsp;for&nbsp;XML&nbsp;output<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;import&nbsp;lxml.html.usedoctest&nbsp;#&nbsp;for&nbsp;HTML&nbsp;output<br>
+&nbsp;<br>
+To&nbsp;use&nbsp;this&nbsp;module&nbsp;directly,&nbsp;you&nbsp;must&nbsp;call&nbsp;``lxmldoctest.<a href="#-install">install</a>()``,<br>
+which&nbsp;will&nbsp;cause&nbsp;doctest&nbsp;to&nbsp;use&nbsp;this&nbsp;in&nbsp;all&nbsp;subsequent&nbsp;calls.<br>
+&nbsp;<br>
+This&nbsp;changes&nbsp;the&nbsp;way&nbsp;output&nbsp;is&nbsp;checked&nbsp;and&nbsp;comparisons&nbsp;are&nbsp;made&nbsp;for<br>
+XML&nbsp;or&nbsp;HTML-like&nbsp;content.<br>
+&nbsp;<br>
+XML&nbsp;or&nbsp;HTML&nbsp;content&nbsp;is&nbsp;noticed&nbsp;because&nbsp;the&nbsp;example&nbsp;starts&nbsp;with&nbsp;``&lt;``<br>
+(it's&nbsp;HTML&nbsp;if&nbsp;it&nbsp;starts&nbsp;with&nbsp;``&lt;html``).&nbsp;&nbsp;You&nbsp;can&nbsp;also&nbsp;use&nbsp;the<br>
+``PARSE_HTML``&nbsp;and&nbsp;``PARSE_XML``&nbsp;flags&nbsp;to&nbsp;force&nbsp;parsing.<br>
+&nbsp;<br>
+Some&nbsp;rough&nbsp;wildcard-like&nbsp;things&nbsp;are&nbsp;allowed.&nbsp;&nbsp;Whitespace&nbsp;is&nbsp;generally<br>
+ignored&nbsp;(except&nbsp;in&nbsp;attributes).&nbsp;&nbsp;In&nbsp;text&nbsp;(attributes&nbsp;and&nbsp;text&nbsp;in&nbsp;the<br>
+body)&nbsp;you&nbsp;can&nbsp;use&nbsp;``...``&nbsp;as&nbsp;a&nbsp;wildcard.&nbsp;&nbsp;In&nbsp;an&nbsp;example&nbsp;it&nbsp;also<br>
+matches&nbsp;any&nbsp;trailing&nbsp;tags&nbsp;in&nbsp;the&nbsp;element,&nbsp;though&nbsp;it&nbsp;does&nbsp;not&nbsp;match<br>
+leading&nbsp;tags.&nbsp;&nbsp;You&nbsp;may&nbsp;create&nbsp;a&nbsp;tag&nbsp;``&lt;any&gt;``&nbsp;or&nbsp;include&nbsp;an&nbsp;``any``<br>
+attribute&nbsp;in&nbsp;the&nbsp;tag.&nbsp;&nbsp;An&nbsp;``any``&nbsp;tag&nbsp;matches&nbsp;any&nbsp;tag,&nbsp;while&nbsp;the<br>
+attribute&nbsp;matches&nbsp;any&nbsp;and&nbsp;all&nbsp;attributes.<br>
+&nbsp;<br>
+When&nbsp;a&nbsp;match&nbsp;fails,&nbsp;the&nbsp;reformatted&nbsp;example&nbsp;and&nbsp;gotten&nbsp;text&nbsp;is<br>
+displayed&nbsp;(indented),&nbsp;and&nbsp;a&nbsp;rough&nbsp;diff-like&nbsp;output&nbsp;is&nbsp;given.&nbsp;&nbsp;Anything<br>
+marked&nbsp;with&nbsp;``-``&nbsp;is&nbsp;in&nbsp;the&nbsp;output&nbsp;but&nbsp;wasn't&nbsp;supposed&nbsp;to&nbsp;be,&nbsp;and<br>
+similarly&nbsp;``+``&nbsp;means&nbsp;its&nbsp;in&nbsp;the&nbsp;example&nbsp;but&nbsp;wasn't&nbsp;in&nbsp;the&nbsp;output.<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;disable&nbsp;parsing&nbsp;on&nbsp;one&nbsp;line&nbsp;with&nbsp;``#&nbsp;doctest:+NOPARSE_MARKUP``</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="cgi.html">cgi</a><br>
+<a href="doctest.html">doctest</a><br>
+</td><td width="25%" valign=top><a href="lxml.etree.html">lxml.etree</a><br>
+<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="doctest.html#OutputChecker">doctest.OutputChecker</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="lxml.doctestcompare.html#LXMLOutputChecker">LXMLOutputChecker</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="lxml.doctestcompare.html#LHTMLOutputChecker">LHTMLOutputChecker</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LHTMLOutputChecker">class <strong>LHTMLOutputChecker</strong></a>(<a href="lxml.doctestcompare.html#LXMLOutputChecker">LXMLOutputChecker</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="lxml.doctestcompare.html#LHTMLOutputChecker">LHTMLOutputChecker</a></dd>
+<dd><a href="lxml.doctestcompare.html#LXMLOutputChecker">LXMLOutputChecker</a></dd>
+<dd><a href="doctest.html#OutputChecker">doctest.OutputChecker</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LHTMLOutputChecker-get_default_parser"><strong>get_default_parser</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="lxml.doctestcompare.html#LXMLOutputChecker">LXMLOutputChecker</a>:<br>
+<dl><dt><a name="LHTMLOutputChecker-check_output"><strong>check_output</strong></a>(self, want, got, optionflags)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-collect_diff"><strong>collect_diff</strong></a>(self, want, got, html, indent)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-collect_diff_end_tag"><strong>collect_diff_end_tag</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-collect_diff_tag"><strong>collect_diff_tag</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-collect_diff_text"><strong>collect_diff_text</strong></a>(self, want, got, strip<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-compare_docs"><strong>compare_docs</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-format_doc"><strong>format_doc</strong></a>(self, doc, html, indent, prefix<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-format_end_tag"><strong>format_end_tag</strong></a>(self, el)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-format_tag"><strong>format_tag</strong></a>(self, el)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-format_text"><strong>format_text</strong></a>(self, text, strip<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-get_parser"><strong>get_parser</strong></a>(self, want, got, optionflags)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-html_empty_tag"><strong>html_empty_tag</strong></a>(self, el, html<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-output_difference"><strong>output_difference</strong></a>(self, example, got, optionflags)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-tag_compare"><strong>tag_compare</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LHTMLOutputChecker-text_compare"><strong>text_compare</strong></a>(self, want, got, strip)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="lxml.doctestcompare.html#LXMLOutputChecker">LXMLOutputChecker</a>:<br>
+<dl><dt><strong>empty_tags</strong> = ('param', 'img', 'area', 'br', 'basefont', 'input', 'base', 'meta', 'link', 'col')</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LXMLOutputChecker">class <strong>LXMLOutputChecker</strong></a>(<a href="doctest.html#OutputChecker">doctest.OutputChecker</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LXMLOutputChecker-check_output"><strong>check_output</strong></a>(self, want, got, optionflags)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-collect_diff"><strong>collect_diff</strong></a>(self, want, got, html, indent)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-collect_diff_end_tag"><strong>collect_diff_end_tag</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-collect_diff_tag"><strong>collect_diff_tag</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-collect_diff_text"><strong>collect_diff_text</strong></a>(self, want, got, strip<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-compare_docs"><strong>compare_docs</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-format_doc"><strong>format_doc</strong></a>(self, doc, html, indent, prefix<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-format_end_tag"><strong>format_end_tag</strong></a>(self, el)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-format_tag"><strong>format_tag</strong></a>(self, el)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-format_text"><strong>format_text</strong></a>(self, text, strip<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-get_default_parser"><strong>get_default_parser</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-get_parser"><strong>get_parser</strong></a>(self, want, got, optionflags)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-html_empty_tag"><strong>html_empty_tag</strong></a>(self, el, html<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-output_difference"><strong>output_difference</strong></a>(self, example, got, optionflags)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-tag_compare"><strong>tag_compare</strong></a>(self, want, got)</dt></dl>
+
+<dl><dt><a name="LXMLOutputChecker-text_compare"><strong>text_compare</strong></a>(self, want, got, strip)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>empty_tags</strong> = ('param', 'img', 'area', 'br', 'basefont', 'input', 'base', 'meta', 'link', 'col')</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-install"><strong>install</strong></a>(html<font color="#909090">=False</font>)</dt><dd><tt>Install&nbsp;doctestcompare&nbsp;for&nbsp;all&nbsp;future&nbsp;doctests.<br>
+&nbsp;<br>
+If&nbsp;html&nbsp;is&nbsp;true,&nbsp;then&nbsp;by&nbsp;default&nbsp;the&nbsp;HTML&nbsp;parser&nbsp;will&nbsp;be&nbsp;used;<br>
+otherwise&nbsp;the&nbsp;XML&nbsp;parser&nbsp;is&nbsp;used.</tt></dd></dl>
+ <dl><dt><a name="-temp_install"><strong>temp_install</strong></a>(html<font color="#909090">=False</font>, del_module<font color="#909090">=None</font>)</dt><dd><tt>Use&nbsp;this&nbsp;*inside*&nbsp;a&nbsp;doctest&nbsp;to&nbsp;enable&nbsp;this&nbsp;checker&nbsp;for&nbsp;this<br>
+doctest&nbsp;only.<br>
+&nbsp;<br>
+If&nbsp;html&nbsp;is&nbsp;true,&nbsp;then&nbsp;by&nbsp;default&nbsp;the&nbsp;HTML&nbsp;parser&nbsp;will&nbsp;be&nbsp;used;<br>
+otherwise&nbsp;the&nbsp;XML&nbsp;parser&nbsp;is&nbsp;used.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>NOPARSE_MARKUP</strong> = 4096<br>
+<strong>PARSE_HTML</strong> = 1024<br>
+<strong>PARSE_XML</strong> = 2048<br>
+<strong>__all__</strong> = ['PARSE_HTML', 'PARSE_XML', 'NOPARSE_MARKUP', 'LXMLOutputChecker', 'LHTMLOutputChecker', 'install', 'temp_install']<br>
+<strong>__test__</strong> = {'basic': '<font color="#c040c0">\n</font>    &gt;&gt;&gt; temp_install()<font color="#c040c0">\n</font>    &gt;&gt;&gt; print """&lt;xml a=...E_MARKUP, +ELLIPSIS<font color="#c040c0">\n</font>    &lt;xml&gt;...foo /&gt;&lt;/xml&gt;<font color="#c040c0">\n</font>    '}</td></tr></table>
+</body></html>

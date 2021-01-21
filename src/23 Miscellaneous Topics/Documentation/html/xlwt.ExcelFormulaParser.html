@@ -1,0 +1,409 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.ExcelFormulaParser</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.ExcelFormulaParser</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/ExcelFormulaParser.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/ExcelFormulaParser.py</a></font></td></tr></table>
+    <p><tt>###&nbsp;$ANTLR&nbsp;2.7.7&nbsp;(20060930):&nbsp;"xlwt/excel-formula.g"&nbsp;-&gt;&nbsp;"ExcelFormulaParser.py"$<br>
+###&nbsp;import&nbsp;antlr&nbsp;and&nbsp;other&nbsp;modules&nbsp;..</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xlwt.Utils.html">xlwt.Utils</a><br>
+</td><td width="25%" valign=top><a href="xlwt.antlr.html">xlwt.antlr</a><br>
+</td><td width="25%" valign=top><a href="struct.html">struct</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="xlwt.ExcelFormulaParser.html#FormulaParseException">FormulaParseException</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="xlwt.antlr.html#LLkParser">xlwt.antlr.LLkParser</a>(<a href="xlwt.antlr.html#Parser">xlwt.antlr.Parser</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="xlwt.ExcelFormulaParser.html#Parser">Parser</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FormulaParseException">class <strong>FormulaParseException</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;exception&nbsp;indicating&nbsp;that&nbsp;a&nbsp;Formula&nbsp;could&nbsp;not&nbsp;be&nbsp;successfully&nbsp;parsed.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="xlwt.ExcelFormulaParser.html#FormulaParseException">FormulaParseException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="FormulaParseException-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;help(type(x))&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#FormulaParseException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="FormulaParseException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FormulaParseException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FormulaParseException-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#FormulaParseException-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<dl><dt><a name="FormulaParseException-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Parser">class <strong>Parser</strong></a>(<a href="xlwt.antlr.html#LLkParser">xlwt.antlr.LLkParser</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="xlwt.ExcelFormulaParser.html#Parser">Parser</a></dd>
+<dd><a href="xlwt.antlr.html#LLkParser">xlwt.antlr.LLkParser</a></dd>
+<dd><a href="xlwt.antlr.html#Parser">xlwt.antlr.Parser</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Parser-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Parser-expr"><strong>expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-expr_list"><strong>expr_list</strong></a>(self, arg_type_list, min_argc, max_argc)</dt></dl>
+
+<dl><dt><a name="Parser-formula"><strong>formula</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-prec0_expr"><strong>prec0_expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-prec1_expr"><strong>prec1_expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-prec2_expr"><strong>prec2_expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-prec3_expr"><strong>prec3_expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-prec4_expr"><strong>prec4_expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-prec5_expr"><strong>prec5_expr</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-primary"><strong>primary</strong></a>(self, arg_type)</dt></dl>
+
+<dl><dt><a name="Parser-sheet"><strong>sheet</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="xlwt.antlr.html#LLkParser">xlwt.antlr.LLkParser</a>:<br>
+<dl><dt><a name="Parser-LA"><strong>LA</strong></a>(self, i)</dt></dl>
+
+<dl><dt><a name="Parser-LT"><strong>LT</strong></a>(self, i)</dt></dl>
+
+<dl><dt><a name="Parser-consume"><strong>consume</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-set_k"><strong>set_k</strong></a>(self, index, *args)</dt></dl>
+
+<dl><dt><a name="Parser-trace"><strong>trace</strong></a>(self, ee, rname)</dt></dl>
+
+<dl><dt><a name="Parser-traceIn"><strong>traceIn</strong></a>(self, rname)</dt></dl>
+
+<dl><dt><a name="Parser-traceOut"><strong>traceOut</strong></a>(self, rname)</dt></dl>
+
+<hr>
+Methods inherited from <a href="xlwt.antlr.html#Parser">xlwt.antlr.Parser</a>:<br>
+<dl><dt><a name="Parser-addASTChild"><strong>addASTChild</strong></a>(self, currentAST, child)</dt><dd><tt>###&nbsp;wh:&nbsp;moved&nbsp;from&nbsp;ASTFactory&nbsp;to&nbsp;<a href="#Parser">Parser</a></tt></dd></dl>
+
+<dl><dt><a name="Parser-addMessageListener"><strong>addMessageListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-addParserListener"><strong>addParserListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-addParserMatchListener"><strong>addParserMatchListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-addParserTokenListener"><strong>addParserTokenListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-addSemanticPredicateListener"><strong>addSemanticPredicateListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-addSyntacticPredicateListener"><strong>addSyntacticPredicateListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-addTraceListener"><strong>addTraceListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-consumeUntil"><strong>consumeUntil</strong></a>(self, arg)</dt></dl>
+
+<dl><dt><a name="Parser-defaultDebuggingSetup"><strong>defaultDebuggingSetup</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-getAST"><strong>getAST</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-getASTFactory"><strong>getASTFactory</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-getFilename"><strong>getFilename</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-getInputState"><strong>getInputState</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-getTokenName"><strong>getTokenName</strong></a>(self, num)</dt></dl>
+
+<dl><dt><a name="Parser-getTokenNames"><strong>getTokenNames</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-getTokenTypeToASTClassMap"><strong>getTokenTypeToASTClassMap</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-isDebugMode"><strong>isDebugMode</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-makeASTRoot"><strong>makeASTRoot</strong></a>(self, currentAST, root)</dt><dd><tt>###&nbsp;wh:&nbsp;moved&nbsp;from&nbsp;ASTFactory&nbsp;to&nbsp;<a href="#Parser">Parser</a></tt></dd></dl>
+
+<dl><dt><a name="Parser-mark"><strong>mark</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Parser-match"><strong>match</strong></a>(self, set)</dt></dl>
+
+<dl><dt><a name="Parser-matchNot"><strong>matchNot</strong></a>(self, t)</dt></dl>
+
+<dl><dt><a name="Parser-removeMessageListener"><strong>removeMessageListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-removeParserListener"><strong>removeParserListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-removeParserMatchListener"><strong>removeParserMatchListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-removeParserTokenListener"><strong>removeParserTokenListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-removeSemanticPredicateListener"><strong>removeSemanticPredicateListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-removeSyntacticPredicateListener"><strong>removeSyntacticPredicateListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-removeTraceListener"><strong>removeTraceListener</strong></a>(self, l)</dt></dl>
+
+<dl><dt><a name="Parser-reportError"><strong>reportError</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="Parser-reportWarning"><strong>reportWarning</strong></a>(self, s)</dt></dl>
+
+<dl><dt><a name="Parser-rewind"><strong>rewind</strong></a>(self, pos)</dt></dl>
+
+<dl><dt><a name="Parser-setASTFactory"><strong>setASTFactory</strong></a>(self, f)</dt></dl>
+
+<dl><dt><a name="Parser-setASTNodeClass"><strong>setASTNodeClass</strong></a>(self, cl)</dt></dl>
+
+<dl><dt><a name="Parser-setASTNodeType"><strong>setASTNodeType</strong></a>(self, nodeType)</dt></dl>
+
+<dl><dt><a name="Parser-setDebugMode"><strong>setDebugMode</strong></a>(self, debugMode)</dt></dl>
+
+<dl><dt><a name="Parser-setFilename"><strong>setFilename</strong></a>(self, f)</dt></dl>
+
+<dl><dt><a name="Parser-setIgnoreInvalidDebugCalls"><strong>setIgnoreInvalidDebugCalls</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Parser-setInputState"><strong>setInputState</strong></a>(self, state)</dt></dl>
+
+<dl><dt><a name="Parser-setTokenBuffer"><strong>setTokenBuffer</strong></a>(self, t)</dt></dl>
+
+<dl><dt><a name="Parser-traceIndent"><strong>traceIndent</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="xlwt.antlr.html#Parser">xlwt.antlr.Parser</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-mk_tokenSet_0"><strong>mk_tokenSet_0</strong></a>()</dt><dd><tt>###&nbsp;generate&nbsp;bit&nbsp;set</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ADD</strong> = 19<br>
+<strong>BANG</strong> = 34<br>
+<strong>COLON</strong> = 29<br>
+<strong>COMMA</strong> = 30<br>
+<strong>CONCAT</strong> = 35<br>
+<strong>DIV</strong> = 22<br>
+<strong>EOF</strong> = 1<br>
+<strong>EOF_TYPE</strong> = 1<br>
+<strong>EQ</strong> = 13<br>
+<strong>FALSE_CONST</strong> = 5<br>
+<strong>FUNC_CHOOSE</strong> = 10<br>
+<strong>FUNC_IF</strong> = 9<br>
+<strong>GE</strong> = 17<br>
+<strong>GT</strong> = 15<br>
+<strong>INT_CONST</strong> = 8<br>
+<strong>INVALID_TYPE</strong> = 0<br>
+<strong>LB</strong> = 27<br>
+<strong>LE</strong> = 18<br>
+<strong>LP</strong> = 25<br>
+<strong>LT</strong> = 16<br>
+<strong>MAX_COL</strong> = 256<br>
+<strong>MAX_ROW</strong> = 65536<br>
+<strong>MIN_USER_TYPE</strong> = 4<br>
+<strong>MUL</strong> = 21<br>
+<strong>NAME</strong> = 11<br>
+<strong>NE</strong> = 14<br>
+<strong>NULL_TREE_LOOKAHEAD</strong> = 3<br>
+<strong>NUM_CONST</strong> = 7<br>
+<strong>PERCENT</strong> = 24<br>
+<strong>POWER</strong> = 23<br>
+<strong>PtgNames</strong> = {1: 'ptgExp', 2: 'ptgTbl', 3: 'ptgAdd', 4: 'ptgSub', 5: 'ptgMul', 6: 'ptgDiv', 7: 'ptgPower', 8: 'ptgConcat', 9: 'ptgLT', 10: 'ptgLE', ...}<br>
+<strong>QUOTENAME</strong> = 12<br>
+<strong>RB</strong> = 28<br>
+<strong>REF2D</strong> = 32<br>
+<strong>REF2D_R1C1</strong> = 33<br>
+<strong>RP</strong> = 26<br>
+<strong>SEMICOLON</strong> = 31<br>
+<strong>SKIP</strong> = -1<br>
+<strong>STR_CONST</strong> = 6<br>
+<strong>SUB</strong> = 20<br>
+<strong>TRUE_CONST</strong> = 4<br>
+<strong>all_funcs_by_name</strong> = {'ABS': (24, 1, 1, 'V', 'V'), 'ACCRINT': (-1, 6, 7, 'V', 'VVVVVVV'), 'ACCRINTM': (-1, 3, 5, 'V', 'VVVVV'), 'ACOS': (99, 1, 1, 'V', 'V'), 'ACOSH': (233, 1, 1, 'V', 'V'), 'ADDRESS': (219, 2, 5, 'V', 'VVVVV'), 'AMORDEGRC': (-1, 7, 7, 'V', 'VVVVVVV'), 'AMORLINC': (-1, 7, 7, 'V', 'VVVVVVV'), 'AND': (36, 1, 30, 'V', 'D+'), 'AREAS': (75, 1, 1, 'V', 'R'), ...}<br>
+<strong>biff_records</strong> = {0: 'DIMENSIONS', 1: 'BLANK', 2: 'INTEGER', 3: 'NUMBER', 4: 'LABEL', 5: 'BOOLERR', 6: 'FORMULA', 7: 'STRING', 8: 'ROW', 9: 'BOF', ...}<br>
+<strong>error_msg_by_code</strong> = {0: u'#NULL!', 7: u'#DIV/0!', 15: u'#VALUE!', 23: u'#REF!', 29: u'#NAME?', 36: u'#NUM!', 42: u'#N/A'}<br>
+<strong>ptgAdd</strong> = 3<br>
+<strong>ptgArea3dA</strong> = 123<br>
+<strong>ptgArea3dR</strong> = 59<br>
+<strong>ptgArea3dV</strong> = 91<br>
+<strong>ptgAreaA</strong> = 101<br>
+<strong>ptgAreaErr3dA</strong> = 125<br>
+<strong>ptgAreaErr3dR</strong> = 61<br>
+<strong>ptgAreaErr3dV</strong> = 93<br>
+<strong>ptgAreaErrA</strong> = 107<br>
+<strong>ptgAreaErrR</strong> = 43<br>
+<strong>ptgAreaErrV</strong> = 75<br>
+<strong>ptgAreaNA</strong> = 109<br>
+<strong>ptgAreaNR</strong> = 45<br>
+<strong>ptgAreaNV</strong> = 77<br>
+<strong>ptgAreaR</strong> = 37<br>
+<strong>ptgAreaV</strong> = 69<br>
+<strong>ptgArrayA</strong> = 96<br>
+<strong>ptgArrayR</strong> = 32<br>
+<strong>ptgArrayV</strong> = 64<br>
+<strong>ptgAttr</strong> = 25<br>
+<strong>ptgBool</strong> = 29<br>
+<strong>ptgConcat</strong> = 8<br>
+<strong>ptgDiv</strong> = 6<br>
+<strong>ptgEQ</strong> = 11<br>
+<strong>ptgEndSheet</strong> = 27<br>
+<strong>ptgErr</strong> = 28<br>
+<strong>ptgExp</strong> = 1<br>
+<strong>ptgExtend</strong> = 24<br>
+<strong>ptgFuncA</strong> = 97<br>
+<strong>ptgFuncCEA</strong> = 120<br>
+<strong>ptgFuncCEV</strong> = 88<br>
+<strong>ptgFuncR</strong> = 33<br>
+<strong>ptgFuncV</strong> = 65<br>
+<strong>ptgFuncVarA</strong> = 98<br>
+<strong>ptgFuncVarR</strong> = 34<br>
+<strong>ptgFuncVarV</strong> = 66<br>
+<strong>ptgGE</strong> = 12<br>
+<strong>ptgGT</strong> = 13<br>
+<strong>ptgInt</strong> = 30<br>
+<strong>ptgIsect</strong> = 15<br>
+<strong>ptgLE</strong> = 10<br>
+<strong>ptgLT</strong> = 9<br>
+<strong>ptgMemAreaA</strong> = 102<br>
+<strong>ptgMemAreaNA</strong> = 110<br>
+<strong>ptgMemAreaNR</strong> = 46<br>
+<strong>ptgMemAreaNV</strong> = 78<br>
+<strong>ptgMemAreaR</strong> = 38<br>
+<strong>ptgMemAreaV</strong> = 70<br>
+<strong>ptgMemErrA</strong> = 103<br>
+<strong>ptgMemErrR</strong> = 39<br>
+<strong>ptgMemErrV</strong> = 71<br>
+<strong>ptgMemFuncA</strong> = 105<br>
+<strong>ptgMemFuncR</strong> = 41<br>
+<strong>ptgMemFuncV</strong> = 73<br>
+<strong>ptgMemNoMemA</strong> = 104<br>
+<strong>ptgMemNoMemNA</strong> = 111<br>
+<strong>ptgMemNoMemNR</strong> = 47<br>
+<strong>ptgMemNoMemNV</strong> = 79<br>
+<strong>ptgMemNoMemR</strong> = 40<br>
+<strong>ptgMemNoMemV</strong> = 72<br>
+<strong>ptgMissArg</strong> = 22<br>
+<strong>ptgMul</strong> = 5<br>
+<strong>ptgNE</strong> = 14<br>
+<strong>ptgNameA</strong> = 99<br>
+<strong>ptgNameR</strong> = 35<br>
+<strong>ptgNameV</strong> = 67<br>
+<strong>ptgNameXA</strong> = 121<br>
+<strong>ptgNameXR</strong> = 57<br>
+<strong>ptgNameXV</strong> = 89<br>
+<strong>ptgNum</strong> = 31<br>
+<strong>ptgParen</strong> = 21<br>
+<strong>ptgPercent</strong> = 20<br>
+<strong>ptgPower</strong> = 7<br>
+<strong>ptgRange</strong> = 17<br>
+<strong>ptgRef3dA</strong> = 122<br>
+<strong>ptgRef3dR</strong> = 58<br>
+<strong>ptgRef3dV</strong> = 90<br>
+<strong>ptgRefA</strong> = 100<br>
+<strong>ptgRefErr3dA</strong> = 124<br>
+<strong>ptgRefErr3dR</strong> = 60<br>
+<strong>ptgRefErr3dV</strong> = 92<br>
+<strong>ptgRefErrA</strong> = 106<br>
+<strong>ptgRefErrR</strong> = 42<br>
+<strong>ptgRefErrV</strong> = 74<br>
+<strong>ptgRefNA</strong> = 108<br>
+<strong>ptgRefNR</strong> = 44<br>
+<strong>ptgRefNV</strong> = 76<br>
+<strong>ptgRefR</strong> = 36<br>
+<strong>ptgRefV</strong> = 68<br>
+<strong>ptgSheet</strong> = 26<br>
+<strong>ptgStr</strong> = 23<br>
+<strong>ptgSub</strong> = 4<br>
+<strong>ptgTbl</strong> = 2<br>
+<strong>ptgUminus</strong> = 19<br>
+<strong>ptgUnion</strong> = 16<br>
+<strong>ptgUplus</strong> = 18<br>
+<strong>version</strong> = '2.7.6'</td></tr></table>
+</body></html>

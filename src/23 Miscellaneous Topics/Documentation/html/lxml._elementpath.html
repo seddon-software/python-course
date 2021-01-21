@@ -1,0 +1,94 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module lxml._elementpath</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="lxml.html"><font color="#ffffff">lxml</font></a>._elementpath</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/lxml/_elementpath.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/lxml/_elementpath.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;ElementTree<br>
+#&nbsp;$Id:&nbsp;ElementPath.py&nbsp;3375&nbsp;2008-02-13&nbsp;08:05:08Z&nbsp;fredrik&nbsp;$<br>
+#<br>
+#&nbsp;limited&nbsp;xpath&nbsp;support&nbsp;for&nbsp;element&nbsp;trees<br>
+#<br>
+#&nbsp;history:<br>
+#&nbsp;2003-05-23&nbsp;fl&nbsp;&nbsp;&nbsp;created<br>
+#&nbsp;2003-05-28&nbsp;fl&nbsp;&nbsp;&nbsp;added&nbsp;support&nbsp;for&nbsp;//&nbsp;etc<br>
+#&nbsp;2003-08-27&nbsp;fl&nbsp;&nbsp;&nbsp;fixed&nbsp;parsing&nbsp;of&nbsp;periods&nbsp;in&nbsp;element&nbsp;names<br>
+#&nbsp;2007-09-10&nbsp;fl&nbsp;&nbsp;&nbsp;new&nbsp;selection&nbsp;engine<br>
+#&nbsp;2007-09-12&nbsp;fl&nbsp;&nbsp;&nbsp;fixed&nbsp;parent&nbsp;selector<br>
+#&nbsp;2007-09-13&nbsp;fl&nbsp;&nbsp;&nbsp;added&nbsp;iterfind;&nbsp;changed&nbsp;findall&nbsp;to&nbsp;return&nbsp;a&nbsp;list<br>
+#&nbsp;2007-11-30&nbsp;fl&nbsp;&nbsp;&nbsp;added&nbsp;namespaces&nbsp;support<br>
+#&nbsp;2009-10-30&nbsp;fl&nbsp;&nbsp;&nbsp;added&nbsp;child&nbsp;element&nbsp;value&nbsp;filter<br>
+#<br>
+#&nbsp;Copyright&nbsp;(c)&nbsp;2003-2009&nbsp;by&nbsp;Fredrik&nbsp;Lundh.&nbsp;&nbsp;All&nbsp;rights&nbsp;reserved.<br>
+#<br>
+#&nbsp;fredrik@pythonware.com<br>
+#&nbsp;<a href="http://www.pythonware.com">http://www.pythonware.com</a><br>
+#<br>
+#&nbsp;--------------------------------------------------------------------<br>
+#&nbsp;The&nbsp;ElementTree&nbsp;toolkit&nbsp;is<br>
+#<br>
+#&nbsp;Copyright&nbsp;(c)&nbsp;1999-2009&nbsp;by&nbsp;Fredrik&nbsp;Lundh<br>
+#<br>
+#&nbsp;By&nbsp;obtaining,&nbsp;using,&nbsp;and/or&nbsp;copying&nbsp;this&nbsp;software&nbsp;and/or&nbsp;its<br>
+#&nbsp;associated&nbsp;documentation,&nbsp;you&nbsp;agree&nbsp;that&nbsp;you&nbsp;have&nbsp;read,&nbsp;understood,<br>
+#&nbsp;and&nbsp;will&nbsp;comply&nbsp;with&nbsp;the&nbsp;following&nbsp;terms&nbsp;and&nbsp;conditions:<br>
+#<br>
+#&nbsp;Permission&nbsp;to&nbsp;use,&nbsp;copy,&nbsp;modify,&nbsp;and&nbsp;distribute&nbsp;this&nbsp;software&nbsp;and<br>
+#&nbsp;its&nbsp;associated&nbsp;documentation&nbsp;for&nbsp;any&nbsp;purpose&nbsp;and&nbsp;without&nbsp;fee&nbsp;is<br>
+#&nbsp;hereby&nbsp;granted,&nbsp;provided&nbsp;that&nbsp;the&nbsp;above&nbsp;copyright&nbsp;notice&nbsp;appears&nbsp;in<br>
+#&nbsp;all&nbsp;copies,&nbsp;and&nbsp;that&nbsp;both&nbsp;that&nbsp;copyright&nbsp;notice&nbsp;and&nbsp;this&nbsp;permission<br>
+#&nbsp;notice&nbsp;appear&nbsp;in&nbsp;supporting&nbsp;documentation,&nbsp;and&nbsp;that&nbsp;the&nbsp;name&nbsp;of<br>
+#&nbsp;Secret&nbsp;Labs&nbsp;AB&nbsp;or&nbsp;the&nbsp;author&nbsp;not&nbsp;be&nbsp;used&nbsp;in&nbsp;advertising&nbsp;or&nbsp;publicity<br>
+#&nbsp;pertaining&nbsp;to&nbsp;distribution&nbsp;of&nbsp;the&nbsp;software&nbsp;without&nbsp;specific,&nbsp;written<br>
+#&nbsp;prior&nbsp;permission.<br>
+#<br>
+#&nbsp;SECRET&nbsp;LABS&nbsp;AB&nbsp;AND&nbsp;THE&nbsp;AUTHOR&nbsp;DISCLAIMS&nbsp;ALL&nbsp;WARRANTIES&nbsp;WITH&nbsp;REGARD<br>
+#&nbsp;TO&nbsp;THIS&nbsp;SOFTWARE,&nbsp;INCLUDING&nbsp;ALL&nbsp;IMPLIED&nbsp;WARRANTIES&nbsp;OF&nbsp;MERCHANT-<br>
+#&nbsp;ABILITY&nbsp;AND&nbsp;FITNESS.&nbsp;&nbsp;IN&nbsp;NO&nbsp;EVENT&nbsp;SHALL&nbsp;SECRET&nbsp;LABS&nbsp;AB&nbsp;OR&nbsp;THE&nbsp;AUTHOR<br>
+#&nbsp;BE&nbsp;LIABLE&nbsp;FOR&nbsp;ANY&nbsp;SPECIAL,&nbsp;INDIRECT&nbsp;OR&nbsp;CONSEQUENTIAL&nbsp;DAMAGES&nbsp;OR&nbsp;ANY<br>
+#&nbsp;DAMAGES&nbsp;WHATSOEVER&nbsp;RESULTING&nbsp;FROM&nbsp;LOSS&nbsp;OF&nbsp;USE,&nbsp;DATA&nbsp;OR&nbsp;PROFITS,<br>
+#&nbsp;WHETHER&nbsp;IN&nbsp;AN&nbsp;ACTION&nbsp;OF&nbsp;CONTRACT,&nbsp;NEGLIGENCE&nbsp;OR&nbsp;OTHER&nbsp;TORTIOUS<br>
+#&nbsp;ACTION,&nbsp;ARISING&nbsp;OUT&nbsp;OF&nbsp;OR&nbsp;IN&nbsp;CONNECTION&nbsp;WITH&nbsp;THE&nbsp;USE&nbsp;OR&nbsp;PERFORMANCE<br>
+#&nbsp;OF&nbsp;THIS&nbsp;SOFTWARE.<br>
+#&nbsp;--------------------------------------------------------------------</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-find"><strong>find</strong></a>(elem, path, namespaces<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-findall"><strong>findall</strong></a>(elem, path, namespaces<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-findtext"><strong>findtext</strong></a>(elem, path, default<font color="#909090">=None</font>, namespaces<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-iterfind"><strong>iterfind</strong></a>(elem, path, namespaces<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-prepare_child"><strong>prepare_child</strong></a>(next, token)</dt></dl>
+ <dl><dt><a name="-prepare_descendant"><strong>prepare_descendant</strong></a>(next, token)</dt></dl>
+ <dl><dt><a name="-prepare_parent"><strong>prepare_parent</strong></a>(next, token)</dt></dl>
+ <dl><dt><a name="-prepare_predicate"><strong>prepare_predicate</strong></a>(next, token)</dt></dl>
+ <dl><dt><a name="-prepare_self"><strong>prepare_self</strong></a>(next, token)</dt></dl>
+ <dl><dt><a name="-prepare_star"><strong>prepare_star</strong></a>(next, token)</dt></dl>
+ <dl><dt><a name="-xpath_tokenizer"><strong>xpath_tokenizer</strong></a>(pattern, namespaces<font color="#909090">=None</font>)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ops</strong> = {'': &lt;function prepare_child&gt;, '*': &lt;function prepare_star&gt;, '.': &lt;function prepare_self&gt;, '..': &lt;function prepare_parent&gt;, '//': &lt;function prepare_descendant&gt;, '[': &lt;function prepare_predicate&gt;}<br>
+<strong>xpath_tokenizer_re</strong> = &lt;_sre.SRE_Pattern object&gt;</td></tr></table>
+</body></html>

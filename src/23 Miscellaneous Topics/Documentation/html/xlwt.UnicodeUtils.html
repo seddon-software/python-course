@@ -1,0 +1,60 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.UnicodeUtils</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.UnicodeUtils</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/UnicodeUtils.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/UnicodeUtils.py</a></font></td></tr></table>
+    <p><tt>From&nbsp;BIFF8&nbsp;on,&nbsp;strings&nbsp;are&nbsp;always&nbsp;stored&nbsp;using&nbsp;UTF-16LE&nbsp;&nbsp;text&nbsp;encoding.&nbsp;The<br>
+character&nbsp;&nbsp;array&nbsp;&nbsp;is&nbsp;&nbsp;a&nbsp;&nbsp;sequence&nbsp;&nbsp;of&nbsp;&nbsp;16-bit&nbsp;&nbsp;values4.&nbsp;&nbsp;Additionally&nbsp;it&nbsp;is<br>
+possible&nbsp;&nbsp;to&nbsp;&nbsp;use&nbsp;&nbsp;a&nbsp;&nbsp;compressed&nbsp;&nbsp;format,&nbsp;which&nbsp;omits&nbsp;the&nbsp;high&nbsp;bytes&nbsp;of&nbsp;all<br>
+characters,&nbsp;if&nbsp;they&nbsp;are&nbsp;all&nbsp;zero.<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;tables&nbsp;describe&nbsp;the&nbsp;standard&nbsp;format&nbsp;of&nbsp;the&nbsp;entire&nbsp;string,&nbsp;but<br>
+in&nbsp;many&nbsp;records&nbsp;the&nbsp;strings&nbsp;differ&nbsp;from&nbsp;this&nbsp;format.&nbsp;This&nbsp;will&nbsp;be&nbsp;mentioned<br>
+separately.&nbsp;It&nbsp;is&nbsp;possible&nbsp;(but&nbsp;not&nbsp;required)&nbsp;to&nbsp;store&nbsp;Rich-Text&nbsp;formatting<br>
+information&nbsp;&nbsp;and&nbsp;&nbsp;Asian&nbsp;&nbsp;phonetic&nbsp;information&nbsp;inside&nbsp;a&nbsp;Unicode&nbsp;string.&nbsp;This<br>
+results&nbsp;&nbsp;in&nbsp;&nbsp;four&nbsp;&nbsp;different&nbsp;&nbsp;ways&nbsp;&nbsp;to&nbsp;&nbsp;store&nbsp;a&nbsp;string.&nbsp;The&nbsp;character&nbsp;array<br>
+is&nbsp;not&nbsp;zero-terminated.<br>
+&nbsp;<br>
+The&nbsp;&nbsp;string&nbsp;&nbsp;consists&nbsp;&nbsp;of&nbsp;&nbsp;the&nbsp;&nbsp;character&nbsp;count&nbsp;(as&nbsp;usual&nbsp;an&nbsp;8-bit&nbsp;value&nbsp;or<br>
+a&nbsp;&nbsp;16-bit&nbsp;value),&nbsp;option&nbsp;flags,&nbsp;the&nbsp;character&nbsp;array&nbsp;and&nbsp;optional&nbsp;formatting<br>
+information.&nbsp;&nbsp;If&nbsp;the&nbsp;string&nbsp;is&nbsp;empty,&nbsp;sometimes&nbsp;the&nbsp;option&nbsp;flags&nbsp;field&nbsp;will<br>
+not&nbsp;occur.&nbsp;This&nbsp;is&nbsp;mentioned&nbsp;at&nbsp;the&nbsp;respective&nbsp;place.<br>
+&nbsp;<br>
+Offset&nbsp;&nbsp;Size&nbsp;&nbsp;&nbsp;&nbsp;Contents<br>
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;or&nbsp;2&nbsp;&nbsp;Length&nbsp;of&nbsp;the&nbsp;string&nbsp;(character&nbsp;count,&nbsp;ln)<br>
+1&nbsp;or&nbsp;2&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Option&nbsp;flags:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bit&nbsp;&nbsp;&nbsp;Mask&nbsp;Contents<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01H&nbsp;&nbsp;Character&nbsp;compression&nbsp;(ccompr):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;=&nbsp;Compressed&nbsp;(8-bit&nbsp;characters)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;=&nbsp;Uncompressed&nbsp;(16-bit&nbsp;characters)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04H&nbsp;&nbsp;Asian&nbsp;phonetic&nbsp;settings&nbsp;(phonetic):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;=&nbsp;Does&nbsp;not&nbsp;contain&nbsp;Asian&nbsp;phonetic&nbsp;settings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;=&nbsp;Contains&nbsp;Asian&nbsp;phonetic&nbsp;settings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08H&nbsp;&nbsp;Rich-Text&nbsp;settings&nbsp;(richtext):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;=&nbsp;Does&nbsp;not&nbsp;contain&nbsp;Rich-Text&nbsp;settings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;=&nbsp;Contains&nbsp;Rich-Text&nbsp;settings<br>
+[2&nbsp;or&nbsp;3]&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional,&nbsp;only&nbsp;if&nbsp;richtext=1)&nbsp;Number&nbsp;of&nbsp;Rich-Text&nbsp;formatting&nbsp;runs&nbsp;(rt)<br>
+[var.]&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional,&nbsp;only&nbsp;if&nbsp;phonetic=1)&nbsp;Size&nbsp;of&nbsp;Asian&nbsp;phonetic&nbsp;settings&nbsp;block&nbsp;(in&nbsp;bytes,&nbsp;sz)<br>
+var.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ln&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2·ln&nbsp;&nbsp;&nbsp;Character&nbsp;array&nbsp;(8-bit&nbsp;characters&nbsp;or&nbsp;16-bit&nbsp;characters,&nbsp;dependent&nbsp;on&nbsp;ccompr)<br>
+[var.]&nbsp;&nbsp;&nbsp;4·rt&nbsp;&nbsp;&nbsp;(optional,&nbsp;only&nbsp;if&nbsp;richtext=1)&nbsp;List&nbsp;of&nbsp;rt&nbsp;formatting&nbsp;runs&nbsp;<br>
+[var.]&nbsp;&nbsp;&nbsp;sz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional,&nbsp;only&nbsp;if&nbsp;phonetic=1)&nbsp;Asian&nbsp;Phonetic&nbsp;Settings&nbsp;Block</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-pack"><strong>pack</strong></a>(...)</dt><dd><tt>Return&nbsp;string&nbsp;containing&nbsp;values&nbsp;v1,&nbsp;v2,&nbsp;...&nbsp;packed&nbsp;according&nbsp;to&nbsp;fmt.</tt></dd></dl>
+ <dl><dt><a name="-upack1"><strong>upack1</strong></a>(s, encoding<font color="#909090">='ascii'</font>)</dt></dl>
+ <dl><dt><a name="-upack2"><strong>upack2</strong></a>(s, encoding<font color="#909090">='ascii'</font>)</dt></dl>
+ <dl><dt><a name="-upack2rt"><strong>upack2rt</strong></a>(rt, encoding<font color="#909090">='ascii'</font>)</dt></dl>
+</td></tr></table>
+</body></html>

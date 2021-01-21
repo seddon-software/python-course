@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.Bitmap</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.Bitmap</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/Bitmap.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/Bitmap.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;windows-1251&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="xlwt.Bitmap.html#ImDataBmpRecord">ImDataBmpRecord</a>
+</font></dt><dt><font face="helvetica, arial"><a href="xlwt.Bitmap.html#ObjBmpRecord">ObjBmpRecord</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ImDataBmpRecord">class <strong>ImDataBmpRecord</strong></a>(<a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="xlwt.Bitmap.html#ImDataBmpRecord">ImDataBmpRecord</a></dd>
+<dd><a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ImDataBmpRecord-__init__"><strong>__init__</strong></a>(self, filename)</dt><dd><tt>Insert&nbsp;a&nbsp;24bit&nbsp;bitmap&nbsp;image&nbsp;in&nbsp;a&nbsp;worksheet.&nbsp;The&nbsp;main&nbsp;record&nbsp;required&nbsp;is<br>
+IMDATA&nbsp;but&nbsp;it&nbsp;must&nbsp;be&nbsp;proceeded&nbsp;by&nbsp;a&nbsp;OBJ&nbsp;record&nbsp;to&nbsp;define&nbsp;its&nbsp;position.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>:<br>
+<dl><dt><a name="ImDataBmpRecord-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ImDataBmpRecord-get_rec_header"><strong>get_rec_header</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ImDataBmpRecord-get_rec_id"><strong>get_rec_id</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ObjBmpRecord">class <strong>ObjBmpRecord</strong></a>(<a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="xlwt.Bitmap.html#ObjBmpRecord">ObjBmpRecord</a></dd>
+<dd><a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ObjBmpRecord-__init__"><strong>__init__</strong></a>(self, row, col, sheet, im_data_bmp, x, y, scale_x, scale_y)</dt></dl>
+
+<hr>
+Methods inherited from <a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>:<br>
+<dl><dt><a name="ObjBmpRecord-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ObjBmpRecord-get_rec_header"><strong>get_rec_header</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ObjBmpRecord-get_rec_id"><strong>get_rec_id</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="xlwt.BIFFRecords.html#BiffRecord">xlwt.BIFFRecords.BiffRecord</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-pack"><strong>pack</strong></a>(...)</dt><dd><tt>Return&nbsp;string&nbsp;containing&nbsp;values&nbsp;v1,&nbsp;v2,&nbsp;...&nbsp;packed&nbsp;according&nbsp;to&nbsp;fmt.</tt></dd></dl>
+ <dl><dt><a name="-unpack"><strong>unpack</strong></a>(...)</dt><dd><tt>Unpack&nbsp;the&nbsp;string&nbsp;containing&nbsp;packed&nbsp;C&nbsp;structure&nbsp;data,&nbsp;according&nbsp;to&nbsp;fmt.<br>
+Requires&nbsp;len(string)&nbsp;==&nbsp;calcsize(fmt).</tt></dd></dl>
+</td></tr></table>
+</body></html>

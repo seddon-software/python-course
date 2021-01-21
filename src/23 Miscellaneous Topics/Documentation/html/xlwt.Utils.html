@@ -1,0 +1,59 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.Utils</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.Utils</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/Utils.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/Utils.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;see&nbsp;the&nbsp;xlwt.license&nbsp;module&nbsp;for&nbsp;details&nbsp;of&nbsp;licensing.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-cell_to_packed_rowcol"><strong>cell_to_packed_rowcol</strong></a>(cell)</dt><dd><tt>pack&nbsp;row&nbsp;and&nbsp;column&nbsp;into&nbsp;the&nbsp;required&nbsp;4&nbsp;byte&nbsp;format</tt></dd></dl>
+ <dl><dt><a name="-cell_to_rowcol"><strong>cell_to_rowcol</strong></a>(cell)</dt><dd><tt>Convert&nbsp;an&nbsp;Excel&nbsp;cell&nbsp;reference&nbsp;string&nbsp;in&nbsp;A1&nbsp;notation<br>
+to&nbsp;numeric&nbsp;row/col&nbsp;notation.<br>
+&nbsp;<br>
+Returns:&nbsp;row,&nbsp;col,&nbsp;row_abs,&nbsp;col_abs</tt></dd></dl>
+ <dl><dt><a name="-cell_to_rowcol2"><strong>cell_to_rowcol2</strong></a>(cell)</dt><dd><tt>Convert&nbsp;an&nbsp;Excel&nbsp;cell&nbsp;reference&nbsp;string&nbsp;in&nbsp;A1&nbsp;notation<br>
+to&nbsp;numeric&nbsp;row/col&nbsp;notation.<br>
+&nbsp;<br>
+Returns:&nbsp;row,&nbsp;col</tt></dd></dl>
+ <dl><dt><a name="-cellrange_to_rowcol_pair"><strong>cellrange_to_rowcol_pair</strong></a>(cellrange)</dt><dd><tt>Convert&nbsp;cell&nbsp;range&nbsp;string&nbsp;in&nbsp;A1&nbsp;notation&nbsp;to&nbsp;numeric&nbsp;row/col<br>
+pair.<br>
+&nbsp;<br>
+Returns:&nbsp;row1,&nbsp;col1,&nbsp;row2,&nbsp;col2</tt></dd></dl>
+ <dl><dt><a name="-col_by_name"><strong>col_by_name</strong></a>(colname)</dt><dd><tt>'A'&nbsp;-&gt;&nbsp;0,&nbsp;'Z'&nbsp;-&gt;&nbsp;25,&nbsp;'AA'&nbsp;-&gt;&nbsp;26,&nbsp;etc</tt></dd></dl>
+ <dl><dt><a name="-quote_sheet_name"><strong>quote_sheet_name</strong></a>(unquoted_sheet_name)</dt></dl>
+ <dl><dt><a name="-rowcol_pair_to_cellrange"><strong>rowcol_pair_to_cellrange</strong></a>(row1, col1, row2, col2, row1_abs<font color="#909090">=False</font>, col1_abs<font color="#909090">=False</font>, row2_abs<font color="#909090">=False</font>, col2_abs<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;two&nbsp;(row,column)&nbsp;pairs<br>
+into&nbsp;a&nbsp;cell&nbsp;range&nbsp;string&nbsp;in&nbsp;A1:B2&nbsp;notation.<br>
+&nbsp;<br>
+Returns:&nbsp;cell&nbsp;range&nbsp;string</tt></dd></dl>
+ <dl><dt><a name="-rowcol_to_cell"><strong>rowcol_to_cell</strong></a>(row, col, row_abs<font color="#909090">=False</font>, col_abs<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;numeric&nbsp;row/col&nbsp;notation&nbsp;to&nbsp;an&nbsp;Excel&nbsp;cell&nbsp;reference&nbsp;string&nbsp;in<br>
+A1&nbsp;notation.</tt></dd></dl>
+ <dl><dt><a name="-valid_sheet_name"><strong>valid_sheet_name</strong></a>(sheet_name)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>MAX_COL</strong> = 256<br>
+<strong>MAX_ROW</strong> = 65536</td></tr></table>
+</body></html>

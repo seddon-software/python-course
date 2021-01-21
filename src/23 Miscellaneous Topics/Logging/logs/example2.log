@@ -1,0 +1,4 @@
+DEBUG    2015-06-02 16:28:24,269 USER  IP: 192.1.1.52      User: sheila   A debug message
+DEBUG    2015-06-02 16:28:24,269 USER  IP: 192.1.1.52      User: sheila   Another debug message
+INFO     2015-06-02 16:28:24,269 USER  IP: 10.21.15.103    User: tom      An info message
+INFO     2015-06-02 16:28:24,269 USER  IP: 10.21.15.103    User: tom      Another info message

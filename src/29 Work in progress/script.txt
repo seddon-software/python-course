@@ -1,0 +1,68 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from numpy import exp, pi, sqrt
+from scipy.signal import find_peaks
+from lmfit.models import GaussianModel, LinearModel
+
+
+# Define Gaussian for fit
+def gaussian(x, amplitude, center, width):
+    return (amplitude / (sqrt(2*pi) * width)) * exp(-(x-center)**2 / (2*width**2))
+
+# Define function to open data file
+def Read_Two_Column_File(file_name):
+    df = pd.read_csv(file_name, sep='[ \t]+', index_col=False, names=['x', 'y'])
+    print(df.values)
+    return df
+#    return df['x'].values, df['y'].values
+#     with open(file_name, 'r') as data:
+#         x = []
+#         y = []
+#         for line in data:
+#             p = line.split()
+#             x.append(float(p[0]))
+#             y.append(float(p[1]))
+# 
+#     return x, y
+
+# Open the data
+#x, y = Read_Two_Column_File('XRF_giallo_napoli_01_spectrum.txt')
+df = Read_Two_Column_File('XRF_giallo_napoli_01_spectrum.txt')
+
+#plot the data
+plt.plot(df['x'], df['y'], 'b-', label='XRF giallo napoli 01')
+#plt.show()
+
+# find peaks
+# x_arr = np.array(x)
+# y_arr = np.array(y)
+
+#peaks, properties = find_peaks(y_arr, prominence=70)
+peaks, properties = find_peaks(df['y'], prominence=70)
+print("the peaks are: ", peaks)
+#print("properties: ", properties)
+#plt.plot(x_arr)
+plt.plot(peaks, x_arr[peaks])
+
+#plt.plot(peaks, y_arr[peaks], "x")
+#plt.vlines(x=peaks, ymin=0, ymax=4500)
+#plt.vlines(x=[x_arr[peaks]], ymin=0, ymax=4500)
+#plt.show()
+
+# fit the data using Gaussian model
+peak = GaussianModel()
+background = LinearModel()
+model = peak + background
+
+# paramenters for the fitting model
+params = model.make_params(amplitude=1000, center=10.5, width=1, intercept=1, slope=0)
+
+result = model.fit(df['y'], params, x=df['x'])
+print(result.fit_report())
+
+plt.plot(df['x'], y_arr, 'b-', label='data')
+plt.plot(x_arr, result.best_fit, 'r-', label='fitted data')
+plt.legend()
+plt.show()
+

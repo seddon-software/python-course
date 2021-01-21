@@ -1,0 +1,35 @@
+<Widget>:
+    canvas.after:
+        Line:
+            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+            dash_offset: 5
+            dash_length: 3
+
+<LabelB>:
+    canvas.after:
+        Color:
+            rgb: 1,1,1
+        Line:
+            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+        Color:
+            rgb: 1,1,1
+
+
+#<Widgets>:
+#    AnchorLayout:
+#        anchor_x: 'right'
+#        anchor_y: 'bottom'
+#        GridLayout:
+#            cols: 3
+#            size_hint: .6,.6
+#            Label:
+#            StackLayout:
+#                orientation: 'lr-tb'
+#                Widget:
+#                    size_hint: .2,.2
+#                Button:
+#                    size_hint: .3,.3
+#                    text: "how?"
+#            Widget:
+#            Widget:
+

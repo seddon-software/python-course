@@ -1,0 +1,1 @@
+board,NS,EW,bid,by,lead,tricks,score,NS_pts,EW_pts

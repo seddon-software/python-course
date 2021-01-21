@@ -1,0 +1,33 @@
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  search                      Search PyPI for packages.
+  wheel                       Build wheels from your requirements.
+  zip                         DEPRECATED. Zip individual packages.
+  unzip                       DEPRECATED. Unzip individual packages.
+  bundle                      DEPRECATED. Create pybundles.
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  -v, --verbose               Give more output. Option is additive, and can be
+                              used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output.
+  --log-file <path>           Path to a verbose non-appending log, that only
+                              logs failures. This log is active by default at
+                              /Users/seddon/.pip/pip.log.
+  --log <path>                Path to a verbose appending log. This log is
+                              inactive by default.
+  --proxy <proxy>             Specify a proxy in the form
+                              [user:passwd@]proxy.server:port.
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists:
+                              (s)witch, (i)gnore, (w)ipe, (b)ackup.
+  --cert <path>               Path to alternate CA bundle.

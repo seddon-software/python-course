@@ -1,0 +1,1108 @@
+% PBN 2.1
+% EXPORT
+%Content-type: text/pbn; charset=ISO-8859-1
+%Creator: Bridgewebs
+%
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "1"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:J.AQ9.T863.A9863 AKQT96.J5.Q5.KQJ 43.KT7642.J974.7 8752.83.AK2.T542"]
+[OptimumScore "EW 3SX; 100"]
+[DoubleDummyTricks "42985429856844868448"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  2
+N  H  9
+N  D  8
+N  C  5
+N NT  4
+E  S  8
+E  H  4
+E  D  4
+E  C  8
+E NT  6
+S  S  2
+S  H  9
+S  D  8
+S  C  5
+S NT  4
+W  S  8
+W  H  4
+W  D  4
+W  C  8
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+10   5    4S    E  8
+2    11   4S    E  8
+4    3    4S    E 12
+7    12   5HX   N  9
+8    6    4S    E  8
+9    1    4S    W  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "2"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:JT2.654.AJ3.7654 KQ54.AQJ.KT7.A93 863.K873.Q964.Q8 A97.T92.852.KJT2"]
+[OptimumScore "NS 4S; 650"]
+[DoubleDummyTricks "ab98aab98a2245222452"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 11
+N  H  9
+N  D  8
+N  C 10
+N NT 10
+E  S  2
+E  H  4
+E  D  5
+E  C  2
+E NT  2
+S  S 11
+S  H  9
+S  D  8
+S  C 10
+S NT 10
+W  S  2
+W  H  4
+W  D  5
+W  C  2
+W NT  2
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+10   5    3NT   N 11
+2    11   3NT   S 11
+4    3    4S    S  9
+7    12   3NT   N 10
+8    6    3NT   N 10
+9    1    3NT   N 11
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "3"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AJ3.Q875.AQT9.T3 QT762.T3.8753.Q9 K9.A9.64.AK87642 854.KJ642.KJ2.J5"]
+[OptimumScore "NS 7N; 1520"]
+[DoubleDummyTricks "d9addd9add0330003200"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  9
+N  H 10
+N  D 13
+N  C 13
+N NT 13
+E  S  3
+E  H  3
+E  D  0
+E  C  0
+E NT  0
+S  S  9
+S  H 10
+S  D 13
+S  C 13
+S NT 13
+W  S  3
+W  H  2
+W  D  0
+W  C  0
+W NT  0
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+10   5    3NT   S 13
+2    11   3NT   S 13
+4    3    3NT   S 13
+7    12   3NT   S 12
+8    6    3NT   S 13
+9    1    3NT   S 13
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "4"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:KQ.8653.AQJ84.J8 JT4.QJ72.T7.K942 A87532.4.962.AT6 96.AKT9.K53.Q753"]
+[OptimumScore "EW 4S; -650"]
+[DoubleDummyTricks "11626416268b7a68b7a6"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  1
+N  H  6
+N  D  2
+N  C  6
+N NT  1
+E  S 11
+E  H  7
+E  D 10
+E  C  6
+E NT  8
+S  S  1
+S  H  6
+S  D  2
+S  C  6
+S NT  4
+W  S 11
+W  H  7
+W  D 10
+W  C  6
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    7    2S    W 12
+10   6    3D    W 10
+3    11   2S    W 12
+5    4    2S    W 12
+8    12   2S    E 12
+9    2    2S    E 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "5"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:QJ2.A984.7532.54 K76..KQ84.AKJT62 843.KJT6532.AJT. AT95.Q7.96.Q9873"]
+[OptimumScore "NS 5HX; -200"]
+[DoubleDummyTricks "53a6253a625a36b5a36b"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H 10
+N  D  6
+N  C  2
+N NT  5
+E  S 10
+E  H  3
+E  D  6
+E  C 11
+E NT  5
+S  S  3
+S  H 10
+S  D  6
+S  C  2
+S NT  5
+W  S 10
+W  H  3
+W  D  6
+W  C 11
+W NT  5
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    7    6SX   W  9
+10   6    6C    E 12
+3    11   6S    W 10
+5    4    6C    E 11
+8    12   6C    E 12
+9    2    4C    E 11
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "6"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:742.J6.9853.AJ72 AT5.QT9.AQT.9543 K96.K843.KJ6.QT8 QJ83.A752.742.K6"]
+[OptimumScore "S 1N; 90"]
+[DoubleDummyTricks "67766777666566765667"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H  7
+N  D  6
+N  C  6
+N NT  6
+E  S  5
+E  H  6
+E  D  6
+E  C  7
+E NT  6
+S  S  7
+S  H  7
+S  D  6
+S  C  6
+S NT  7
+W  S  5
+W  H  6
+W  D  6
+W  C  7
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    7    1NT   S  8
+10   6    2D    S  6
+3    11   2NT   S  6
+5    4    1NT   S  7
+8    12   1NT   S  8
+9    2    2S    N  5
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "7"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:74.765432.T95.98 AT2.AKT8.4.AKQ54 63.J9.AKJ763.T76 KQJ985.Q.Q82.J32"]
+[OptimumScore "EW 6S; -1430"]
+[DoubleDummyTricks "0046000460bc97cbc97c"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  0
+N  H  4
+N  D  6
+N  C  0
+N NT  0
+E  S 12
+E  H  9
+E  D  7
+E  C 12
+E NT 11
+S  S  0
+S  H  4
+S  D  6
+S  C  0
+S NT  0
+W  S 12
+W  H  9
+W  D  7
+W  C 12
+W NT 11
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    12   6S    E 12
+10   7    6S    E 12
+11   4    6S    E 12
+2    8    4S    E 12
+6    5    6S    E 13
+9    3    4S    E 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "8"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:AT7.AJ97.K.A9752 6.643.A7432.T864 K53.T852.96.KQJ3 QJ9842.KQ.QJT85."]
+[OptimumScore "EW 5HX; 100"]
+[DoubleDummyTricks "572b3572b385a2a85a2a"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H  2
+N  D 11
+N  C  3
+N NT  5
+E  S  5
+E  H 10
+E  D  2
+E  C 10
+E NT  8
+S  S  7
+S  H  2
+S  D 11
+S  C  3
+S NT  5
+W  S  5
+W  H 10
+W  D  2
+W  C 10
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    12   5DX   N 11
+10   7    4SX   S  6
+11   4    4H    E  8
+2    8    5H    E 10
+6    5    2S    S  8
+9    3    4H    E 11
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "9"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:JT83.KT942.4.742 62.A6.QJ86.QJ963 KQ754.753.9532.K A9.QJ8.AKT7.AT85"]
+[OptimumScore "NS 7SX; -1400"]
+[DoubleDummyTricks "1760117601c67dcc67dc"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  7
+N  H  6
+N  D  0
+N  C  1
+N NT  1
+E  S  6
+E  H  7
+E  D 13
+E  C 12
+E NT 12
+S  S  7
+S  H  6
+S  D  0
+S  C  1
+S NT  1
+W  S  6
+W  H  7
+W  D 13
+W  C 12
+W NT 12
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    12   4SX   S  7
+10   7    3NT   W 11
+11   4    4SX   S  6
+2    8    5C    W 12
+6    5    3S    S  7
+9    3    5C    W 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "10"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "All"]
+[Deal "E:AJ87.T74.Q2.KJ93 QT.AQJ3.AKJ7.A65 K96.K52.985.QT87 5432.986.T643.42"]
+[OptimumScore "NS 2D,NS 2H; 110"]
+[DoubleDummyTricks "66894668945754857548"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  8
+N  D  9
+N  C  4
+N NT  6
+E  S  7
+E  H  5
+E  D  4
+E  C  8
+E NT  5
+S  S  6
+S  H  8
+S  D  9
+S  C  4
+S NT  6
+W  S  7
+W  H  5
+W  D  4
+W  C  8
+W NT  5
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+10   8    2NT   S  7
+11   5    2NT   S  5
+12   2    3H    S  7
+3    1    2NT   S  5
+7    6    2NT   S  7
+9    4    2NT   S  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "11"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:9.AKT843.A94.KJ2 QT8643.5.J2.AT86 AK2.QJ976.85.543 J75.2.KQT763.Q97"]
+[OptimumScore "NS 5H; 450"]
+[DoubleDummyTricks "a5b66a5b663827638276"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H 11
+N  D  6
+N  C  6
+N NT 10
+E  S  8
+E  H  2
+E  D  7
+E  C  6
+E NT  3
+S  S  5
+S  H 11
+S  D  6
+S  C  6
+S NT 10
+W  S  8
+W  H  2
+W  D  7
+W  C  6
+W NT  3
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+10   8    5H    S 10
+11   5    4H    S 11
+12   2    4H    S 11
+3    1    5H    S 10
+7    6    4SX   W  8
+9    4    5H    S 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "12"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:AKQ7.T8.T63.AT32 T4.64.A9742.KQ65 J832.QJ3.KQJ.J98 965.AK9752.85.74"]
+[OptimumScore "EW 1S; -110"]
+[DoubleDummyTricks "65776657767856778567"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H  7
+N  D  7
+N  C  6
+N NT  6
+E  S  8
+E  H  5
+E  D  6
+E  C  7
+E NT  7
+S  S  5
+S  H  7
+S  D  7
+S  C  6
+S NT  6
+W  S  8
+W  H  5
+W  D  6
+W  C  7
+W NT  7
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+10   8    2NT   E  8
+11   5    3NT   E  7
+12   2    4S    E  8
+3    1    1NT   W  9
+7    6    3NT   W  6
+9    4    1NT   W  6
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "13"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:J752.3.J9652.AKJ T43.KJT52.43.Q87 A98.A74.AT8.T652 KQ6.Q986.KQ7.943"]
+[OptimumScore "NS 2S; 110"]
+[DoubleDummyTricks "68588685886584565855"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  8
+N  H  5
+N  D  8
+N  C  8
+N NT  6
+E  S  5
+E  H  8
+E  D  4
+E  C  5
+E NT  6
+S  S  8
+S  H  5
+S  D  8
+S  C  8
+S NT  6
+W  S  5
+W  H  8
+W  D  5
+W  C  5
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    10   2H    W  8
+11   6    2NT   S  6
+12   3    1NT   S  6
+4    2    1NT   S  6
+8    7    2D    S  8
+9    5    1NT   S  5
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "14"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:75.AQ9432.A75.KQ K9.865.98632.T97 AQT8.KJT.QJ4.J52 J6432.7.KT.A8643"]
+[OptimumScore "EW 6N; -990"]
+[DoubleDummyTricks "1314413144c9c98c9c99"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  3
+N  H  1
+N  D  4
+N  C  4
+N NT  1
+E  S  9
+E  H 12
+E  D  9
+E  C  8
+E NT 12
+S  S  3
+S  H  1
+S  D  4
+S  C  4
+S NT  1
+W  S  9
+W  H 12
+W  D  9
+W  C  9
+W NT 12
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    10   4H    E 11
+11   6    4H    E 12
+12   3    4H    E 11
+4    2    4H    E 12
+8    7    4H    E 12
+9    5    4H    E 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "15"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:A54.J95.QT853.92 KT87.76.K92.T863 J6.KQ8432.74.AQJ Q932.AT.AJ6.K754"]
+[OptimumScore "EW 2S; -110"]
+[DoubleDummyTricks "75875758756856868568"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H  8
+N  D  7
+N  C  5
+N NT  7
+E  S  8
+E  H  5
+E  D  6
+E  C  8
+E NT  6
+S  S  5
+S  H  8
+S  D  7
+S  C  5
+S NT  7
+W  S  8
+W  H  5
+W  D  6
+W  C  8
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    10   3S    W  7
+11   6    4S    W  7
+12   3    3S    W  8
+4    2    3S    W  8
+8    7    3S    W  8
+9    5    3H    N  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "16"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:K65.A64.J3.AQ864 AQJ42.KQJ92.AT2. T87.T5.K87654.K3 93.873.Q9.JT9752"]
+[OptimumScore "N 4H; 450"]
+[DoubleDummyTricks "89b5789a575226653286"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  9
+N  H 11
+N  D  5
+N  C  7
+N NT  8
+E  S  2
+E  H  2
+E  D  6
+E  C  6
+E NT  5
+S  S  9
+S  H 10
+S  D  5
+S  C  7
+S NT  8
+W  S  3
+W  H  2
+W  D  8
+W  C  6
+W NT  5
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    8    2S    N 11
+12   4    2S    N 10
+2    10   2S    N  9
+5    3    2S    N 10
+7    11   2C    N  6
+9    6    4H    N 11
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "17"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:K9.762.AT862.AKQ AJ3.KQJT3.K.JT87 QT7652.4.Q73.952 84.A985.J954.643"]
+[OptimumScore "NS 4S; 420"]
+[DoubleDummyTricks "7a5977a5976383663836"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 10
+N  H  5
+N  D  9
+N  C  7
+N NT  7
+E  S  3
+E  H  8
+E  D  3
+E  C  6
+E NT  6
+S  S 10
+S  H  5
+S  D  9
+S  C  7
+S NT  7
+W  S  3
+W  H  8
+W  D  3
+W  C  6
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    8    2S    S  9
+12   4    3H    E  8
+2    10   3S    S  9
+5    3    2H    E  8
+7    11   3D    N  8
+9    6    3HX   E  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "18"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "NS"]
+[Deal "E:Q75.T6.JT986.943 A64.AJ83.743.KJ8 KJT9.7.AKQ2.AT65 832.KQ9542.5.Q72"]
+[OptimumScore "EW 4DX; 100"]
+[DoubleDummyTricks "74935749356749767497"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  4
+N  H  9
+N  D  3
+N  C  5
+N NT  7
+E  S  7
+E  H  4
+E  D  9
+E  C  7
+E NT  6
+S  S  4
+S  H  9
+S  D  3
+S  C  5
+S NT  7
+W  S  7
+W  H  4
+W  D  9
+W  C  7
+W NT  6
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    8    3H    N  9
+12   4    3H    N  9
+2    10   4D    W 10
+5    3    4H    N  9
+7    11   2HX   N  9
+9    6    2H    N  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "19"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:AQ4.J7.AT92.KT54 KJ62.QT96.653.A2 T97.A842.87.9873 853.K53.KQJ4.QJ6"]
+[OptimumScore "EW 2H; -140"]
+[DoubleDummyTricks "54447554478898688986"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  4
+N  H  4
+N  D  4
+N  C  7
+N NT  5
+E  S  8
+E  H  9
+E  D  8
+E  C  6
+E NT  8
+S  S  5
+S  H  4
+S  D  4
+S  C  7
+S NT  5
+W  S  8
+W  H  9
+W  D  8
+W  C  6
+W NT  8
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+12   5    2H    W  7
+2    1    1C    S  8
+3    10   1NT   S  4
+6    4    1NT   S  5
+8    11   1NT   S  5
+9    7    1NT   S  5
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "20"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "All"]
+[Deal "W:J2.QJ72.QJT8.KQ6 A98.AT8.K976.A93 T64.K93.53.87542 KQ753.654.A42.JT"]
+[OptimumScore "NS 3N; 630"]
+[DoubleDummyTricks "aa887aa8873354533545"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S 10
+N  H  8
+N  D  8
+N  C  7
+N NT 10
+E  S  3
+E  H  5
+E  D  4
+E  C  5
+E NT  3
+S  S 10
+S  H  8
+S  D  8
+S  C  7
+S NT 10
+W  S  3
+W  H  5
+W  D  4
+W  C  5
+W NT  3
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+12   5    4S    N 10
+2    1    1NT   W  5
+3    10   2CX   W  6
+6    4    4S    S  9
+8    11   1NT   W  4
+9    7    2S    S  9
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "21"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:92.QJ97.AQ965.J5 AKJ75.63.J43.T98 63.AKT852.72.KQ4 QT84.4.KT8.A7632"]
+[OptimumScore "EW 4SX,W 5CX; 500"]
+[DoubleDummyTricks "75a9575a955714757148"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  5
+N  H 10
+N  D  9
+N  C  5
+N NT  7
+E  S  7
+E  H  1
+E  D  4
+E  C  7
+E NT  5
+S  S  5
+S  H 10
+S  D  9
+S  C  5
+S NT  7
+W  S  7
+W  H  1
+W  D  4
+W  C  8
+W NT  5
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+12   5    4H    S 10
+2    1    5H    S 10
+3    10   4SX   E  8
+6    4    4SX   E  7
+8    11   4H    S 11
+9    7    4S    E  8
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "22"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:2.AT84.K8754.QJ2 AQ87.Q965.Q6.AT4 KJ6.KJ32.AT93.K3 T9543.7.J2.98765"]
+[OptimumScore "EW 3N; -660"]
+[DoubleDummyTricks "2632626326b7ab7b7ab7"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  3
+N  D  2
+N  C  6
+N NT  2
+E  S  7
+E  H 10
+E  D 11
+E  C  7
+E NT 11
+S  S  6
+S  H  3
+S  D  2
+S  C  6
+S NT  2
+W  S  7
+W  H 10
+W  D 11
+W  C  7
+W NT 11
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    11   2C    N  7
+3    2    3S    S  6
+4    10   3D    E 11
+6    12   3S    S  9
+7    5    3S    S  6
+9    8    3H    W 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "23"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:AQ8.A6.A32.AJ654 95.9532.J864.832 K6.KJT87.T75.KQ9 JT7432.Q4.KQ9.T7"]
+[OptimumScore "NS 7N; 2220"]
+[DoubleDummyTricks "d8dadd8dad0403004030"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  8
+N  H 13
+N  D 10
+N  C 13
+N NT 13
+E  S  4
+E  H  0
+E  D  3
+E  C  0
+E NT  0
+S  S  8
+S  H 13
+S  D 10
+S  C 13
+S NT 13
+W  S  4
+W  H  0
+W  D  3
+W  C  0
+W NT  0
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    11   3NT   S 12
+3    2    3NT   S 10
+4    10   3NT   S 13
+6    12   3NT   S 10
+7    5    3NT   S 13
+9    8    3NT   S 12
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]
+
+[Event "Event"]
+[Site "Reading Bridge Club"]
+[Date "2016.11.29"]
+[Board "24"]
+[West ""]
+[North ""]
+[East ""]
+[South ""]
+[Dealer "W"]
+[Vulnerable "None"]
+[Deal "W:AT8.4.KQ985.J872 9652.J72.76.9654 Q3.AT965.JT4.AKT KJ74.KQ83.A32.Q3"]
+[OptimumScore "E 3N; -430"]
+[DoubleDummyTricks "3651336513a78ba978ba"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N  S  6
+N  H  5
+N  D  1
+N  C  3
+N NT  3
+E  S  7
+E  H  8
+E  D 11
+E  C 10
+E NT 10
+S  S  6
+S  H  5
+S  D  1
+S  C  3
+S NT  3
+W  S  7
+W  H  8
+W  D 11
+W  C 10
+W NT  9
+[ScoreTable "PairId_NS\4R;PairId_EW\4R;Contract\5L;Declarer\1R;Result\2R"]
+1    11   2D    W 11
+3    2    3NT   E 10
+4    10   2C    N  4
+6    12   1NTX  S  5
+7    5    3D    W 12
+9    8    1NT   E 10
+[Scoring "MP"]
+[Declarer "?"]
+[Contract "?"]
+[Result "?"]

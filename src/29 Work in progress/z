@@ -1,0 +1,1 @@
+ffmpeg -i 20201208213935.avi -ss 18 -c:v libx265 -x265-params preset=slower:crf=25:keyint=240 -c:a libopus -b:a 192k -filter:a aformat=channel_layouts=7.1|5.1|stereo -c:s copy -y output.mkv
