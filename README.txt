@@ -1,7 +1,7 @@
 6 Dec 2019
 
 To clone this repository: 
-	git clone https://github.com/seddon-software/python3.git
+	git clone https://github.com/seddon-software/python-course.git
 
 Course Materials:
 	http://www.keme.co.uk/~seddon-software/
