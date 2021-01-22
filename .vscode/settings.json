@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/__pycache__": true
+    },
+    "python.pythonPath": "/home/chris/anaconda3/bin/python"
+}

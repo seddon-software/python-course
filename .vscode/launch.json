@@ -8,6 +8,8 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
+//            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
             "program": "${file}",
             "console": "integratedTerminal",
             "stopOnEntry": true
