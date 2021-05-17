@@ -1,0 +1,43 @@
+FIG=fig2
+COLS=20
+TYPE=CANVAS
+FLIP=FALSE
+X=34
+Y=0
+# left hand side 20 rows
+# ref no water: jack - 1019474415
+# emergency call
+# charlotte 1019482558
+# dylan
+# compensation claim: 
+c20
+c20
+g20
+bccbbbccbbctyygyytcb
+bcbbcbbcbcxcttyttcbb
+cbcctccbcccbcctccbcs
+bcttyttcbcbcbbcbbcbc
+ctyygyytcbbccbbbccbb
+g20
+p20
+cppppcpppbbp7cc
+ooppotopottbppoppott
+oooppopppooppogoppcc
+oooypppooopoogygoopo
+goooypogggoggyyyggog
+goooyoglllgllglgllgl
+oooogpoglcglclglclgc
+googtgpoglcccctccccl
+gogtoggcglccctgtcccl
+gopgtgooglootgogtccl
+lgppgooooglgogggcglg
+llgoyoooglgoogggccgl
+ggopyoooglggglglgggl
+oopppyxxxglllgoglllg
+pppoppolllgggologggo
+cpotoppoyyxxoypyoooo
+pppcppppcccyypppyycc
+p20
+b20
+yssyssyssyssyssyssys
+g20

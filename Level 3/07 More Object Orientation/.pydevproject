@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse-pydev version="1.0"?>
+
+<pydev_project>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.5</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/Object Orientation/Aggregation</path>
+<path>/Object Orientation/Delegation</path>
+<path>/Object Orientation/Inheritance</path>
+<path>/Object Orientation/ClassesAndObjects</path>
+<path>/Object Orientation/Association</path>
+<path>/Object Orientation/RuntimeClasses</path>
+<path>/Object Orientation/AbstractClasses</path>
+<path>/Object Orientation/Interfaces</path>
+<path>/Object Orientation/Patterns</path>
+<path>/Object Orientation/AbstractAndInterfaces</path>
+</pydev_pathproperty>
+</pydev_project>

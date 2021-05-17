@@ -1,0 +1,2 @@
+cd data
+lpr -h -o fit-to-page -o page-ranges=1-2 -o media=a4 -o landscape "RugPattern"

@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "configurations": [
+    {
+      "name": "Python",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "args": [],
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}",
+      "stopOnEntry": true
+    },
+    {
+      "name": "several C++ files",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/main",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          }
+      ],
+      "preLaunchTask": "make",
+      "miDebuggerPath": "/usr/bin/gdb",
+    },
+    {
+      "name": "C++",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          }
+      ],
+      "preLaunchTask": "make",
+      "miDebuggerPath": "/usr/bin/gdb",
+  }
+  ]
+}

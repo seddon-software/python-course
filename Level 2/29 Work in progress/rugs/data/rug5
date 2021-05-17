@@ -1,0 +1,88 @@
+FIG=fig5
+COLS=20
+TYPE=CANVAS
+FLIP=FALSE
+X=65
+Y=98
+# grey		dark brown
+# purple		orange
+# orange		pink
+# lime		pale green
+# beige		beige
+# white		white
+# sage		dark green
+# yellow		yellow
+# teal		blue
+# chestnut	mid brown
+# 
+
+w20
+twggwwwwwbbbbtwwwwbb
+bgbbgwwwwbbbtytwwwbc
+bsbbtwwwwgggyyygggbb
+slstttbtgppptygpppgb
+bsbbtttbgpppogopppgb
+btbbtbtttppostsoppgb
+twggwbbtlgosltlsoglt
+wwbbwbtlllgttyttgyyy
+bwbbwwbtlgosltlsogyt
+bwbbbwbbgppostsoppgb
+wwbllbwwtpppogopppgb
+bbwbbwbwtpppglgpppgw
+wwbbwwbwwgggyyygggww
+wwggwggwwwbbtytwwwgg
+wgoogppgwwbbwtwwwgpg
+wgoolwpgwwbwwgwbwgpp
+wwgslsgwgcbwggwbwgpp
+wgwwsoogwgcwcgbbtygp
+wgpwgopgwwgccgttyyyg
+wwggwggwwwwgcgbbtytp
+wwbbw7tcgbbwgpp
+wwbbwwwwtwwwgcgbwgpp
+bwbbwwwtltwwwgggwgpp
+bbwwggglllgggwgggwgg
+wwwgpppglgpppgbgggww
+wwwgppoogooppgbwgcgw
+gwwgpoostsoopgbwwgcg
+gwtlgosltlsogytwgggc
+wtlllgttlttgyyytcccc
+twtlgosltlsogytwgggg
+twwgpoostsoopgowwwww
+wwwgppoogooppgowwwwt
+wwwgpppglgpppgbwgggy
+wwwwggglllgggbbgpoog
+wwwwwwwwltwwbbgppooo
+w8twwwbbgpppoo
+ppwgggwwwwwwbbgpppos
+llgbgggwwgwwbgygppsl
+lgbbggwwgcggtlllgstt
+tgbbggwwgcccctlgposl
+sgbggggwwggcgwgppoos
+lgbggggwwgcgwwgppooo
+lggggggwgccgwwgppooo
+ggggggwwgcgwwwwgpoog
+gggggwwwgcgwwgwwgggy
+ggggbgwwwgwwgcgwwwwt
+gbggbbgwwwwwgcgwwcww
+bbgwgbbgwwwgccgwwbbw
+ggwwwgcbgggbbgwwwbbc
+wwwwgcccccccccgwwwcb
+ggggcccbbbcccccgwcbb
+wwwbbbggggccggcgwcbc
+wbbbbgwwgccgwwggwwcw
+gggggwwgccgwwwwgwwww
+wwwwwwgccgwwwwwwwbcc
+wgggggccgwcccwwwwwcb
+gbbbbbcgwcbllcwwwcbb
+wgggggcgwwcbblccccbb
+blltlgcgwwwccccwcbbo
+cllttgcgwwwwwwwcbbog
+cltllgcgwwwwwwcbwbog
+wclllgcgwcwwwccbwbot
+wwoppwgwwwccccbbwbts
+w11ccbbwwtss
+w7ccwcbcbbwwgss
+wwcwwwbblbbbcbbwogts
+wwwccwwccbbbbcbwoggt
+wwwccwwccbbbbcbwoggt
+

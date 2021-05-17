@@ -1,0 +1,61 @@
+FIG=fig4
+COLS=34
+TYPE=WOOL
+FLIP=TRUE
+X=31
+Y=167
+# RHS
+# grey		dark brown
+# purple		orange
+# orange		pink
+# lime		pale green
+# beige		beige
+# white		white
+# sage		dark green
+# yellow		yellow
+# teal		blue
+# chestnut	mid brown
+# 0-19 then repeat
+
+
+
+
+
+
+
+
+
+
+
+
+m34
+m34
+d34
+bmtyydyytmbbmmbbbmmbbmtyydyytmbbmm
+mbmttyttmbmbmbbmbbmbmbmttyttmbmbmb
+tmbmmtmmbmpmbmmtmmbmgmbmmtmmbmpmbm
+mbmbbmbbmbmbmttyttmbmbmbbmbbmbmbmt
+bbmmbbbmmbbmtyydyytmbbmmbbbmmbbmty
+d34
+o34
+mmyyoooyymmmoooomooommo7mmooo
+ppppyoypppppmoomtmomddmoopoomddmom
+pdddpypdddpppmoomooommoopdpoommooo
+dllldpdllldpppyooopppoppdydppopppo
+ldddldldddldpppyopdddpddyyyddpdddp
+ldggdtdggdldpppypdllldlldydlldllld
+dldgtdtgdldppppdopdlmdmmldlmldmldp
+lggtdpdtggldppdtdopdlmmmmtmmmmldpo
+lgggtdtgggldpdtmtdpdlmmmtdtmmmldtd
+lggggtggggldpodtdppdlmmtdpdtmmldpp
+gdlgldlgldgldpodppppdldmtdtmdldppp
+ldlldydlldllldpypppdldmmdtdmmdldpp
+dpddyyyddpdddpoypppdldddldldddldpp
+poppdydppopppoooypppdllldpdllldppp
+mmoopdpoommooomoompppdddpypdddpppm
+ddmoopoomddmomtmoompppppyoypppppmo
+mmooooooommooomoooommmyyoooyymmmoo
+o34
+b34
+ggyggyggyggyggyggyggyggyggyggyggyb
+d32gb

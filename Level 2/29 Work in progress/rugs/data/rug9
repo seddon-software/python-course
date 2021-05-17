@@ -1,0 +1,45 @@
+FIG=fig9
+COLS=25
+TYPE=CANVAS
+FLIP=TRUE
+X=160
+Y=99
+# reverse
+# grey		dark brown
+# purple		orange
+# orange		pink
+# lime		pale green
+# beige		beige
+# white		white
+# sage		dark green
+# yellow		yellow
+# teal		blue
+# chestnut	mid brown
+# 
+w7cwwccccwbgcccgwbgy
+w7ccccbbgcbbgggwwgyp
+wwwccwwwccbbbgcb5wwgyp
+wwwgccccgbbbgcbbbwwbwgypp
+ccwbggggbwb7wwbwgypp
+wccb5wwb7wggggypp
+wwcb5wwbbgggbbgyyygyop
+wwcbbg5bgyyygbbgyoyoop
+wccbbgyyyygyoygbbbbgypoop
+ccbbbgyppoyooygbbbbgypoop
+gccbbgyppoooooygbbbgyppoo
+bccbbgyppo6ygggyoppoo
+bbcwwwgyoopo5yyyooppoo
+cbbbbgypoopo9pppoo
+ccbbgyppoppoog5ooppggg
+ccbwgyyypppoogyyyygoggyyy
+bwbwgyggyppoogytttygyytss
+bwbwwgbbgypoogyttttysttss
+bwbwwbbbbgypogyttttssttsg
+bwggwbbbbgypogyttttssttgb
+bgyygbbbgyppoogytttsttgbb
+bgypygggypppogyt6gbbb
+bgyppyyypoppogyttstttgbbc
+gggyoppppoppogytsstggtgcc
+yyypopppoopogyttssgbwggcg
+pppoopppoopogyttsgbbbccgp
+pppoopppoooogyttgbbbccgpp

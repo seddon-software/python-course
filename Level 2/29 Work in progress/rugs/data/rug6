@@ -1,0 +1,87 @@
+FIG=fig6
+COLS=25
+TYPE=CANVAS
+FLIP=FALSE
+X=85
+Y=99
+# grey		dark brown
+# purple		orange
+# orange		pink
+# lime		pale green
+# beige		beige
+# white		white
+# sage		dark green
+# yellow		yellow
+# teal		blue
+# chestnut	mid brown
+# 
+
+w25
+ccwwwccwwcwwwbbbwwwgwwwww
+sscwccwwcscwwbbbwwgsgggww
+ccwccwwwcscwwbbbwggslllgw
+bwwbcwggwcwggbbbgswsoollg
+bwwbbgssgwgssgbgsswopgolg
+bwwbbgsssgssgbbbgsssoollg
+bwwccwgsssssgbbbwggssglgw
+twcsscwgsbbsgbbwwwgsgggww
+bwwccwgsssposgbwwwwgwwcww
+bwwbbgssssoosgbwwwwwwcwww
+bwwbbgsgggsssgwwwwwwcycwg
+bwtbbwgwwwgggbcwwwwwcycww
+btytbwwwwwwwwcbcwgwwwcwww
+gyyygggwwwwwwwcbgsgwwwwww
+ggyggbbgwwwcwwwgsssgggggg
+gggogbbgwwwccwwgsssllllsl
+gstlgoogwwwwcwwgsssllllsl
+sltllogltwwccwwgssssllloo
+ttltttllltwcycwwgsssllogg
+sltllogltwwcyycwwgggloppg
+ostlgoogwwcyycwwwwgsloppo
+oogoggogwwcycwwwwgsslloos
+ogygggogwwcycwwwgsssllsss
+gyyygggwwggyggwwgsssslsgs
+wtytwwwwgppgoogwgsssslggs
+wwtwwwwwgposoogwgssssgwgs
+wgcgwwwwwgstlgwwgggggwwwg
+ggcggwwwgooloogwwwwwwwwww
+cccgggwwgoogoogwwwwggwggw
+cggggcgwwggwggycwwgoogoog
+twwwgccgwwwwwwcyccgooloog
+ytwwwgccgwwwwwwcyyygltlgw
+yygggwgccggwwwwwccgooloog
+ygpoogwgccgwwwwwwwgoogoog
+gppooogwgccgwwwwwwwgglggw
+spppoogwwgccgwwwgwwwcllcw
+tsppoogwwwgccgwgygwwwclyc
+tlspogytwgggccggycgwwwcyy
+yttsgyyytccccccyyccggcyyc
+tlspogytwggggccyycccyyyyy
+tsppoogwwwwwwggyccgggcyyc
+soppoogwwwwwwwgycgwwcyycw
+goopoogwwggwggyygwwcyycww
+ygooogwwgoogoogcwwwggyggw
+yygggwwwgooloogwwwgoogoog
+ytwwwgggcgltlgwwwwgooloog
+twwwgcccgooloogwwwwgltlgw
+wwggccgggoogoogwwwgooloog
+cgbbcgwwwggwggwwwwgoogoog
+bbbggwwwwwwwwwwcwwwggwggw
+ccgwwwcccwwwwwclcwwwwwwww
+wwwcccbbbccwwwclcwwwwwwww
+wcbbbbbccbbccwwcwwwwcwwww
+cbcbbwcbbbwbbccwwwwcbcwww
+bbcbbwwbbbwwbbbcwwwclcwww
+wcwbbwwbbwwwbccccwwwclcww
+wwwbbbbbbwwwcbbbccwwwcccw
+wwttgggttwwwbbbwbbccwwwcc
+otslggtlltoobbbwwbbccccbw
+tsslltsllltgobbwwcccwbbwc
+tsslltsslltgobwwwbbwwbwcc
+tsssltssllttobwwwcccwcccw
+stssstssltsltbwwcbllcwcww
+sststttstsslltwwwcccwcbcb
+sssgyyygssssltwwwwwwcbbcb
+ssgyoooygssstgowwwccbbwww
+ttgyopoygtttggocccbbbbwww
+

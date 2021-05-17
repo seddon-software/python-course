@@ -1,0 +1,48 @@
+FIG=fig3
+COLS=20
+TYPE=CANVAS
+FLIP=FALSE
+X=66
+Y=100
+# RHS 
+c20
+c20
+g20
+bccbbbccbbctyygyytcb
+bcbbcbbcbcbcttyttcbc
+cbcctccbcocbcctccbcs
+bcttyttcbcbcbbcbbcbc
+# identical
+ctyygyytcbbccbbbccbb
+# identical
+g20
+p20
+cppppcpppccpppppppcc
+ooppotopoggxppoppcgg
+# ????
+oooppcpppccppogoppcc
+oooypppooopoogygoopo
+# identical
+goooypogggoggyyyggog
+# identical
+goooyoglllgllgygllgl
+oooogpoglcglclglclgc
+# identical
+googtgpoglcccctccccl
+# identical
+gogtcttoglccctgtcccl
+gopttgooglcctgogtccl
+lgopgooooglgctgtcglg
+llgoyoooglgccgtgccgl
+ggopyoooglggglglgggl
+# identical
+oopppyoooglllgoglllg
+pppoppoooogggoyogggo
+opotoppcoooooypyoooo
+pppcppppcccyypppyycc
+# identical
+p20
+b20
+yssyssyssyssyssyssys
+g20
+

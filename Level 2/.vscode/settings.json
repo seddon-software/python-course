@@ -1,0 +1,9 @@
+{
+    "git.enabled": false,
+    "files.associations": {
+        "*.exe": "nm",
+        "string": "cpp",
+        "*.tcc": "cpp"
+    },
+    "python.pythonPath": "/home/chris/anaconda3/bin/python"
+}

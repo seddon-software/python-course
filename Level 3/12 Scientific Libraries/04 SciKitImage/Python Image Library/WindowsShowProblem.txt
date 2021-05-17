@@ -1,0 +1,16 @@
+What actually happens is that the Windows code relies on the fact that the default image viewer 
+on Windows XP was able to work at blocking mode - this means that the command will wait until 
+the image window will be closed. Because of that behaviour, they constructed a command line 
+which deletes a file right after the image has been shown.
+
+Windows Vista doesn't work the same way, it immediately returns once the command has been 
+executed, so what happens now is that the temporary file gets immediately deleted by the 
+command line, and the image viewer doesn't have enough time to load the image before it is 
+being deleted.
+
+Here is a quick workaround:
+
+Edit C:\Python26\lib\site-packages\PIL\ImageShow.py, and around line 99, 
+replace with the following line:
+
+return "start /wait %s && PING 127.0.0.1 -n 5 > NUL && del /f %s" % (file, file)
