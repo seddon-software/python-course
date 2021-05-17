@@ -12,3 +12,6 @@ def printRange(title, lo, hi):
 
 printRange("Unicode Box Drawing", 0x2500, 0x257F)
 printRange("Arabic", 0x0600, 0x06FF)
+
+import webbrowser
+webbrowser.open("https://unicode-table.com/en/")

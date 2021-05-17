@@ -14,9 +14,9 @@ dis.dis(f)
 # the disassembler generates the following
 '''
   6           0 LOAD_FAST                0 (x)
-              3 LOAD_FAST                1 (y)
-              6 BINARY_ADD          
-              7 RETURN_VALUE 
+              2 LOAD_FAST                1 (y)
+              4 BINARY_ADD          
+              6 RETURN_VALUE 
 '''
 # note how BINARY_ADD is interpreted differently for the case of str and int
 

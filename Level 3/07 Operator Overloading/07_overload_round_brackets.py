@@ -2,7 +2,7 @@ class Accumulate:
     def __init__(self):
         self.total = 0
         
-    def __call__(self, n):
+    def __call__(self, n):  # overload of ()
         self.total += n
         
     def __str__(self):

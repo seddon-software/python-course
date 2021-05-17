@@ -1,3 +1,4 @@
+# rank card by Bridge ranking order: clubs-diamonds-hearts-spades
 
 def findBiggestCard(myHand):
     keyCard = myHand[0]

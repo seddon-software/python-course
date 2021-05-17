@@ -4,8 +4,9 @@
 #
 ############################################################
 
-# With sorted list, using inheritance can be problematical, because you need to override
-# all methods in super class that require sorting (we've only looked at __iadd__)
+# With sorted list, using inheritance can be problematical, 
+# because you need to override all methods in super class 
+# that require sorting (we've only looked at __iadd__)
 
 # sorted list
 class MyList(list):
@@ -31,4 +32,3 @@ b = MyList(3,4)
 z = a + b
 print(z)
 
-1

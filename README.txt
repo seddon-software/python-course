@@ -19,7 +19,6 @@ Debugging with vscode
 4. You should now be able to select a Python source file and debug with F5
 
 
-
 Simple Debugging with pudb
 ==========================
 	pip install pudb
