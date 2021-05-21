@@ -1,8 +1,9 @@
-def mycoroutine(func):
+# decorator that takes a generator as a parameter
+def mycoroutine(generator):
     def start():
-        cr = func() # create the iterator
-        next(cr)   # get to first yield
-        return cr   # return the iterator
+        iterator = generator() # invoke generator to create an iterator
+        next(iterator)         # iterate to first yield
+        return iterator        # return the iterator
     return start
 
     
@@ -34,14 +35,20 @@ def bold():     # a generator
 @mycoroutine
 def format():   # a generator
     while True:
+        # get starting string and a set of iterating functions
         parameters = yield
+        # print(parameters)
+
+        # pop of the starting string (only coroutines remain)
         message = parameters.pop(0)
+
+        # iterate through co-routines
         for decorator in parameters:
-            g = decorator() # return the iterator
-            message = g.send(message)
+            cr = decorator() # return the coroutine
+            message = cr.send(message)
         print(message)
     
-g = format()        # return an iterator
+g = format()        # return a format iterator
 g.send(["MiXeD", upper, bold, italic])
 g.send(["MiXeD", lower])
 g.send(["MiXeD", italic, upper])
