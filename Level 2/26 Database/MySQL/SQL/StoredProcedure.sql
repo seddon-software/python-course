@@ -1,14 +1,17 @@
-create or replace PROCEDURE PYTHON.Increase_Salary 
-  (theName IN varchar2, 
-   Increase IN float, 
-   NewSalary IN OUT float)
-  AS
+USE PYTHON;
+
+CREATE PROCEDURE PYTHON.Increase_Salary (
+   IN theName varchar(20), 
+   IN increase float, 
+   OUT newSalary float)
   BEGIN
-    UPDATE Salary_Table
-    SET SALARY = SALARY + Increase
+    UPDATE SALARY_TABLE
+    SET SALARY = SALARY + increase
     WHERE NAME = theName;
 
-    SELECT SALARY INTO NewSalary
-    FROM Salary_Table
+    SELECT SALARY INTO newSalary
+    FROM SALARY_TABLE
     WHERE NAME = theName;
   END;
+
+
