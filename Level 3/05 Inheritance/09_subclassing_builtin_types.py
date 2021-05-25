@@ -6,7 +6,7 @@
 
 # define a dictionary type that doesn't allow duplicate values
 
-class DistinctError(Exception):
+class distinctError(Exception):
     pass
 
 class DictionaryWithUniqueValues(dict):
@@ -16,8 +16,8 @@ class DictionaryWithUniqueValues(dict):
             value_index = values.index(value) # this should fail if value doesn't exist
             existing_key = list(self.keys())[value_index]
             if existing_key != key:
-                message = "This value already exists for '{0}'".format(self[existing_key])
-                raise DistinctError(message)
+                message = f"This value already exists for '{existing_key}'"
+                raise distinctError(message)
         except ValueError:
             pass    # eat exception because value is new
         # update dict in super class with new value

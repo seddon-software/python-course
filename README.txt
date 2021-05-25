@@ -3,8 +3,6 @@
 To clone this repository: 
 	git clone https://github.com/seddon-software/python-course.git
 
-Statistics on Library Code Sizes:
-	http://web.mit.edu/tabbott/Public/sage.sloccount
 	
 Debugging with vscode
 =====================
@@ -19,9 +17,27 @@ Debugging with vscode
 4. You should now be able to select a Python source file and debug with F5
 
 
+	
+	
+Timings:
+========
+
+     9.00 - 10.00
+    11.00 - 12.00
+     2.00 -  3.00
+     4.00 -  5.00
+
+
+
+
+
+
+
+
+Statistics on Library Code Sizes:
+	http://web.mit.edu/tabbott/Public/sage.sloccount
+
 Simple Debugging with pudb
 ==========================
 	pip install pudb
 	python -m pudb myscript.py
-	
-	

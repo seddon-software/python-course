@@ -27,5 +27,5 @@ Check(Employee, SalesPerson)
 Check(SalesPerson, Person)
 Check(SalesPerson, Employee)
 
-1
+
 
