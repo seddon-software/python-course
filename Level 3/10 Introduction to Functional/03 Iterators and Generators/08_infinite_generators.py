@@ -1,11 +1,11 @@
-def powers():
-    x = 1
+def powers(x):
+#    x = 1
     while(True):
         x = x * 2
         yield x
 
 # create the infinite generator
-g = powers()
+g = powers(55)
 
 x = 0
 while x < 1000:

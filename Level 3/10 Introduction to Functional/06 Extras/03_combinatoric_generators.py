@@ -16,7 +16,7 @@ doit( product('ABC', repeat=2) )    # equivalent to previous example
 doit( permutations('ABCD', 2) ) # order matters
 doit( combinations('ABCD', 2) ) # order does not matter
 
-# charcters are not normally repeated ...
+# characters are not normally repeated ...
 doit( combinations('ABCDE', 3) )
 
 # ... unless you use this

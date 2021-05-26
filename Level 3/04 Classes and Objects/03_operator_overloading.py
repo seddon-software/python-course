@@ -38,15 +38,14 @@ print(t3)
 t3 = t1 + 42
 print(t3)
 
-t3 = 27 + t1
+t3 = 27 + t1        # t1.__radd__(27)
 print(t3)
 
 t1 += t3
 print(t3)
 
-t1 += 33
+t1 += 33            # t1.__iadd__(33)
 print(t3)
-
 
 try:
     t3 = t1 + "two mins"
@@ -54,4 +53,4 @@ try:
 except Exception as e:
     print(e)    
 
-1
+

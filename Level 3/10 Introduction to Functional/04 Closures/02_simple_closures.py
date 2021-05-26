@@ -10,12 +10,12 @@ def f(x):
         return x + y + z
     return g
 
-# or equivalently
-def f(x):
-    return lambda y,z:x+y+z # this knows about x
+# # or equivalently
+# def f(x):
+#     return lambda y,z:x+y+z # this knows about x
 
-# or equivalently
-f = lambda x: lambda y,z:x+y+z
+# # or equivalently
+# f = lambda x: lambda y,z:x+y+z
 
 f15 = f(15)   # f15 points to a function returning 15 + y + z
 f20 = f(20)   # f20 points to a function returning 20 + y + z

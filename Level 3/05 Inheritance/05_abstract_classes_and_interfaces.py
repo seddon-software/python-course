@@ -17,11 +17,14 @@ class Shape(IShape):
 class Triangle(Shape):
     def draw(self): 
         Shape.draw(self)
+        print("Triangle rest of draw")
     def hide(self): print("Triangle hide")
     def show(self): print("Triangle show")
     
 class Rectangle(Shape):
-    def draw(self): print("Rectangle draw")
+    def draw(self): 
+        Shape.draw(self)
+        print("Rectangle rest of draw")
     def hide(self): print("Rectangle hide")
     def show(self): print("Rectangle show")
 
@@ -30,7 +33,7 @@ class Ellipse(Shape):
     def hide(self): print("Ellipse hide")
     def show(self): print("Ellipse show")
 
-def drawAnyShape(s):
+def drawAnyShape(s):  # Shape, Triangle, Rectangle or Ellipse
     s.draw()
 
 t = Triangle()

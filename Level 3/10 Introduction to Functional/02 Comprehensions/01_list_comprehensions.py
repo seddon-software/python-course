@@ -37,4 +37,4 @@ def isprime(num):
     return not [y for y in range(2,num) if num%y==0]
 
 print([x for x in range(2,1000) if isprime(x)])
-1
+

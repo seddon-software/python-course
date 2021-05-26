@@ -1,6 +1,12 @@
 class Point:
     # CTOR
+    '''
+    put documentation in here
+    '''
     def __init__(self, name, x0 = 0, y0 = 0):
+        '''
+        put documentation in here
+        '''
         self.name = name
         self.x = x0
         self.y = y0
@@ -17,6 +23,7 @@ q = Point('origin')
 p1 = Point('point-1', 100, 200)
 p2 = Point('point-2', 200, 300)
 p3 = Point('point-3', 300, 500)
+print(Point.__dict__)
 
 p1.moveBy(1, 1)
 p2.moveBy(2, 3)

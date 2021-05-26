@@ -1,7 +1,7 @@
 Python 3 Examples
 =================
 cd
-git clone https://github.com/seddon-software/python3.git
+git clone https://github.com/seddon-software/python-course.git
 cd python-course
 
 Module Loads

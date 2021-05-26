@@ -30,7 +30,8 @@ class ColoredPoint(Point):
         print(" ... and color is %s" % self.color)
         
 
-def WhereAreYou(p):
+def WhereAreYou(p):  # p can be instance of Point or ColoredPoint
+                     # ... the substitution rule
     p.whereAmI()
 
 p = Point(5,8)

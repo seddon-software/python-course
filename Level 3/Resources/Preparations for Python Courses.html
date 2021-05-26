@@ -1,0 +1,121 @@
+<head>
+<style type="text/css">
+
+pre {	
+	font-size: large;
+}
+.notice {
+	color: red;
+}
+
+/* Add style rules here */
+
+</style>
+</head>
+
+<body>
+<h1>Preparations for Python Courses</h1>
+
+There are many ways ways to run Python code to suit most tastes, from the simple command line interpreter to a full blown Interactive Development Environment such as Dawn.  
+This guide introduces you to some of the more common methods.  
+You will need to decide which method you prefer for the upcoming training course.<br/>
+
+To begin with we need to configure Python and be able to execute a simple script; at Diamond, configuring Python is achieved using the module load command:
+<pre>
+	module load python/3.7
+</pre>
+To see that this works you need to run a simple script.  Type the following script into a file and try one of the methods below:
+<pre>
+	x = 100
+	y = 200
+	z = x + y
+	print(z)
+</pre>
+Recall that indentation is significant in Python scripts, so make sure each line of the above script starts in column one.<br/>
+
+Note that Python 2 has reached end of life and therefore we will be using Python 3 throughout this guide.
+
+<h2>1. Running Python from the command line</h2>
+
+After you have issued the module load command, to start up Python 3 type:
+<pre>
+	python
+</pre>
+and you will get to a python prompt.  This is called the REPL (read-edit-print-loop).  Simply enter python commands at the prompt (or type each line of the above script).  
+If you want to see the value of a variable you can just type the name of the variable; there is no need to use a print statement.  
+This is the simplest way to run Python, but becomes unweildy for larger programs.  
+<br/>To exit, type:
+<pre>
+	exit()
+</pre>
+However, you will loose all your code when you exit the REPL.
+
+<h2>2. Running Python inside a Browser using Jupyter Notebook</h2>
+This is a much better approach.  You can easily save your work and you can easily check for errors in your code.  
+You can even convert a notebook into a presentation.<br/>
+First, you need to have jupyter installed:
+<pre>
+	pip install jupyter --user
+</pre>
+Now you can launch the Jupyter notebook with:
+<pre>
+	jupyter notebook --browser=firefox
+</pre>
+The Jupyter notebook lets you create multiple browser consoles to enter Python code.  To find out more try the website:
+<pre>
+	https://realpython.com/jupyter-notebook-introduction/ 
+</pre>
+
+<h2>3. Using the Python Debugger on the Command Line</h2>
+Create your Python script (e.g. <em>myscript.py</em>em>) with a text editor and then run your script using:
+<pre>
+	python -m pdb myscript.py
+</pre>
+Once the debugger starts you can enter debug commands.  Use ? to get a list of commands.  The most useful commands are:
+<pre>
+	l	list the contents of the script
+	n	execute the (n)ext line
+	s	(s)tep into functions
+	r	(r)eturn from a function - use need to do an 'n' command to complete the return
+	b 5	breakpoint on line 5
+	c	continue to next breakpoint
+</pre>
+The debugger is quite good, but its probably better to use pudb as the debugger (see below).
+
+<h2>4. Using pudb to Debug on the Command Line</h2>
+Install pudb:
+<pre>
+	pip install pudb --user
+</pre>
+Then type:
+<pre>
+	python -m pudb myscript.py
+</pre>
+A simple graphical interface will appear to allow you to debug your program.  Commands are essentially the same as pdb, but you get a nice graphical representation of your source code.  Type ? to get a list of commands.
+
+<h2>5. More Sophisticated Environments</h2>
+If you want a full blown Interactive Development Envirinment (IDE) you can use one of:
+<pre>
+	PyCharm
+	Eclipse
+	Dawn
+</pre>
+However, be warned that these IDEs are quite complicated with lots of menu options and many windows.  There are lots of guides on how to use thes IDEs on the internet.<br/>  
+Note that <em>Dawn</em> is essentially a variant of <em>Eclipse</em> which has been customised by Diamond.<br/>
+Many people find these IDEs too complicated for their taste (they were developed for professional software engineers) - you need module load commands for each of these IDEs.<br/>
+<em>PyCharm</em> comes in two flavours: community and professional.  Note that you need a licence to run PyCharm Professional; the community edition is the default at Diamond.<br/>
+To run one of these IDEs type one of the following pairs of commands:
+<pre>
+	module load dawn
+	dawn&
+
+	module load eclipse
+	eclipse&
+
+	module load pycharm
+	pycharm&
+</pre>
+
+<h2 class="notice">Please make sure you are familiar with at least one of the above methods before you attend the course.</h2>
+</body>
+

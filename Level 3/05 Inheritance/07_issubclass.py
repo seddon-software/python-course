@@ -20,6 +20,7 @@ def Check(A, B):
     
     
 
+Check(Person, Person)
 Check(Person, Employee)
 Check(Person, SalesPerson)
 Check(Employee, Person)

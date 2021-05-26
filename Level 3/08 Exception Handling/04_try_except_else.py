@@ -18,4 +18,3 @@ else:
     print(root)
  
 
-1
