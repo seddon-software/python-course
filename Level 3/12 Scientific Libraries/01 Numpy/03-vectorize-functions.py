@@ -1,7 +1,7 @@
 import numpy as np
 np.set_printoptions(precision=3)
 
-# this only wors for scalars
+# this only works for scalars
 def square(x): return x * x
 
 # vectorize function to return floats

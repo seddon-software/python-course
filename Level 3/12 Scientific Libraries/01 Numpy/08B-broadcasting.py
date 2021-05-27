@@ -18,7 +18,6 @@ x = np.hstack(a); print(x)
 y = np.vstack(a); print(y)
 
 f = y * np.cos(x)
-# f = x * y
 print(f)
 fig = plt.figure()
 ax = Axes3D(fig)

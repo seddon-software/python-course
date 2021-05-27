@@ -8,7 +8,7 @@ import multiprocessing as mp
 import time, os
 
 ''' output will be garbled unless synchronize = True '''
-synchronize = False
+synchronize = True
 
 def fn(lock):
     for n in range(50):

@@ -28,7 +28,7 @@ def removeNearDuplicates(df):
     df = df.reset_index(drop=True)
     return df
 
-# perform edge detection on grayscal image
+# perform edge detection on grayscale image
 image = io.imread("images/tablets.jpg", as_gray=True) * 256
 edges = canny(image, sigma=4, low_threshold=0, high_threshold=30)
 

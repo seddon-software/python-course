@@ -8,7 +8,7 @@ def f(x, y):
 print( f("ABC", "DEF") )
 print( f(5, 7) )
 
-# look at the bytecode
+# look at the bytedebug code
 dis.dis(f)
 
 # the disassembler generates the following

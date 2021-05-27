@@ -2,7 +2,7 @@ import asyncio
 import time
 import types
 
-# use yield, yield from inside coroutines that are not async generators
+# use yield from inside coroutines that are not async generators
 
 def f():
     time.sleep(1)

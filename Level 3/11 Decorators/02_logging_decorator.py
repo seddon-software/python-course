@@ -38,11 +38,11 @@ def quad(x):
     
 # main program
 # as no logfile specified, use the console
-# logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 # logging.basicConfig(level=logging.INFO)
 # logging.basicConfig(level=logging.WARNING)
 # logging.basicConfig(level=logging.ERROR)
-logging.basicConfig(level=logging.CRITICAL)
+# logging.basicConfig(level=logging.CRITICAL)
 
 # print( log(logging.WARNING)(square)(4) )
 print(square(4))

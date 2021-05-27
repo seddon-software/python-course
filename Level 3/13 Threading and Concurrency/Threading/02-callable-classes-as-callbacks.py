@@ -17,14 +17,15 @@ class MyClass:
     
     def __call__(self, name):
         for i in range (1, 50):
-            sys.stdout.write(name)        
+            sys.stdout.write(name) 
+            sys.stdout.flush()       
             time.sleep(random.random() * 0.1)    
 
     
 m1 = MyClass()
 m2 = MyClass()
 m3 = MyClass()
-
+# m1() is equivalent to m1.__call__()
 # define a callback class - __call__() to be called via start()
 t1 = Thread(target = m1, args = ("1",))
 t2 = Thread(target = m2, args = ("2",))

@@ -3,7 +3,15 @@
 To clone this repository: 
 	git clone https://github.com/seddon-software/python-course.git
 
-	
+
+vscode key bindings
+===================
+F11                 toggle full screen
+Ctrl-k Ctrl-r       show key bindings
+Ctrl-b              toggle sidebar
+Ctrl-Shift-E        toggle explorer
+Ctrl-Shift-C        open terminal window
+
 Debugging with vscode
 =====================
 1. Go to folder containing .vscode

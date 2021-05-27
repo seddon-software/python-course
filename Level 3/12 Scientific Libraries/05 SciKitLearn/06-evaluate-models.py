@@ -9,7 +9,7 @@ labels = ['sepal length', 'sepal width', 'petal length', 'petal width']
 target_names = {'setosa':0, 'versicolor':1, 'virginica':2}
 
 iris_df = pd.read_csv("data/iris.csv")
-iris_df["target"] = iris_df.apply(lambda row: target_names[row.species], axis=1, raw=True)
+iris_df["target"] = iris_df.apply(lambda row: target_names[row.species], axis=1, raw=False)
 iris_df.drop(["species"], axis = 1, inplace = True)
 iris1 = [4.1, 3.1, 1.8, 0.5, 3]
 iris2 = [6.9, 3.5, 2.5, 2.5, 4]  
