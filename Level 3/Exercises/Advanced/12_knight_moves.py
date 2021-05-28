@@ -30,7 +30,7 @@ board = np.zeros((8,8), dtype=int)
 
 g = generateNewPosition()
 
-for move in range(10000):
+for move in range(20000):
     move = next(g)
     board[move[0],move[1]] = 1
     

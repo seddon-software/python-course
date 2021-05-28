@@ -372,6 +372,8 @@ corrections = {
     "DY157":'b',
     "DZ157":'b',
     "DS155":'b',
+    "EY158":'g',
+    "FC158":'g',
     }
 for cell, color in corrections.items():
     writeToCell(cell, color)
