@@ -46,12 +46,26 @@ remaining = {
     'g':	12 + 140/PACK
 }
 
+# remaining packs of wool (31 May 2021)
+remaining = {
+    'b':	20,
+    't': 	 7.8,
+    'o':    20.8,
+    'w':	34.8,
+    'p': 	18.3,
+    'm':    36.9,
+    'd': 	40,
+    'y':	11.1,
+    'l': 	 9.1,
+    'g':	 9.2
+}
+
 FILENAME = "data/RugPattern"
 inFile = open(FILENAME, "r")
 lines = inFile.readlines()
 lines = "".join(lines)
 
-nextLineNumber = 101
+nextLineNumber = 167
 pattern = "{nextLineNumber:0>3}.*".format(nextLineNumber=nextLineNumber)
 pattern = re.compile(pattern, re.DOTALL)
 match = pattern.search(lines)
