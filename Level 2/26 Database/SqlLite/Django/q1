@@ -1,0 +1,12 @@
+cd mysite
+
+python manage.py shell << EOF
+from salaries.models import SALARY_TABLE
+from django.utils import timezone
+q = SALARY_TABLE()
+
+# Save the object into the database. You have to call save() explicitly.
+q.save()
+print(q.id)
+EOF
+

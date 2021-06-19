@@ -1,0 +1,3 @@
+cd mysite
+fuser -k 7000/tcp
+python manage.py runserver 7000 &
