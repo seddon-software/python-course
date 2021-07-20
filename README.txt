@@ -1,4 +1,4 @@
-22 Feb 2021
+20 Jul 2021
 
 To clone this repository: 
 	git clone https://github.com/seddon-software/python-course.git
@@ -13,8 +13,11 @@ vscode key bindings
 F11                 toggle full screen
 Ctrl-k Ctrl-r       show key bindings
 Ctrl-b              toggle sidebar
-Ctrl-Shift-E        toggle explorer
-Ctrl-Shift-C        open terminal window
+Ctrl-Shift E        toggle explorer
+Ctrl-Shift C        open terminal window
+Ctrl-Shift +        zoom in
+Ctrl -              zoom out
+
 
 Debugging with vscode
 =====================
@@ -53,3 +56,7 @@ Simple Debugging with pudb
 ==========================
 	pip install pudb
 	python -m pudb myscript.py
+
+Current Interpreter
+===================
+Python 3.8.5 64-bit('base':conda)

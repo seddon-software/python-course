@@ -1,4 +1,0 @@
-/home/chris/.local/lib/python3.8/site-packages/roots.py
-/home/chris/.local/lib/python3.8/site-packages/__pycache__/roots.cpython-38.pyc
-/home/chris/.local/lib/python3.8/site-packages/_roots.cpython-38-x86_64-linux-gnu.so
-/home/chris/.local/lib/python3.8/site-packages/SWIG_example-1.0-py3.8.egg-info
