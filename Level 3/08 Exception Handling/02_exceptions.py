@@ -15,6 +15,7 @@ def main():
         print(f"x is {x}")
         print(f"x/y is {x/y}")
     except TooBig as e:
+        print(f"--{e}--")
         print("x is too big")
     except MuchTooBig as e:
         print("x is much too big")

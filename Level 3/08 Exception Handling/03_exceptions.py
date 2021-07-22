@@ -9,21 +9,22 @@ class MuchTooBig(Exception):
 def main():
     """ try different values of x and y to trigger exceptions"""
     try:
-        x = 810
+        x = 81
         y = 0
         
         if x > 150:
-            raise MuchTooBig("x")
+            raise MuchTooBig("x is much too big")
         if x > 50:
-            raise TooBig("x")
+            raise TooBig("x  is too big")
         print(f"x is {x}")
         print(f"x/y is {x/y}")
     except TooBig as e:
-        print(f"{e} is too big")
+        print(f"{e}")
     except MuchTooBig as e:
-        print(f"{e.__str__()} is much too big")
+        print(f"{e.__str__()}")
     except Exception as e:
         print(e)
+
 
 
 main()

@@ -44,7 +44,7 @@ print(t3)
 t3 = t1 + 42
 print(t3)
 
-t3 = 27 + t1
+t3 = 27 + t1    # t1.__radd__(27)
 print(t3)
 
 t1 += t3

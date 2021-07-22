@@ -1,4 +1,7 @@
-class Point:
+class X: pass
+class Y: pass
+
+class Point(X,Y):   # inherit from X and Y
     # CTOR
     '''
     put documentation in here
@@ -24,7 +27,9 @@ p1 = Point('point-1', 100, 200)
 p2 = Point('point-2', 200, 300)
 p3 = Point('point-3', 300, 500)
 print(Point.__dict__)
-
+print(Point.__bases__)
+print(p1.__dict__)
+print(p1.__class__)
 p1.moveBy(1, 1)
 p2.moveBy(2, 3)
 p3.moveBy(3, 6)

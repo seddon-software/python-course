@@ -1,7 +1,10 @@
+# try throw catch
+# try raise except
+
 def main():
     """ try different values of x and y to trigger exceptions"""
     try:
-        x = 1000
+        x = 10
         y = 0
         
         if x > 150:

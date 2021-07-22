@@ -26,7 +26,6 @@ class Fibonacci:
 # __iter__(self) will be called once
 # __next__(self) will be called repeatedly until loop terminates
 
-
 for f in Fibonacci():
     print(f, end=", ")
 
@@ -49,11 +48,3 @@ for f in Fibonacci():
 #         ...
 #     except StopIteration as e:
 #         pass
-
-
-
-
-
-
-
-

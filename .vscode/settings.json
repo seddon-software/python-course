@@ -2,6 +2,5 @@
     "files.exclude": {
         "**/.git": true,
         "**/__pycache__": true
-    },
-    "python.pythonPath": "/home/chris/anaconda3/envs/python39/bin/python"
+    }
 }

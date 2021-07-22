@@ -8,8 +8,11 @@ def f(x):
     if x > 50:
         raise Exception('exception thrown')
 
+# RAII
+# Resource Allocation is Initialization
+
 try:
-    x = 10
+    x = 100
     f(x)
 except Exception as e:
     print(f'caught exception ... {e}')
