@@ -1,0 +1,323 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.Formatting</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.Formatting</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/Formatting.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/Formatting.py</a></font></td></tr></table>
+    <p><tt>The&nbsp;&nbsp;XF&nbsp;&nbsp;record&nbsp;is&nbsp;able&nbsp;to&nbsp;store&nbsp;explicit&nbsp;cell&nbsp;formatting&nbsp;attributes&nbsp;or&nbsp;the<br>
+attributes&nbsp;&nbsp;of&nbsp;&nbsp;a&nbsp;cell&nbsp;style.&nbsp;Explicit&nbsp;formatting&nbsp;includes&nbsp;the&nbsp;reference&nbsp;to<br>
+a&nbsp;&nbsp;cell&nbsp;&nbsp;style&nbsp;&nbsp;XF&nbsp;&nbsp;record.&nbsp;This&nbsp;allows&nbsp;to&nbsp;extend&nbsp;a&nbsp;defined&nbsp;cell&nbsp;style&nbsp;with<br>
+some&nbsp;&nbsp;explicit&nbsp;&nbsp;attributes.&nbsp;&nbsp;The&nbsp;&nbsp;formatting&nbsp;&nbsp;attributes&nbsp;&nbsp;are&nbsp;&nbsp;divided&nbsp;into<br>
+6&nbsp;groups:<br>
+&nbsp;<br>
+Group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attributes<br>
+-------------------------------------<br>
+Number&nbsp;format&nbsp;&nbsp;&nbsp;Number&nbsp;format&nbsp;index&nbsp;(index&nbsp;to&nbsp;FORMAT&nbsp;record)<br>
+<a href="#Font">Font</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Font">Font</a>&nbsp;index&nbsp;(index&nbsp;to&nbsp;FONT&nbsp;record)<br>
+<a href="#Alignment">Alignment</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Horizontal&nbsp;and&nbsp;vertical&nbsp;alignment,&nbsp;text&nbsp;wrap,&nbsp;indentation,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orientation/rotation,&nbsp;text&nbsp;direction<br>
+Border&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Border&nbsp;line&nbsp;styles&nbsp;and&nbsp;colours<br>
+Background&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Background&nbsp;area&nbsp;style&nbsp;and&nbsp;colours<br>
+<a href="#Protection">Protection</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cell&nbsp;locked,&nbsp;formula&nbsp;hidden<br>
+&nbsp;<br>
+For&nbsp;&nbsp;each&nbsp;&nbsp;group&nbsp;&nbsp;a&nbsp;flag&nbsp;in&nbsp;the&nbsp;cell&nbsp;XF&nbsp;record&nbsp;specifies&nbsp;whether&nbsp;to&nbsp;use&nbsp;the<br>
+attributes&nbsp;&nbsp;contained&nbsp;&nbsp;in&nbsp;&nbsp;that&nbsp;&nbsp;XF&nbsp;&nbsp;record&nbsp;&nbsp;or&nbsp;&nbsp;in&nbsp;&nbsp;the&nbsp;&nbsp;referenced&nbsp;&nbsp;style<br>
+XF&nbsp;&nbsp;record.&nbsp;In&nbsp;style&nbsp;XF&nbsp;records,&nbsp;these&nbsp;flags&nbsp;specify&nbsp;whether&nbsp;the&nbsp;attributes<br>
+will&nbsp;&nbsp;overwrite&nbsp;&nbsp;explicit&nbsp;&nbsp;cell&nbsp;&nbsp;formatting&nbsp;&nbsp;when&nbsp;&nbsp;the&nbsp;&nbsp;style&nbsp;is&nbsp;applied&nbsp;to<br>
+a&nbsp;&nbsp;cell.&nbsp;Changing&nbsp;a&nbsp;cell&nbsp;style&nbsp;(without&nbsp;applying&nbsp;this&nbsp;style&nbsp;to&nbsp;a&nbsp;cell)&nbsp;will<br>
+change&nbsp;&nbsp;all&nbsp;&nbsp;cells&nbsp;which&nbsp;already&nbsp;use&nbsp;that&nbsp;style&nbsp;and&nbsp;do&nbsp;not&nbsp;contain&nbsp;explicit<br>
+cell&nbsp;&nbsp;attributes&nbsp;for&nbsp;the&nbsp;changed&nbsp;style&nbsp;attributes.&nbsp;If&nbsp;a&nbsp;cell&nbsp;XF&nbsp;record&nbsp;does<br>
+not&nbsp;&nbsp;contain&nbsp;&nbsp;explicit&nbsp;&nbsp;attributes&nbsp;&nbsp;in&nbsp;a&nbsp;group&nbsp;(if&nbsp;the&nbsp;attribute&nbsp;group&nbsp;flag<br>
+is&nbsp;not&nbsp;set),&nbsp;it&nbsp;repeats&nbsp;the&nbsp;attributes&nbsp;of&nbsp;its&nbsp;style&nbsp;XF&nbsp;record.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xlwt.BIFFRecords.html">xlwt.BIFFRecords</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="xlwt.Formatting.html#Alignment">Alignment</a>
+</font></dt><dt><font face="helvetica, arial"><a href="xlwt.Formatting.html#Borders">Borders</a>
+</font></dt><dt><font face="helvetica, arial"><a href="xlwt.Formatting.html#Font">Font</a>
+</font></dt><dt><font face="helvetica, arial"><a href="xlwt.Formatting.html#Pattern">Pattern</a>
+</font></dt><dt><font face="helvetica, arial"><a href="xlwt.Formatting.html#Protection">Protection</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Alignment">class <strong>Alignment</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Alignment-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DIRECTION_GENERAL</strong> = 0</dl>
+
+<dl><dt><strong>DIRECTION_LR</strong> = 1</dl>
+
+<dl><dt><strong>DIRECTION_RL</strong> = 2</dl>
+
+<dl><dt><strong>HORZ_CENTER</strong> = 2</dl>
+
+<dl><dt><strong>HORZ_CENTER_ACROSS_SEL</strong> = 6</dl>
+
+<dl><dt><strong>HORZ_DISTRIBUTED</strong> = 7</dl>
+
+<dl><dt><strong>HORZ_FILLED</strong> = 4</dl>
+
+<dl><dt><strong>HORZ_GENERAL</strong> = 0</dl>
+
+<dl><dt><strong>HORZ_JUSTIFIED</strong> = 5</dl>
+
+<dl><dt><strong>HORZ_LEFT</strong> = 1</dl>
+
+<dl><dt><strong>HORZ_RIGHT</strong> = 3</dl>
+
+<dl><dt><strong>NOT_SHRINK_TO_FIT</strong> = 0</dl>
+
+<dl><dt><strong>NOT_WRAP_AT_RIGHT</strong> = 0</dl>
+
+<dl><dt><strong>ORIENTATION_90_CC</strong> = 2</dl>
+
+<dl><dt><strong>ORIENTATION_90_CW</strong> = 3</dl>
+
+<dl><dt><strong>ORIENTATION_NOT_ROTATED</strong> = 0</dl>
+
+<dl><dt><strong>ORIENTATION_STACKED</strong> = 1</dl>
+
+<dl><dt><strong>ROTATION_0_ANGLE</strong> = 0</dl>
+
+<dl><dt><strong>ROTATION_STACKED</strong> = 255</dl>
+
+<dl><dt><strong>SHRINK_TO_FIT</strong> = 1</dl>
+
+<dl><dt><strong>VERT_BOTTOM</strong> = 2</dl>
+
+<dl><dt><strong>VERT_CENTER</strong> = 1</dl>
+
+<dl><dt><strong>VERT_DISTRIBUTED</strong> = 4</dl>
+
+<dl><dt><strong>VERT_JUSTIFIED</strong> = 3</dl>
+
+<dl><dt><strong>VERT_TOP</strong> = 0</dl>
+
+<dl><dt><strong>WRAP_AT_RIGHT</strong> = 1</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Borders">class <strong>Borders</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Borders-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DASHED</strong> = 3</dl>
+
+<dl><dt><strong>DOTTED</strong> = 4</dl>
+
+<dl><dt><strong>DOUBLE</strong> = 6</dl>
+
+<dl><dt><strong>HAIR</strong> = 7</dl>
+
+<dl><dt><strong>MEDIUM</strong> = 2</dl>
+
+<dl><dt><strong>MEDIUM_DASHED</strong> = 8</dl>
+
+<dl><dt><strong>MEDIUM_DASH_DOTTED</strong> = 10</dl>
+
+<dl><dt><strong>MEDIUM_DASH_DOT_DOTTED</strong> = 12</dl>
+
+<dl><dt><strong>NEED_DIAG1</strong> = 1</dl>
+
+<dl><dt><strong>NEED_DIAG2</strong> = 1</dl>
+
+<dl><dt><strong>NO_LINE</strong> = 0</dl>
+
+<dl><dt><strong>NO_NEED_DIAG1</strong> = 0</dl>
+
+<dl><dt><strong>NO_NEED_DIAG2</strong> = 0</dl>
+
+<dl><dt><strong>SLANTED_MEDIUM_DASH_DOTTED</strong> = 13</dl>
+
+<dl><dt><strong>THICK</strong> = 5</dl>
+
+<dl><dt><strong>THIN</strong> = 1</dl>
+
+<dl><dt><strong>THIN_DASH_DOTTED</strong> = 9</dl>
+
+<dl><dt><strong>THIN_DASH_DOT_DOTTED</strong> = 11</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Font">class <strong>Font</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Font-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Font-get_biff_record"><strong>get_biff_record</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CHARSET_ANSI_ARABIC</strong> = 178</dl>
+
+<dl><dt><strong>CHARSET_ANSI_BALTIC</strong> = 186</dl>
+
+<dl><dt><strong>CHARSET_ANSI_CHINESE_BIG5</strong> = 136</dl>
+
+<dl><dt><strong>CHARSET_ANSI_CHINESE_GBK</strong> = 134</dl>
+
+<dl><dt><strong>CHARSET_ANSI_CYRILLIC</strong> = 204</dl>
+
+<dl><dt><strong>CHARSET_ANSI_GREEK</strong> = 161</dl>
+
+<dl><dt><strong>CHARSET_ANSI_HEBREW</strong> = 177</dl>
+
+<dl><dt><strong>CHARSET_ANSI_JAP_SHIFT_JIS</strong> = 128</dl>
+
+<dl><dt><strong>CHARSET_ANSI_KOR_HANGUL</strong> = 129</dl>
+
+<dl><dt><strong>CHARSET_ANSI_KOR_JOHAB</strong> = 130</dl>
+
+<dl><dt><strong>CHARSET_ANSI_LATIN</strong> = 0</dl>
+
+<dl><dt><strong>CHARSET_ANSI_LATIN_II</strong> = 238</dl>
+
+<dl><dt><strong>CHARSET_ANSI_THAI</strong> = 222</dl>
+
+<dl><dt><strong>CHARSET_ANSI_TURKISH</strong> = 162</dl>
+
+<dl><dt><strong>CHARSET_ANSI_VIETNAMESE</strong> = 163</dl>
+
+<dl><dt><strong>CHARSET_APPLE_ROMAN</strong> = 77</dl>
+
+<dl><dt><strong>CHARSET_OEM_LATIN_I</strong> = 255</dl>
+
+<dl><dt><strong>CHARSET_SYMBOL</strong> = 2</dl>
+
+<dl><dt><strong>CHARSET_SYS_DEFAULT</strong> = 1</dl>
+
+<dl><dt><strong>ESCAPEMENT_NONE</strong> = 0</dl>
+
+<dl><dt><strong>ESCAPEMENT_SUBSCRIPT</strong> = 2</dl>
+
+<dl><dt><strong>ESCAPEMENT_SUPERSCRIPT</strong> = 1</dl>
+
+<dl><dt><strong>FAMILY_DECORATIVE</strong> = 5</dl>
+
+<dl><dt><strong>FAMILY_MODERN</strong> = 3</dl>
+
+<dl><dt><strong>FAMILY_NONE</strong> = 0</dl>
+
+<dl><dt><strong>FAMILY_ROMAN</strong> = 1</dl>
+
+<dl><dt><strong>FAMILY_SCRIPT</strong> = 4</dl>
+
+<dl><dt><strong>FAMILY_SWISS</strong> = 2</dl>
+
+<dl><dt><strong>UNDERLINE_DOUBLE</strong> = 2</dl>
+
+<dl><dt><strong>UNDERLINE_DOUBLE_ACC</strong> = 34</dl>
+
+<dl><dt><strong>UNDERLINE_NONE</strong> = 0</dl>
+
+<dl><dt><strong>UNDERLINE_SINGLE</strong> = 1</dl>
+
+<dl><dt><strong>UNDERLINE_SINGLE_ACC</strong> = 33</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Pattern">class <strong>Pattern</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Pattern-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>NO_PATTERN</strong> = 0</dl>
+
+<dl><dt><strong>SOLID_PATTERN</strong> = 1</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Protection">class <strong>Protection</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Protection-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

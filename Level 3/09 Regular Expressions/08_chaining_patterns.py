@@ -15,7 +15,7 @@ print(matcher)
 
 # iterate through finding the pattern
 for matcher in re.finditer(pattern, text):
-    print(matcher.groups(0))
+    print(matcher.groups())
 
 
 

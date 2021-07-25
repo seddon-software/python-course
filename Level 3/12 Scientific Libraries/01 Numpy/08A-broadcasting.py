@@ -21,7 +21,17 @@ print(X)
 print("\nbroadcast X and Y, because arrays are different sizes")
 M = X * Y 
 print(M)
+'''
+1 2 3 4 5 6
+1 2 3 4 5 6
+1 2 3 4 5 6
+1 2 3 4 5 6
 
+1 1 1 1 1 1
+2 2 2 2 2 2
+3 3 3 3 3 3
+4 4 4 4 4 4
+'''
 
 1
 

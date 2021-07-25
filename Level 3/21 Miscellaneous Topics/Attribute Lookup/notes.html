@@ -1,0 +1,44 @@
+<body style="background-color: rgb(190, 220, 255); font-size: 125%;">
+	<h1>Attribute Lookup</h1>
+
+	<b>Key Points</b>
+	<br />
+	<ul>
+		<li>Lookup different for read and write</li>
+		<li>Read lookup traverses the dictionary hierarchy</li>
+		<li>Write lookup on looks in object dictionary</li>
+		<li>Can override normal lookup procedure - descriptor protocol,
+			special methods</li>
+	</ul>
+	<b>Descriptor protocol</b>
+	<br />
+	<ul>
+		<li>__get__()
+			<ul>
+				<li>called on attribute read</li>
+			</ul>
+		<li>__set__()
+			<ul>
+				<li>called on attribute write</li>
+			</ul>
+	</ul>
+	<b>Special Methods</b>
+	<br />
+	<ul>
+		<li>__getattr__()
+			<ul>
+				<li>called if attribute not found</li>
+			</ul>
+		</li>
+		<li>__getattribute__()
+			<ul>
+				<li>- always called if attribute is read</li>
+			</ul>
+		</li>
+		<li>__setattr__()
+			<ul>
+				<li>always called if attribute is written</li>
+			</ul>
+		</li>
+	</ul>
+</body>

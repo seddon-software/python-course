@@ -25,4 +25,3 @@ if matcher2:
     print("Pattern found in text2")
 else:
     print("Pattern NOT found in text2")
-

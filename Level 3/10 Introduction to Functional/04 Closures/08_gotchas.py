@@ -3,7 +3,7 @@
 ############################################################
 # Part 1 - closure fails
 def outer():
-    x = 50
+    x = 50      # local variable, lifetime ends at end of function
     def inner():
         print((inner.__closure__))
         x += 1  # x refers to local x => NO closure
@@ -23,10 +23,12 @@ print()
 
 def outer():
     x = [50]     # x is mutable
+    print(id(x))
     def inner():
         print((inner.__closure__))
         print((inner.__closure__[1].cell_contents))
         x[0] += 1  # x refers to outer 'x' because its mutable => closure
+        print(id(x))
     return inner
 
 f = outer()

@@ -17,7 +17,5 @@ print("full match: ", result.group(0))
 print("capture pattern 1: ", result.group(1))
 print("capture pattern 2: ", result.group(2))
 print("all captures: ", result.groups())
-print(result.group())
 
 
-1

@@ -1,0 +1,122 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.ExcelMagic</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.ExcelMagic</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/ExcelMagic.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/ExcelMagic.py</a></font></td></tr></table>
+    <p><tt>lots&nbsp;of&nbsp;Excel&nbsp;Magic&nbsp;Numbers</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>MAX_COL</strong> = 256<br>
+<strong>MAX_ROW</strong> = 65536<br>
+<strong>PtgNames</strong> = {1: 'ptgExp', 2: 'ptgTbl', 3: 'ptgAdd', 4: 'ptgSub', 5: 'ptgMul', 6: 'ptgDiv', 7: 'ptgPower', 8: 'ptgConcat', 9: 'ptgLT', 10: 'ptgLE', ...}<br>
+<strong>all_funcs_by_name</strong> = {'ABS': (24, 1, 1, 'V', 'V'), 'ACCRINT': (-1, 6, 7, 'V', 'VVVVVVV'), 'ACCRINTM': (-1, 3, 5, 'V', 'VVVVV'), 'ACOS': (99, 1, 1, 'V', 'V'), 'ACOSH': (233, 1, 1, 'V', 'V'), 'ADDRESS': (219, 2, 5, 'V', 'VVVVV'), 'AMORDEGRC': (-1, 7, 7, 'V', 'VVVVVVV'), 'AMORLINC': (-1, 7, 7, 'V', 'VVVVVVV'), 'AND': (36, 1, 30, 'V', 'D+'), 'AREAS': (75, 1, 1, 'V', 'R'), ...}<br>
+<strong>biff_records</strong> = {0: 'DIMENSIONS', 1: 'BLANK', 2: 'INTEGER', 3: 'NUMBER', 4: 'LABEL', 5: 'BOOLERR', 6: 'FORMULA', 7: 'STRING', 8: 'ROW', 9: 'BOF', ...}<br>
+<strong>error_msg_by_code</strong> = {0: u'#NULL!', 7: u'#DIV/0!', 15: u'#VALUE!', 23: u'#REF!', 29: u'#NAME?', 36: u'#NUM!', 42: u'#N/A'}<br>
+<strong>ptgAdd</strong> = 3<br>
+<strong>ptgArea3dA</strong> = 123<br>
+<strong>ptgArea3dR</strong> = 59<br>
+<strong>ptgArea3dV</strong> = 91<br>
+<strong>ptgAreaA</strong> = 101<br>
+<strong>ptgAreaErr3dA</strong> = 125<br>
+<strong>ptgAreaErr3dR</strong> = 61<br>
+<strong>ptgAreaErr3dV</strong> = 93<br>
+<strong>ptgAreaErrA</strong> = 107<br>
+<strong>ptgAreaErrR</strong> = 43<br>
+<strong>ptgAreaErrV</strong> = 75<br>
+<strong>ptgAreaNA</strong> = 109<br>
+<strong>ptgAreaNR</strong> = 45<br>
+<strong>ptgAreaNV</strong> = 77<br>
+<strong>ptgAreaR</strong> = 37<br>
+<strong>ptgAreaV</strong> = 69<br>
+<strong>ptgArrayA</strong> = 96<br>
+<strong>ptgArrayR</strong> = 32<br>
+<strong>ptgArrayV</strong> = 64<br>
+<strong>ptgAttr</strong> = 25<br>
+<strong>ptgBool</strong> = 29<br>
+<strong>ptgConcat</strong> = 8<br>
+<strong>ptgDiv</strong> = 6<br>
+<strong>ptgEQ</strong> = 11<br>
+<strong>ptgEndSheet</strong> = 27<br>
+<strong>ptgErr</strong> = 28<br>
+<strong>ptgExp</strong> = 1<br>
+<strong>ptgExtend</strong> = 24<br>
+<strong>ptgFuncA</strong> = 97<br>
+<strong>ptgFuncCEA</strong> = 120<br>
+<strong>ptgFuncCEV</strong> = 88<br>
+<strong>ptgFuncR</strong> = 33<br>
+<strong>ptgFuncV</strong> = 65<br>
+<strong>ptgFuncVarA</strong> = 98<br>
+<strong>ptgFuncVarR</strong> = 34<br>
+<strong>ptgFuncVarV</strong> = 66<br>
+<strong>ptgGE</strong> = 12<br>
+<strong>ptgGT</strong> = 13<br>
+<strong>ptgInt</strong> = 30<br>
+<strong>ptgIsect</strong> = 15<br>
+<strong>ptgLE</strong> = 10<br>
+<strong>ptgLT</strong> = 9<br>
+<strong>ptgMemAreaA</strong> = 102<br>
+<strong>ptgMemAreaNA</strong> = 110<br>
+<strong>ptgMemAreaNR</strong> = 46<br>
+<strong>ptgMemAreaNV</strong> = 78<br>
+<strong>ptgMemAreaR</strong> = 38<br>
+<strong>ptgMemAreaV</strong> = 70<br>
+<strong>ptgMemErrA</strong> = 103<br>
+<strong>ptgMemErrR</strong> = 39<br>
+<strong>ptgMemErrV</strong> = 71<br>
+<strong>ptgMemFuncA</strong> = 105<br>
+<strong>ptgMemFuncR</strong> = 41<br>
+<strong>ptgMemFuncV</strong> = 73<br>
+<strong>ptgMemNoMemA</strong> = 104<br>
+<strong>ptgMemNoMemNA</strong> = 111<br>
+<strong>ptgMemNoMemNR</strong> = 47<br>
+<strong>ptgMemNoMemNV</strong> = 79<br>
+<strong>ptgMemNoMemR</strong> = 40<br>
+<strong>ptgMemNoMemV</strong> = 72<br>
+<strong>ptgMissArg</strong> = 22<br>
+<strong>ptgMul</strong> = 5<br>
+<strong>ptgNE</strong> = 14<br>
+<strong>ptgNameA</strong> = 99<br>
+<strong>ptgNameR</strong> = 35<br>
+<strong>ptgNameV</strong> = 67<br>
+<strong>ptgNameXA</strong> = 121<br>
+<strong>ptgNameXR</strong> = 57<br>
+<strong>ptgNameXV</strong> = 89<br>
+<strong>ptgNum</strong> = 31<br>
+<strong>ptgParen</strong> = 21<br>
+<strong>ptgPercent</strong> = 20<br>
+<strong>ptgPower</strong> = 7<br>
+<strong>ptgRange</strong> = 17<br>
+<strong>ptgRef3dA</strong> = 122<br>
+<strong>ptgRef3dR</strong> = 58<br>
+<strong>ptgRef3dV</strong> = 90<br>
+<strong>ptgRefA</strong> = 100<br>
+<strong>ptgRefErr3dA</strong> = 124<br>
+<strong>ptgRefErr3dR</strong> = 60<br>
+<strong>ptgRefErr3dV</strong> = 92<br>
+<strong>ptgRefErrA</strong> = 106<br>
+<strong>ptgRefErrR</strong> = 42<br>
+<strong>ptgRefErrV</strong> = 74<br>
+<strong>ptgRefNA</strong> = 108<br>
+<strong>ptgRefNR</strong> = 44<br>
+<strong>ptgRefNV</strong> = 76<br>
+<strong>ptgRefR</strong> = 36<br>
+<strong>ptgRefV</strong> = 68<br>
+<strong>ptgSheet</strong> = 26<br>
+<strong>ptgStr</strong> = 23<br>
+<strong>ptgSub</strong> = 4<br>
+<strong>ptgTbl</strong> = 2<br>
+<strong>ptgUminus</strong> = 19<br>
+<strong>ptgUnion</strong> = 16<br>
+<strong>ptgUplus</strong> = 18</td></tr></table>
+</body></html>

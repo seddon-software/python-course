@@ -22,6 +22,7 @@ class PointTests(unittest.TestCase):
     def test_moveBy(self):
         p = self.point
         p.moveBy(1, 11)
+
         self.assertEqual(p.x, 11)
         self.assertEqual(p.y, 31)
         self.assertEqual(p.name, "point-p1")

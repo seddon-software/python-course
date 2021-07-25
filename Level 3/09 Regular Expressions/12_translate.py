@@ -26,6 +26,7 @@ def replaceGroup(matcher):
 
 for matcher in re.finditer(compiledPattern, text):
     text = compiledPattern.sub(replaceGroup, text, 1)
+    print(text)
 
 print(text)
 

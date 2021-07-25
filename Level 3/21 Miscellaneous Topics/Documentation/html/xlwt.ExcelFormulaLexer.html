@@ -1,0 +1,104 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module xlwt.ExcelFormulaLexer</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="xlwt.html"><font color="#ffffff">xlwt</font></a>.ExcelFormulaLexer</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/ExcelFormulaLexer.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/xlwt/ExcelFormulaLexer.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;windows-1252&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xlwt.ExcelFormulaParser.html">xlwt.ExcelFormulaParser</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="xlwt.antlr.html#TokenStream">xlwt.antlr.TokenStream</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="xlwt.ExcelFormulaLexer.html#Lexer">Lexer</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Lexer">class <strong>Lexer</strong></a>(<a href="xlwt.antlr.html#TokenStream">xlwt.antlr.TokenStream</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="xlwt.ExcelFormulaLexer.html#Lexer">Lexer</a></dd>
+<dd><a href="xlwt.antlr.html#TokenStream">xlwt.antlr.TokenStream</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Lexer-__init__"><strong>__init__</strong></a>(self, text)</dt></dl>
+
+<dl><dt><a name="Lexer-curr_ch"><strong>curr_ch</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Lexer-isEOF"><strong>isEOF</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Lexer-is_whitespace"><strong>is_whitespace</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Lexer-match_pattern"><strong>match_pattern</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Lexer-nextToken"><strong>nextToken</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Lexer-next_ch"><strong>next_ch</strong></a>(self, n<font color="#909090">=1</font>)</dt></dl>
+
+<hr>
+Methods inherited from <a href="xlwt.antlr.html#TokenStream">xlwt.antlr.TokenStream</a>:<br>
+<dl><dt><a name="Lexer-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="xlwt.antlr.html#TokenStream">xlwt.antlr.TokenStream</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>EOF</strong> = 1<br>
+<strong>IGNORECASE</strong> = 2<br>
+<strong>LOCALE</strong> = 4<br>
+<strong>VERBOSE</strong> = 64<br>
+<strong>choose_pattern</strong> = r'CHOOSE\b'<br>
+<strong>false_pattern</strong> = r'FALSE\b'<br>
+<strong>flt_const_pattern</strong> = '<font color="#c040c0">\n</font>    (?:<font color="#c040c0">\n</font>        (?: <font color="#c040c0">\\</font>d* <font color="#c040c0">\\</font>. <font color="#c040c0">\\</font>d+ ) # .1 .12 .123 ...nal exponent part<font color="#c040c0">\n</font>    (?: [Ee] [+-]? <font color="#c040c0">\\</font>d+ ) ?<font color="#c040c0">\n</font>    '<br>
+<strong>ge_pattern</strong> = '&gt;='<br>
+<strong>i</strong> = ('&lt;=', 18)<br>
+<strong>if_pattern</strong> = r'IF\b'<br>
+<strong>int_const_pattern</strong> = r'\d+\b'<br>
+<strong>le_pattern</strong> = '&lt;='<br>
+<strong>name_pattern</strong> = r'\w[\.\w]*'<br>
+<strong>ne_pattern</strong> = '&lt;&gt;'<br>
+<strong>pattern_type_tuples</strong> = (('<font color="#c040c0">\n</font>    (?:<font color="#c040c0">\n</font>        (?: <font color="#c040c0">\\</font>d* <font color="#c040c0">\\</font>. <font color="#c040c0">\\</font>d+ ) # .1 .12 .123 ...nal exponent part<font color="#c040c0">\n</font>    (?: [Ee] [+-]? <font color="#c040c0">\\</font>d+ ) ?<font color="#c040c0">\n</font>    ', 7), (r'\d+\b', 8), ('"(?:[^"]|"")*"', 6), ('[Rr]0*[1-9][0-9]*[Cc]0*[1-9][0-9]*', 33), (r'\$?[A-I]?[A-Z]\$?0*[1-9][0-9]*', 32), (r'TRUE\b', 4), (r'FALSE\b', 5), (r'IF\b', 9), (r'CHOOSE\b', 10), (r'\w[\.\w]*', 11), ("'(?:[^']|'')*'", 12), ('&lt;&gt;', 14), ('&gt;=', 17), ('&lt;=', 18))<br>
+<strong>quotename_pattern</strong> = "'(?:[^']|'')*'"<br>
+<strong>ref2d_pattern</strong> = r'\$?[A-I]?[A-Z]\$?0*[1-9][0-9]*'<br>
+<strong>ref2d_r1c1_pattern</strong> = '[Rr]0*[1-9][0-9]*[Cc]0*[1-9][0-9]*'<br>
+<strong>single_char_lookup</strong> = {'!': 34, '%': 24, '&amp;': 35, '(': 25, ')': 26, '*': 21, '+': 19, ',': 30, '-': 20, '/': 22, ...}<br>
+<strong>str_const_pattern</strong> = '"(?:[^"]|"")*"'<br>
+<strong>true_pattern</strong> = r'TRUE\b'</td></tr></table>
+</body></html>

@@ -1,0 +1,969 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package logging</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>logging</strong></big></big> (version 0.5.1.2, 07 February 2010)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/__init__.py">/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/__init__.py</a></font></td></tr></table>
+    <p><tt>Logging&nbsp;package&nbsp;for&nbsp;Python.&nbsp;Based&nbsp;on&nbsp;<a href="http://www.python.org/dev/peps/pep-0282/">PEP&nbsp;282</a>&nbsp;and&nbsp;comments&nbsp;thereto&nbsp;in<br>
+comp.lang.python.<br>
+&nbsp;<br>
+Copyright&nbsp;(C)&nbsp;2001-2012&nbsp;Vinay&nbsp;Sajip.&nbsp;All&nbsp;Rights&nbsp;Reserved.<br>
+&nbsp;<br>
+To&nbsp;use,&nbsp;simply&nbsp;'import&nbsp;logging'&nbsp;and&nbsp;log&nbsp;away!</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.config.html">config</a><br>
+</td><td width="25%" valign=top><a href="logging.handlers.html">handlers</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="logging.html#BufferingFormatter">BufferingFormatter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="logging.html#Filter">Filter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="logging.html#Formatter">Formatter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="logging.html#LogRecord">LogRecord</a>
+</font></dt><dt><font face="helvetica, arial"><a href="logging.html#LoggerAdapter">LoggerAdapter</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="logging.html#Filterer">Filterer</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="logging.html#Handler">Handler</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="logging.html#NullHandler">NullHandler</a>
+</font></dt><dt><font face="helvetica, arial"><a href="logging.html#StreamHandler">StreamHandler</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="logging.html#FileHandler">FileHandler</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="logging.html#Logger">Logger</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BufferingFormatter">class <strong>BufferingFormatter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;formatter&nbsp;suitable&nbsp;for&nbsp;formatting&nbsp;a&nbsp;number&nbsp;of&nbsp;records.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BufferingFormatter-__init__"><strong>__init__</strong></a>(self, linefmt<font color="#909090">=None</font>)</dt><dd><tt>Optionally&nbsp;specify&nbsp;a&nbsp;formatter&nbsp;which&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;format&nbsp;each<br>
+individual&nbsp;record.</tt></dd></dl>
+
+<dl><dt><a name="BufferingFormatter-format"><strong>format</strong></a>(self, records)</dt><dd><tt>Format&nbsp;the&nbsp;specified&nbsp;records&nbsp;and&nbsp;return&nbsp;the&nbsp;result&nbsp;as&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="BufferingFormatter-formatFooter"><strong>formatFooter</strong></a>(self, records)</dt><dd><tt>Return&nbsp;the&nbsp;footer&nbsp;string&nbsp;for&nbsp;the&nbsp;specified&nbsp;records.</tt></dd></dl>
+
+<dl><dt><a name="BufferingFormatter-formatHeader"><strong>formatHeader</strong></a>(self, records)</dt><dd><tt>Return&nbsp;the&nbsp;header&nbsp;string&nbsp;for&nbsp;the&nbsp;specified&nbsp;records.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FileHandler">class <strong>FileHandler</strong></a>(<a href="logging.html#StreamHandler">StreamHandler</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;handler&nbsp;class&nbsp;which&nbsp;writes&nbsp;formatted&nbsp;logging&nbsp;records&nbsp;to&nbsp;disk&nbsp;files.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="logging.html#FileHandler">FileHandler</a></dd>
+<dd><a href="logging.html#StreamHandler">StreamHandler</a></dd>
+<dd><a href="logging.html#Handler">Handler</a></dd>
+<dd><a href="logging.html#Filterer">Filterer</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FileHandler-__init__"><strong>__init__</strong></a>(self, filename, mode<font color="#909090">='a'</font>, encoding<font color="#909090">=None</font>, delay<font color="#909090">=0</font>)</dt><dd><tt>Open&nbsp;the&nbsp;specified&nbsp;file&nbsp;and&nbsp;use&nbsp;it&nbsp;as&nbsp;the&nbsp;stream&nbsp;for&nbsp;logging.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-close"><strong>close</strong></a>(self)</dt><dd><tt>Closes&nbsp;the&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-emit"><strong>emit</strong></a>(self, record)</dt><dd><tt>Emit&nbsp;a&nbsp;record.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;stream&nbsp;was&nbsp;not&nbsp;opened&nbsp;because&nbsp;'delay'&nbsp;was&nbsp;specified&nbsp;in&nbsp;the<br>
+constructor,&nbsp;open&nbsp;it&nbsp;before&nbsp;calling&nbsp;the&nbsp;superclass's&nbsp;emit.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="logging.html#StreamHandler">StreamHandler</a>:<br>
+<dl><dt><a name="FileHandler-flush"><strong>flush</strong></a>(self)</dt><dd><tt>Flushes&nbsp;the&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="logging.html#Handler">Handler</a>:<br>
+<dl><dt><a name="FileHandler-acquire"><strong>acquire</strong></a>(self)</dt><dd><tt>Acquire&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-createLock"><strong>createLock</strong></a>(self)</dt><dd><tt>Acquire&nbsp;a&nbsp;thread&nbsp;lock&nbsp;for&nbsp;serializing&nbsp;access&nbsp;to&nbsp;the&nbsp;underlying&nbsp;I/O.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-format"><strong>format</strong></a>(self, record)</dt><dd><tt>Format&nbsp;the&nbsp;specified&nbsp;record.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;formatter&nbsp;is&nbsp;set,&nbsp;use&nbsp;it.&nbsp;Otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;formatter<br>
+for&nbsp;the&nbsp;module.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-get_name"><strong>get_name</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FileHandler-handle"><strong>handle</strong></a>(self, record)</dt><dd><tt>Conditionally&nbsp;emit&nbsp;the&nbsp;specified&nbsp;logging&nbsp;record.<br>
+&nbsp;<br>
+Emission&nbsp;depends&nbsp;on&nbsp;filters&nbsp;which&nbsp;may&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;the&nbsp;handler.<br>
+Wrap&nbsp;the&nbsp;actual&nbsp;emission&nbsp;of&nbsp;the&nbsp;record&nbsp;with&nbsp;acquisition/release&nbsp;of<br>
+the&nbsp;I/O&nbsp;thread&nbsp;lock.&nbsp;Returns&nbsp;whether&nbsp;the&nbsp;filter&nbsp;passed&nbsp;the&nbsp;record&nbsp;for<br>
+emission.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-handleError"><strong>handleError</strong></a>(self, record)</dt><dd><tt>Handle&nbsp;errors&nbsp;which&nbsp;occur&nbsp;during&nbsp;an&nbsp;<a href="#FileHandler-emit">emit</a>()&nbsp;call.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;from&nbsp;handlers&nbsp;when&nbsp;an&nbsp;exception&nbsp;is<br>
+encountered&nbsp;during&nbsp;an&nbsp;<a href="#FileHandler-emit">emit</a>()&nbsp;call.&nbsp;If&nbsp;raiseExceptions&nbsp;is&nbsp;false,<br>
+exceptions&nbsp;get&nbsp;silently&nbsp;ignored.&nbsp;This&nbsp;is&nbsp;what&nbsp;is&nbsp;mostly&nbsp;wanted<br>
+for&nbsp;a&nbsp;logging&nbsp;system&nbsp;-&nbsp;most&nbsp;users&nbsp;will&nbsp;not&nbsp;care&nbsp;about&nbsp;errors&nbsp;in<br>
+the&nbsp;logging&nbsp;system,&nbsp;they&nbsp;are&nbsp;more&nbsp;interested&nbsp;in&nbsp;application&nbsp;errors.<br>
+You&nbsp;could,&nbsp;however,&nbsp;replace&nbsp;this&nbsp;with&nbsp;a&nbsp;custom&nbsp;handler&nbsp;if&nbsp;you&nbsp;wish.<br>
+The&nbsp;record&nbsp;which&nbsp;was&nbsp;being&nbsp;processed&nbsp;is&nbsp;passed&nbsp;in&nbsp;to&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-release"><strong>release</strong></a>(self)</dt><dd><tt>Release&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-setFormatter"><strong>setFormatter</strong></a>(self, fmt)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;for&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-setLevel"><strong>setLevel</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;logging&nbsp;level&nbsp;of&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Handler">Handler</a>:<br>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><a name="FileHandler-addFilter"><strong>addFilter</strong></a>(self, filter)</dt><dd><tt>Add&nbsp;the&nbsp;specified&nbsp;filter&nbsp;to&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-filter"><strong>filter</strong></a>(self, record)</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;record&nbsp;is&nbsp;loggable&nbsp;by&nbsp;consulting&nbsp;all&nbsp;the&nbsp;filters.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;is&nbsp;to&nbsp;allow&nbsp;the&nbsp;record&nbsp;to&nbsp;be&nbsp;logged;&nbsp;any&nbsp;filter&nbsp;can&nbsp;veto<br>
+this&nbsp;and&nbsp;the&nbsp;record&nbsp;is&nbsp;then&nbsp;dropped.&nbsp;Returns&nbsp;a&nbsp;zero&nbsp;value&nbsp;if&nbsp;a&nbsp;record<br>
+is&nbsp;to&nbsp;be&nbsp;dropped,&nbsp;else&nbsp;non-zero.</tt></dd></dl>
+
+<dl><dt><a name="FileHandler-removeFilter"><strong>removeFilter</strong></a>(self, filter)</dt><dd><tt>Remove&nbsp;the&nbsp;specified&nbsp;filter&nbsp;from&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Filter">class <strong>Filter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Filter">Filter</a>&nbsp;instances&nbsp;are&nbsp;used&nbsp;to&nbsp;perform&nbsp;arbitrary&nbsp;filtering&nbsp;of&nbsp;LogRecords.<br>
+&nbsp;<br>
+Loggers&nbsp;and&nbsp;Handlers&nbsp;can&nbsp;optionally&nbsp;use&nbsp;<a href="#Filter">Filter</a>&nbsp;instances&nbsp;to&nbsp;filter<br>
+records&nbsp;as&nbsp;desired.&nbsp;The&nbsp;base&nbsp;filter&nbsp;class&nbsp;only&nbsp;allows&nbsp;events&nbsp;which&nbsp;are<br>
+below&nbsp;a&nbsp;certain&nbsp;point&nbsp;in&nbsp;the&nbsp;logger&nbsp;hierarchy.&nbsp;For&nbsp;example,&nbsp;a&nbsp;filter<br>
+initialized&nbsp;with&nbsp;"A.B"&nbsp;will&nbsp;allow&nbsp;events&nbsp;logged&nbsp;by&nbsp;loggers&nbsp;"A.B",<br>
+"A.B.C",&nbsp;"A.B.C.D",&nbsp;"A.B.D"&nbsp;etc.&nbsp;but&nbsp;not&nbsp;"A.BB",&nbsp;"B.A.B"&nbsp;etc.&nbsp;If<br>
+initialized&nbsp;with&nbsp;the&nbsp;empty&nbsp;string,&nbsp;all&nbsp;events&nbsp;are&nbsp;passed.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Filter-__init__"><strong>__init__</strong></a>(self, name<font color="#909090">=''</font>)</dt><dd><tt>Initialize&nbsp;a&nbsp;filter.<br>
+&nbsp;<br>
+Initialize&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;logger&nbsp;which,&nbsp;together&nbsp;with&nbsp;its<br>
+children,&nbsp;will&nbsp;have&nbsp;its&nbsp;events&nbsp;allowed&nbsp;through&nbsp;the&nbsp;filter.&nbsp;If&nbsp;no<br>
+name&nbsp;is&nbsp;specified,&nbsp;allow&nbsp;every&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="Filter-filter"><strong>filter</strong></a>(self, record)</dt><dd><tt>Determine&nbsp;if&nbsp;the&nbsp;specified&nbsp;record&nbsp;is&nbsp;to&nbsp;be&nbsp;logged.<br>
+&nbsp;<br>
+Is&nbsp;the&nbsp;specified&nbsp;record&nbsp;to&nbsp;be&nbsp;logged?&nbsp;Returns&nbsp;0&nbsp;for&nbsp;no,&nbsp;nonzero&nbsp;for<br>
+yes.&nbsp;If&nbsp;deemed&nbsp;appropriate,&nbsp;the&nbsp;record&nbsp;may&nbsp;be&nbsp;modified&nbsp;in-place.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Formatter">class <strong>Formatter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Formatter">Formatter</a>&nbsp;instances&nbsp;are&nbsp;used&nbsp;to&nbsp;convert&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;to&nbsp;text.<br>
+&nbsp;<br>
+Formatters&nbsp;need&nbsp;to&nbsp;know&nbsp;how&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;is&nbsp;constructed.&nbsp;They&nbsp;are<br>
+responsible&nbsp;for&nbsp;converting&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;to&nbsp;(usually)&nbsp;a&nbsp;string&nbsp;which&nbsp;can<br>
+be&nbsp;interpreted&nbsp;by&nbsp;either&nbsp;a&nbsp;human&nbsp;or&nbsp;an&nbsp;external&nbsp;system.&nbsp;The&nbsp;base&nbsp;<a href="#Formatter">Formatter</a><br>
+allows&nbsp;a&nbsp;formatting&nbsp;string&nbsp;to&nbsp;be&nbsp;specified.&nbsp;If&nbsp;none&nbsp;is&nbsp;supplied,&nbsp;the<br>
+default&nbsp;value&nbsp;of&nbsp;"%s(message)\n"&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+The&nbsp;<a href="#Formatter">Formatter</a>&nbsp;can&nbsp;be&nbsp;initialized&nbsp;with&nbsp;a&nbsp;format&nbsp;string&nbsp;which&nbsp;makes&nbsp;use&nbsp;of<br>
+knowledge&nbsp;of&nbsp;the&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;attributes&nbsp;-&nbsp;e.g.&nbsp;the&nbsp;default&nbsp;value&nbsp;mentioned<br>
+above&nbsp;makes&nbsp;use&nbsp;of&nbsp;the&nbsp;fact&nbsp;that&nbsp;the&nbsp;user's&nbsp;message&nbsp;and&nbsp;arguments&nbsp;are&nbsp;pre-<br>
+formatted&nbsp;into&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a>'s&nbsp;message&nbsp;attribute.&nbsp;Currently,&nbsp;the&nbsp;useful<br>
+attributes&nbsp;in&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;are&nbsp;described&nbsp;by:<br>
+&nbsp;<br>
+%(name)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;of&nbsp;the&nbsp;logger&nbsp;(logging&nbsp;channel)<br>
+%(levelno)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numeric&nbsp;logging&nbsp;level&nbsp;for&nbsp;the&nbsp;message&nbsp;(DEBUG,&nbsp;INFO,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WARNING,&nbsp;ERROR,&nbsp;CRITICAL)<br>
+%(levelname)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text&nbsp;logging&nbsp;level&nbsp;for&nbsp;the&nbsp;message&nbsp;("DEBUG",&nbsp;"INFO",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"WARNING",&nbsp;"ERROR",&nbsp;"CRITICAL")<br>
+%(pathname)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Full&nbsp;pathname&nbsp;of&nbsp;the&nbsp;source&nbsp;file&nbsp;where&nbsp;the&nbsp;logging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;was&nbsp;issued&nbsp;(if&nbsp;available)<br>
+%(filename)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filename&nbsp;portion&nbsp;of&nbsp;pathname<br>
+%(module)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Module&nbsp;(name&nbsp;portion&nbsp;of&nbsp;filename)<br>
+%(lineno)d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Source&nbsp;line&nbsp;number&nbsp;where&nbsp;the&nbsp;logging&nbsp;call&nbsp;was&nbsp;issued<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if&nbsp;available)<br>
+%(funcName)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Function&nbsp;name<br>
+%(created)f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time&nbsp;when&nbsp;the&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;was&nbsp;created&nbsp;(time.time()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;value)<br>
+%(asctime)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Textual&nbsp;time&nbsp;when&nbsp;the&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;was&nbsp;created<br>
+%(msecs)d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Millisecond&nbsp;portion&nbsp;of&nbsp;the&nbsp;creation&nbsp;time<br>
+%(relativeCreated)d&nbsp;Time&nbsp;in&nbsp;milliseconds&nbsp;when&nbsp;the&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;was&nbsp;created,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relative&nbsp;to&nbsp;the&nbsp;time&nbsp;the&nbsp;logging&nbsp;module&nbsp;was&nbsp;loaded<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(typically&nbsp;at&nbsp;application&nbsp;startup&nbsp;time)<br>
+%(thread)d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread&nbsp;ID&nbsp;(if&nbsp;available)<br>
+%(threadName)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread&nbsp;name&nbsp;(if&nbsp;available)<br>
+%(process)d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Process&nbsp;ID&nbsp;(if&nbsp;available)<br>
+%(message)s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;result&nbsp;of&nbsp;record.getMessage(),&nbsp;computed&nbsp;just&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;record&nbsp;is&nbsp;emitted<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Formatter-__init__"><strong>__init__</strong></a>(self, fmt<font color="#909090">=None</font>, datefmt<font color="#909090">=None</font>)</dt><dd><tt>Initialize&nbsp;the&nbsp;formatter&nbsp;with&nbsp;specified&nbsp;format&nbsp;strings.<br>
+&nbsp;<br>
+Initialize&nbsp;the&nbsp;formatter&nbsp;either&nbsp;with&nbsp;the&nbsp;specified&nbsp;format&nbsp;string,&nbsp;or&nbsp;a<br>
+default&nbsp;as&nbsp;described&nbsp;above.&nbsp;Allow&nbsp;for&nbsp;specialized&nbsp;date&nbsp;formatting&nbsp;with<br>
+the&nbsp;optional&nbsp;datefmt&nbsp;argument&nbsp;(if&nbsp;omitted,&nbsp;you&nbsp;get&nbsp;the&nbsp;ISO8601&nbsp;format).</tt></dd></dl>
+
+<dl><dt><a name="Formatter-format"><strong>format</strong></a>(self, record)</dt><dd><tt>Format&nbsp;the&nbsp;specified&nbsp;record&nbsp;as&nbsp;text.<br>
+&nbsp;<br>
+The&nbsp;record's&nbsp;attribute&nbsp;dictionary&nbsp;is&nbsp;used&nbsp;as&nbsp;the&nbsp;operand&nbsp;to&nbsp;a<br>
+string&nbsp;formatting&nbsp;operation&nbsp;which&nbsp;yields&nbsp;the&nbsp;returned&nbsp;string.<br>
+Before&nbsp;formatting&nbsp;the&nbsp;dictionary,&nbsp;a&nbsp;couple&nbsp;of&nbsp;preparatory&nbsp;steps<br>
+are&nbsp;carried&nbsp;out.&nbsp;The&nbsp;message&nbsp;attribute&nbsp;of&nbsp;the&nbsp;record&nbsp;is&nbsp;computed<br>
+using&nbsp;<a href="#LogRecord">LogRecord</a>.getMessage().&nbsp;If&nbsp;the&nbsp;formatting&nbsp;string&nbsp;uses&nbsp;the<br>
+time&nbsp;(as&nbsp;determined&nbsp;by&nbsp;a&nbsp;call&nbsp;to&nbsp;<a href="#Formatter-usesTime">usesTime</a>(),&nbsp;<a href="#Formatter-formatTime">formatTime</a>()&nbsp;is<br>
+called&nbsp;to&nbsp;format&nbsp;the&nbsp;event&nbsp;time.&nbsp;If&nbsp;there&nbsp;is&nbsp;exception&nbsp;information,<br>
+it&nbsp;is&nbsp;formatted&nbsp;using&nbsp;<a href="#Formatter-formatException">formatException</a>()&nbsp;and&nbsp;appended&nbsp;to&nbsp;the&nbsp;message.</tt></dd></dl>
+
+<dl><dt><a name="Formatter-formatException"><strong>formatException</strong></a>(self, ei)</dt><dd><tt>Format&nbsp;and&nbsp;return&nbsp;the&nbsp;specified&nbsp;exception&nbsp;information&nbsp;as&nbsp;a&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;default&nbsp;implementation&nbsp;just&nbsp;uses<br>
+traceback.print_exception()</tt></dd></dl>
+
+<dl><dt><a name="Formatter-formatTime"><strong>formatTime</strong></a>(self, record, datefmt<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;the&nbsp;specified&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;as&nbsp;formatted&nbsp;text.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;from&nbsp;<a href="#Formatter-format">format</a>()&nbsp;by&nbsp;a&nbsp;formatter&nbsp;which<br>
+wants&nbsp;to&nbsp;make&nbsp;use&nbsp;of&nbsp;a&nbsp;formatted&nbsp;time.&nbsp;This&nbsp;method&nbsp;can&nbsp;be&nbsp;overridden<br>
+in&nbsp;formatters&nbsp;to&nbsp;provide&nbsp;for&nbsp;any&nbsp;specific&nbsp;requirement,&nbsp;but&nbsp;the<br>
+basic&nbsp;behaviour&nbsp;is&nbsp;as&nbsp;follows:&nbsp;if&nbsp;datefmt&nbsp;(a&nbsp;string)&nbsp;is&nbsp;specified,<br>
+it&nbsp;is&nbsp;used&nbsp;with&nbsp;time.strftime()&nbsp;to&nbsp;format&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;the<br>
+record.&nbsp;Otherwise,&nbsp;the&nbsp;ISO8601&nbsp;format&nbsp;is&nbsp;used.&nbsp;The&nbsp;resulting<br>
+string&nbsp;is&nbsp;returned.&nbsp;This&nbsp;function&nbsp;uses&nbsp;a&nbsp;user-configurable&nbsp;function<br>
+to&nbsp;convert&nbsp;the&nbsp;creation&nbsp;time&nbsp;to&nbsp;a&nbsp;tuple.&nbsp;By&nbsp;default,&nbsp;time.localtime()<br>
+is&nbsp;used;&nbsp;to&nbsp;change&nbsp;this&nbsp;for&nbsp;a&nbsp;particular&nbsp;formatter&nbsp;instance,&nbsp;set&nbsp;the<br>
+'converter'&nbsp;attribute&nbsp;to&nbsp;a&nbsp;function&nbsp;with&nbsp;the&nbsp;same&nbsp;signature&nbsp;as<br>
+time.localtime()&nbsp;or&nbsp;time.gmtime().&nbsp;To&nbsp;change&nbsp;it&nbsp;for&nbsp;all&nbsp;formatters,<br>
+for&nbsp;example&nbsp;if&nbsp;you&nbsp;want&nbsp;all&nbsp;logging&nbsp;times&nbsp;to&nbsp;be&nbsp;shown&nbsp;in&nbsp;GMT,<br>
+set&nbsp;the&nbsp;'converter'&nbsp;attribute&nbsp;in&nbsp;the&nbsp;<a href="#Formatter">Formatter</a>&nbsp;class.</tt></dd></dl>
+
+<dl><dt><a name="Formatter-usesTime"><strong>usesTime</strong></a>(self)</dt><dd><tt>Check&nbsp;if&nbsp;the&nbsp;format&nbsp;uses&nbsp;the&nbsp;creation&nbsp;time&nbsp;of&nbsp;the&nbsp;record.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>converter</strong> = &lt;built-in function localtime&gt;<dd><tt>localtime([seconds])&nbsp;-&gt;&nbsp;(tm_year,tm_mon,tm_mday,tm_hour,tm_min,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tm_sec,tm_wday,tm_yday,tm_isdst)<br>
+&nbsp;<br>
+Convert&nbsp;seconds&nbsp;since&nbsp;the&nbsp;Epoch&nbsp;to&nbsp;a&nbsp;time&nbsp;tuple&nbsp;expressing&nbsp;local&nbsp;time.<br>
+When&nbsp;'seconds'&nbsp;is&nbsp;not&nbsp;passed&nbsp;in,&nbsp;convert&nbsp;the&nbsp;current&nbsp;time&nbsp;instead.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Handler">class <strong>Handler</strong></a>(<a href="logging.html#Filterer">Filterer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Handler">Handler</a>&nbsp;instances&nbsp;dispatch&nbsp;logging&nbsp;events&nbsp;to&nbsp;specific&nbsp;destinations.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;handler&nbsp;class.&nbsp;Acts&nbsp;as&nbsp;a&nbsp;placeholder&nbsp;which&nbsp;defines&nbsp;the&nbsp;<a href="#Handler">Handler</a><br>
+interface.&nbsp;Handlers&nbsp;can&nbsp;optionally&nbsp;use&nbsp;<a href="#Formatter">Formatter</a>&nbsp;instances&nbsp;to&nbsp;format<br>
+records&nbsp;as&nbsp;desired.&nbsp;By&nbsp;default,&nbsp;no&nbsp;formatter&nbsp;is&nbsp;specified;&nbsp;in&nbsp;this&nbsp;case,<br>
+the&nbsp;'raw'&nbsp;message&nbsp;as&nbsp;determined&nbsp;by&nbsp;record.message&nbsp;is&nbsp;logged.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="logging.html#Handler">Handler</a></dd>
+<dd><a href="logging.html#Filterer">Filterer</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Handler-__init__"><strong>__init__</strong></a>(self, level<font color="#909090">=0</font>)</dt><dd><tt>Initializes&nbsp;the&nbsp;instance&nbsp;-&nbsp;basically&nbsp;setting&nbsp;the&nbsp;formatter&nbsp;to&nbsp;None<br>
+and&nbsp;the&nbsp;filter&nbsp;list&nbsp;to&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="Handler-acquire"><strong>acquire</strong></a>(self)</dt><dd><tt>Acquire&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="Handler-close"><strong>close</strong></a>(self)</dt><dd><tt>Tidy&nbsp;up&nbsp;any&nbsp;resources&nbsp;used&nbsp;by&nbsp;the&nbsp;handler.<br>
+&nbsp;<br>
+This&nbsp;version&nbsp;removes&nbsp;the&nbsp;handler&nbsp;from&nbsp;an&nbsp;internal&nbsp;map&nbsp;of&nbsp;handlers,<br>
+_handlers,&nbsp;which&nbsp;is&nbsp;used&nbsp;for&nbsp;handler&nbsp;lookup&nbsp;by&nbsp;name.&nbsp;Subclasses<br>
+should&nbsp;ensure&nbsp;that&nbsp;this&nbsp;gets&nbsp;called&nbsp;from&nbsp;overridden&nbsp;<a href="#Handler-close">close</a>()<br>
+methods.</tt></dd></dl>
+
+<dl><dt><a name="Handler-createLock"><strong>createLock</strong></a>(self)</dt><dd><tt>Acquire&nbsp;a&nbsp;thread&nbsp;lock&nbsp;for&nbsp;serializing&nbsp;access&nbsp;to&nbsp;the&nbsp;underlying&nbsp;I/O.</tt></dd></dl>
+
+<dl><dt><a name="Handler-emit"><strong>emit</strong></a>(self, record)</dt><dd><tt>Do&nbsp;whatever&nbsp;it&nbsp;takes&nbsp;to&nbsp;actually&nbsp;log&nbsp;the&nbsp;specified&nbsp;logging&nbsp;record.<br>
+&nbsp;<br>
+This&nbsp;version&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;implemented&nbsp;by&nbsp;subclasses&nbsp;and&nbsp;so<br>
+raises&nbsp;a&nbsp;NotImplementedError.</tt></dd></dl>
+
+<dl><dt><a name="Handler-flush"><strong>flush</strong></a>(self)</dt><dd><tt>Ensure&nbsp;all&nbsp;logging&nbsp;output&nbsp;has&nbsp;been&nbsp;flushed.<br>
+&nbsp;<br>
+This&nbsp;version&nbsp;does&nbsp;nothing&nbsp;and&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;implemented&nbsp;by<br>
+subclasses.</tt></dd></dl>
+
+<dl><dt><a name="Handler-format"><strong>format</strong></a>(self, record)</dt><dd><tt>Format&nbsp;the&nbsp;specified&nbsp;record.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;formatter&nbsp;is&nbsp;set,&nbsp;use&nbsp;it.&nbsp;Otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;formatter<br>
+for&nbsp;the&nbsp;module.</tt></dd></dl>
+
+<dl><dt><a name="Handler-get_name"><strong>get_name</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Handler-handle"><strong>handle</strong></a>(self, record)</dt><dd><tt>Conditionally&nbsp;emit&nbsp;the&nbsp;specified&nbsp;logging&nbsp;record.<br>
+&nbsp;<br>
+Emission&nbsp;depends&nbsp;on&nbsp;filters&nbsp;which&nbsp;may&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;the&nbsp;handler.<br>
+Wrap&nbsp;the&nbsp;actual&nbsp;emission&nbsp;of&nbsp;the&nbsp;record&nbsp;with&nbsp;acquisition/release&nbsp;of<br>
+the&nbsp;I/O&nbsp;thread&nbsp;lock.&nbsp;Returns&nbsp;whether&nbsp;the&nbsp;filter&nbsp;passed&nbsp;the&nbsp;record&nbsp;for<br>
+emission.</tt></dd></dl>
+
+<dl><dt><a name="Handler-handleError"><strong>handleError</strong></a>(self, record)</dt><dd><tt>Handle&nbsp;errors&nbsp;which&nbsp;occur&nbsp;during&nbsp;an&nbsp;<a href="#Handler-emit">emit</a>()&nbsp;call.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;from&nbsp;handlers&nbsp;when&nbsp;an&nbsp;exception&nbsp;is<br>
+encountered&nbsp;during&nbsp;an&nbsp;<a href="#Handler-emit">emit</a>()&nbsp;call.&nbsp;If&nbsp;raiseExceptions&nbsp;is&nbsp;false,<br>
+exceptions&nbsp;get&nbsp;silently&nbsp;ignored.&nbsp;This&nbsp;is&nbsp;what&nbsp;is&nbsp;mostly&nbsp;wanted<br>
+for&nbsp;a&nbsp;logging&nbsp;system&nbsp;-&nbsp;most&nbsp;users&nbsp;will&nbsp;not&nbsp;care&nbsp;about&nbsp;errors&nbsp;in<br>
+the&nbsp;logging&nbsp;system,&nbsp;they&nbsp;are&nbsp;more&nbsp;interested&nbsp;in&nbsp;application&nbsp;errors.<br>
+You&nbsp;could,&nbsp;however,&nbsp;replace&nbsp;this&nbsp;with&nbsp;a&nbsp;custom&nbsp;handler&nbsp;if&nbsp;you&nbsp;wish.<br>
+The&nbsp;record&nbsp;which&nbsp;was&nbsp;being&nbsp;processed&nbsp;is&nbsp;passed&nbsp;in&nbsp;to&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Handler-release"><strong>release</strong></a>(self)</dt><dd><tt>Release&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="Handler-setFormatter"><strong>setFormatter</strong></a>(self, fmt)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;for&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="Handler-setLevel"><strong>setLevel</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;logging&nbsp;level&nbsp;of&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="Handler-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><a name="Handler-addFilter"><strong>addFilter</strong></a>(self, filter)</dt><dd><tt>Add&nbsp;the&nbsp;specified&nbsp;filter&nbsp;to&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="Handler-filter"><strong>filter</strong></a>(self, record)</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;record&nbsp;is&nbsp;loggable&nbsp;by&nbsp;consulting&nbsp;all&nbsp;the&nbsp;filters.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;is&nbsp;to&nbsp;allow&nbsp;the&nbsp;record&nbsp;to&nbsp;be&nbsp;logged;&nbsp;any&nbsp;filter&nbsp;can&nbsp;veto<br>
+this&nbsp;and&nbsp;the&nbsp;record&nbsp;is&nbsp;then&nbsp;dropped.&nbsp;Returns&nbsp;a&nbsp;zero&nbsp;value&nbsp;if&nbsp;a&nbsp;record<br>
+is&nbsp;to&nbsp;be&nbsp;dropped,&nbsp;else&nbsp;non-zero.</tt></dd></dl>
+
+<dl><dt><a name="Handler-removeFilter"><strong>removeFilter</strong></a>(self, filter)</dt><dd><tt>Remove&nbsp;the&nbsp;specified&nbsp;filter&nbsp;from&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LogRecord">class <strong>LogRecord</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;instance&nbsp;represents&nbsp;an&nbsp;event&nbsp;being&nbsp;logged.<br>
+&nbsp;<br>
+<a href="#LogRecord">LogRecord</a>&nbsp;instances&nbsp;are&nbsp;created&nbsp;every&nbsp;time&nbsp;something&nbsp;is&nbsp;logged.&nbsp;They<br>
+contain&nbsp;all&nbsp;the&nbsp;information&nbsp;pertinent&nbsp;to&nbsp;the&nbsp;event&nbsp;being&nbsp;logged.&nbsp;The<br>
+main&nbsp;information&nbsp;passed&nbsp;in&nbsp;is&nbsp;in&nbsp;msg&nbsp;and&nbsp;args,&nbsp;which&nbsp;are&nbsp;combined<br>
+using&nbsp;str(msg)&nbsp;%&nbsp;args&nbsp;to&nbsp;create&nbsp;the&nbsp;message&nbsp;field&nbsp;of&nbsp;the&nbsp;record.&nbsp;The<br>
+record&nbsp;also&nbsp;includes&nbsp;information&nbsp;such&nbsp;as&nbsp;when&nbsp;the&nbsp;record&nbsp;was&nbsp;created,<br>
+the&nbsp;source&nbsp;line&nbsp;where&nbsp;the&nbsp;logging&nbsp;call&nbsp;was&nbsp;made,&nbsp;and&nbsp;any&nbsp;exception<br>
+information&nbsp;to&nbsp;be&nbsp;logged.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LogRecord-__init__"><strong>__init__</strong></a>(self, name, level, pathname, lineno, msg, args, exc_info, func<font color="#909090">=None</font>)</dt><dd><tt>Initialize&nbsp;a&nbsp;logging&nbsp;record&nbsp;with&nbsp;interesting&nbsp;information.</tt></dd></dl>
+
+<dl><dt><a name="LogRecord-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LogRecord-getMessage"><strong>getMessage</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;message&nbsp;for&nbsp;this&nbsp;<a href="#LogRecord">LogRecord</a>.<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;message&nbsp;for&nbsp;this&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;after&nbsp;merging&nbsp;any&nbsp;user-supplied<br>
+arguments&nbsp;with&nbsp;the&nbsp;message.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Logger">class <strong>Logger</strong></a>(<a href="logging.html#Filterer">Filterer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Instances&nbsp;of&nbsp;the&nbsp;<a href="#Logger">Logger</a>&nbsp;class&nbsp;represent&nbsp;a&nbsp;single&nbsp;logging&nbsp;channel.&nbsp;A<br>
+"logging&nbsp;channel"&nbsp;indicates&nbsp;an&nbsp;area&nbsp;of&nbsp;an&nbsp;application.&nbsp;Exactly&nbsp;how&nbsp;an<br>
+"area"&nbsp;is&nbsp;defined&nbsp;is&nbsp;up&nbsp;to&nbsp;the&nbsp;application&nbsp;developer.&nbsp;Since&nbsp;an<br>
+application&nbsp;can&nbsp;have&nbsp;any&nbsp;number&nbsp;of&nbsp;areas,&nbsp;logging&nbsp;channels&nbsp;are&nbsp;identified<br>
+by&nbsp;a&nbsp;unique&nbsp;string.&nbsp;Application&nbsp;areas&nbsp;can&nbsp;be&nbsp;nested&nbsp;(e.g.&nbsp;an&nbsp;area<br>
+of&nbsp;"input&nbsp;processing"&nbsp;might&nbsp;include&nbsp;sub-areas&nbsp;"read&nbsp;CSV&nbsp;files",&nbsp;"read<br>
+XLS&nbsp;files"&nbsp;and&nbsp;"read&nbsp;Gnumeric&nbsp;files").&nbsp;To&nbsp;cater&nbsp;for&nbsp;this&nbsp;natural&nbsp;nesting,<br>
+channel&nbsp;names&nbsp;are&nbsp;organized&nbsp;into&nbsp;a&nbsp;namespace&nbsp;hierarchy&nbsp;where&nbsp;levels&nbsp;are<br>
+separated&nbsp;by&nbsp;periods,&nbsp;much&nbsp;like&nbsp;the&nbsp;Java&nbsp;or&nbsp;Python&nbsp;package&nbsp;namespace.&nbsp;So<br>
+in&nbsp;the&nbsp;instance&nbsp;given&nbsp;above,&nbsp;channel&nbsp;names&nbsp;might&nbsp;be&nbsp;"input"&nbsp;for&nbsp;the&nbsp;upper<br>
+level,&nbsp;and&nbsp;"input.csv",&nbsp;"input.xls"&nbsp;and&nbsp;"input.gnu"&nbsp;for&nbsp;the&nbsp;sub-levels.<br>
+There&nbsp;is&nbsp;no&nbsp;arbitrary&nbsp;limit&nbsp;to&nbsp;the&nbsp;depth&nbsp;of&nbsp;nesting.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="logging.html#Logger">Logger</a></dd>
+<dd><a href="logging.html#Filterer">Filterer</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Logger-__init__"><strong>__init__</strong></a>(self, name, level<font color="#909090">=0</font>)</dt><dd><tt>Initialize&nbsp;the&nbsp;logger&nbsp;with&nbsp;a&nbsp;name&nbsp;and&nbsp;an&nbsp;optional&nbsp;level.</tt></dd></dl>
+
+<dl><dt><a name="Logger-addHandler"><strong>addHandler</strong></a>(self, hdlr)</dt><dd><tt>Add&nbsp;the&nbsp;specified&nbsp;handler&nbsp;to&nbsp;this&nbsp;logger.</tt></dd></dl>
+
+<dl><dt><a name="Logger-callHandlers"><strong>callHandlers</strong></a>(self, record)</dt><dd><tt>Pass&nbsp;a&nbsp;record&nbsp;to&nbsp;all&nbsp;relevant&nbsp;handlers.<br>
+&nbsp;<br>
+Loop&nbsp;through&nbsp;all&nbsp;handlers&nbsp;for&nbsp;this&nbsp;logger&nbsp;and&nbsp;its&nbsp;parents&nbsp;in&nbsp;the<br>
+logger&nbsp;hierarchy.&nbsp;If&nbsp;no&nbsp;handler&nbsp;was&nbsp;found,&nbsp;output&nbsp;a&nbsp;one-off&nbsp;error<br>
+message&nbsp;to&nbsp;sys.stderr.&nbsp;Stop&nbsp;searching&nbsp;up&nbsp;the&nbsp;hierarchy&nbsp;whenever&nbsp;a<br>
+logger&nbsp;with&nbsp;the&nbsp;"propagate"&nbsp;attribute&nbsp;set&nbsp;to&nbsp;zero&nbsp;is&nbsp;found&nbsp;-&nbsp;that<br>
+will&nbsp;be&nbsp;the&nbsp;last&nbsp;logger&nbsp;whose&nbsp;handlers&nbsp;are&nbsp;called.</tt></dd></dl>
+
+<dl><dt><a name="Logger-critical"><strong>critical</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;severity&nbsp;'CRITICAL'.<br>
+&nbsp;<br>
+To&nbsp;pass&nbsp;exception&nbsp;information,&nbsp;use&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;exc_info&nbsp;with<br>
+a&nbsp;true&nbsp;value,&nbsp;e.g.<br>
+&nbsp;<br>
+logger.<a href="#Logger-critical">critical</a>("Houston,&nbsp;we&nbsp;have&nbsp;a&nbsp;%s",&nbsp;"major&nbsp;disaster",&nbsp;exc_info=1)</tt></dd></dl>
+
+<dl><dt><a name="Logger-debug"><strong>debug</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;severity&nbsp;'DEBUG'.<br>
+&nbsp;<br>
+To&nbsp;pass&nbsp;exception&nbsp;information,&nbsp;use&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;exc_info&nbsp;with<br>
+a&nbsp;true&nbsp;value,&nbsp;e.g.<br>
+&nbsp;<br>
+logger.<a href="#Logger-debug">debug</a>("Houston,&nbsp;we&nbsp;have&nbsp;a&nbsp;%s",&nbsp;"thorny&nbsp;problem",&nbsp;exc_info=1)</tt></dd></dl>
+
+<dl><dt><a name="Logger-error"><strong>error</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;severity&nbsp;'ERROR'.<br>
+&nbsp;<br>
+To&nbsp;pass&nbsp;exception&nbsp;information,&nbsp;use&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;exc_info&nbsp;with<br>
+a&nbsp;true&nbsp;value,&nbsp;e.g.<br>
+&nbsp;<br>
+logger.<a href="#Logger-error">error</a>("Houston,&nbsp;we&nbsp;have&nbsp;a&nbsp;%s",&nbsp;"major&nbsp;problem",&nbsp;exc_info=1)</tt></dd></dl>
+
+<dl><dt><a name="Logger-exception"><strong>exception</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Convenience&nbsp;method&nbsp;for&nbsp;logging&nbsp;an&nbsp;ERROR&nbsp;with&nbsp;exception&nbsp;information.</tt></dd></dl>
+
+<dl><dt><a name="Logger-fatal"><strong>fatal</strong></a> = <a href="#Logger-critical">critical</a>(self, msg, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Logger-findCaller"><strong>findCaller</strong></a>(self)</dt><dd><tt>Find&nbsp;the&nbsp;stack&nbsp;frame&nbsp;of&nbsp;the&nbsp;caller&nbsp;so&nbsp;that&nbsp;we&nbsp;can&nbsp;note&nbsp;the&nbsp;source<br>
+file&nbsp;name,&nbsp;line&nbsp;number&nbsp;and&nbsp;function&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="Logger-getChild"><strong>getChild</strong></a>(self, suffix)</dt><dd><tt>Get&nbsp;a&nbsp;logger&nbsp;which&nbsp;is&nbsp;a&nbsp;descendant&nbsp;to&nbsp;this&nbsp;one.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;a&nbsp;convenience&nbsp;method,&nbsp;such&nbsp;that<br>
+&nbsp;<br>
+logging.<a href="#-getLogger">getLogger</a>('abc').<a href="#Logger-getChild">getChild</a>('def.ghi')<br>
+&nbsp;<br>
+is&nbsp;the&nbsp;same&nbsp;as<br>
+&nbsp;<br>
+logging.<a href="#-getLogger">getLogger</a>('abc.def.ghi')<br>
+&nbsp;<br>
+It's&nbsp;useful,&nbsp;for&nbsp;example,&nbsp;when&nbsp;the&nbsp;parent&nbsp;logger&nbsp;is&nbsp;named&nbsp;using<br>
+__name__&nbsp;rather&nbsp;than&nbsp;a&nbsp;literal&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="Logger-getEffectiveLevel"><strong>getEffectiveLevel</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;effective&nbsp;level&nbsp;for&nbsp;this&nbsp;logger.<br>
+&nbsp;<br>
+Loop&nbsp;through&nbsp;this&nbsp;logger&nbsp;and&nbsp;its&nbsp;parents&nbsp;in&nbsp;the&nbsp;logger&nbsp;hierarchy,<br>
+looking&nbsp;for&nbsp;a&nbsp;non-zero&nbsp;logging&nbsp;level.&nbsp;Return&nbsp;the&nbsp;first&nbsp;one&nbsp;found.</tt></dd></dl>
+
+<dl><dt><a name="Logger-handle"><strong>handle</strong></a>(self, record)</dt><dd><tt>Call&nbsp;the&nbsp;handlers&nbsp;for&nbsp;the&nbsp;specified&nbsp;record.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;used&nbsp;for&nbsp;unpickled&nbsp;records&nbsp;received&nbsp;from&nbsp;a&nbsp;socket,&nbsp;as<br>
+well&nbsp;as&nbsp;those&nbsp;created&nbsp;locally.&nbsp;<a href="#Logger">Logger</a>-level&nbsp;filtering&nbsp;is&nbsp;applied.</tt></dd></dl>
+
+<dl><dt><a name="Logger-info"><strong>info</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;severity&nbsp;'INFO'.<br>
+&nbsp;<br>
+To&nbsp;pass&nbsp;exception&nbsp;information,&nbsp;use&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;exc_info&nbsp;with<br>
+a&nbsp;true&nbsp;value,&nbsp;e.g.<br>
+&nbsp;<br>
+logger.<a href="#Logger-info">info</a>("Houston,&nbsp;we&nbsp;have&nbsp;a&nbsp;%s",&nbsp;"interesting&nbsp;problem",&nbsp;exc_info=1)</tt></dd></dl>
+
+<dl><dt><a name="Logger-isEnabledFor"><strong>isEnabledFor</strong></a>(self, level)</dt><dd><tt>Is&nbsp;this&nbsp;logger&nbsp;enabled&nbsp;for&nbsp;level&nbsp;'level'?</tt></dd></dl>
+
+<dl><dt><a name="Logger-log"><strong>log</strong></a>(self, level, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;the&nbsp;integer&nbsp;severity&nbsp;'level'.<br>
+&nbsp;<br>
+To&nbsp;pass&nbsp;exception&nbsp;information,&nbsp;use&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;exc_info&nbsp;with<br>
+a&nbsp;true&nbsp;value,&nbsp;e.g.<br>
+&nbsp;<br>
+logger.<a href="#Logger-log">log</a>(level,&nbsp;"We&nbsp;have&nbsp;a&nbsp;%s",&nbsp;"mysterious&nbsp;problem",&nbsp;exc_info=1)</tt></dd></dl>
+
+<dl><dt><a name="Logger-makeRecord"><strong>makeRecord</strong></a>(self, name, level, fn, lno, msg, args, exc_info, func<font color="#909090">=None</font>, extra<font color="#909090">=None</font>)</dt><dd><tt>A&nbsp;factory&nbsp;method&nbsp;which&nbsp;can&nbsp;be&nbsp;overridden&nbsp;in&nbsp;subclasses&nbsp;to&nbsp;create<br>
+specialized&nbsp;LogRecords.</tt></dd></dl>
+
+<dl><dt><a name="Logger-removeHandler"><strong>removeHandler</strong></a>(self, hdlr)</dt><dd><tt>Remove&nbsp;the&nbsp;specified&nbsp;handler&nbsp;from&nbsp;this&nbsp;logger.</tt></dd></dl>
+
+<dl><dt><a name="Logger-setLevel"><strong>setLevel</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;logging&nbsp;level&nbsp;of&nbsp;this&nbsp;logger.</tt></dd></dl>
+
+<dl><dt><a name="Logger-warn"><strong>warn</strong></a> = <a href="#Logger-warning">warning</a>(self, msg, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Logger-warning"><strong>warning</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;severity&nbsp;'WARNING'.<br>
+&nbsp;<br>
+To&nbsp;pass&nbsp;exception&nbsp;information,&nbsp;use&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;exc_info&nbsp;with<br>
+a&nbsp;true&nbsp;value,&nbsp;e.g.<br>
+&nbsp;<br>
+logger.<a href="#Logger-warning">warning</a>("Houston,&nbsp;we&nbsp;have&nbsp;a&nbsp;%s",&nbsp;"bit&nbsp;of&nbsp;a&nbsp;problem",&nbsp;exc_info=1)</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>manager</strong> = &lt;logging.Manager object&gt;</dl>
+
+<dl><dt><strong>root</strong> = &lt;logging.RootLogger object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><a name="Logger-addFilter"><strong>addFilter</strong></a>(self, filter)</dt><dd><tt>Add&nbsp;the&nbsp;specified&nbsp;filter&nbsp;to&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="Logger-filter"><strong>filter</strong></a>(self, record)</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;record&nbsp;is&nbsp;loggable&nbsp;by&nbsp;consulting&nbsp;all&nbsp;the&nbsp;filters.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;is&nbsp;to&nbsp;allow&nbsp;the&nbsp;record&nbsp;to&nbsp;be&nbsp;logged;&nbsp;any&nbsp;filter&nbsp;can&nbsp;veto<br>
+this&nbsp;and&nbsp;the&nbsp;record&nbsp;is&nbsp;then&nbsp;dropped.&nbsp;Returns&nbsp;a&nbsp;zero&nbsp;value&nbsp;if&nbsp;a&nbsp;record<br>
+is&nbsp;to&nbsp;be&nbsp;dropped,&nbsp;else&nbsp;non-zero.</tt></dd></dl>
+
+<dl><dt><a name="Logger-removeFilter"><strong>removeFilter</strong></a>(self, filter)</dt><dd><tt>Remove&nbsp;the&nbsp;specified&nbsp;filter&nbsp;from&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LoggerAdapter">class <strong>LoggerAdapter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;adapter&nbsp;for&nbsp;loggers&nbsp;which&nbsp;makes&nbsp;it&nbsp;easier&nbsp;to&nbsp;specify&nbsp;contextual<br>
+information&nbsp;in&nbsp;logging&nbsp;output.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LoggerAdapter-__init__"><strong>__init__</strong></a>(self, logger, extra)</dt><dd><tt>Initialize&nbsp;the&nbsp;adapter&nbsp;with&nbsp;a&nbsp;logger&nbsp;and&nbsp;a&nbsp;dict-like&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;which<br>
+provides&nbsp;contextual&nbsp;information.&nbsp;This&nbsp;constructor&nbsp;signature&nbsp;allows<br>
+easy&nbsp;stacking&nbsp;of&nbsp;LoggerAdapters,&nbsp;if&nbsp;so&nbsp;desired.<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;effectively&nbsp;pass&nbsp;keyword&nbsp;arguments&nbsp;as&nbsp;shown&nbsp;in&nbsp;the<br>
+following&nbsp;example:<br>
+&nbsp;<br>
+adapter&nbsp;=&nbsp;<a href="#LoggerAdapter">LoggerAdapter</a>(someLogger,&nbsp;dict(p1=v1,&nbsp;p2="v2"))</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-critical"><strong>critical</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;a&nbsp;critical&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-debug"><strong>debug</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;a&nbsp;debug&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-error"><strong>error</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;an&nbsp;error&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-exception"><strong>exception</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;an&nbsp;exception&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-info"><strong>info</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;an&nbsp;info&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-isEnabledFor"><strong>isEnabledFor</strong></a>(self, level)</dt><dd><tt>See&nbsp;if&nbsp;the&nbsp;underlying&nbsp;logger&nbsp;is&nbsp;enabled&nbsp;for&nbsp;the&nbsp;specified&nbsp;level.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-log"><strong>log</strong></a>(self, level, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;a&nbsp;log&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-process"><strong>process</strong></a>(self, msg, kwargs)</dt><dd><tt>Process&nbsp;the&nbsp;logging&nbsp;message&nbsp;and&nbsp;keyword&nbsp;arguments&nbsp;passed&nbsp;in&nbsp;to<br>
+a&nbsp;logging&nbsp;call&nbsp;to&nbsp;insert&nbsp;contextual&nbsp;information.&nbsp;You&nbsp;can&nbsp;either<br>
+manipulate&nbsp;the&nbsp;message&nbsp;itself,&nbsp;the&nbsp;keyword&nbsp;args&nbsp;or&nbsp;both.&nbsp;Return<br>
+the&nbsp;message&nbsp;and&nbsp;kwargs&nbsp;modified&nbsp;(or&nbsp;not)&nbsp;to&nbsp;suit&nbsp;your&nbsp;needs.<br>
+&nbsp;<br>
+Normally,&nbsp;you'll&nbsp;only&nbsp;need&nbsp;to&nbsp;override&nbsp;this&nbsp;one&nbsp;method&nbsp;in&nbsp;a<br>
+<a href="#LoggerAdapter">LoggerAdapter</a>&nbsp;subclass&nbsp;for&nbsp;your&nbsp;specific&nbsp;needs.</tt></dd></dl>
+
+<dl><dt><a name="LoggerAdapter-warning"><strong>warning</strong></a>(self, msg, *args, **kwargs)</dt><dd><tt>Delegate&nbsp;a&nbsp;warning&nbsp;call&nbsp;to&nbsp;the&nbsp;underlying&nbsp;logger,&nbsp;after&nbsp;adding<br>
+contextual&nbsp;information&nbsp;from&nbsp;this&nbsp;adapter&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NullHandler">class <strong>NullHandler</strong></a>(<a href="logging.html#Handler">Handler</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;handler&nbsp;does&nbsp;nothing.&nbsp;It's&nbsp;intended&nbsp;to&nbsp;be&nbsp;used&nbsp;to&nbsp;avoid&nbsp;the<br>
+"No&nbsp;handlers&nbsp;could&nbsp;be&nbsp;found&nbsp;for&nbsp;logger&nbsp;XXX"&nbsp;one-off&nbsp;warning.&nbsp;This&nbsp;is<br>
+important&nbsp;for&nbsp;library&nbsp;code,&nbsp;which&nbsp;may&nbsp;contain&nbsp;code&nbsp;to&nbsp;log&nbsp;events.&nbsp;If&nbsp;a&nbsp;user<br>
+of&nbsp;the&nbsp;library&nbsp;does&nbsp;not&nbsp;configure&nbsp;logging,&nbsp;the&nbsp;one-off&nbsp;warning&nbsp;might&nbsp;be<br>
+produced;&nbsp;to&nbsp;avoid&nbsp;this,&nbsp;the&nbsp;library&nbsp;developer&nbsp;simply&nbsp;needs&nbsp;to&nbsp;instantiate<br>
+a&nbsp;<a href="#NullHandler">NullHandler</a>&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;top-level&nbsp;logger&nbsp;of&nbsp;the&nbsp;library&nbsp;module&nbsp;or<br>
+package.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="logging.html#NullHandler">NullHandler</a></dd>
+<dd><a href="logging.html#Handler">Handler</a></dd>
+<dd><a href="logging.html#Filterer">Filterer</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="NullHandler-createLock"><strong>createLock</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NullHandler-emit"><strong>emit</strong></a>(self, record)</dt></dl>
+
+<dl><dt><a name="NullHandler-handle"><strong>handle</strong></a>(self, record)</dt></dl>
+
+<hr>
+Methods inherited from <a href="logging.html#Handler">Handler</a>:<br>
+<dl><dt><a name="NullHandler-__init__"><strong>__init__</strong></a>(self, level<font color="#909090">=0</font>)</dt><dd><tt>Initializes&nbsp;the&nbsp;instance&nbsp;-&nbsp;basically&nbsp;setting&nbsp;the&nbsp;formatter&nbsp;to&nbsp;None<br>
+and&nbsp;the&nbsp;filter&nbsp;list&nbsp;to&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-acquire"><strong>acquire</strong></a>(self)</dt><dd><tt>Acquire&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-close"><strong>close</strong></a>(self)</dt><dd><tt>Tidy&nbsp;up&nbsp;any&nbsp;resources&nbsp;used&nbsp;by&nbsp;the&nbsp;handler.<br>
+&nbsp;<br>
+This&nbsp;version&nbsp;removes&nbsp;the&nbsp;handler&nbsp;from&nbsp;an&nbsp;internal&nbsp;map&nbsp;of&nbsp;handlers,<br>
+_handlers,&nbsp;which&nbsp;is&nbsp;used&nbsp;for&nbsp;handler&nbsp;lookup&nbsp;by&nbsp;name.&nbsp;Subclasses<br>
+should&nbsp;ensure&nbsp;that&nbsp;this&nbsp;gets&nbsp;called&nbsp;from&nbsp;overridden&nbsp;<a href="#NullHandler-close">close</a>()<br>
+methods.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-flush"><strong>flush</strong></a>(self)</dt><dd><tt>Ensure&nbsp;all&nbsp;logging&nbsp;output&nbsp;has&nbsp;been&nbsp;flushed.<br>
+&nbsp;<br>
+This&nbsp;version&nbsp;does&nbsp;nothing&nbsp;and&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;implemented&nbsp;by<br>
+subclasses.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-format"><strong>format</strong></a>(self, record)</dt><dd><tt>Format&nbsp;the&nbsp;specified&nbsp;record.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;formatter&nbsp;is&nbsp;set,&nbsp;use&nbsp;it.&nbsp;Otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;formatter<br>
+for&nbsp;the&nbsp;module.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-get_name"><strong>get_name</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NullHandler-handleError"><strong>handleError</strong></a>(self, record)</dt><dd><tt>Handle&nbsp;errors&nbsp;which&nbsp;occur&nbsp;during&nbsp;an&nbsp;<a href="#NullHandler-emit">emit</a>()&nbsp;call.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;from&nbsp;handlers&nbsp;when&nbsp;an&nbsp;exception&nbsp;is<br>
+encountered&nbsp;during&nbsp;an&nbsp;<a href="#NullHandler-emit">emit</a>()&nbsp;call.&nbsp;If&nbsp;raiseExceptions&nbsp;is&nbsp;false,<br>
+exceptions&nbsp;get&nbsp;silently&nbsp;ignored.&nbsp;This&nbsp;is&nbsp;what&nbsp;is&nbsp;mostly&nbsp;wanted<br>
+for&nbsp;a&nbsp;logging&nbsp;system&nbsp;-&nbsp;most&nbsp;users&nbsp;will&nbsp;not&nbsp;care&nbsp;about&nbsp;errors&nbsp;in<br>
+the&nbsp;logging&nbsp;system,&nbsp;they&nbsp;are&nbsp;more&nbsp;interested&nbsp;in&nbsp;application&nbsp;errors.<br>
+You&nbsp;could,&nbsp;however,&nbsp;replace&nbsp;this&nbsp;with&nbsp;a&nbsp;custom&nbsp;handler&nbsp;if&nbsp;you&nbsp;wish.<br>
+The&nbsp;record&nbsp;which&nbsp;was&nbsp;being&nbsp;processed&nbsp;is&nbsp;passed&nbsp;in&nbsp;to&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-release"><strong>release</strong></a>(self)</dt><dd><tt>Release&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-setFormatter"><strong>setFormatter</strong></a>(self, fmt)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;for&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-setLevel"><strong>setLevel</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;logging&nbsp;level&nbsp;of&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Handler">Handler</a>:<br>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><a name="NullHandler-addFilter"><strong>addFilter</strong></a>(self, filter)</dt><dd><tt>Add&nbsp;the&nbsp;specified&nbsp;filter&nbsp;to&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-filter"><strong>filter</strong></a>(self, record)</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;record&nbsp;is&nbsp;loggable&nbsp;by&nbsp;consulting&nbsp;all&nbsp;the&nbsp;filters.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;is&nbsp;to&nbsp;allow&nbsp;the&nbsp;record&nbsp;to&nbsp;be&nbsp;logged;&nbsp;any&nbsp;filter&nbsp;can&nbsp;veto<br>
+this&nbsp;and&nbsp;the&nbsp;record&nbsp;is&nbsp;then&nbsp;dropped.&nbsp;Returns&nbsp;a&nbsp;zero&nbsp;value&nbsp;if&nbsp;a&nbsp;record<br>
+is&nbsp;to&nbsp;be&nbsp;dropped,&nbsp;else&nbsp;non-zero.</tt></dd></dl>
+
+<dl><dt><a name="NullHandler-removeFilter"><strong>removeFilter</strong></a>(self, filter)</dt><dd><tt>Remove&nbsp;the&nbsp;specified&nbsp;filter&nbsp;from&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StreamHandler">class <strong>StreamHandler</strong></a>(<a href="logging.html#Handler">Handler</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;handler&nbsp;class&nbsp;which&nbsp;writes&nbsp;logging&nbsp;records,&nbsp;appropriately&nbsp;formatted,<br>
+to&nbsp;a&nbsp;stream.&nbsp;Note&nbsp;that&nbsp;this&nbsp;class&nbsp;does&nbsp;not&nbsp;close&nbsp;the&nbsp;stream,&nbsp;as<br>
+sys.stdout&nbsp;or&nbsp;sys.stderr&nbsp;may&nbsp;be&nbsp;used.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="logging.html#StreamHandler">StreamHandler</a></dd>
+<dd><a href="logging.html#Handler">Handler</a></dd>
+<dd><a href="logging.html#Filterer">Filterer</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="StreamHandler-__init__"><strong>__init__</strong></a>(self, stream<font color="#909090">=None</font>)</dt><dd><tt>Initialize&nbsp;the&nbsp;handler.<br>
+&nbsp;<br>
+If&nbsp;stream&nbsp;is&nbsp;not&nbsp;specified,&nbsp;sys.stderr&nbsp;is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-emit"><strong>emit</strong></a>(self, record)</dt><dd><tt>Emit&nbsp;a&nbsp;record.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;formatter&nbsp;is&nbsp;specified,&nbsp;it&nbsp;is&nbsp;used&nbsp;to&nbsp;format&nbsp;the&nbsp;record.<br>
+The&nbsp;record&nbsp;is&nbsp;then&nbsp;written&nbsp;to&nbsp;the&nbsp;stream&nbsp;with&nbsp;a&nbsp;trailing&nbsp;newline.&nbsp;&nbsp;If<br>
+exception&nbsp;information&nbsp;is&nbsp;present,&nbsp;it&nbsp;is&nbsp;formatted&nbsp;using<br>
+traceback.print_exception&nbsp;and&nbsp;appended&nbsp;to&nbsp;the&nbsp;stream.&nbsp;&nbsp;If&nbsp;the&nbsp;stream<br>
+has&nbsp;an&nbsp;'encoding'&nbsp;attribute,&nbsp;it&nbsp;is&nbsp;used&nbsp;to&nbsp;determine&nbsp;how&nbsp;to&nbsp;do&nbsp;the<br>
+output&nbsp;to&nbsp;the&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-flush"><strong>flush</strong></a>(self)</dt><dd><tt>Flushes&nbsp;the&nbsp;stream.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="logging.html#Handler">Handler</a>:<br>
+<dl><dt><a name="StreamHandler-acquire"><strong>acquire</strong></a>(self)</dt><dd><tt>Acquire&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-close"><strong>close</strong></a>(self)</dt><dd><tt>Tidy&nbsp;up&nbsp;any&nbsp;resources&nbsp;used&nbsp;by&nbsp;the&nbsp;handler.<br>
+&nbsp;<br>
+This&nbsp;version&nbsp;removes&nbsp;the&nbsp;handler&nbsp;from&nbsp;an&nbsp;internal&nbsp;map&nbsp;of&nbsp;handlers,<br>
+_handlers,&nbsp;which&nbsp;is&nbsp;used&nbsp;for&nbsp;handler&nbsp;lookup&nbsp;by&nbsp;name.&nbsp;Subclasses<br>
+should&nbsp;ensure&nbsp;that&nbsp;this&nbsp;gets&nbsp;called&nbsp;from&nbsp;overridden&nbsp;<a href="#StreamHandler-close">close</a>()<br>
+methods.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-createLock"><strong>createLock</strong></a>(self)</dt><dd><tt>Acquire&nbsp;a&nbsp;thread&nbsp;lock&nbsp;for&nbsp;serializing&nbsp;access&nbsp;to&nbsp;the&nbsp;underlying&nbsp;I/O.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-format"><strong>format</strong></a>(self, record)</dt><dd><tt>Format&nbsp;the&nbsp;specified&nbsp;record.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;formatter&nbsp;is&nbsp;set,&nbsp;use&nbsp;it.&nbsp;Otherwise,&nbsp;use&nbsp;the&nbsp;default&nbsp;formatter<br>
+for&nbsp;the&nbsp;module.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-get_name"><strong>get_name</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="StreamHandler-handle"><strong>handle</strong></a>(self, record)</dt><dd><tt>Conditionally&nbsp;emit&nbsp;the&nbsp;specified&nbsp;logging&nbsp;record.<br>
+&nbsp;<br>
+Emission&nbsp;depends&nbsp;on&nbsp;filters&nbsp;which&nbsp;may&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;the&nbsp;handler.<br>
+Wrap&nbsp;the&nbsp;actual&nbsp;emission&nbsp;of&nbsp;the&nbsp;record&nbsp;with&nbsp;acquisition/release&nbsp;of<br>
+the&nbsp;I/O&nbsp;thread&nbsp;lock.&nbsp;Returns&nbsp;whether&nbsp;the&nbsp;filter&nbsp;passed&nbsp;the&nbsp;record&nbsp;for<br>
+emission.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-handleError"><strong>handleError</strong></a>(self, record)</dt><dd><tt>Handle&nbsp;errors&nbsp;which&nbsp;occur&nbsp;during&nbsp;an&nbsp;<a href="#StreamHandler-emit">emit</a>()&nbsp;call.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;should&nbsp;be&nbsp;called&nbsp;from&nbsp;handlers&nbsp;when&nbsp;an&nbsp;exception&nbsp;is<br>
+encountered&nbsp;during&nbsp;an&nbsp;<a href="#StreamHandler-emit">emit</a>()&nbsp;call.&nbsp;If&nbsp;raiseExceptions&nbsp;is&nbsp;false,<br>
+exceptions&nbsp;get&nbsp;silently&nbsp;ignored.&nbsp;This&nbsp;is&nbsp;what&nbsp;is&nbsp;mostly&nbsp;wanted<br>
+for&nbsp;a&nbsp;logging&nbsp;system&nbsp;-&nbsp;most&nbsp;users&nbsp;will&nbsp;not&nbsp;care&nbsp;about&nbsp;errors&nbsp;in<br>
+the&nbsp;logging&nbsp;system,&nbsp;they&nbsp;are&nbsp;more&nbsp;interested&nbsp;in&nbsp;application&nbsp;errors.<br>
+You&nbsp;could,&nbsp;however,&nbsp;replace&nbsp;this&nbsp;with&nbsp;a&nbsp;custom&nbsp;handler&nbsp;if&nbsp;you&nbsp;wish.<br>
+The&nbsp;record&nbsp;which&nbsp;was&nbsp;being&nbsp;processed&nbsp;is&nbsp;passed&nbsp;in&nbsp;to&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-release"><strong>release</strong></a>(self)</dt><dd><tt>Release&nbsp;the&nbsp;I/O&nbsp;thread&nbsp;lock.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-setFormatter"><strong>setFormatter</strong></a>(self, fmt)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;for&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-setLevel"><strong>setLevel</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;logging&nbsp;level&nbsp;of&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Handler">Handler</a>:<br>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><a name="StreamHandler-addFilter"><strong>addFilter</strong></a>(self, filter)</dt><dd><tt>Add&nbsp;the&nbsp;specified&nbsp;filter&nbsp;to&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-filter"><strong>filter</strong></a>(self, record)</dt><dd><tt>Determine&nbsp;if&nbsp;a&nbsp;record&nbsp;is&nbsp;loggable&nbsp;by&nbsp;consulting&nbsp;all&nbsp;the&nbsp;filters.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;is&nbsp;to&nbsp;allow&nbsp;the&nbsp;record&nbsp;to&nbsp;be&nbsp;logged;&nbsp;any&nbsp;filter&nbsp;can&nbsp;veto<br>
+this&nbsp;and&nbsp;the&nbsp;record&nbsp;is&nbsp;then&nbsp;dropped.&nbsp;Returns&nbsp;a&nbsp;zero&nbsp;value&nbsp;if&nbsp;a&nbsp;record<br>
+is&nbsp;to&nbsp;be&nbsp;dropped,&nbsp;else&nbsp;non-zero.</tt></dd></dl>
+
+<dl><dt><a name="StreamHandler-removeFilter"><strong>removeFilter</strong></a>(self, filter)</dt><dd><tt>Remove&nbsp;the&nbsp;specified&nbsp;filter&nbsp;from&nbsp;this&nbsp;handler.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="logging.html#Filterer">Filterer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-addLevelName"><strong>addLevelName</strong></a>(level, levelName)</dt><dd><tt>Associate&nbsp;'levelName'&nbsp;with&nbsp;'level'.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;when&nbsp;converting&nbsp;levels&nbsp;to&nbsp;text&nbsp;during&nbsp;message&nbsp;formatting.</tt></dd></dl>
+ <dl><dt><a name="-basicConfig"><strong>basicConfig</strong></a>(**kwargs)</dt><dd><tt>Do&nbsp;basic&nbsp;configuration&nbsp;for&nbsp;the&nbsp;logging&nbsp;system.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;does&nbsp;nothing&nbsp;if&nbsp;the&nbsp;root&nbsp;logger&nbsp;already&nbsp;has&nbsp;handlers<br>
+configured.&nbsp;It&nbsp;is&nbsp;a&nbsp;convenience&nbsp;method&nbsp;intended&nbsp;for&nbsp;use&nbsp;by&nbsp;simple&nbsp;scripts<br>
+to&nbsp;do&nbsp;one-shot&nbsp;configuration&nbsp;of&nbsp;the&nbsp;logging&nbsp;package.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;behaviour&nbsp;is&nbsp;to&nbsp;create&nbsp;a&nbsp;<a href="#StreamHandler">StreamHandler</a>&nbsp;which&nbsp;writes&nbsp;to<br>
+sys.stderr,&nbsp;set&nbsp;a&nbsp;formatter&nbsp;using&nbsp;the&nbsp;BASIC_FORMAT&nbsp;format&nbsp;string,&nbsp;and<br>
+add&nbsp;the&nbsp;handler&nbsp;to&nbsp;the&nbsp;root&nbsp;logger.<br>
+&nbsp;<br>
+A&nbsp;number&nbsp;of&nbsp;optional&nbsp;keyword&nbsp;arguments&nbsp;may&nbsp;be&nbsp;specified,&nbsp;which&nbsp;can&nbsp;alter<br>
+the&nbsp;default&nbsp;behaviour.<br>
+&nbsp;<br>
+filename&nbsp;&nbsp;Specifies&nbsp;that&nbsp;a&nbsp;<a href="#FileHandler">FileHandler</a>&nbsp;be&nbsp;created,&nbsp;using&nbsp;the&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename,&nbsp;rather&nbsp;than&nbsp;a&nbsp;<a href="#StreamHandler">StreamHandler</a>.<br>
+filemode&nbsp;&nbsp;Specifies&nbsp;the&nbsp;mode&nbsp;to&nbsp;open&nbsp;the&nbsp;file,&nbsp;if&nbsp;filename&nbsp;is&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if&nbsp;filemode&nbsp;is&nbsp;unspecified,&nbsp;it&nbsp;defaults&nbsp;to&nbsp;'a').<br>
+format&nbsp;&nbsp;&nbsp;&nbsp;Use&nbsp;the&nbsp;specified&nbsp;format&nbsp;string&nbsp;for&nbsp;the&nbsp;handler.<br>
+datefmt&nbsp;&nbsp;&nbsp;Use&nbsp;the&nbsp;specified&nbsp;date/time&nbsp;format.<br>
+level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set&nbsp;the&nbsp;root&nbsp;logger&nbsp;level&nbsp;to&nbsp;the&nbsp;specified&nbsp;level.<br>
+stream&nbsp;&nbsp;&nbsp;&nbsp;Use&nbsp;the&nbsp;specified&nbsp;stream&nbsp;to&nbsp;initialize&nbsp;the&nbsp;<a href="#StreamHandler">StreamHandler</a>.&nbsp;Note<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;this&nbsp;argument&nbsp;is&nbsp;incompatible&nbsp;with&nbsp;'filename'&nbsp;-&nbsp;if&nbsp;both<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;present,&nbsp;'stream'&nbsp;is&nbsp;ignored.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;you&nbsp;could&nbsp;specify&nbsp;a&nbsp;stream&nbsp;created&nbsp;using&nbsp;open(filename,&nbsp;mode)<br>
+rather&nbsp;than&nbsp;passing&nbsp;the&nbsp;filename&nbsp;and&nbsp;mode&nbsp;in.&nbsp;However,&nbsp;it&nbsp;should&nbsp;be<br>
+remembered&nbsp;that&nbsp;<a href="#StreamHandler">StreamHandler</a>&nbsp;does&nbsp;not&nbsp;close&nbsp;its&nbsp;stream&nbsp;(since&nbsp;it&nbsp;may&nbsp;be<br>
+using&nbsp;sys.stdout&nbsp;or&nbsp;sys.stderr),&nbsp;whereas&nbsp;<a href="#FileHandler">FileHandler</a>&nbsp;closes&nbsp;its&nbsp;stream<br>
+when&nbsp;the&nbsp;handler&nbsp;is&nbsp;closed.</tt></dd></dl>
+ <dl><dt><a name="-captureWarnings"><strong>captureWarnings</strong></a>(capture)</dt><dd><tt>If&nbsp;capture&nbsp;is&nbsp;true,&nbsp;redirect&nbsp;all&nbsp;warnings&nbsp;to&nbsp;the&nbsp;logging&nbsp;package.<br>
+If&nbsp;capture&nbsp;is&nbsp;False,&nbsp;ensure&nbsp;that&nbsp;warnings&nbsp;are&nbsp;not&nbsp;redirected&nbsp;to&nbsp;logging<br>
+but&nbsp;to&nbsp;their&nbsp;original&nbsp;destinations.</tt></dd></dl>
+ <dl><dt><a name="-critical"><strong>critical</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'CRITICAL'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-debug"><strong>debug</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'DEBUG'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-disable"><strong>disable</strong></a>(level)</dt><dd><tt>Disable&nbsp;all&nbsp;logging&nbsp;calls&nbsp;of&nbsp;severity&nbsp;'level'&nbsp;and&nbsp;below.</tt></dd></dl>
+ <dl><dt><a name="-error"><strong>error</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'ERROR'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-exception"><strong>exception</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'ERROR'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger,<br>
+with&nbsp;exception&nbsp;information.</tt></dd></dl>
+ <dl><dt><a name="-fatal"><strong>fatal</strong></a> = critical(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'CRITICAL'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-getLevelName"><strong>getLevelName</strong></a>(level)</dt><dd><tt>Return&nbsp;the&nbsp;textual&nbsp;representation&nbsp;of&nbsp;logging&nbsp;level&nbsp;'level'.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;level&nbsp;is&nbsp;one&nbsp;of&nbsp;the&nbsp;predefined&nbsp;levels&nbsp;(CRITICAL,&nbsp;ERROR,&nbsp;WARNING,<br>
+INFO,&nbsp;DEBUG)&nbsp;then&nbsp;you&nbsp;get&nbsp;the&nbsp;corresponding&nbsp;string.&nbsp;If&nbsp;you&nbsp;have<br>
+associated&nbsp;levels&nbsp;with&nbsp;names&nbsp;using&nbsp;addLevelName&nbsp;then&nbsp;the&nbsp;name&nbsp;you&nbsp;have<br>
+associated&nbsp;with&nbsp;'level'&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;numeric&nbsp;value&nbsp;corresponding&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;defined&nbsp;levels&nbsp;is&nbsp;passed<br>
+in,&nbsp;the&nbsp;corresponding&nbsp;string&nbsp;representation&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+Otherwise,&nbsp;the&nbsp;string&nbsp;"Level&nbsp;%s"&nbsp;%&nbsp;level&nbsp;is&nbsp;returned.</tt></dd></dl>
+ <dl><dt><a name="-getLogger"><strong>getLogger</strong></a>(name<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;a&nbsp;logger&nbsp;with&nbsp;the&nbsp;specified&nbsp;name,&nbsp;creating&nbsp;it&nbsp;if&nbsp;necessary.<br>
+&nbsp;<br>
+If&nbsp;no&nbsp;name&nbsp;is&nbsp;specified,&nbsp;return&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-getLoggerClass"><strong>getLoggerClass</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;class&nbsp;to&nbsp;be&nbsp;used&nbsp;when&nbsp;instantiating&nbsp;a&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-info"><strong>info</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'INFO'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-log"><strong>log</strong></a>(level, msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;'msg&nbsp;%&nbsp;args'&nbsp;with&nbsp;the&nbsp;integer&nbsp;severity&nbsp;'level'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-makeLogRecord"><strong>makeLogRecord</strong></a>(dict)</dt><dd><tt>Make&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a>&nbsp;whose&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;by&nbsp;the&nbsp;specified&nbsp;dictionary,<br>
+This&nbsp;function&nbsp;is&nbsp;useful&nbsp;for&nbsp;converting&nbsp;a&nbsp;logging&nbsp;event&nbsp;received&nbsp;over<br>
+a&nbsp;socket&nbsp;connection&nbsp;(which&nbsp;is&nbsp;sent&nbsp;as&nbsp;a&nbsp;dictionary)&nbsp;into&nbsp;a&nbsp;<a href="#LogRecord">LogRecord</a><br>
+instance.</tt></dd></dl>
+ <dl><dt><a name="-setLoggerClass"><strong>setLoggerClass</strong></a>(klass)</dt><dd><tt>Set&nbsp;the&nbsp;class&nbsp;to&nbsp;be&nbsp;used&nbsp;when&nbsp;instantiating&nbsp;a&nbsp;logger.&nbsp;The&nbsp;class&nbsp;should<br>
+define&nbsp;__init__()&nbsp;such&nbsp;that&nbsp;only&nbsp;a&nbsp;name&nbsp;argument&nbsp;is&nbsp;required,&nbsp;and&nbsp;the<br>
+__init__()&nbsp;should&nbsp;call&nbsp;<a href="#Logger">Logger</a>.__init__()</tt></dd></dl>
+ <dl><dt><a name="-warn"><strong>warn</strong></a> = warning(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'WARNING'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+ <dl><dt><a name="-warning"><strong>warning</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Log&nbsp;a&nbsp;message&nbsp;with&nbsp;severity&nbsp;'WARNING'&nbsp;on&nbsp;the&nbsp;root&nbsp;logger.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BASIC_FORMAT</strong> = '%(levelname)s:%(name)s:%(message)s'<br>
+<strong>CRITICAL</strong> = 50<br>
+<strong>DEBUG</strong> = 10<br>
+<strong>ERROR</strong> = 40<br>
+<strong>FATAL</strong> = 50<br>
+<strong>INFO</strong> = 20<br>
+<strong>NOTSET</strong> = 0<br>
+<strong>WARN</strong> = 30<br>
+<strong>WARNING</strong> = 30<br>
+<strong>__all__</strong> = ['BASIC_FORMAT', 'BufferingFormatter', 'CRITICAL', 'DEBUG', 'ERROR', 'FATAL', 'FileHandler', 'Filter', 'Formatter', 'Handler', 'INFO', 'LogRecord', 'Logger', 'LoggerAdapter', 'NOTSET', 'NullHandler', 'StreamHandler', 'WARN', 'WARNING', 'addLevelName', ...]<br>
+<strong>__author__</strong> = 'Vinay Sajip &lt;vinay_sajip@red-dove.com&gt;'<br>
+<strong>__date__</strong> = '07 February 2010'<br>
+<strong>__status__</strong> = 'production'<br>
+<strong>__version__</strong> = '0.5.1.2'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Vinay&nbsp;Sajip&nbsp;&lt;vinay_sajip@red-dove.com&gt;</td></tr></table>
+</body></html>

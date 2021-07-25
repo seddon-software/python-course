@@ -28,14 +28,16 @@ driver.implicitly_wait(20) # seconds
 
 # we have to click on the travellers div to get to the correct content
 selector="#bwbox_main_right_box > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(4) > div"
+selector = "#result_buttons > table > tbody > tr > td > table > tbody > tr > td:nth-child(4) > div"
 content = driver.find_element_by_css_selector(selector)
 content.click()
 
-# get the htlm and pass it to BeautifulSoup4
+# get the html and pass it to BeautifulSoup4
 # body = driver.find_element_by_tag_name('body')
 # wait until we can see travellers
-text = driver.find_element_by_css_selector("#trav_r_1").text
-
+selector="#result_1 > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(1) > td"
+#text = driver.find_element_by_css_selector("#trav_r_1").text
+text = driver.find_element_by_css_selector(selector).text
 # now get html
 html = driver.page_source
 soup = BeautifulSoup(html, 'html5lib')

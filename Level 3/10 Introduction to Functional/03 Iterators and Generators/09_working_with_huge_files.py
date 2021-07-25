@@ -16,6 +16,7 @@ def readFileInOneGo():
     try:
         f = open("huge_file_30", "r")
         contents = f.read()
+        print(len(contents))
     except Exception as e:
         print("can't read file into memory", e)
 

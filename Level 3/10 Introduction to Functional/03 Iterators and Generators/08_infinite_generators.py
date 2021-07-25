@@ -4,7 +4,7 @@ def powers(x):
         x = x * 2
         yield x
 
-# create the infinite generator
+# create the infinite generator, initialized with 55
 g = powers(55)
 
 x = 0

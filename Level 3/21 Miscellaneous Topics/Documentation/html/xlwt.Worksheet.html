@@ -1,0 +1,516 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: class Worksheet</title>
+</head><body bgcolor="#f0f0f8">
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>xlwt.Worksheet</strong> = <a name="xlwt.Worksheet">class Worksheet</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Worksheet-__init__"><strong>__init__</strong></a>(self, sheetname, parent_book, cell_overwrite_ok<font color="#909090">=False</font>)</dt><dd><tt>#################################################################<br>
+##&nbsp;Constructor<br>
+#################################################################</tt></dd></dl>
+
+<dl><dt><a name="Worksheet-col"><strong>col</strong></a>(self, indx)</dt></dl>
+
+<dl><dt><a name="Worksheet-col_width"><strong>col_width</strong></a>(self, col)</dt></dl>
+
+<dl><dt><a name="Worksheet-flush_row_data"><strong>flush_row_data</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_RC_ref_mode"><strong>get_RC_ref_mode</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_alt_expr_eval"><strong>get_alt_expr_eval</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_alt_formula_entries"><strong>get_alt_formula_entries</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_auto_colour_grid"><strong>get_auto_colour_grid</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_auto_style_outline"><strong>get_auto_style_outline</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_biff_data"><strong>get_biff_data</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_bmp_rec"><strong>get_bmp_rec</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_bottom_margin"><strong>get_bottom_margin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_calc_count"><strong>get_calc_count</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_calc_mode"><strong>get_calc_mode</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_col_default_width"><strong>get_col_default_width</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_cols"><strong>get_cols</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_cols_right_to_left"><strong>get_cols_right_to_left</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_copies_num"><strong>get_copies_num</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_delta"><strong>get_delta</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_dialogue_sheet"><strong>get_dialogue_sheet</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_first_visible_col"><strong>get_first_visible_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_first_visible_row"><strong>get_first_visible_row</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_fit_height_to_pages"><strong>get_fit_height_to_pages</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_fit_num_pages"><strong>get_fit_num_pages</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_fit_width_to_pages"><strong>get_fit_width_to_pages</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_footer_margin"><strong>get_footer_margin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_footer_str"><strong>get_footer_str</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_grid_colour"><strong>get_grid_colour</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_header_margin"><strong>get_header_margin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_header_str"><strong>get_header_str</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_horz_page_breaks"><strong>get_horz_page_breaks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_horz_split_first_visible"><strong>get_horz_split_first_visible</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_horz_split_pos"><strong>get_horz_split_pos</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_iterations_on"><strong>get_iterations_on</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_left_margin"><strong>get_left_margin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_merged_ranges"><strong>get_merged_ranges</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_name"><strong>get_name</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_normal_magn"><strong>get_normal_magn</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_obj_protect"><strong>get_obj_protect</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_outline_below"><strong>get_outline_below</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_outline_right"><strong>get_outline_right</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_page_preview"><strong>get_page_preview</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_panes_frozen"><strong>get_panes_frozen</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_paper_size_code"><strong>get_paper_size_code</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_parent"><strong>get_parent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_password"><strong>get_password</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_portrait"><strong>get_portrait</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_preview_magn"><strong>get_preview_magn</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_centered_horz"><strong>get_print_centered_horz</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_centered_vert"><strong>get_print_centered_vert</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_colour"><strong>get_print_colour</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_draft"><strong>get_print_draft</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_grid"><strong>get_print_grid</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_headers"><strong>get_print_headers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_hres"><strong>get_print_hres</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_in_rows"><strong>get_print_in_rows</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_notes"><strong>get_print_notes</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_notes_at_end"><strong>get_print_notes_at_end</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_omit_errors"><strong>get_print_omit_errors</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_scaling"><strong>get_print_scaling</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_print_vres"><strong>get_print_vres</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_protect"><strong>get_protect</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_remove_splits"><strong>get_remove_splits</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_right_margin"><strong>get_right_margin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_row_default_height"><strong>get_row_default_height</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_rows"><strong>get_rows</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_save_recalc"><strong>get_save_recalc</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_scen_protect"><strong>get_scen_protect</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_scl_magn"><strong>get_scl_magn</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_selected"><strong>get_selected</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_sheet_visible"><strong>get_sheet_visible</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_auto_page_breaks"><strong>get_show_auto_page_breaks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_col_outline"><strong>get_show_col_outline</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_formulas"><strong>get_show_formulas</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_grid"><strong>get_show_grid</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_headers"><strong>get_show_headers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_outline"><strong>get_show_outline</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_show_row_outline"><strong>get_show_row_outline</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_start_page_number"><strong>get_start_page_number</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_top_margin"><strong>get_top_margin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_vert_page_breaks"><strong>get_vert_page_breaks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_vert_split_first_visible"><strong>get_vert_split_first_visible</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_vert_split_pos"><strong>get_vert_split_pos</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-get_wnd_protect"><strong>get_wnd_protect</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Worksheet-insert_bitmap"><strong>insert_bitmap</strong></a>(self, filename, row, col, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, scale_x<font color="#909090">=1</font>, scale_y<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Worksheet-merge"><strong>merge</strong></a>(self, r1, r2, c1, c2, style<font color="#909090">=&lt;xlwt.Style.XFStyle object&gt;</font>)</dt></dl>
+
+<dl><dt><a name="Worksheet-row"><strong>row</strong></a>(self, indx)</dt></dl>
+
+<dl><dt><a name="Worksheet-row_height"><strong>row_height</strong></a>(self, row)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_RC_ref_mode"><strong>set_RC_ref_mode</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_alt_expr_eval"><strong>set_alt_expr_eval</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_alt_formula_entries"><strong>set_alt_formula_entries</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_auto_colour_grid"><strong>set_auto_colour_grid</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_auto_style_outline"><strong>set_auto_style_outline</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_bottom_margin"><strong>set_bottom_margin</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_calc_count"><strong>set_calc_count</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_calc_mode"><strong>set_calc_mode</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_col_default_width"><strong>set_col_default_width</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_cols_right_to_left"><strong>set_cols_right_to_left</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_copies_num"><strong>set_copies_num</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_delta"><strong>set_delta</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_dialogue_sheet"><strong>set_dialogue_sheet</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_first_visible_col"><strong>set_first_visible_col</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_first_visible_row"><strong>set_first_visible_row</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_fit_height_to_pages"><strong>set_fit_height_to_pages</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_fit_num_pages"><strong>set_fit_num_pages</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_fit_width_to_pages"><strong>set_fit_width_to_pages</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_footer_margin"><strong>set_footer_margin</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_footer_str"><strong>set_footer_str</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_grid_colour"><strong>set_grid_colour</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_header_margin"><strong>set_header_margin</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_header_str"><strong>set_header_str</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_horz_page_breaks"><strong>set_horz_page_breaks</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_horz_split_first_visible"><strong>set_horz_split_first_visible</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_horz_split_pos"><strong>set_horz_split_pos</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_iterations_on"><strong>set_iterations_on</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_left_margin"><strong>set_left_margin</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_name"><strong>set_name</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_normal_magn"><strong>set_normal_magn</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_obj_protect"><strong>set_obj_protect</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_outline_below"><strong>set_outline_below</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_outline_right"><strong>set_outline_right</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_page_preview"><strong>set_page_preview</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_panes_frozen"><strong>set_panes_frozen</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_paper_size_code"><strong>set_paper_size_code</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_password"><strong>set_password</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_portrait"><strong>set_portrait</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_preview_magn"><strong>set_preview_magn</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_centered_horz"><strong>set_print_centered_horz</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_centered_vert"><strong>set_print_centered_vert</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_colour"><strong>set_print_colour</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_draft"><strong>set_print_draft</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_grid"><strong>set_print_grid</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_headers"><strong>set_print_headers</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_hres"><strong>set_print_hres</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_in_rows"><strong>set_print_in_rows</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_notes"><strong>set_print_notes</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_notes_at_end"><strong>set_print_notes_at_end</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_omit_errors"><strong>set_print_omit_errors</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_scaling"><strong>set_print_scaling</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_print_vres"><strong>set_print_vres</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_protect"><strong>set_protect</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_remove_splits"><strong>set_remove_splits</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_right_margin"><strong>set_right_margin</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_row_default_height"><strong>set_row_default_height</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_save_recalc"><strong>set_save_recalc</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_scen_protect"><strong>set_scen_protect</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_scl_magn"><strong>set_scl_magn</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_selected"><strong>set_selected</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_sheet_visible"><strong>set_sheet_visible</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_auto_page_breaks"><strong>set_show_auto_page_breaks</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_col_outline"><strong>set_show_col_outline</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_formulas"><strong>set_show_formulas</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_grid"><strong>set_show_grid</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_headers"><strong>set_show_headers</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_outline"><strong>set_show_outline</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_show_row_outline"><strong>set_show_row_outline</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_start_page_number"><strong>set_start_page_number</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_top_margin"><strong>set_top_margin</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_vert_page_breaks"><strong>set_vert_page_breaks</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_vert_split_first_visible"><strong>set_vert_split_first_visible</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_vert_split_pos"><strong>set_vert_split_pos</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-set_wnd_protect"><strong>set_wnd_protect</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Worksheet-write"><strong>write</strong></a>(self, r, c, label<font color="#909090">=''</font>, style<font color="#909090">=&lt;xlwt.Style.XFStyle object&gt;</font>)</dt></dl>
+
+<dl><dt><a name="Worksheet-write_merge"><strong>write_merge</strong></a>(self, r1, r2, c1, c2, label<font color="#909090">=''</font>, style<font color="#909090">=&lt;xlwt.Style.XFStyle object&gt;</font>)</dt></dl>
+
+<dl><dt><a name="Worksheet-write_rich_text"><strong>write_rich_text</strong></a>(self, r, c, rich_text_list, style<font color="#909090">=&lt;xlwt.Style.XFStyle object&gt;</font>)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>RC_ref_mode</strong></dt>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>alt_expr_eval</strong></dt>
+</dl>
+<dl><dt><strong>alt_formula_entries</strong></dt>
+</dl>
+<dl><dt><strong>auto_colour_grid</strong></dt>
+</dl>
+<dl><dt><strong>auto_style_outline</strong></dt>
+</dl>
+<dl><dt><strong>bmp_rec</strong></dt>
+</dl>
+<dl><dt><strong>bottom_margin</strong></dt>
+</dl>
+<dl><dt><strong>calc_count</strong></dt>
+</dl>
+<dl><dt><strong>calc_mode</strong></dt>
+</dl>
+<dl><dt><strong>col_default_width</strong></dt>
+</dl>
+<dl><dt><strong>cols</strong></dt>
+</dl>
+<dl><dt><strong>cols_right_to_left</strong></dt>
+</dl>
+<dl><dt><strong>copies_num</strong></dt>
+</dl>
+<dl><dt><strong>delta</strong></dt>
+</dl>
+<dl><dt><strong>dialogue_sheet</strong></dt>
+</dl>
+<dl><dt><strong>first_visible_col</strong></dt>
+</dl>
+<dl><dt><strong>first_visible_row</strong></dt>
+</dl>
+<dl><dt><strong>fit_height_to_pages</strong></dt>
+</dl>
+<dl><dt><strong>fit_num_pages</strong></dt>
+</dl>
+<dl><dt><strong>fit_width_to_pages</strong></dt>
+</dl>
+<dl><dt><strong>footer_margin</strong></dt>
+</dl>
+<dl><dt><strong>footer_str</strong></dt>
+</dl>
+<dl><dt><strong>grid_colour</strong></dt>
+</dl>
+<dl><dt><strong>header_margin</strong></dt>
+</dl>
+<dl><dt><strong>header_str</strong></dt>
+</dl>
+<dl><dt><strong>horz_page_breaks</strong></dt>
+</dl>
+<dl><dt><strong>horz_split_first_visible</strong></dt>
+</dl>
+<dl><dt><strong>horz_split_pos</strong></dt>
+</dl>
+<dl><dt><strong>iterations_on</strong></dt>
+</dl>
+<dl><dt><strong>left_margin</strong></dt>
+</dl>
+<dl><dt><strong>merged_ranges</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>normal_magn</strong></dt>
+</dl>
+<dl><dt><strong>obj_protect</strong></dt>
+</dl>
+<dl><dt><strong>outline_below</strong></dt>
+</dl>
+<dl><dt><strong>outline_right</strong></dt>
+</dl>
+<dl><dt><strong>page_preview</strong></dt>
+</dl>
+<dl><dt><strong>panes_frozen</strong></dt>
+</dl>
+<dl><dt><strong>paper_size_code</strong></dt>
+</dl>
+<dl><dt><strong>parent</strong></dt>
+</dl>
+<dl><dt><strong>password</strong></dt>
+</dl>
+<dl><dt><strong>portrait</strong></dt>
+</dl>
+<dl><dt><strong>preview_magn</strong></dt>
+</dl>
+<dl><dt><strong>print_centered_horz</strong></dt>
+</dl>
+<dl><dt><strong>print_centered_vert</strong></dt>
+</dl>
+<dl><dt><strong>print_colour</strong></dt>
+</dl>
+<dl><dt><strong>print_draft</strong></dt>
+</dl>
+<dl><dt><strong>print_grid</strong></dt>
+</dl>
+<dl><dt><strong>print_headers</strong></dt>
+</dl>
+<dl><dt><strong>print_hres</strong></dt>
+</dl>
+<dl><dt><strong>print_in_rows</strong></dt>
+</dl>
+<dl><dt><strong>print_notes</strong></dt>
+</dl>
+<dl><dt><strong>print_notes_at_end</strong></dt>
+</dl>
+<dl><dt><strong>print_omit_errors</strong></dt>
+</dl>
+<dl><dt><strong>print_scaling</strong></dt>
+</dl>
+<dl><dt><strong>print_vres</strong></dt>
+</dl>
+<dl><dt><strong>protect</strong></dt>
+</dl>
+<dl><dt><strong>remove_splits</strong></dt>
+</dl>
+<dl><dt><strong>right_margin</strong></dt>
+</dl>
+<dl><dt><strong>row_default_height</strong></dt>
+</dl>
+<dl><dt><strong>rows</strong></dt>
+</dl>
+<dl><dt><strong>save_recalc</strong></dt>
+</dl>
+<dl><dt><strong>scen_protect</strong></dt>
+</dl>
+<dl><dt><strong>scl_magn</strong></dt>
+</dl>
+<dl><dt><strong>selected</strong></dt>
+</dl>
+<dl><dt><strong>sheet_visible</strong></dt>
+</dl>
+<dl><dt><strong>show_auto_page_breaks</strong></dt>
+</dl>
+<dl><dt><strong>show_col_outline</strong></dt>
+</dl>
+<dl><dt><strong>show_formulas</strong></dt>
+</dl>
+<dl><dt><strong>show_grid</strong></dt>
+</dl>
+<dl><dt><strong>show_headers</strong></dt>
+</dl>
+<dl><dt><strong>show_outline</strong></dt>
+</dl>
+<dl><dt><strong>show_row_outline</strong></dt>
+</dl>
+<dl><dt><strong>start_page_number</strong></dt>
+</dl>
+<dl><dt><strong>top_margin</strong></dt>
+</dl>
+<dl><dt><strong>vert_page_breaks</strong></dt>
+</dl>
+<dl><dt><strong>vert_split_first_visible</strong></dt>
+</dl>
+<dl><dt><strong>vert_split_pos</strong></dt>
+</dl>
+<dl><dt><strong>wnd_protect</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>active_pane</strong> = 3</dl>
+
+</td></tr></table>
+</body></html>
