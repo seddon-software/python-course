@@ -1,6 +1,6 @@
 from typing import Optional
 
-def compare(a:int, b:int, order:Optional[str]):
+def compare(a:int, b:int, order:Optional[str]="ascending", **kwargs):
     if not order or order=="ascending":
         print(a)
     else:

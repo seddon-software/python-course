@@ -4,11 +4,9 @@
         "**/__pycache__": true
     },
     "python.testing.unittestArgs": [
-        "-v",
-        "-s",
-        "./Level 3/14 Testing/TDD",
-        "-p",
-        "test_*.py"
+        "--verbose",
+        "--start-directory", "./Level 3/19 DynamicAnalysis/CodeCoverage",
+        "--pattern", "test_*.py"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,

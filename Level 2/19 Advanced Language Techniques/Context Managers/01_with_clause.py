@@ -43,7 +43,7 @@ try:
     try:
         m = MyClass().__enter__()
         m.hello()
-        m.oops()
+        #m.oops()
     except Exception as e:
         traceback = sys.exc_info()
         result = m.__exit__(type(e), e, traceback[-1])

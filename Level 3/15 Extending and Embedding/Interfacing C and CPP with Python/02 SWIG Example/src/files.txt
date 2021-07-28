@@ -1,0 +1,4 @@
+/home/chris/.local/lib/python3.8/site-packages/myhello.py
+/home/chris/.local/lib/python3.8/site-packages/__pycache__/myhello.cpython-38.pyc
+/home/chris/.local/lib/python3.8/site-packages/_myhello.cpython-38-x86_64-linux-gnu.so
+/home/chris/.local/lib/python3.8/site-packages/SWIG_example-1.0-py3.8.egg-info

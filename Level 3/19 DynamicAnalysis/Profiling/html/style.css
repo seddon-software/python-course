@@ -1,0 +1,135 @@
+body {
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0px;
+    padding:0px;
+}
+hr {
+    border: thin dotted #dddddd;
+    margin: 0px 20px 0px 20px;
+}
+.header {
+    font-family: Georgia;
+    text-align: right;
+    padding: 20px 0px 20px 0px;
+    width: 960px;
+    height: 50px;
+}
+.header a { color: #000000; }
+h2 {
+    margin: 0.2em 0 0.2em 0;
+}
+p {
+    margin: 0 0 1em 0;
+}
+.header-title {
+    font-weight: bold;
+    font-size: 250%;
+    float: left;
+}
+.header-time {
+    text-align: right;
+    width: 50%;
+    float: right;
+}
+.profile-info {
+    clear: both;
+    text-align: left;
+    margin: 0px 10px 0px 10px;
+}
+.profile-table {
+    text-align: left;
+    margin: 1em 10px 1em 10px;
+}
+.content {
+    clear: both;
+    font-family: Arial, Verdana;
+    width: 960px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+table.prof {
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+}
+td.prof {
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+    padding: 0px 5px 0px 5px;
+    font-size: 90%;
+}
+td.profdata-arrow {
+    background: url('arrow.png') no-repeat 0 center;
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+    padding: 0px 5px 0px 5px;
+    text-align: right;
+}
+td.profdata {
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+    padding: 0px 5px 0px 5px;
+    text-align: right;
+}
+pre.tdms {
+    margin: 0 5px;
+    font-family: courier new;
+    padding: 0px;
+}
+th.prof {
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+    background-color: #eae0d5;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 5em;
+    text-align: center;
+    font-size: 90%;
+}
+th.procheader { align: center; background: #a294c8; }
+td.profline_r {
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+    font-size: 75%;
+    padding:0px 1px 0px 0px;
+    text-align: right;
+    width: 5em;
+}
+td.profline_l {
+    border-collapse: collapse;
+    border: 1px #cccccc solid;
+    font-size: 75%;
+    padding:0px 1px 0px 0px;
+    text-align: left;
+}
+tr.hover {
+    background-color: #e0c0e0;
+}
+#footer {
+    clear: both;
+    text-align: center;
+    font-size: small;
+    padding: 10px 0px 20px 0px;
+    margin-top:2em;
+    margin-bottom: -1em;
+}
+#footer a {
+    color: #000000;
+}
+#footer a:hover {
+    color: #ffffff;
+    background: #000000;
+}
+th.headerSortUp {
+    background-color: #999999;
+}
+th.headerSortDown {
+    background-color: #999999;
+}
+span.bold {
+    font-weight: bold;
+}
+#dFilter {
+    float: right;
+}

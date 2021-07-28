@@ -1,2 +1,0 @@
-/home/chris/.local/lib/python3.8/site-packages/fibonacci.cpython-38-x86_64-linux-gnu.so
-/home/chris/.local/lib/python3.8/site-packages/FibonacciPackage-1.0-py3.8.egg-info

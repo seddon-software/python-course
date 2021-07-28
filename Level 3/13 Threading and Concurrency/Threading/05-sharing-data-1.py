@@ -17,7 +17,7 @@ import sys
 class MyClass:
     def __call__(self, name):
         global lock, count1, count2
-        for i in range(0, 2*1000*1000):
+        for i in range(0, 20*1000*1000):
             count1 += 1
             lock.acquire()
             count2 += 1

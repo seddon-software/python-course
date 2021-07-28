@@ -3,6 +3,10 @@
 To clone this repository: 
 	git clone https://github.com/seddon-software/python-course.git
 
+If you've downloaded already:
+    git stash
+    git pull
+    
 If you are on a Diamond machine, setup vscode with:
 
     module load vscode/1.57.1

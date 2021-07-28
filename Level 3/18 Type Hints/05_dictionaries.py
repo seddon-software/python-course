@@ -19,11 +19,11 @@ names = {
          }
 
 
-try:
-    print(sum_values(salary))
-    print(sum_values(names))
-except Exception as e:
-    print(e)
+# try:
+#     print(sum_values(salary))
+#     print(sum_values(names))
+# except Exception as e:
+#     print(e)
 
 import os
 os.system("mypy 05_dictionaries.py")

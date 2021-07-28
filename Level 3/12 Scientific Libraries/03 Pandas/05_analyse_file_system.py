@@ -27,7 +27,7 @@ def summarize_files(topdir):
     return filedata
 
 import pandas
-filedata = pandas.DataFrame(summarize_files("/Users/seddon/home/workspace"))
+filedata = pandas.DataFrame(summarize_files("/home/chris/home/workspace/Python3"))
 #filedata = pandas.DataFrame(summarize_files("/dls_sw/i21/scripts"))
 print("Top 5 most common file extensions:")
 print(filedata['ext'].value_counts()[:5])

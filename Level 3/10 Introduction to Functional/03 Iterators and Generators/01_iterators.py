@@ -27,59 +27,59 @@ class Fibonacci:
 # __next__(self) will be called repeatedly until loop terminates
 
 
-# for f in Fibonacci():
-#     print(f, end=", ")
+for f in Fibonacci():
+    print(f, end=", ")
 
 
 # The above loop gets translated to:
 #
-try:
-    fib = Fibonacci()
-    iter = fib.__iter__()
+# try:
+#     fib = Fibonacci()
+#     iter = fib.__iter__()
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
+#     f = iter.__next__()
+#     print(f, end=", ")
 
-    f = iter.__next__()
-    print(f, end=", ")
-except StopIteration as e:
-    pass
+#     f = iter.__next__()
+#     print(f, end=", ")
+# except StopIteration as e:
+#     pass
 
 
 

@@ -24,14 +24,15 @@ def log(level):
             return fn(x)
         return enhance
     return logit
- 
 
 @log(logging.WARNING)
 def square(x): 
     return x * x
+
 @log(logging.DEBUG)
 def cube(x):
     return x * x * x
+
 @log(logging.CRITICAL)
 def quad(x):
     return x * x * x * x
@@ -48,4 +49,5 @@ logging.basicConfig(level=logging.DEBUG)
 print(square(4))
 print(cube(5))
 print(quad(10))
-1
+
+

@@ -1,11 +1,12 @@
-AsyncIO library and Generators
 Logging and Decorators
 TDD and testing
 Static and Dynamic Analysis
 Type Hints
 Interfacing with C/C++ and Cython
+AsyncIO library and Generators
+
 Pandas
-Threading and Concurrancy
+Threading and Concurrency
 Sockets
 
 Possible Extras

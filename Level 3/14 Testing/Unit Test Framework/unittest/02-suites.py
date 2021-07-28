@@ -51,8 +51,8 @@ if __name__ == '__main__':
 
     mySuite = suite()
 #    unittest.TextTestRunner(verbosity=0).run(mySuite)
-#   unittest.TextTestRunner(verbosity=1).run(mySuite)
+#    unittest.TextTestRunner(verbosity=1).run(mySuite)
     unittest.TextTestRunner(verbosity=2).run(mySuite)
 
-    1
+
     
