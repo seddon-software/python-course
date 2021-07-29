@@ -1,1 +1,7 @@
 **/.metadata
+**/.coverage
+**/__pychache__
+**/*.pyc
+
+
+
