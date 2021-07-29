@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for test_2nd_attempt.py: 70%</title>
+    <title>Coverage for test_2nd_attempt.py: 100%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,13 +18,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>test_2nd_attempt.py</b> :
-            <span class="pc_cov">70%</span>
+            <span class="pc_cov">100%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
-            20 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">14 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">6 missing</button>
+            12 statements &nbsp;
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">12 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">0 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -73,24 +73,24 @@
     <p id="t19" class="run"><span class="n"><a href="#t19">19</a></span><span class="t">        <span class="nam">result</span> <span class="op">=</span> <span class="nam">process_input</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">a</span><span class="op">,</span> <span class="nam">self</span><span class="op">.</span><span class="nam">b</span><span class="op">,</span> <span class="str">"subtract"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t20" class="run"><span class="n"><a href="#t20">20</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">result</span><span class="op">,</span> <span class="num">5</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t22" class="run"><span class="n"><a href="#t22">22</a></span><span class="t"><span class="key">def</span> <span class="nam">suite</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="str">"Test suite"</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t24" class="mis show_mis"><span class="n"><a href="#t24">24</a></span><span class="t">    <span class="nam">suite</span> <span class="op">=</span> <span class="nam">unittest</span><span class="op">.</span><span class="nam">TestSuite</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t"><span class="com"># def suite():</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t"><span class="com">#     "Test suite"</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t"><span class="com">#     suite = unittest.TestSuite()</span>&nbsp;</span><span class="r"></span></p>
     <p id="t25" class="pln"><span class="n"><a href="#t25">25</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t26" class="mis show_mis"><span class="n"><a href="#t26">26</a></span><span class="t">    <span class="nam">suite</span><span class="op">.</span><span class="nam">addTests</span><span class="op">(</span><span class="nam">unittest</span><span class="op">.</span><span class="nam">TestLoader</span><span class="op">(</span><span class="op">)</span><span class="op">.</span><span class="nam">loadTestsFromTestCase</span><span class="op">(</span><span class="nam">TestApp</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t27" class="mis show_mis"><span class="n"><a href="#t27">27</a></span><span class="t">    <span class="key">return</span> <span class="nam">suite</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t26" class="pln"><span class="n"><a href="#t26">26</a></span><span class="t"><span class="com">#     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestApp))</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t27" class="pln"><span class="n"><a href="#t27">27</a></span><span class="t"><span class="com">#     return suite</span>&nbsp;</span><span class="r"></span></p>
     <p id="t28" class="pln"><span class="n"><a href="#t28">28</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t29" class="run"><span class="n"><a href="#t29">29</a></span><span class="t"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">"__main__"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t30" class="mis show_mis"><span class="n"><a href="#t30">30</a></span><span class="t">    <span class="nam">unittest</span><span class="op">.</span><span class="nam">TextTestRunner</span><span class="op">(</span><span class="nam">verbosity</span><span class="op">=</span><span class="num">2</span><span class="op">)</span><span class="op">.</span><span class="nam">run</span><span class="op">(</span><span class="nam">suite</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t31" class="mis show_mis"><span class="n"><a href="#t31">31</a></span><span class="t">    <span class="nam">print</span><span class="op">(</span><span class="str">"all tests completed"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t32" class="mis show_mis"><span class="n"><a href="#t32">32</a></span><span class="t">    <span class="nam">os</span><span class="op">.</span><span class="nam">system</span><span class="op">(</span><span class="str">"coverage run test_2nd_attempt.py"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t29" class="pln"><span class="n"><a href="#t29">29</a></span><span class="t"><span class="com"># if __name__ == "__main__":</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t"><span class="com">#     unittest.TextTestRunner(verbosity=2).run(suite())</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t31" class="pln"><span class="n"><a href="#t31">31</a></span><span class="t"><span class="com">#     print("all tests completed")</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t32" class="pln"><span class="n"><a href="#t32">32</a></span><span class="t"><span class="com">#     os.system("coverage run test_2nd_attempt.py")</span>&nbsp;</span><span class="r"></span></p>
     <p id="t33" class="pln"><span class="n"><a href="#t33">33</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-07-27 22:55 +0100
+            created at 2021-07-28 20:42 +0100
         </p>
     </div>
 </div>

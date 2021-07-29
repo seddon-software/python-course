@@ -15,14 +15,4 @@ class TestApp(unittest.TestCase):
        result = process_input(self.a, self.b, "add")
        self.assertEqual(result, 15)
 
-def suite():
-    "Test suite"
-    suite = unittest.TestSuite()
-
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestApp))
-    return suite
-
-if __name__ == "__main__":
-    unittest.TextTestRunner(verbosity=2).run(suite())
-
 

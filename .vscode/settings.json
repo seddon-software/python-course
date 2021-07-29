@@ -1,7 +1,8 @@
 {
     "files.exclude": {
         "**/.git": true,
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "**/.*test_cache": true
     },
     "python.testing.unittestArgs": [
         "--verbose",

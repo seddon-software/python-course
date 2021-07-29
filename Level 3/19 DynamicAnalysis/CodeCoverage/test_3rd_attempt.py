@@ -27,15 +27,3 @@ class TestApp(unittest.TestCase):
         result = process_input(self.a, self.b, "divide")
         self.assertEqual(result, 2)
 
-def suite():
-    "Test suite"
-    suite = unittest.TestSuite()
-
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestApp))
-    return suite
-
-if __name__ == "__main__":
-    unittest.TextTestRunner(verbosity=2).run(suite())
-    print("all tests completed")
-    os.system("coverage run test_3rd_attempt.py")
-

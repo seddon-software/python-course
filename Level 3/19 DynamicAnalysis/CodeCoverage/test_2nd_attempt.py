@@ -19,15 +19,3 @@ class TestApp(unittest.TestCase):
         result = process_input(self.a, self.b, "subtract")
         self.assertEqual(result, 5)
 
-def suite():
-    "Test suite"
-    suite = unittest.TestSuite()
-
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestApp))
-    return suite
-
-if __name__ == "__main__":
-    unittest.TextTestRunner(verbosity=2).run(suite())
-    print("all tests completed")
-    os.system("coverage run test_2nd_attempt.py")
-
