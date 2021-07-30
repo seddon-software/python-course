@@ -32,7 +32,7 @@ def main():
     a = df[['County']]    # list parameter => returns a dataset
     print(f"df[['County']] returns: \n\t{type(a)}")
     
-    b = df['County']      # column parameter => returns a series
+    b = df['County']      # scalar parameter => returns a series
     print(f"df['County'] returns: \n\t{type(b)}")
     print()
     

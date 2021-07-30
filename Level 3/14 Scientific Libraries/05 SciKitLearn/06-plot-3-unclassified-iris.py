@@ -2,7 +2,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import pandas as pd
 
-colors = ["red", "green", "blue", "black", "grey", "silver"]
+colors = ["red", "green", "blue", "orange", "lime", "fuchsia"]
 markers = ["o", "o", "o", "D", "D", "D"]
 sizes = [10, 10, 10, 100, 100, 100]
 labels = ['sepal length', 'sepal width', 'petal length', 'petal width']
@@ -21,7 +21,7 @@ iris_df = iris_df.append(df)
 figure = plt.figure(figsize=(12, 8))
 
 def scatter(subplot, i, j, k):
-    def doit(row):
+    def doScatter(row):
         n = int(row[4])          
         ax.scatter(row[i], row[j], row[k],   
                    c=colors[n], 
@@ -32,7 +32,19 @@ def scatter(subplot, i, j, k):
     ax.set_xlabel(labels[i])
     ax.set_ylabel(labels[j])
     ax.set_zlabel(labels[k])
-    iris_df.apply(doit, axis=1, raw=True)
+    iris_df.apply(doScatter, axis=1, raw=True)
+
+    # print variety names on plot
+    for name, label in [('Setosa', 0),
+                        ('Versicolour', 1),
+                        ('Virginica', 2)]:
+        x = iris_df[iris_df['target']==label][iris_df.columns[i]].mean()
+        y = iris_df[iris_df['target']==label][iris_df.columns[j]].mean()
+        z = iris_df[iris_df['target']==label][iris_df.columns[k]].mean()
+        ax.text3D(x, y, z, name,
+                color='saddlebrown', fontsize=14,
+                horizontalalignment='center',
+                bbox=dict(alpha=.2, edgecolor='w', facecolor='w'))
 
 scatter(221, 0, 1, 2)
 scatter(222, 0, 1, 3)

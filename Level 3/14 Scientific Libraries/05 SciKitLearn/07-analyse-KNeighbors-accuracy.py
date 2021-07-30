@@ -27,12 +27,14 @@ def predict(K, test_size):
 
 # vary K
 results = []
+test_size = 0.6         # split between training data and prediction
+                        # the lower the value the more training points are used
 for K in range(1, 26):
-    results.append(predict(K, 0.4))
+    results.append(predict(K, test_size))
 
 set_title("plot the relationship between K and testing accuracy")
 plt.plot(range(1, 26), results)
-plt.xlabel('Value of K for KNN (test_size=0.4)')
+plt.xlabel(f'Value of K for KNN (test_size={test_size})')
 plt.ylabel('Testing Accuracy')
 plt.show()
 
