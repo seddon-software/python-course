@@ -35,5 +35,5 @@ def formula():
 for n in formula():
     print(n)
 
-1
+
 

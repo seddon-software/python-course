@@ -1,54 +1,26 @@
-# decorator that takes a generator as a parameter
-def mycoroutine(generator):
-    def start():
-        iterator = generator() # invoke generator to create an iterator
-        next(iterator)         # iterate to first yield
-        return iterator        # return the iterator
-    return start
+# coroutines can use yield for inputs and outputs
+# use next() for outputs
+# use send() for inputs and outputs
 
-    
-@mycoroutine
-def lower():    # a generator
+def sentenceBuilder():     # a generator function
+    print("\tjust starting")
     while True:
-        message = yield
-        yield message.lower()
-    
-@mycoroutine
-def italic():   # a generator
-    while True:
-        message = yield
-        yield "<i>" + message + "</i>"
+        print("\twaiting for send()")
+        sentence,word = yield       # this blocks until a send
+        print("\treturning from send")
+        yield f"{sentence} {word}"  # this returns from send
+        print("\tmoving to next yield")
 
-@mycoroutine
-def upper():    # a generator
-    while True:
-        message = yield
-        yield message.upper()
-
-@mycoroutine
-def bold():     # a generator
-    while True:
-        message = yield
-        yield "<b>" + message + "</b>"
+# call the generator function to create a generator
+g = sentenceBuilder()
+print(f"sentenceBuilder is of type {type(sentenceBuilder)}")
+print(f"g is of type {type(g)}")
 
 
-@mycoroutine
-def format():   # a generator
-    while True:
-        # get starting string and a set of iterating functions
-        parameters = yield
-        # print(parameters)
+sentence = ""
 
-        # pop of the starting string (only coroutines remain)
-        message = parameters.pop(0)
+for n in "The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog":
+    next(g)     # advance to the next yield
+    sentence = g.send([sentence, n])    # send data to the generator and get result
+    print(sentence)
 
-        # iterate through co-routines
-        for decorator in parameters:
-            cr = decorator() # return the coroutine
-            message = cr.send(message)
-        print(message)
-    
-g = format()        # return a format iterator
-g.send(["MiXeD", upper, bold, italic])
-g.send(["MiXeD", lower])
-g.send(["MiXeD", italic, upper])
