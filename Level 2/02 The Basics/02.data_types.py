@@ -28,9 +28,8 @@ print(x.imag)
 ############################################################
 # floating point
 x = 1e4 + 0.1e-4
-format = "%32.20g"
 print(type(x))
-print((format % x)) 
+print(f"{x:32.20g}") 
 
 ############################################################
 # integers
@@ -39,15 +38,15 @@ x += 1
 print(type(x))
 print(x)
 
-x = 0o53
+x = 0o53        # octal starts with 0o
 print(x)
 
-x = 0xFF
+x = 0xFF        # hex starts with 0x
 print(x)
 
 ############################################################
 # None
-x = None   # => not defined
+x = None   # None means not defined
 print(type(x))
 print(x)
 
@@ -57,10 +56,17 @@ if (x == None):
 print(x)
 
 ############################################################
-# strings
+# strings (use either quotes)
 x = 'hello'
 y = "from"
+# triple quoted string (multi-line)
 z = '''the
 planet
 earth'''
 print(x + y + z)
+
+# raw strings (\ not interpolated)
+s = "abc\ndef"
+print(s)        # \n is interpolated as a new line
+r = r"abc\ndef" # \n is not interpolated
+print(r)
