@@ -29,5 +29,4 @@ for f in os.listdir(inDirectory):
     out = os.stat(outDirectory + f)
     percent = 100 * out.st_size / inp.st_size
     print(formatSpec.format(f, inp.st_size, out.st_size, percent))
-    # this gives an error for the last file - don't understand why - always the last file listed'
     
