@@ -6,11 +6,11 @@
 
 class A(object):
     def f(self):
-        print("calling f()")
+        print("calling A.f()")
 
 class B(object):
     def g(self):
-        print("calling g()")
+        print("calling B.g()")
 
 
 # create instance
@@ -19,7 +19,7 @@ a.f()
 a.__class__ = B     # rebind to class B
 
 try:
-    a.g()   # this will succeed
+    a.g()   # this will succeed (g is method of class B)
     a.f()   # this call will fail
 except Exception as e:
     print(e)

@@ -14,7 +14,8 @@ class MyClass:
         self.dogetY = dogetY
         self.dosetX = dosetX
         self.dosetY = dosetY
-
+    def __str__(self):
+        return f"x={self.dogetX()}, y={self.dogetY()}"
 m1 = MyClass()
 m2 = MyClass()
 m1.dosetX(100)
@@ -25,3 +26,5 @@ print(m1.dogetX())
 print(m1.dogetY())
 print(m2.dogetX())
 print(m2.dogetY())
+print(m1)
+print(m2)

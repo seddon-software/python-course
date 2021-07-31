@@ -1,3 +1,6 @@
+# avoid using mutable default parameters
+#   not intuitive!!
+
 def Grow(theList, item = 0, extra = []):
     extra.append(item)
     theList.extend(extra)

@@ -1,4 +1,4 @@
-28 Jul 2021
+30 Jul 2021
 
 To clone this repository: 
 	git clone https://github.com/seddon-software/python-course.git
@@ -8,7 +8,6 @@ If you've downloaded already:
     git pull
     
 If you are on a Diamond machine, setup vscode with:
-
     module load vscode/1.57.1
 
 
@@ -61,6 +60,6 @@ Simple Debugging with pudb
 	pip install pudb
 	python -m pudb myscript.py
 
-Current Interpreter
+Current Interpreter (July 2021)
 ===================
 Python 3.8.5 64-bit('base':conda)

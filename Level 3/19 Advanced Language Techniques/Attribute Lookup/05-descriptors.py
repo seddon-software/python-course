@@ -23,7 +23,7 @@ class Point(object):
 # NOTES:
 # 1. descriptor invoked by dotted attribute access:  A.x or a.x
 # 2. descripor reference must be stored in the class dict, not the instance dict
-# 3. descriptor not invoked by dictionary access: self.__dict__['x']
+# 3. descriptor not invoked by direct dictionary access: self.__dict__['x']
 
     x = Trace("x")
     y = Trace("y")

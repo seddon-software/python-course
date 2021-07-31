@@ -4,9 +4,10 @@
 #
 ############################################################
 
+# __new__ is called before __init__ when creating objects
 
 class A:
-    def __new__(clazz, arg):        # implicitly static
+    def __new__(clazz, arg):        # clazz = A
         # only create objects with non negative x attribute
         if arg < 0:
             raise Exception("negative args not allowed")
