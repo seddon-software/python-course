@@ -1,0 +1,5 @@
+ln -s ../src/'01 Bytecode' '01 Bytecode'
+ln -s ../src/'02 Unicode' '02 Unicode'
+ln -s ../src/'04 More on Dictionaries' '03 More on Dictionaries'
+ln -s ../src/'06 Functions' '04 Functions'
+ln -s ../src/'07 Classes and Objects' '05 Classes and Objects'
