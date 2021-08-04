@@ -10,4 +10,4 @@ mypackage.f3()
 mypackage.f4()
 
 
-1
+

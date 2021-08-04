@@ -5,7 +5,7 @@ Working with StockPrices.xlsx:
 3.  Create a function for stock returns.
 4.  Calculate logarithmic returns for both stocks in a loop, where: 
         returns=ln⁡((today's price )/(yesterday' s price))
-5.  Calculate logarithmic returns using the data frame.
+5.  Calculate logarithmic returns using theLevel_3 data frame.
 6.  Feed returns back in the excel sheet.
 7.  Count the number of data points for each stock.
 8.  Calculate the yearly returns.
