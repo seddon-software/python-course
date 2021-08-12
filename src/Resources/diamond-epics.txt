@@ -1,0 +1,47 @@
+cs-studio
+
+
+
+type: launcher
+then select: utilities/cs-studio
+
+data is under beamlines
+
+Install EPICS:
+
+download from https://epics.anl.gov/base/R7-0/6.php
+
+    file: base-7.0.6.tar.gz
+
+    gunzip base-7.0.6.tar.gz
+    tar xvf base-7.0.6.tar
+    cd base-7.0.6
+    make distclean
+    make
+
+The followig docs are a bit out of date:
+    https://cothread.readthedocs.io/en/latest/catools.html
+
+You need to use pipenv:
+
+pipenv run python
+then:
+    import cothread
+    from cothread.catools import *
+    caget("chris:amplitude")
+    caput("chris:amplitude", 0.5)
+
+Archiver:
+login to diamond
+fire up firefox
+then goto:
+    https://confluence.diamond.ac.uk/x/DaCNB
+
+I think this is an old link:
+# https://confluence.diamond.ac.uk/display/CNTRLS/aapy%3A+Using+archiver+%28AA%29+data+in+Python
+
+
+PVs to use with archiver
+
+PV = BL19I-MO-GONIO-01:OMEGA.RBV
+PV = BL19I-EA-OAV-01:FZOOM:ZOOMPOSRBV
