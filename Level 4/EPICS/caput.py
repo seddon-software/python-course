@@ -5,6 +5,7 @@ from cothread.catools import *
 
 
 print(caget("chris:amplitude"))
+caput("chris:offset", 0.3)
 
 for n in np.arange(1.0, 0.1, -0.01):
     caput("chris:amplitude", n)
