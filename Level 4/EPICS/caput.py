@@ -6,8 +6,8 @@ from cothread.catools import *
 
 print(caget("chris:amplitude"))
 
-for n in np.arange(1.0, 0.2, -0.01):
+for n in np.arange(1.0, 0.1, -0.01):
     caput("chris:amplitude", n)
     print(caget("chris:amplitude"))
-    time.sleep(0.1)
+    time.sleep(0.25)
 
