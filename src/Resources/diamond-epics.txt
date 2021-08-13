@@ -2,6 +2,13 @@ cs-studio
 
 
 
+Now start the IOC running with:
+./bin/linux-x86_64/stexercise1.boot
+Open another terminal
+cd  $HOME/chris/ioc
+Now start the GUI running with:
+./data/startgui1
+
 type: launcher
 then select: utilities/cs-studio
 
@@ -24,6 +31,7 @@ The followig docs are a bit out of date:
 
 You need to use pipenv:
 
+pipenv install cothread
 pipenv run python
 then:
     import cothread
