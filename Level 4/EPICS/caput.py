@@ -25,4 +25,4 @@ pvs = ["chris:function",
 "chris:freqMenu"]
 
 for pv in pvs:
-    print(f"{pv}:caget(pv)")
+    print(f"{pv}:{caget(pv)}")
