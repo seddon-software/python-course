@@ -8,5 +8,6 @@ print(caget("chris:amplitude"))
 
 for n in np.arange(1.0, 0.2, -0.01):
     caput("chris:amplitude", n)
+    print(caget("chris:amplitude"))
     time.sleep(0.1)
 
