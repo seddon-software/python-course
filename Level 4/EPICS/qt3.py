@@ -55,8 +55,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.x = self.x[1:]  # Remove the first y element.
         self.x.append(self.x[-1] + 1)  # Add a new value 1 higher than the last.
         self.y = self.y[1:]  # Remove the first
-        self.y.append(caget("chris:amplitude"))
-        print(caget("chris:amplitude"), self.amplitude)
+        self.y.append(caget("chris:function"))
         self.data_line.setData(self.x, self.y)  # Update the data.
 
 def main():
