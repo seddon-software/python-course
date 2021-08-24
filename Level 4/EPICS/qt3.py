@@ -21,7 +21,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         self.amplitude = 0.1
-
+        self.delta = 0.01
         self.graphWidget = pg.PlotWidget()
         self.setCentralWidget(self.graphWidget)
 
@@ -32,18 +32,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
         pen = pg.mkPen(color=(255, 0, 0))
         self.data_line =  self.graphWidget.plot(self.x, self.y, pen=pen)
-
-# ... init continued ...
         self.timer = QtCore.QTimer()
         self.timer.setInterval(100)
         self.timer.timeout.connect(self.update_plot_data)
         self.timer.start()
 
     def update_plot_data(self):
-        delta = 0.01
-        if self.amplitude > 1: delta = -0.01
-        if self.amplitude < 0.1: delta = +0.01
-        self.amplitude += delta
+        if self.amplitude > 0.8: self.delta = -0.01
+        if self.amplitude < 0.1: self.delta = +0.01
+        self.amplitude += self.delta
         caput("chris:amplitude", self.amplitude)
 
         self.x = self.x[1:]  # Remove the first y element.
