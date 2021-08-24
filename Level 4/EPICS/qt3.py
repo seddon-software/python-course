@@ -22,6 +22,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
+        caput("chris:freqCalc", 2.0)
+
         self.amplitude = 0.1
         self.delta = 0.01
         self.graphWidget = pg.PlotWidget()
