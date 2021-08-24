@@ -15,9 +15,9 @@ qtapp = cothread.iqt()      # Not needed if not using Qt
 
 def f():
     for n in np.arange(0.1, 1.0, 0.01):
-    caput("chris:amplitude", n)
-    print(f'{caget("chris:amplitude"):0.2f}')
-    time.sleep(0.25)
+        caput("chris:amplitude", n)
+        print(f'{caget("chris:amplitude"):0.2f}')
+        time.sleep(0.25)
 
 class MainWindow(QtWidgets.QMainWindow):
 
