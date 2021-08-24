@@ -22,6 +22,16 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
+        layout = QHBoxLayout()
+
+        layout.addWidget(QPushButton('Left'))
+
+        layout.addWidget(QPushButton('Center'))
+
+        layout.addWidget(QPushButton('Right'))
+
+        self.setLayout(layout)
+
         # Create textbox
         self.textbox = QLineEdit(self)
         self.textbox.move(20, 20)
