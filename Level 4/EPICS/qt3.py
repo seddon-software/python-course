@@ -26,7 +26,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(self.graphWidget)
 
         self.x = list(range(100))  # 100 time points
-        self.y = [randint(0,100) for _ in range(100)]  # 100 data points
+        self.y = [0.0]*100
 
         self.graphWidget.setBackground('w')
 
