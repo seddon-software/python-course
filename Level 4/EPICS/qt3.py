@@ -22,6 +22,11 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
+        # Create textbox
+        self.textbox = QLineEdit(self)
+        self.textbox.move(20, 20)
+        self.textbox.resize(280,40)
+
         self.amplitude = 0.1
         self.delta = 0.01
         self.graphWidget = pg.PlotWidget()
