@@ -49,7 +49,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.data_line.setData(self.x, self.y)  # Update the data.
 
     def update_plot_data2(self):
-        self.amplitude += 0.01
+        if self.amplitude > 1: delta = -0.01
+        if self.amplitude < 0.1: delta = +0.01
+        self.amplitude += delta
         caput("chris:amplitude", self.amplitude)
 
         self.x = self.x[1:]  # Remove the first y element.
