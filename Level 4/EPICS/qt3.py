@@ -8,6 +8,7 @@ from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
 import sys  # We need sys so that we can pass argv to QApplication
 import os
+from random import randint
 
 # Enable Qt processing, hang onto application instance if needed.
 qtapp = cothread.iqt()      # Not needed if not using Qt
