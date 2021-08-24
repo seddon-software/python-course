@@ -1,4 +1,4 @@
-#! /bin/ksh
+#! /bin/bash
 
 cd /home/wns35789/chris/ioc
 
