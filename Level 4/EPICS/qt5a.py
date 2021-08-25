@@ -52,16 +52,18 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addWidget(graphWidget)
         layout.addWidget(textbox)
         layout.addWidget(button)
-
+        wid = QWidget()
+        self.setCentralWidget(wid)
+        wid.setLayout(layout)
         #self.setCentralWidget(self.graphWidget)
 
         self.x = list(range(100))  # 100 time points
         self.y = [0.0]*100
 
-        self.graphWidget.setBackground('w')
+        graphWidget.setBackground('w')
 
         pen = pg.mkPen(color=(255, 0, 0))
-        self.data_line =  self.graphWidget.plot(self.x, self.y, pen=pen)
+        self.data_line =  graphWidget.plot(self.x, self.y, pen=pen)
         
         self.timer = QtCore.QTimer()
         self.timer.setInterval(100)
