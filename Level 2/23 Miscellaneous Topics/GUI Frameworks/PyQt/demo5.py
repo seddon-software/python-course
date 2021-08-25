@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import *
 app = QApplication([])
 button = QPushButton('Click')
 
-def on_button_clicked():
+def on_button_clicked(z):
     alert = QMessageBox()
     alert.setText('You clicked the button!')
     alert.exec_()

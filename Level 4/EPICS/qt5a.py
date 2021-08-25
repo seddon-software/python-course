@@ -15,6 +15,10 @@ from random import randint
 # Enable Qt processing, hang onto application instance if needed.
 qtapp = cothread.iqt()      # Not needed if not using Qt
 
+def on_button_clicked():
+    textbox = on_button_clicked.z
+    textboxValue = textbox.text()
+    print(textboxValue)
 
 from epics import PV
 
@@ -29,8 +33,22 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.amplitude = 0.1
         self.delta = 0.01
-        self.graphWidget = pg.PlotWidget()
-        self.setCentralWidget(self.graphWidget)
+        graphWidget = pg.PlotWidget()
+
+        textbox = QLineEdit()
+        textbox.move(20, 20)
+        textbox.resize(280,40)
+
+        button = QPushButton('update')
+        button.clicked.connect(on_button_clicked)
+        on_button_clicked.z = textbox
+
+        layout = QHBoxLayout()
+        layout.addWidget(graphWidget)
+        layout.addWidget(textbox)
+        layout.addWidget(button)
+
+        #self.setCentralWidget(self.graphWidget)
 
         self.x = list(range(100))  # 100 time points
         self.y = [0.0]*100
@@ -39,6 +57,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         pen = pg.mkPen(color=(255, 0, 0))
         self.data_line =  self.graphWidget.plot(self.x, self.y, pen=pen)
+        
         self.timer = QtCore.QTimer()
         self.timer.setInterval(100)
         self.timer.timeout.connect(self.update_plot_data)
