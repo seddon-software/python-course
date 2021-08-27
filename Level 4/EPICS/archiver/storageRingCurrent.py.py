@@ -3,10 +3,6 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-
-event = aa.get_value_at('SR-DI-DCCT-01:SIGNAL', datetime.now())
-print(event.value)
 pv = "SR-DI-DCCT-01:SIGNAL"
 h1 = 0
 h2 = 23
