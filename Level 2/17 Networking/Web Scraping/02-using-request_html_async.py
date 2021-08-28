@@ -18,36 +18,20 @@ async def get_quote(symbol):
     else:
         quote = 'no quote available for: ' + symbol
         print(quote)
-
+    await session.close()
 
 async def main():
     print("London Stock Exchange Quotes")
-    task1 = asyncio.create_task(get_quote("IBM"))
-    task2 = asyncio.create_task(get_quote("HL."))
-    task3 = asyncio.create_task(get_quote("BA."))
-    task4 = asyncio.create_task(get_quote("XX"))
-    task5 = asyncio.create_task(get_quote("MSFT"))
-    task6 = asyncio.create_task(get_quote("BATS"))
-    await task1
-    await task2
-    await task3
-    await task4
-    await task5
-    await task6
-    await pyppeteer.launch()
+    response = await asyncio.gather(
+        get_quote("IBM"),
+        get_quote("HL."),
+        get_quote("BA."),
+        get_quote("XX"),
+        get_quote("MSFT"),
+        get_quote("BATS")
+    )
 
-def dn(): 
-    sys.exit(0)
-
-
-l.atexit._run_exitfuncs = dn
-
-g = main()
-try:
-    asyncio.run(g)
-    
-except RuntimeError as e:
-    sys.exit(0)
+asyncio.run(main())
 
 
 

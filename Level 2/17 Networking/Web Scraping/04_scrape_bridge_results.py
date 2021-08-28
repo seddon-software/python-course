@@ -1,11 +1,19 @@
+# Selenium requires the chromedriver to be installed on on the PATH
+# use the auto installer:
+#   python -m pip install chromedriver-autoinstaller
+
+import chromedriver_autoinstaller
+
+# Check if the current version of chromedriver exists
+#   and if it doesn't exist, download it automatically,
+#   then add chromedriver to path
+chromedriver_autoinstaller.install()
+
 import sys
 import codecs
 from bs4 import os, BeautifulSoup, Tag
-
-# must be able to locate chromedriver on the PATH
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-os.environ["PATH"] = "." + os.pathsep + os.environ["PATH"]
 
 # load Chrome
 driver = webdriver.Chrome(executable_path="chromedriver")
