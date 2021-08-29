@@ -41,10 +41,8 @@ content = driver.find_element_by_css_selector(selector)
 content.click()
 
 # get the html and pass it to BeautifulSoup4
-# body = driver.find_element_by_tag_name('body')
 # wait until we can see travellers
 selector="#result_1 > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(1) > td"
-#text = driver.find_element_by_css_selector("#trav_r_1").text
 text = driver.find_element_by_css_selector(selector).text
 # now get html
 html = driver.page_source
@@ -109,11 +107,11 @@ for board, table in enumerate(tables):
     try:
         for result in results_even:
             out = getResult(board, result)
-            print(out)
+            print(out, end="")
             f.write(out)
         for result in results_odd:
             out = getResult(board, result)
-            print(out)
+            print(out, end="")
             f.write(out)
     except Exception as e:
         print(e)
