@@ -15,7 +15,6 @@ for n in range(1, 5):
     t = cothread.Spawn(worker, n, pulse)
     threads.append(t)
 
-
 cothread.Sleep(10)
 pulse.Signal()
 
