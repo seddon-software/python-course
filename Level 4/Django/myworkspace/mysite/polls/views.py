@@ -9,6 +9,7 @@ def index(request):
     return render(request, 'polls/index.html', context)
     
 def detail(request, question_id):
+    print(question_id)
     try:
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
