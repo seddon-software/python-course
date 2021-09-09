@@ -2,7 +2,7 @@ from threading import Thread
 from flask import Flask
 import webbrowser
 import wait
-
+import time
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ class Server:
         return 'This is Route 2'
     
     @app.route('/user/<name>')
-    def day(day):
+    def user(name):
         return f'You are user: {name}'
     
     @app.route('/sum/<int:x>/<int:y>')
@@ -39,11 +39,15 @@ def client():
     wait.untilServerRunning("127.0.0.1", 5000)
     print("client up and running")
     browser = webbrowser.get('firefox')
-    browser.open(f'http://localhost:5000/')
-    browser.open(f'http://localhost:5000/route1')
-    browser.open(f'http://localhost:5000/route2')
-    browser.open(f'http://localhost:5000/user/jim')
-    browser.open(f'http://localhost:5000/sum/625/875')
+    urls = ['http://localhost:5000/',
+            'http://localhost:5000/route1',
+            'http://localhost:5000/route2',
+            'http://localhost:5000/user/jim',
+            'http://localhost:5000/sum/625/875',
+            'http://localhost:5000/']
+    for url in urls:
+        time.sleep(5)
+        browser.open(url, new=2)
 
 
 Thread(target=client).start()

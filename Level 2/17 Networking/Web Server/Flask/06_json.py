@@ -27,6 +27,7 @@ class Server:
     
     @app.route('/answer')
     def answer():
+        print("answer")
         try:
             result = int(request.args.get('result'))
             n1 = int(request.args.get('n1'))
@@ -48,6 +49,7 @@ class Server:
         
     @app.route('/question')
     def question():
+        print("question")
         data = {'n1':next(Server.g), 'n2':next(Server.g), 'message':''}
         response = app.response_class(
             response=json.dumps(data),

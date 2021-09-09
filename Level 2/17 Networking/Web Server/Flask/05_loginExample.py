@@ -2,11 +2,10 @@ from threading import Thread
 from flask import Flask, render_template, request
 import webbrowser
 import wait
-
+import time
 
 
 app = Flask(__name__)
-
 class Server:
     loginTable = { 
                    'tom' : 'mot',
@@ -56,10 +55,13 @@ def client():
     wait.untilServerRunning("127.0.0.1", 5000)
     print("client up and running")
     browser = webbrowser.get('firefox')
-    browser.open(f'http://localhost:5000/login?username=tom&password=mot')
-    browser.open(f'http://localhost:5000/login?username=sue&password=incorrect')
-    browser.open(f'http://localhost:5000/login?giberish')
-    browser.open(f'http://localhost:5000/')
+    urls = ['http://localhost:5000/login?username=tom&password=mot',
+            'http://localhost:5000/login?username=sue&password=incorrect',
+            'http://localhost:5000/login?username=jim&password=mij',
+            'http://localhost:5000/']
+    for url in urls:
+        time.sleep(5)
+        webbrowser.open(url)
 
 Thread(target=client).start()
 

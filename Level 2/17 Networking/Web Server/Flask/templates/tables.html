@@ -19,6 +19,7 @@ input {
 <input id="answer" type="text"/>
 <br/>
 <div id="message"></div>
+<div id="note"></div>
 <script>
 function getAjaxData(url, fn) {
     $.ajax(
@@ -38,6 +39,7 @@ function question(response) {
     $("#n2").html(`${response["n2"]}`);
     $("#answer").val("");
     $("#message").html(`${response["message"]}`);
+    $("#note").html("<small>enter result and hit return</small>")
 }
 
 function sendData(answer) {
