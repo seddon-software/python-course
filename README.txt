@@ -8,7 +8,7 @@ If you've downloaded already:
     git pull
     
 If you are on a Diamond machine, setup vscode with:
-    module load vscode/1.57.1
+    module load vscode/1.42.1
 
 
 vscode key bindings
