@@ -1,0 +1,58 @@
+{
+	"name": "preview-pdf",
+	"displayName": "PDF Preview",
+	"description": "Preview Portable Document Format (.pdf) files in VSCode",
+	"publisher": "analytic-signal",
+	"icon": "images/icon.png",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.48.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCustomEditor:analyticsignal.preview-pdf"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "analyticsignal.preview-pdf",
+				"displayName": "PDF Preview",
+				"selector": [
+					{
+						"filenamePattern": "*.pdf"
+					}
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.48.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^14.0.27",
+		"eslint": "^7.6.0",
+		"@typescript-eslint/eslint-plugin": "^3.8.0",
+		"@typescript-eslint/parser": "^3.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.0.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.4.0"
+	},
+	"__metadata": {
+		"id": "22f751e3-e0fe-49d0-af60-1655a92bfbeb",
+		"publisherId": "5fe0df1e-37b9-41fa-99df-82fdd7c74a58",
+		"publisherDisplayName": "Analytic Signal Limited",
+		"installedTimestamp": 1624108764645
+	}
+}

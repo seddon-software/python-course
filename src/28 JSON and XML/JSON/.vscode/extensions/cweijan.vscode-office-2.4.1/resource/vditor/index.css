@@ -1,0 +1,16 @@
+body{
+    padding: 0;
+}
+
+code{
+    color: #24292e !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.vditor-reset {
+    padding: 0 5% !important;
+}

@@ -6,11 +6,12 @@
 
 import smtplib
 server = smtplib.SMTP('mail.guardedhost.com')
+server = smtplib.SMTP('mail.btinternet.com')
 
-
+USER = "seddon_software@btinternet.com"
 #Next, log in to the server
-server.login("surveyor@highlandsnegotiations.com", "Highlands@Survey")
+server.login(USER, PASSWORD)
 
 #Send the mail
 msg = "\nHello!" # The /n separates the message from the headers
-server.sendmail("seddon-software@keme.co.uk", "seddon-software@keme.co.uk", msg)
+server.sendmail(USER, USER, msg)

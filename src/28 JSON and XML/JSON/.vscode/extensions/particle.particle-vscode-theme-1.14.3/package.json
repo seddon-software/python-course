@@ -1,0 +1,65 @@
+{
+	"name": "particle-vscode-theme",
+	"description": "Matter and Dark Matter; dark and light themes by Particle.",
+	"version": "1.14.3",
+	"author": "Particle Industries, Inc",
+	"license": "Apache-2.0",
+	"private": true,
+	"icon": "icon.png",
+	"homepage": "https://www.particle.io/workbench/",
+	"bugs": {
+		"url": "https://community.particle.io/c/particle-workbench"
+	},
+	"scripts": {
+		"package": "vsce package && mv *.vsix ../../dist/extensions/",
+		"release": "vsce publish"
+	},
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"displayName": "Workbench Themes",
+	"publisher": "particle",
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"Particle",
+		"Particle Workbench",
+		"IoT",
+		"C",
+		"C++",
+		"cpp",
+		"debug",
+		"embedded",
+		"multi-root ready",
+		"Photon",
+		"Electron",
+		"Argon",
+		"Boron",
+		"B Som",
+		"Xenon",
+		"Device OS",
+		"dark",
+		"light"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Matter (by Particle)",
+				"uiTheme": "vs",
+				"path": "./themes/particle-matter-color-theme.json"
+			},
+			{
+				"label": "Dark Matter (by Particle)",
+				"uiTheme": "vs-dark",
+				"path": "./themes/particle-dark-matter-color-theme.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "41849acd-8536-4a2b-bacc-18e965cc06ae",
+		"publisherId": "abf02685-e4a0-428a-9a5e-017c9e6dd1df",
+		"publisherDisplayName": "Particle",
+		"installedTimestamp": 1632688499942
+	}
+}

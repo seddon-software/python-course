@@ -5,15 +5,20 @@
 ############################################################
 
 import smtplib
-server = smtplib.SMTP('smtp.keme.net')
+server = smtplib.SMTP('mail.btinternet.com')
 
-server.sendmail('seddon-software@keme.co.uk', 'seddon-software@keme.co.uk', \
-"""To: abc-software@abc.com
-From: seddon-software@keme.co.uk
-Beware the Ides of March.
-""") 
+USER = "seddon_software@btinternet.com"
 
+server.login(user=USER, password=PASSWORD)
+try:
+    server.sendmail(USER, USER, \
+    """To: seddon-software@btinternet.com
+    From: seddon-software@keme.co.uk
+    Beware the Ides of March.
+    """) 
+except Exception as e:
+    print(e)
 server.quit()
 
-1
+
 
