@@ -1,7 +1,11 @@
 30 Jul 2021
 
-To clone this repository: 
+To clone this repository:
+    cd 
 	git clone https://github.com/seddon-software/python-course.git
+    cd python-course
+    module load vscode/1.42.1
+    code .
 
 If you've downloaded already:
     git stash

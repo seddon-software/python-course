@@ -1,8 +1,17 @@
 ############################################################
 #
-#    server
+#    server (asynchronous)
 #
 ############################################################
+
+
+'''
+Adding threading or forking support to a server is as simple as 
+including the appropriate mix-in in the class hierarchy for the
+server. The mix-in classes override process_request() to start
+a new thread or process when a request is ready to be handled, 
+and the work is done in the new child.
+'''
 
 import socketserver
 import socket
@@ -22,7 +31,7 @@ class MyRequestHandler(socketserver.StreamRequestHandler):
         except socket.error as e:
             print("error ...")
 
-# specify THreadingMixIn first because otherwise it will override 
+# specify ThreadingMixIn first because otherwise it will override 
 # methods in TCPServer 
 class MyServer(socketserver.ThreadingMixIn, 
                socketserver.TCPServer): pass
