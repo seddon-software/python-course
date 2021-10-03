@@ -5,14 +5,14 @@ import asyncio
 from aioca import caget, caput, camonitor, run
 
 async def do_stuff():
-    # Using caput: write 1234 into PV1.  Raises exception on failure
+    # Using caput: write into pv.  Raises exception on failure
     pv = 'chris:amplitude'
     await caput(pv, 1.0)
 
-    # Print out the value reported by PV2.
+    # Print out the value reported by pv.
     print(await caget(pv))
 
-    # Monitor PV3, printing out each update as it is received.
+    # Monitor pv, printing out each update as it is received.
     def callback(value):
         print('callback', value)
 
