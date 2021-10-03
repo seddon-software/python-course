@@ -1,0 +1,6 @@
+#! /bin/bash
+
+set -v
+python -m pip install --index-url https://pypiserver.diamond.ac.uk  cothread
+python -m pip install --index-url https://pypiserver.diamond.ac.uk  aapy
+

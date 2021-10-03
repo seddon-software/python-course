@@ -1,3 +1,0 @@
-pip install --index-url https://pypiserver.diamond.ac.uk  cothread
-pip install --index-url https://pypiserver.diamond.ac.uk  aapy
-
