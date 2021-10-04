@@ -10,11 +10,12 @@ import cgi, random, sys
 class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
-        f = None
+        # f = None
+        fileName = self.path[1:]   # strip leading /
         try:
-            f = open("cgi" + self.path, "r")
+            f = open(f"{fileName}", "r")
         except:
-            self.send_error(404, "File name missing")
+            self.send_error(404, f"Unknown file: {fileName}")
             return
             
         self.send_response(200)

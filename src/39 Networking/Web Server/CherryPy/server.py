@@ -5,17 +5,18 @@ import json
 class Root(object):
     @cherrypy.expose
     def default(self, *args, **kwargs):
+        print(kwargs)
         print(cherrypy.request.method)
-        return u'It is me again at {0} with {1}'.format(args, kwargs)
+        return f'PATH = {args} with {kwargs}'
 
     @cherrypy.expose
-    def aaa(self):
+    def abc_parameters(self):
         x = {'a':1,'b':2,'c':3}
         return json.dumps(x)
     
     @cherrypy.expose
-    def bbb(self, x, y):
-        return x + y
+    def sum(self, x, y):
+        return f"{float(x) + float(y)}"
     
     @cherrypy.expose
     def chris(self):
@@ -26,11 +27,6 @@ class Root(object):
             f = open(fileName, "r", encoding="UTF-8")
             data = f.read()
             return data
-#             content = "abc"  #.encode()
-#             response.body = content   #data.encode()
-#             response.status = 200
-#             response.headers['Content-type'] = "text/html" 
-#             response.headers['Content-Length'] = str(len(content)) 
         except:
             print("oops")
      
@@ -39,11 +35,11 @@ class Root(object):
         return "Hello World!"
 
     @cherrypy.expose
-    def abc(self):
+    def goodbye(self):
         return "Goodbye Universe"
 
     @cherrypy.expose
-    def xyz(self):
+    def ides(self):
         return "Beware the ides of March"
 
 if __name__ == '__main__':

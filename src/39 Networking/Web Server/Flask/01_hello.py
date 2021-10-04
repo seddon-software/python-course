@@ -1,14 +1,15 @@
 from threading import Thread
-from flask import Flask
+from flask import Flask, request
 import webbrowser
-import wait
+import wait  # this module is local
 
 
 def client():
     wait.untilServerRunning("127.0.0.1", 5000)
     print("client up and running")
     browser = webbrowser.get('firefox')
-    browser.open(f'http://localhost:5000/')
+    #browser.open(f'http://localhost:5000/')
+    browser.open(f'http://localhost:5000/sum?x=25&y=40')
 
 Thread(target=client).start()
 
@@ -23,8 +24,13 @@ class Server:
         
     @app.route("/")
     def root():
-        return "hello"
+        return "Hello World"
 
+    @app.route("/sum")
+    def add():
+        x = request.args.get('x')
+        y = request.args.get('y')
+        return f"{x} + {y} = {int(x) + int(y)}" 
 
 if __name__ == "__main__":
     Server(app)
