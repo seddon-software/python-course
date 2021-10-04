@@ -1,3 +1,6 @@
+'''
+    Example showing how to use the graph widget
+'''
 from PyQt5 import QtWidgets
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg

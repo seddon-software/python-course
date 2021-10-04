@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# The cothreads and cathreads libraries have been developed by Tom Cobb and Michael Abbott:
+#   tom.cobb@diamond.ac.uk
+#   michael.abbott@diamond.ac.uk
+
+# It is recommended to use:
+#       pipenv install cothread
+#
+# to install these libraries, but I'm just using pip in this script
+
 set -v
 python -m pip install --index-url https://pypiserver.diamond.ac.uk  cothread
 python -m pip install --index-url https://pypiserver.diamond.ac.uk  aapy

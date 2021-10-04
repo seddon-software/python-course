@@ -1,3 +1,6 @@
+'''
+    Example showing how to monitor PVs
+'''
 import cothread
 from cothread.catools import *
 import os, time

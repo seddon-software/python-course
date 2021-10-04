@@ -15,10 +15,16 @@ def signalViaCallback(n):
     return event.Signal(n)
     
 def producer(event, count):
+    ''' this is a different thread from that running the cosumer code'''
+     
     for n in "ABCDE":
         print('thread tick', n)
-        # can't Signal from a different thread
-        #   event.Signal(n)
+        try:
+            # can't Signal from a different thread
+            if n == "E": event.Signal(n)
+        except AssertionError as e:
+            print(f"{e}")
+
         # must use the following to talk across thread boundaries:
         cothread.Callback(signalViaCallback, n)
         time.sleep(0.5)

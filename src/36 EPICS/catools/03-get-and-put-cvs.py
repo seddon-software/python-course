@@ -1,10 +1,13 @@
+'''
+    Example using get and put
+'''
 import os, time, numpy as np
-
 import cothread
 from cothread.catools import *
 
 
-print(caget("chris:amplitude"))
+print(f'{caget("chris:amplitude"):0.2f}')
+
 caput("chris:offset", 0.6)
 
 for n in np.arange(1.0, 0.1, -0.01):

@@ -1,5 +1,7 @@
+'''
+    Example varying amplitude
+'''
 import os, time, numpy as np
-
 import cothread
 from cothread.catools import *
 
@@ -24,8 +26,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         pv1 = PV("chris:freqCalc")
-        pv1.put(2)
-#        caput("chris:freqCalc", 2.0)
+        pv1.put(2)   # caput("chris:freqCalc", 2.0)
 
         self.amplitude = 0.1
         self.delta = 0.01
