@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 pv = "SR-DI-DCCT-01:SIGNAL"
-data = aa.get_values(pv, datetime(2021, 1, 5, hour=0, minute=0), 
-                         datetime(2021, 2, 5, hour=0, minute=0))
+data = aa.get_values(pv, datetime(2021, 1, 5), 
+                         datetime(2021, 2, 5))
 data_points = data.values.shape[0]
 print(data_points)
 X = np.arange(data_points)
