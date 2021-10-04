@@ -1,3 +1,8 @@
+'''
+aioca has an almost identical API to cothread and catools
+additionally it allows you to work with other asyncio libraries
+'''
+
 import os
 os.environ['EPICS_CA_MAX_ARRAY_BYTES'] = '1000000'
 
@@ -10,13 +15,16 @@ async def do_stuff():
     await caput(pv, 1.0)
 
     # Print out the value reported by pv.
-    print(await caget(pv))
+    print(f"{pv} = {await caget(pv)}")
 
     # Monitor pv, printing out each update as it is received.
     def callback(value):
-        print('callback', value)
+        print(f'callback: {pv} = {value}')
 
     camonitor(pv, callback)
+    await caput(pv, 2.0)
+    await caput(pv, 3.0)
+    await caput(pv, 4.0)
 
 # Now run the camonitor process until interrupted by Ctrl-C.
 

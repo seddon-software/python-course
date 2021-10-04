@@ -1,0 +1,25 @@
+#! /bin/bash
+   
+# The cothreads and cathread libraries have been developed by Tom Cobb and Michael Abbott.  
+# For details on the archive contact Andy Wilson.  The IOC simulator software is provided by Andy Foster (Observatory Sciences)
+#   tom.cobb@diamond.ac.uk
+#   michael.abbott@diamond.ac.uk
+#   andrew.wilson@diamond.ac.uk
+#   ajf@observatorysciences.co.uk
+   
+# It is recommended to use pipenv to install these libraries, but I'm just using pip in this script, e.g.
+#        pipenv install cothread
+ 
+set -v
+python -m pip install --index-url https://pypiserver.diamond.ac.uk  --user cothread
+python -m pip install --index-url https://pypiserver.diamond.ac.uk  --user aapy
+python -m pip install --index-url https://pypiserver.diamond.ac.uk  --user aioca
+ 
+# Now start the IOC in a separate window
+# Note this has been customised to work as user: "chris"
+# You may wish to copy the software to your own account and change the user.  Take a look
+# in the script to work out what to do.
+xterm -e start_ioc.sh &
+
+# Start the software simulator GUI
+start_gui.sh
