@@ -18,10 +18,12 @@ To clone this repository:
     module load vscode/1.42.1
     code .
 
-If you've downloaded already:
+If you've downloaded the examples already and you want to get updates:
+    git pull
+
+If this fails because you've made changes to some of the code, then stash you changes:
     git stash
     git pull
-    
 
 Debugging with vscode
 =====================
@@ -31,9 +33,7 @@ Debugging with vscode
 2. To run vscode:
 	code .
 
-3. When vscode fires up install the Python Extension module 
-
-4. You should now be able to select a Python source file and debug with F5
+3. You should now be able to select a Python source file and debug with F5
 
 
 

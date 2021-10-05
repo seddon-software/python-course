@@ -1,24 +1,29 @@
 ############################################################
 #
-#    main.py
+#    sendmail
 #
 ############################################################
 
-import smtplib
-server = smtplib.SMTP('mail.btinternet.com')
+import smtplib, ssl
+import getpass
 
-USER = "seddon_software@btinternet.com"
+password = getpass.getpass('Password: ')
+sender_email = "seddon_software@btinternet.com"
+receiver_email = "ljs21@btinternet.com"
+smtp_server = 'mail.btinternet.com'
+message = """\
+Subject: Sending email via a script
 
-server.login(user=USER, password=PASSWORD)
+This message is sent from Chris Seddon to you.
+"""
+port = 465  # For SSL
 try:
-    server.sendmail(USER, USER, \
-    """To: seddon-software@btinternet.com
-    From: seddon-software@keme.co.uk
-    Beware the Ides of March.
-    """) 
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(f"Chris Seddon <seddon_software@btinternet.com>", receiver_email, message)
 except Exception as e:
     print(e)
-server.quit()
 
 
 
