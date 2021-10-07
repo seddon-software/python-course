@@ -17,7 +17,7 @@ def SendAndReceive(message):
 
 print("Client")
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-mySocket.connect(('localhost', 7001))
+mySocket.connect(('localhost', 8002))
 
 # client must send a legal Python expression or server will close connection
 try:

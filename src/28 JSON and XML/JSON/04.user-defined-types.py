@@ -56,6 +56,7 @@ decoder = MyDecoder()
 # sample objects
 l1 = [3, 5, 7, 9]
 p1 = Point(5, 8)
+print(p1.__dict__)
 t1 = My3Tuple(2,4,6)
 
 #encode objects as JSON strings

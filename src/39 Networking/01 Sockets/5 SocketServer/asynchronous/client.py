@@ -11,7 +11,7 @@ import random
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # connect to well known address
-mySocket.connect(('localhost', 7001))
+mySocket.connect(('localhost', 8001))
 
 # send and receive messages
 for n in range(1, 20):

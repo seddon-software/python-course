@@ -5,7 +5,7 @@
 ############################################################
 
 import socketserver
-PORT = 7001
+PORT = 8002
 class MyRequestHandler(socketserver.StreamRequestHandler):
     def handle(self):
         while(True):

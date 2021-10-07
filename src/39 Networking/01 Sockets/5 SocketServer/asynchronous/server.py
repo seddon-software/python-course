@@ -36,8 +36,8 @@ class MyRequestHandler(socketserver.StreamRequestHandler):
 class MyServer(socketserver.ThreadingMixIn, 
                socketserver.TCPServer): pass
 
-server = MyServer(("localhost", 7001), MyRequestHandler)
-print("Server on port 7001")
+server = MyServer(("localhost", 8001), MyRequestHandler)
+print("Server on port 8001")
 
 server_thread = threading.Thread(target=server.serve_forever)
 server_thread.start()
