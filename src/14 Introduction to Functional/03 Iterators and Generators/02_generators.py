@@ -41,7 +41,7 @@ print(g.__next__())
 print(next(g))
 print(next(g))
 
-# use g in a loop as an iterator (not the call powers() to instantiate the generator)
+# use g in a loop as an iterator (not the call powers() to instantiate a new generator)
 for n in powers():
     print(n)
     

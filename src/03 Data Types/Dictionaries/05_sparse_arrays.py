@@ -4,7 +4,9 @@
 #
 ############################################################
 
-# set up a dictionary
+import sys
+
+# set up a dictionary with 'int' keys
 hash = { 
             2507: ('Red', 'Green', 'Blue'),
              672: ('Black', 'White', 'Grey'),
@@ -17,4 +19,5 @@ try:
     print(hash[7845])
 except KeyError as e:
     print("Key error: " + str(e))
-1
+
+print(f"size of hash = {sys.getsizeof(hash)} bytes")

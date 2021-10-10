@@ -17,7 +17,7 @@ mylist = list(salary.keys())
 mylist.sort()
 
 for key in mylist:
-    print("{:>6s}{:6d}".format(key, salary[key]))
+    print(f"{key:>6s}{salary[key]:6d}")
     
 
 
