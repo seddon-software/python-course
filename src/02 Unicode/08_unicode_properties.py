@@ -6,10 +6,10 @@ print(u)
 
 
 for i, c in enumerate(u):
-    print(f"{i}: {ord(c):04x}"+
-          f" {unicodedata.category(c):4s}"+
-          f" {unicodedata.name(c)}")
-
+    print("{}: {:04x} {:4s} {}".format(i, 
+                                 ord(c),   # code point
+                                 unicodedata.category(c),
+                                 unicodedata.name(c)))
 # some unicode characters represent numbers (in this case, characters 1 and 5)
 # Get numeric value of second character
 print("{}".format(unicodedata.numeric(u[1])))
