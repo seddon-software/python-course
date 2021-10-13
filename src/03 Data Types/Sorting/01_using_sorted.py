@@ -9,19 +9,18 @@ data = [ [ 5, ('G', 29.5), "Monday",    "file17.py", 70],
 
 def keyFunction(row):
     return row[1][1]
-#    return row[3]
 
-print("using a function [1][1]")
+print("using a function [1][1]; this is the second part of the tuple")
 sortedData = sorted(data, key=keyFunction, reverse=True)
 for d in sortedData: print(d)
 print()
 
-print("using a lambda function [3]")
+print("using a lambda function [3]; this is the fileName")
 sortedData = sorted(data, key=lambda row:row[3], reverse=True)
 for d in sortedData: print(d)
 print()
 
-print("using a lambda function [1][0]")
-sortedData = sorted(data, key=lambda row:row[1][0], reverse=True)
+print("using a lambda function [1][0]; this is the first part of the tuple")
+sortedData = sorted(data, key=lambda row:row[1][0], reverse=False)
 for d in sortedData: print(d)
 print()

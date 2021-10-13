@@ -11,7 +11,7 @@ cards = [[ 5, 'H'],
 
 def keyFunction(card):
     suits = {'S':4, 'H':3, 'D':2, 'C':1}
-    pips = {'A':1, 'J':11, 'Q':12, 'K':13}
+    pips = {'A':1, 'J':11, 'Q':12, 'K':13} # convert honour card to a pip value
     pip = card[0]
     suit = card[1]
     if pip in pips: pip = pips[pip]
@@ -20,5 +20,5 @@ def keyFunction(card):
 
 sortedData = sorted(cards, key=keyFunction)
 for d in sortedData: 
-    print(f"{d[0]} {d[1]}")
+    print(f"{d[0]}{d[1]}", end=" ")
 print()

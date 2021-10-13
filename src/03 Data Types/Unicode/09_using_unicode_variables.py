@@ -1,3 +1,8 @@
+# website to get Mah symbols
+import webbrowser
+webbrowser.open("https://math.typeit.org/")
+
+
 from numpy import array, cos, sin, arctan
 import numpy as np
 

@@ -2,7 +2,7 @@ def encodeString(string, encoding):
     bytes = string.encode(encoding)
     print(f"{encoding}: {bytes}")
 
-# résumé
+# see what set of bytes are produced using different encodings
 encodeString("résumé", "utf-8")
 encodeString("résumé", "utf-16")
 encodeString("résumé", "utf-32")

@@ -10,5 +10,8 @@ def printRange(title, lo, hi):
         print(chr(n), end="")
     print()
 
+print()
 printRange("Unicode Box Drawing", 0x2500, 0x257F)
+print()
 printRange("Arabic", 0x0600, 0x06FF)
+print()
