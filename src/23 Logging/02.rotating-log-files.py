@@ -19,7 +19,6 @@ for i in range(10000):
     my_logger.debug(f'This is a logging message {i}')
 
 # See what files are created
-logfiles = glob.glob(f'{LOG_FILENAME}*')
+import subprocess
+subprocess.call("ls -l logs/rotation*", shell=True)
 
-for filename in logfiles:
-    print(filename)

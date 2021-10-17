@@ -1,6 +1,8 @@
 import sys
 
+print("Command line parameters")
+
 # simple approach to accessing command line arguments
-for arg in sys.argv:
-    print(arg, end=' ')
-    
+for i, arg in enumerate(sys.argv):
+    print(f"{i}: {arg}")
+print()

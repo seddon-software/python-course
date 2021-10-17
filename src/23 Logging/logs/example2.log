@@ -1,4 +1,9 @@
-DEBUG    2015-06-02 16:28:24,269 USER  IP: 192.1.1.52      User: sheila   A debug message
-DEBUG    2015-06-02 16:28:24,269 USER  IP: 192.1.1.52      User: sheila   Another debug message
-INFO     2015-06-02 16:28:24,269 USER  IP: 10.21.15.103    User: tom      An info message
-INFO     2015-06-02 16:28:24,269 USER  IP: 10.21.15.103    User: tom      Another info message
+INFO     2021-10-13 20:36:09,073 Group: GROUP-1 IP: 192.1.1.52      User: sheila   An info message
+DEBUG    2021-10-13 20:36:09,074 Group: GROUP-1 IP: 192.1.1.52      User: sheila   A debug message
+WARNING  2021-10-13 20:36:09,074 Group: GROUP-1 IP: 192.1.1.52      User: sheila   A warning message
+INFO     2021-10-13 20:36:09,074 Group: GROUP-2 IP: 192.2.1.103     User: jon      An info message
+DEBUG    2021-10-13 20:36:09,074 Group: GROUP-2 IP: 192.2.1.103     User: jon      A debug message
+WARNING  2021-10-13 20:36:09,074 Group: GROUP-2 IP: 192.2.1.103     User: jon      A warning message
+INFO     2021-10-13 20:36:09,074 Group: GROUP-1 IP: 192.1.1.63      User: tom      Another info message
+INFO     2021-10-13 20:36:09,074 Group: GROUP-2 IP: 192.2.1.154     User: zoe      An info message
+CRITICAL 2021-10-13 20:36:09,074 Group: GROUP-2 IP: 192.2.1.154     User: zoe      A critical message

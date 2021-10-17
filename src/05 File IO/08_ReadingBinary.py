@@ -31,4 +31,3 @@ for i in intList:
     print(("{:10d}{:>10s}".format(i, hex(i))))
 
 
-1

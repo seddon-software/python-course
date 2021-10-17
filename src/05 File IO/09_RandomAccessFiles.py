@@ -20,3 +20,5 @@ myFile.write("X")
 
 myFile.close()
 
+import os
+os.system("hexdump data/myfile2.bin")

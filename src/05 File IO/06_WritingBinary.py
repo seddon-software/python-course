@@ -48,4 +48,4 @@ print(('After  :', binascii.hexlify(stringBuffer.raw)))
 writeBinary('data/myfile-3.bin', stringBuffer)
 
 
-1
+
