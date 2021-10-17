@@ -1,4 +1,4 @@
-4 October 2021
+17 October 2021
 
 Timings:
 ========
@@ -25,13 +25,13 @@ If this fails because you've made changes to some of the code, then stash your c
     git stash
     git pull
 
-Most of the examples on this course are available as a Juypter Notebook.  You can clone these exmples with:
+Most of the examples on this course are available as a Juypter Notebook.  You can clone these examples with:
     cd 
     git clone https://github.com/seddon-software/python-notebooks.git
     cd python-notebooks
     jupyter notebook --browser firefox
 
-    
+
 vscode key bindings
 ===================
 F11                 toggle full screen
