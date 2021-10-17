@@ -21,22 +21,17 @@ To clone this repository:
 If you've downloaded the examples already and you want to get updates:
     git pull
 
-If this fails because you've made changes to some of the code, then stash you changes:
+If this fails because you've made changes to some of the code, then stash your changes:
     git stash
     git pull
 
-Debugging with vscode
-=====================
-1. Go to folder containing .vscode
-	cd python-course
+Most of the examples on this course are available as a Juypter Notebook.  You can clone these exmples with:
+    cd 
+    git clone https://github.com/seddon-software/python-notebooks.git
+    cd python-notebooks
+    jupyter notebook --browser firefox
 
-2. To run vscode:
-	code .
-
-3. You should now be able to select a Python source file and debug with F5
-
-
-
+    
 vscode key bindings
 ===================
 F11                 toggle full screen
@@ -49,4 +44,4 @@ Ctrl -              zoom out
 
 Interpreter used on course (October 2021)
 =========================================
-Python 3.7.3 64-bit('base':conda)
+Python 3.8.8 64-bit('base':conda)
