@@ -4,7 +4,8 @@ print(f"octal:   {n:20o}")
 print(f"hex:     {n:20x}")
 print(f"HEX:     {n:20X}")
 print(f"decimal: {n:20d}")
+print(f"decimal: {n:20}")
 
 n = 123456789
-print(f"seperator: <{n:_}>")
-print(f"seperator: <{n:,}>")
+print(f"separator: <{n:_}>")
+print(f"separator: <{n:,}>")

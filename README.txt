@@ -14,6 +14,7 @@ To clone this repository:
     cd 
 	git clone https://github.com/seddon-software/python-course.git
     cd python-course
+    ls
     module load python/3.7
     module load vscode/1.42.1
     code .

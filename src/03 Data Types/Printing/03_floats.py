@@ -7,7 +7,7 @@ print(f"right justify:    <{n:>12.2f}>")
 
 
 n = 12345678901.2345
-print(f"cooma and period: <{n:,.2f}>")
+print(f"comma and period: <{n:,.2f}>")
 
 num = 2343552.6516251625
 print(f"{num:e}")

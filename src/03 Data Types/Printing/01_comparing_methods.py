@@ -1,4 +1,4 @@
-s1 = 'hello'
+s1 = "hello"
 s2 = 'world'
 
 # old Python 2 way of printing

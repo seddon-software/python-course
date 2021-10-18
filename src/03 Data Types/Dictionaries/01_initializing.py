@@ -20,4 +20,6 @@ salary2 = dict(
                tim = 12500,
                zoe = 66000
                )
+print(salary1)
+print(salary2)
 

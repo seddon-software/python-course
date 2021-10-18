@@ -4,7 +4,7 @@
 #
 ############################################################
 
-def fib(n):
+def fib(n):  # fib is a pointer to the bytecode
     a, b = 0, 1
     while b < n:
         print(b, end=' ')
@@ -25,5 +25,7 @@ print(fib)
 # we can still call the function with the new reference
 f(50)
 
-1
+# using fib to call the function won't work
+fib(50)
+
 

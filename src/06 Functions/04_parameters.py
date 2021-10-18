@@ -10,6 +10,8 @@
 def f(a, b, c):
     return a + b + c
 
+print(f(1, 2, 3))
+
 # positional parameters
 print(f(1, 1, 1), end=' ')
 print(f(1, 2, 3), end=' ')

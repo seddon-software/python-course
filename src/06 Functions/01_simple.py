@@ -4,8 +4,8 @@
 #
 ############################################################
 
-def square(n):
-    print((n * n))
+def square(n):      # this creates a pointer: square and bytecode for the function object
+    print(n**2)
 
 
 square(5)

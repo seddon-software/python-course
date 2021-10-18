@@ -7,7 +7,7 @@
 x1 = []
 x2 = [1]
 x3 = [1,2,3]
-x4 = [1, 'mixed', 2, 'list']
+x4 = [1, "mixed", 2, 'list']
 x5 = [[1,2],[3,4]]
 
 print(type(x1))

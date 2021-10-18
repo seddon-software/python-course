@@ -14,6 +14,10 @@ try:
     for line in f:
         theList = line.rstrip().split(' ')
         value = theList[0]
+        x = theList[1:]
+        print(x)
+        y = "".join(x)
+        print(y)
         key = " ".join(theList[1:])
         phones[key] = value
 except IOError as e:
@@ -29,4 +33,6 @@ sortedKeys.sort()
 # 3. Iterate through sorted list
 for key in sortedKeys:
     print(key + ":" + phones[key])
-    
+
+# 4. Search for a given value    
+print(phones['District of Columbia'])
