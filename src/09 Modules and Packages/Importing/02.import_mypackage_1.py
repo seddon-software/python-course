@@ -1,6 +1,8 @@
 import sys
 sys.path.append("mylib")
 
+print(sys.path)
+
 import mypackage
 
 

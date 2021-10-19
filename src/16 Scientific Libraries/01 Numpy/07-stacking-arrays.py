@@ -13,4 +13,4 @@ print("stacking")
 h = np.hstack( (a,b) ); print(h)
 v = np.vstack( (a,b) ); print(v)
 
-1
+

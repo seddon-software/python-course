@@ -35,4 +35,4 @@ a = np.linspace(-50.0,50.0,5); print(a)
 a = np.linspace(-50.0,50.0,7); print(a)
 
 
-1
+

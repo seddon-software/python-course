@@ -28,5 +28,5 @@ a = np.matrix( [[5,3],[2,-7]] )
 v = np.matrix( [[31],[-45]] )
 print(np.linalg.solve(a,v))
 
-1
+
 

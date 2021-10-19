@@ -21,4 +21,4 @@ print("Size:", b.size)
 print("Item type:", b.dtype.name)
 print("Item size:", b.itemsize)
 
-1
+

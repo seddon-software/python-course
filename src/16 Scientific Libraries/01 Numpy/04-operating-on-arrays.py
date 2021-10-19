@@ -24,4 +24,4 @@ c = np.cross(a,b); print(c)
 print()
 
 
-1
+

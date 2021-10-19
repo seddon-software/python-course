@@ -6,7 +6,7 @@
 
 def writeFileContents(filename, data):
     try: 
-        # w+ will empty an existing file before opening it
+        # w+ (read and write) will empty an existing file before opening it
         f = open(filename, "w+")
         f.writelines(data)
     except IOError as e:
@@ -21,4 +21,3 @@ data = ("line 1\n", "line 2\n", "line 3\n", "line 4\n", "line 5\n")
 writeFileContents("data/text.txt", data)
 
 
-1
