@@ -9,6 +9,8 @@
 # matplotlib.pyplot is a state-based interface to matplotlib. 
 # It provides a MATLAB-like way of plotting.
 # pyplot is mainly intended for interactive plots and simple plots
+import os
+os.system("clear")
 
 import matplotlib.pyplot as plt
 

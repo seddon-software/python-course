@@ -4,7 +4,6 @@
 #
 ############################################################
 
-
 import matplotlib.pyplot as plt
 
 # object oriented interface uses axes 
