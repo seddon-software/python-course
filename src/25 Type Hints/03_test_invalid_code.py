@@ -17,4 +17,3 @@ print(concat(5, 7, 9))
 import os
 print(f"mypy {os.path.basename(__file__)}")
 os.system(f"mypy {os.path.basename(__file__)}")
-
