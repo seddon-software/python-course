@@ -21,7 +21,7 @@ def main():
     
     # create a new column from year and month columns
     oxford_data['period'] = oxford_data.apply(
-        lambda row : (row.year//4)*4, raw = False, 
+        lambda row : (row['year']//4)*4, raw = False, 
         axis = 1
         )
 

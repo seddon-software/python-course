@@ -1,3 +1,4 @@
+import os; os.system("clear")
 import pandas as pd
 import pylab as pl
 pd.set_option('display.precision', 1)
@@ -36,6 +37,7 @@ def main():
     print(f"{df[['County']]} returns: \n\t{type(a)}")
     
     b = df['County']      # scalar parameter => returns a series
+    print(b)
     print(f"df['County'] returns: \n\t{type(b)}")
         
     # using .loc

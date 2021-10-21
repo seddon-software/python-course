@@ -1,3 +1,5 @@
+import os; os.system("clear")
+
 # define two tag classes
 class TooBig(Exception): 
     def __init__(self, message): 

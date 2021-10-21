@@ -4,7 +4,9 @@
 #
 ############################################################
 
-import h5py
+import h5py, os
+
+if not os.path.exists('data'): os.mkdir('data')
 
 file = h5py.File('data/dset.h5','w')
 

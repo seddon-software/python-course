@@ -1,29 +1,25 @@
 ############################################################
 #
-#       Type hints: classes
+#       Type hints: Optional
 #
 ############################################################
 
-class Point:
-    count: int = 0
+from typing import Optional
 
-    def __init__(self, x0:int, y0:int)->None:
-        Point.count += 1
-        self.x = x0
-        self.y = y0
+def compare(a:int, b:int, order:Optional[str]="ascending", **kwargs):
+    if not order or order=="ascending":
+        print(a)
+    else:
+        print(b)
 
-    @staticmethod        # required by mypy
-    def getCount()->int:
-        return Point.count
+try:
+    compare(6, 7, None)
+    compare(6, 7, "ascending")
+    compare(6, 7, "descending")
+    compare(6, 7)
+except Exception as e:
+    print(e)
 
-
-p1 = Point(5, 9)
-p2 = Point(4, 8)
-p3 = Point(3, 7)
-
-print(Point.getCount())
-
-#):
 ############################################################
 # now check the above code
 ############################################################

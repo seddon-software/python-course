@@ -1,11 +1,13 @@
 # define two tag classes
+import os; os.system("clear")
 class TooBig(Exception): pass
 class MuchTooBig(Exception): pass
+
 
 def main():
     """ try different values of x and y to trigger exceptions"""
     try:
-        x = 100
+        x = 400
         y = 0
         
         if x > 150:

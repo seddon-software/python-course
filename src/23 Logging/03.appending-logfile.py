@@ -20,4 +20,7 @@ logging.debug('This message goes to the log file')
 logging.info(f'This message was timed at: {t}')
 
 # inspect log file
+import os
+os.system("cat logs/example.log")
+
 subprocess.call("cat logs/example.log", shell=True)

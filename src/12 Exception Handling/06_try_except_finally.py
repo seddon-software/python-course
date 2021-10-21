@@ -12,7 +12,7 @@ def f(x):
 # Resource Allocation is Initialization
 
 try:
-    x = 100
+    x = 10
     f(x)
 except Exception as e:
     print(f'caught exception ... {e}')

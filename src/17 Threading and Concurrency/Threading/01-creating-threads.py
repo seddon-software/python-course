@@ -13,7 +13,7 @@ from threading import Thread
 def myfunc(name):
     for i in range (1, 50):
         sys.stdout.write(name)        
-#        time.sleep(random.random() * 0.1)
+        time.sleep(random.random() * 0.1)
       
 
 # define a callback function - to be called via start()
