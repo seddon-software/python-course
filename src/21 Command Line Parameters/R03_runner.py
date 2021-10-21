@@ -1,4 +1,5 @@
-import os
+import os; os.system("clear")
+
 
 os.system("python 03_optional_args.py 123 456")
 os.system("python 03_optional_args.py")
