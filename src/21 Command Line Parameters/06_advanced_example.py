@@ -12,6 +12,6 @@ parser.add_argument(
     '--log', default=sys.stdout, type=argparse.FileType('w'),
     help='the file where the sum should be written')
 args = parser.parse_args()
-args.log.write('{0}\n'.format(sum(args.integers)))
+args.log.write(f'sum of args = {sum(args.integers)}\n')
 args.log.close()
 

@@ -4,11 +4,11 @@
         "**/__pycache__": true,
         "**/.*test_cache": true
     },
-    "python.testing.unittestArgs": [
-        "--verbose",
-        "--start-directory", "./Level 3/21 DynamicAnalysis/CodeCoverage",
-        "--pattern", "test_*.py"
-    ],
+    // "python.testing.unittestArgs": [
+    //     "--verbose",
+    //     "--start-directory", "./Level 3/21 DynamicAnalysis/CodeCoverage",
+    //     "--pattern", "test_*.py"
+    // ],
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": false,

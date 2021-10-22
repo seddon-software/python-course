@@ -43,7 +43,6 @@ if "george" in salary: print("george is in dictionary")
 if "sara" in salary: print("sara is in dictionary")
 if "tom" not in salary: print("tom is NOT in dictionary")
 
-
 # delete keys using del or pop
 del salary["zak"]           # nothing returned
 value = salary.pop("sara")

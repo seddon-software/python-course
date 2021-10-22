@@ -1,6 +1,8 @@
-import os; os.system("clear")
+try:
+    x = input("Enter an integer: ")     # note: doesn't work in VSCode debug console
+except Exception as e:
+    print(e)
 
-x = input("Enter an integer: ")
 print(x)
 print(type(x))
 

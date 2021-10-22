@@ -5,7 +5,7 @@
 ############################################################
 
 # dictionaries can't be sorted, but we can print out
-# key value pairs in lexical order
+# key value pairs in lexical order (see previous example)
 
 # 1. Read in dictionary from file
 phones = {}

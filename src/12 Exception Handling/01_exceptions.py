@@ -1,5 +1,5 @@
-# try throw catch
-# try raise except
+# C++ uses:    try throw catch
+# Python uses: try raise except
 
 import os; os.system("clear")
 def main():

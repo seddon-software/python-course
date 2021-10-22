@@ -1,4 +1,3 @@
-import os; os.system("clear")  # to clear terminal
 x = 10
 a = 50
 b = 100

@@ -1,5 +1,4 @@
-import os; os.system("clear")
-import subprocess
-subprocess.call("python 01_args.py red orange yellow green blue indigo violet", shell=True)
+import os
+os.system("python 01_args.py red orange yellow green blue indigo violet")
 
 

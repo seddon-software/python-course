@@ -1,6 +1,6 @@
 import os; os.system("clear")
 
-# define two tag classes
+# define two tag classes that inherit from Exception
 class TooBig(Exception): 
     def __init__(self, message): 
         super().__init__(message)
@@ -26,7 +26,5 @@ def main():
         print(f"{e.__str__()}")
     except Exception as e:
         print(e)
-
-
 
 main()

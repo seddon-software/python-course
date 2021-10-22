@@ -38,10 +38,12 @@ vscode key bindings
 F11                 toggle full screen
 Ctrl-k Ctrl-r       show key bindings
 Ctrl-b              toggle sidebar
-Ctrl-Shift E        toggle explorer
 Ctrl-Shift C        open terminal window
+Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
 Ctrl -              zoom out
+
+I've set up Ctrl-# to display the debug console
 
 Interpreter used on course (October 2021)
 =========================================

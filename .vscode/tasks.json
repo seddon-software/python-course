@@ -36,6 +36,10 @@
             "command": "echo ${command:workbench.action.terminal.clear}"
         },
         {
+            "label": "clear",
+            "command": "clear"
+        },
+        {
             "label": "make clean",
             "type": "shell",
             "options": {

@@ -4,8 +4,6 @@
 #
 ############################################################
 
-import os; os.system("clear")
-
 # successful read
 try: 
     f = open("data/hello.txt", "r")

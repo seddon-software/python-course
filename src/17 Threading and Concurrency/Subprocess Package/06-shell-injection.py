@@ -1,14 +1,21 @@
 import shlex
 
-print("When asked for a filename, input 'filename; rm -rf ~' instead (we won't actually execute this command)")
-filename = input("Input a filename: ")#'err.txt; rm -rf ~'
-command = 'ls -l {}'.format(filename)
+# If we have a program that prompts for a filename, we need to be careful to check
+# that someone doesn't use shell injection
 
-print("The progam now has a shell injected string which will delete your home directory when executed:")
+# For example, suppose when prompted for a filename, someone enters:
+#       'err.txt; rm -rf ~'
+
+inFile = 'err.txt; rm -rf ~'
+
+# If the progam then tries to long list the file, the command would be:  
+command = f'command = ls -l {inFile}'
 print(command)
 
+print("\n\nThe progam now has a shell injected string which will delete your home directory when executed:")
+
 print("\n\nHowever, if you quote the input - no problem")
-command = 'ls -l {}'.format(shlex.quote(filename))
+command = f'command = ls -l {shlex.quote(inFile)}'
 print(command)
 
 

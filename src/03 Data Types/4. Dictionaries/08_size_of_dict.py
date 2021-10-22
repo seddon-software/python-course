@@ -2,7 +2,7 @@ import sys
 
 '''
 Add elements to a dictionary and print the 
-size of the dictionary every time it changes
+size of the dictionary every time the size changes
 '''
 
 d = {}

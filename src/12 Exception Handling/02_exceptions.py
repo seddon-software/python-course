@@ -1,5 +1,4 @@
 # define two tag classes
-import os; os.system("clear")
 class TooBig(Exception): pass
 class MuchTooBig(Exception): pass
 

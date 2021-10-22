@@ -4,8 +4,6 @@
 #
 ############################################################
 
-import os; os.system("clear")
-
 def getFileContents(filename):
     try: 
         f = open(filename, "r")

@@ -13,7 +13,7 @@ salary1 = {
           "zoe":   66000
          }
 
-salary2 = dict(
+salary2 = dict(             # this notation is not popular 
                john = 34000, 
                sara = 27000, 
                pedro = 52000,
@@ -22,4 +22,3 @@ salary2 = dict(
                )
 print(salary1)
 print(salary2)
-

@@ -11,7 +11,8 @@
             "request": "launch",
             "cwd": "${fileDirname}",
             "program": "${file}",
-            "console": "integratedTerminal",
+            //"console": "integratedTerminal",
+            "console": "internalConsole",
             "stopOnEntry": true,
             "preLaunchTask": "Clear terminal"
         }
