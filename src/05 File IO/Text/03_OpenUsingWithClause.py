@@ -1,31 +1,25 @@
 ############################################################
 #
-#    Reading a file
+#    Using with
 #
 ############################################################
 
 import os; os.system("clear")
 
 # successful read
-try: 
-    f = open("data/hello.txt", "r")
-    try:
+try:
+    with open("data/hello.txt", "r") as f:
         for line in f:
-            print(line, end=" ")
-    finally:
-        f.close()
+            print(line, end="")
 except IOError as e:
     print(e)
-
 
 # unsuccessful read
-try: 
-    f = open("./data/unknown-file.txt", "r")
-    try:
+try:
+    with open("data/unknown-file.txt", "r") as f:
         for line in f:
-            print(line, end=" ")
-    finally:
-        f.close()
+            print(line, end="")
 except IOError as e:
     print(e)
+
 

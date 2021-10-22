@@ -4,10 +4,12 @@
 #
 ############################################################
 
+import os; os.system("clear")
+
 def writeFileContents(filename, data):
     try: 
-        # w+ (read and write) will empty an existing file before opening it
-        f = open(filename, "w+")
+        # w (write) will empty an existing file before opening it
+        f = open(filename, "w")
         f.writelines(data)
     except IOError as e:
         print(e)
