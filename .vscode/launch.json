@@ -11,8 +11,10 @@
             "request": "launch",
             "cwd": "${fileDirname}",
             "program": "${file}",
-            //"console": "integratedTerminal",
-            "console": "internalConsole",
+            // integrated terminal works well for I/O but VSCode prints a long prompt before program starts
+            "console": "integratedTerminal",
+            // internal console will output data to debug console, but won't accept any input
+            //"console": "internalConsole",
             "stopOnEntry": true,
             "preLaunchTask": "Clear terminal"
         }

@@ -1,4 +1,9 @@
-17 October 2021
+25 October 2021
+Note:
+    I'm currently using the debug terminal to see results.  This doesn't work 
+    for examples with input statements (you have to use the terminal for those 
+    examples).
+    I've set up Ctrl-# as a shortcut to display the debug console.
 
 Timings:
 ========
@@ -32,7 +37,7 @@ Most of the examples on this course are available as a Juypter Notebook.  You ca
     cd python-notebooks
     jupyter notebook --browser firefox
 
-
+   
 vscode key bindings
 ===================
 F11                 toggle full screen
