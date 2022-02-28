@@ -1,6 +1,6 @@
 import sys
 import platform
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
 if(platform.system() == 'Darwin'):
     extra_compile_args=["-stdlib=libc++"]

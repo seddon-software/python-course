@@ -1,5 +1,5 @@
 import sys
-from distutils.core import setup
+from setuptools import setup
 from Cython.Build import cythonize
 from Cython.Distutils import build_ext, Extension
 

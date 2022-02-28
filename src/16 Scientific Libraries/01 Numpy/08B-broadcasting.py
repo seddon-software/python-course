@@ -1,26 +1,33 @@
-############################################################
-#
-#    broadcasting
-#
-############################################################
-
 import numpy as np
-import matplotlib
-from matplotlib import cm
-from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-import numpy as np
-from mpl_toolkits.mplot3d import axes3d, Axes3D
+from math import sin
 
-# a = [2, 4, 6, 8, 10]
-a = np.arange(2, 10, 0.01)
-x = np.hstack(a); print(x)
-y = np.vstack(a); print(y)
+plt.ion()
+figure = plt.figure()
+ax = figure.add_subplot(1,1,1, projection='3d')
+ax.view_init(elev=20.0, azim=105.0)
 
-f = y * np.cos(x)
-print(f)
-fig = plt.figure()
-ax = Axes3D(fig)
-surface = ax.plot_surface(x, y, f, cmap="terrain", rstride = 25, cstride = 5) #, rstride=1, cstride=1, cmap=cmap, linewidth=0, antialiased=False)
-plt.show()
-1
+plt.rcParams['lines.linewidth'] = 4
+marker = "o"
+MIN = 1
+MAX = 8
+
+ax.set_xlim3d([MIN, MAX])
+ax.set_ylim3d([MIN, MAX])
+ax.set_zlim3d([0.0, MAX**2])
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+for xs in np.arange(MIN, MAX):
+    for ys in np.arange(MIN, MAX):
+        for zs in [0]*MAX:
+            ax.scatter(xs, ys, zs, c="blue", marker=marker)
+
+def plotHeights(y):
+    for x in range(MIN, MAX):
+        ax.plot([x,x],[y,y],[0,x*y])
+
+for y in range(MIN, MAX):
+    plotHeights(y)
+

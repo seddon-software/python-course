@@ -7,7 +7,7 @@ ax = figure.add_subplot(1,1,1, projection='3d')
 
 
 marker = "o"
- 
+
 for xs in [x for x in np.arange(10) if (x % 4) == 0]:
     for ys in np.arange(10):
         for zs in np.arange(10):

@@ -1,0 +1,9 @@
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/fibonacci.py
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/fibonacci.cpython-39-x86_64-linux-gnu.so
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/EGG-INFO/native_libs.txt
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/EGG-INFO/top_level.txt
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/EGG-INFO/PKG-INFO
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/EGG-INFO/not-zip-safe
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/EGG-INFO/SOURCES.txt
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/EGG-INFO/dependency_links.txt
+/home/chris/.local/lib/python3.9/site-packages/FibonacciPackage-1.0-py3.9-linux-x86_64.egg/__pycache__/fibonacci.cpython-39.pyc

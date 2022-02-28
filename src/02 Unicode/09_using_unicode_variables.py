@@ -1,6 +1,6 @@
-# website to get Mah symbols
-import webbrowser
-webbrowser.open("https://math.typeit.org/")
+# website to get Math symbols
+# import webbrowser
+# webbrowser.open("https://math.typeit.org/")
 
 
 from numpy import array, cos, sin, arctan
