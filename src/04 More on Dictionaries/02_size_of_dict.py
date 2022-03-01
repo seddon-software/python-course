@@ -1,9 +1,12 @@
-import sys
+'''
+The dict data stucture can become very large.  CPython reserves space for new entries, but periodically the
+dict becomes full and needs to be resized.  
 
+In this example we investigat when this happens; we sdd elements to a dictionary and print the size of the 
+dictionary every time it changes.
 '''
-Add elements to a dictionary and print the 
-size of the dictionary every time it changes
-'''
+
+import sys
 
 d = {}
 

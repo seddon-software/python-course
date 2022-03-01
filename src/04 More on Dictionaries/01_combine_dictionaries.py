@@ -1,3 +1,13 @@
+'''
+Combining Dictionaries
+======================
+
+When we wish to combine two dictionaries, we can use one of the 3 methods shown below.  
+
+Note that any keys in the first dict that are duplicated in the second dict will be overwritten (not illustrated 
+in this example). 
+'''
+
 week = {
         'mon': 'Monday', 
         'tue': 'Tuesday',
