@@ -1,14 +1,16 @@
+'''
+This example show a typical design of a class.  For full details look at the accompanying Jupyter Notebook
+'''
+
+
 class Point:
-    # define class attribute
-    count = 0
-    
-    # define class (static) method
-    def getCount():
-        return Point.count
-    
-    # CTOR
+    '''
+    put documentation in here
+    '''
     def __init__(self, name, x0 = 0, y0 = 0):
-        Point.count += 1
+        '''
+        put documentation in here
+        '''
         self.name = name
         self.x = x0
         self.y = y0
@@ -19,15 +21,16 @@ class Point:
     
     def display(self):
         print("Point {} is at ({},{})".format(self.name, self.x, self.y))
-
-print("No of objects:", Point.getCount())
+        
 # create objects
 q = Point('origin')
 p1 = Point('point-1', 100, 200)
 p2 = Point('point-2', 200, 300)
 p3 = Point('point-3', 300, 500)
-print("No of objects:", Point.getCount())
-
+print(Point.__dict__)
+print(Point.__bases__)
+print(p1.__dict__)
+print(p1.__class__)
 p1.moveBy(1, 1)
 p2.moveBy(2, 3)
 p3.moveBy(3, 6)
