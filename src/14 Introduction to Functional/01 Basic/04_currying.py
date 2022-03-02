@@ -1,8 +1,16 @@
+'''
+Currying
+========
+
+Currying is the transformation of a function with multiple arguments into a sequence of single-argument functions.
+That means converting a function like this f(a, b, c, ...) into a function like this f(a)(b)(c)... 
+'''
+
 # conventional function that takes 5 args
 def func(a, b, c, d, e):
     return a, b, c, d, e
 
-print(func(1, 2, 3, 4, 5))
+print(func(10, 20, 30, 40, 50))
 
 # curried version that takes 1 arg
 def f(a):
@@ -24,10 +32,10 @@ d = f(1)(2)(3)(4)
 e = f(1)(2)(3)(4)(5)
 
 # missing arguments can be supplied later
-print(a(2)(3)(4)(5))
-print(b(3)(4)(5))
-print(c(4)(5))
-print(d(5))
+print(a(20)(30)(40)(50))
+print(b(30)(40)(50))
+print(c(40)(50))
+print(d(50))
 print(e)
 
 

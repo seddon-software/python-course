@@ -1,8 +1,11 @@
-############################################################
-#
-#    filters
-#
-############################################################
+'''
+filter(fn, sequence) takes two parameters
+        fn          function returning boolean
+        sequence    collection to be filtered
+        return      items from the collection that return true when we call fn(item)
+
+In this example the filter function removes numbers divisible by 2, 3, 5, 7, 11 and 13 (i.e. all the non primes).
+'''
 
 def primesFilter(x):
     if x % 2 == 0: return False
