@@ -10,7 +10,7 @@ surrounding scope of "g".  Python allows us to explicity see the closure with
             <function>.__closure__
 
 In this example, the closure has 2 items (x and y).  Note that only mutable items referenced in "g" will be
-included in the closure (so a is not part of the closure).
+included in this closure (so a is not part of the closure).
 '''
 
 def f():
