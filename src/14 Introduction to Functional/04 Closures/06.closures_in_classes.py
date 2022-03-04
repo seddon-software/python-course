@@ -1,8 +1,14 @@
-############################################################
-#
-#    closures
-#
-############################################################
+'''
+Closures in Classes
+===================
+
+This time we form a closure using an object (p1 or p2) and a method (moveBy or zoom).  For example
+        moveP1 = p1.moveBy
+
+is a closure on the object p1 and method moveBy().  "moveP1" can now be passed as a parameter to another 
+function (DoIt).  After all the partial functions have been called, the example concludes with printing the 
+values of p1 and p2 to see the effect of the calls. 
+'''
 
 class Point:
     def __init__(self, x0, y0):

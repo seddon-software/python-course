@@ -1,3 +1,10 @@
+'''
+Reverse Iterator
+================
+
+You can easily built a reverse iterator using the reverse() and iter() functions.
+'''
+
 def reverse_iter(a):
     a.reverse()
     return(iter(a))
@@ -7,3 +14,4 @@ reverseIterator = reverse_iter(array)
 
 for n in reverseIterator:
     print(n, end=", ")
+print()

@@ -1,11 +1,51 @@
+'''
+Iterators
+=========
+
+Python iterators are defined as classes that support the following methods: __iter__() and __next__().
+Amongst other things, Python provides special language support for iterators when used in a for loop.  We will 
+be investigating this support below.
+
+First we create a Fibonacci class with methods __iter__ and __next__.  Objects of this class will be iterators.
+The special language support in loops means that
+                for f in Fibonacci():
+                    print(f, end=", ")
+
+is expanded by the run-time into
+    try:
+        fib = Fibonacci()
+        iter = fib.__iter__()
+
+        f = iter.__next__()
+        print(f, end=", ")
+
+        f = iter.__next__()
+        print(f, end=", ")
+
+        f = iter.__next__()
+        print(f, end=", ")
+
+        # and so on until an exception is raised when the iterator is exhausted
+    except StopIteration as e:
+        pass
+
+Once the iterator is created with
+        fib = Fibonacci()
+the __iter__() method is called once on "fib".  The return from this method designates the iterator object used 
+in the remainder of the loop.  Often that will be the "fib" object that was created above, but it could be another
+iterator object if you want.  If you want to use "fib" then simply return self from __iter__().
+
+After "f" is returned from f.__iter__(), the loop calls f.__next__() until the iterator is exhausted, when it will
+raise a "StopIteration" exception.  The run-time will then catch the exception and terminate the loop.
+'''
+
 ############################################################
 #
 #    iterators
 #
 ############################################################
 
-# There is special language support for iterator in the for of a loop
-# iterators must support two methods: __iter__ and __next__
+# iterators must support two methods: 
  
 class Fibonacci:
     def __init__(self):
