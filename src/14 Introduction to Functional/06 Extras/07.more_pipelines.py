@@ -1,4 +1,27 @@
-import subprocess
+'''
+More Pipelines
+==============
+
+In this more realistic example we use coroutines to filter output from the "ps -ef" command.  You will be 
+prompted to search for a string that appears in the output from this command and the program then behaves 
+like "grep".  For example, at the prompt enter "bash" and you will see all the bash processes currently running.
+
+First we create a coroutine "mygrep" with
+            g = mygrep(pattern)
+
+Now we loop using our "getLine()" coroutine with 
+            for line in getLine():
+                match = g.send(line)
+
+and then "send" the line to the "mygrep" coroutine.  This coroutine reads the line with
+            line = f"{yield}"
+            
+since yield is on the right hand side of the assignment.  After checking for a pattern match, the coroutine
+returns the first 120 characters of a matching line with
+            yield line[:120]
+'''
+
+import subprocess, sys
 import regex as re
 
 # run a unix command in child process and return output
@@ -16,7 +39,7 @@ def findProcesses(cmd):
         sys.exit()
     return out.decode()
 
-# create a generator that returns lines from 'ps -ef'
+# create a coroutine that returns lines from 'ps -ef'
 def getLine():
     ps = findProcesses('ps -ef')
 
@@ -28,7 +51,7 @@ def getLine():
         else:
             line.append(c)
 
-# this generator returns match lines from 'ps -ef' truncated to 120 chars
+# this coroutine returns matched lines from 'ps -ef' truncated to 120 chars
 def mygrep(pattern):
     pattern = re.compile(pattern)
     while True:

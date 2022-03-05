@@ -16,6 +16,7 @@
             // internal console will output data to debug console, but won't accept any input
             //"console": "internalConsole",
             "stopOnEntry": true,
+            //"justMyCode": false,
             "preLaunchTask": "Clear terminal"
         }
     ]

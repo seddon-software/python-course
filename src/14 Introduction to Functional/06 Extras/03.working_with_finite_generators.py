@@ -1,3 +1,10 @@
+'''
+Working with Finite Generators
+==============================
+
+Aside from using a generator in a loop, you can use a generator to create a tuple or a list.
+'''
+
 # define a finite generator
 def fibonacci(max):
     a, b = 0, 1

@@ -1,8 +1,15 @@
+'''
+Combinatorial Generators
+========================
+
+The itertools module has several methods for generating combinations.
+'''
+
 from itertools import *
 
 def doit(iter):
     for x in iter:
-        print(x, end=' ')
+        print(x, end='')
     print()
     print()
 
@@ -23,4 +30,4 @@ doit( combinations('ABCDE', 3) )
 doit( combinations_with_replacement('ABCDE', 3) )
 
 
-1
+
