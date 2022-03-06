@@ -1,3 +1,10 @@
+'''
+Subplots
+========
+
+In this example we customize the grid of axes by spanning some of the axes across several rows and columns.
+'''
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -25,6 +32,7 @@ def main():
     configureSubplot(ax2, 'y = t^2 + t', 't', 'y')
     configureSubplot(ax3, 'y = t^2 + 1', 't', 'y')
     configureSubplot(ax4, 'y = t^3'    , 't', 'y')
+    plt.tight_layout()
     plt.show()
 
 main()

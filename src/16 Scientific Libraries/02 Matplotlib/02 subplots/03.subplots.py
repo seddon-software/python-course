@@ -1,6 +1,11 @@
-import matplotlib.pyplot as plt
+'''
+Subplots
+========
 
-# plot multiple subplots within one figure
+This time we show how to create a custom axis (ax7) within the grid.
+'''
+
+import matplotlib.pyplot as plt
 
 def plotSomeExtraData(axes):
     for i in range(0,8):

@@ -1,8 +1,10 @@
-############################################################
-#
-#    subplots
-#
-############################################################
+'''
+Subplots
+========
+
+This is a similar example, but explores creating different sizes of grid for axes.  The results are spread across
+3 figures.
+'''
 
 import numpy as np
 import matplotlib.pyplot as plt

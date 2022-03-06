@@ -1,6 +1,20 @@
+'''
+WireFrame
+=========
+
+This wire frame example of a sphere is based on the matplotlib examples at:
+            https://matplotlib.org/stable/gallery/index.html 
+
+Note the use of the Numpy "r_" range function.  This function behaves differently from Numpy's "arange" function
+in that by specifying the step as a complex number as in
+            u = np.r_[0:2*pi:50j]
+
+Numpy interprets "50j" as meaning you want 50 values between start and stop rather than specifying an increment of
+50j (which would in any case not make sense).
+'''
+
 import numpy as np
 from numpy import pi, cos, sin
-#import matplotlib as plt
 import matplotlib.pyplot as plt
 
 import mpl_toolkits.mplot3d.axes3d as mpl

@@ -1,3 +1,11 @@
+'''
+ColorMaps
+=========
+
+Colormaps are used to enhance plots with artificial colors.  In this example we examine all the colormaps 
+provided by MatPlotLib.  Of course if you really want to, you can define your own colormaps.
+'''
+
 from matplotlib import cm
 from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import matplotlib.pyplot as plt
