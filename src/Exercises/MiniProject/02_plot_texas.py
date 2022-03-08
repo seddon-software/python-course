@@ -8,8 +8,8 @@ pd.set_option('display.width', 200)
 pd.set_option('display.max_columns', 500)
 
 # setup plot
-plt.figure(figsize=(13,8))
-plt.gcf().canvas.set_window_title('GeoPandas')
+fig = plt.figure(figsize=(13,8))
+fig.canvas.manager.set_window_title("GeoPandas")
 ax = plt.gca()
 ax.set_title("WIND Data Points in Texas")
 ax.set_facecolor("aqua")

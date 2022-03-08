@@ -1,3 +1,21 @@
+'''
+Common Pandas Selection Operations
+==================================
+
+In this example we use a small dataset to illustrate common Pandas operations.  Note that Pandas defines two
+key types:
+    dataframe:       2D table
+    series:          1D table
+
+Pay special attention as to which data type is return from the operations below; further operations on dataframes
+and series are very different.
+
+Note there are 3 distinct ways of interacting with dataframes:
+    1) direct       df.             ...
+    2) loc          df.loc          use index to select data
+    3) iloc         df.iloc         use numerical index to select data
+'''
+
 import os; os.system("clear")
 import pandas as pd
 import pylab as pl
@@ -9,7 +27,7 @@ def inspect(item):
     print()
     print(item)
     print(type(item))
-    print("------------------")
+    print("-"*len(str(type(item))))
 
 def main(): 
     df = pd.read_csv("data/sample.csv", 
@@ -17,28 +35,23 @@ def main():
                      index_col=0)
     print(df)
 
-    # some standard dataframe methods    
+    # inspect some standard dataframe methods    
     # the index
     inspect(df.index)
 
     # the column headings
     inspect(df.columns)
-    print(type(df.columns))
     
-    # the values of the dataset
+    # the values of the dataset (Numpy arrays)
     inspect(df.values)
     inspect(df.values[0])
     inspect(df.values[0, 0])
 
-    print(list(df.index))   # convert index to a list    
-    print(list(df.columns)) # convert columns to a list
+    inspect(list(df.index))    # convert index to a list    
+    inspect(list(df.columns))  # convert columns to a list
     # extracting a single column can create a new dataframe or a series
-    a = df[['County']]    # list parameter => returns a dataset
-    print(f"{df[['County']]} returns: \n\t{type(a)}")
-    
-    b = df['County']      # scalar parameter => returns a series
-    print(b)
-    print(f"df['County'] returns: \n\t{type(b)}")
+    inspect(df[['County']])    # [[list parameter]] => returns a dataset
+    inspect(df['County'])      # [scalar parameter] => returns a series
         
     # using .loc
     # loc uses the index of the dataset.  A lot of datasets have an index of

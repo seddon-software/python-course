@@ -25,7 +25,7 @@ def getGeoDataFrame():
     # combine indivual state dataframes
     centroid_for_states = pd.concat(dfs_of_states, ignore_index=True)
     
-    # add gemetry field
+    # add geometry field
     WIND_gdf = geopandas.GeoDataFrame(
         centroid_for_states, 
         geometry=geopandas.points_from_xy(centroid_for_states.longitude, centroid_for_states.latitude)
