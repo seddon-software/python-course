@@ -1,4 +1,11 @@
-/home/chris/.local/lib/python3.8/site-packages/roots.py
-/home/chris/.local/lib/python3.8/site-packages/__pycache__/roots.cpython-38.pyc
-/home/chris/.local/lib/python3.8/site-packages/_roots.cpython-38-x86_64-linux-gnu.so
-/home/chris/.local/lib/python3.8/site-packages/SWIG_example-1.0-py3.8.egg-info
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/_roots.py
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/roots.py
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/_roots.cpython-39-x86_64-linux-gnu.so
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/EGG-INFO/native_libs.txt
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/EGG-INFO/top_level.txt
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/EGG-INFO/PKG-INFO
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/EGG-INFO/not-zip-safe
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/EGG-INFO/SOURCES.txt
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/EGG-INFO/dependency_links.txt
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/__pycache__/_roots.cpython-39.pyc
+/home/chris/.local/lib/python3.9/site-packages/SWIG_example-1.0-py3.9-linux-x86_64.egg/__pycache__/roots.cpython-39.pyc
