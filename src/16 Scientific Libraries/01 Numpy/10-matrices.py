@@ -1,8 +1,14 @@
-############################################################
-#
-#    matrices
-#
-############################################################
+'''
+Matrices
+========
+
+Numpy supports matrices with the @ operator.  For a given matrix "a" you can compute:
+            a.T             : transpose
+            a.I             : inverse
+            linalg.det(a)   : determinant
+
+The linalg subpackage also solves simultaneous equations.
+'''
 
 import numpy as np
 

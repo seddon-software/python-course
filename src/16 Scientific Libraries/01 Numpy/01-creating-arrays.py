@@ -1,8 +1,11 @@
-############################################################
-#
-#    creating arrays
-#
-############################################################
+'''
+Creating Multi-Dimensional Arrays
+=================================
+
+Numpy is a library that lets us work with multi-dimensional arrays.  Most scientific analysis packages in Python 
+use Numpy. Several libraries extend Numpy including Pandas (which is dealt with in a separate tutorial).
+Let's begin by creating some Numpy arrays:
+'''
 
 import numpy as np
 

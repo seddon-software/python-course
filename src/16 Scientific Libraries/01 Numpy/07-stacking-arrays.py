@@ -1,8 +1,9 @@
-############################################################
-#
-#    stacking arrays
-#
-############################################################
+'''
+Stacking Arrays
+===============
+
+In some situations you will want to combine arrays; we can "stack" arrays horizontally or vertically:
+'''
 
 import numpy as np
 

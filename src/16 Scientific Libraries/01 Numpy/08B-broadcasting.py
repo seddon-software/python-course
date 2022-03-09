@@ -1,11 +1,28 @@
+'''
+This example is intended to be used in the debugger.  Note we are using interactive mode:
+            plt.ion()
+
+Put a breakpoint on the line:
+            plotHeights(y)
+
+Then as you step through this example you will notice the product of the  x and y coordinates are plotted for
+a grid of points on the z=0 plane.  
+        ax.plot([x,x],[y,y],[0,x*y])
+
+The height (z=x*y) is illustrated row by row.  As the rows unfold, you can see we are forming a surface plot.
+Calculations like this are the reason Numpy uses element by element calculations in expressions involving 
+multi-dimemsional arrays.
+'''
+
 import numpy as np
+import time
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 from math import sin
 
 plt.ion()
 figure = plt.figure()
-ax = figure.add_subplot(1,1,1, projection='3d')
+ax = Axes3D(figure)         # ax = figure.add_subplot(1,1,1, projection='3d')
 ax.view_init(elev=20.0, azim=105.0)
 
 plt.rcParams['lines.linewidth'] = 4
@@ -29,5 +46,8 @@ def plotHeights(y):
         ax.plot([x,x],[y,y],[0,x*y])
 
 for y in range(MIN, MAX):
+    # put breakpoint in here
     plotHeights(y)
 
+plt.ioff()
+plt.show()
