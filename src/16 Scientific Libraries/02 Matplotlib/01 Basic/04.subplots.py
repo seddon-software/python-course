@@ -1,12 +1,13 @@
-############################################################
-#
-#    multiple plots
-#
-############################################################
+'''
+Sub Plots
+=========
+
+You can plot more than one set of axes on a figure.  Here we create a grid of 2x3 axes and add some sample data 
+to each set of axes.
+'''
 
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 t = np.arange(0.0, 5.0, 0.5)
 redDashes = "r--"

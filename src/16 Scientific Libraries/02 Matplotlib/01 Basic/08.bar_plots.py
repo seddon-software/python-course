@@ -1,3 +1,11 @@
+'''
+Bar Plots
+=========
+
+MatplotLib allows us to create several diiferent types of plot.  In this example we create a sample bar plot,
+complete with error bars.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 

@@ -1,8 +1,9 @@
-############################################################
-#
-#    multiple plots
-#
-############################################################
+'''
+Combining Plots
+===============
+
+You can plot several graphs on the same set of axes; here we plot 3 graphs in the axes. 
+'''
 
 import numpy as np
 import matplotlib.pyplot as plt
