@@ -1,3 +1,12 @@
+'''
+Cropping
+========
+
+Cropping images is peormed by specifying a cropping box:
+            box = (450, 300, 1500, 1500)
+            img = img.crop(box)
+'''
+
 import os, sys
 from PIL import Image
 

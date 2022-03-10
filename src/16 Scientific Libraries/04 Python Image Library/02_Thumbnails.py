@@ -1,3 +1,11 @@
+'''
+Thumbnails
+==========
+
+To create a thumbnail of an image:
+                img.thumbnail(size)
+'''
+
 import os, sys
 from PIL import Image
 

@@ -1,9 +1,16 @@
+'''
+Markers
+=======
+
+This example shows all possible markers that you can use with scatter plots
+'''
+
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import matplotlib.pyplot as plt
 
-fig = plt.figure()
-ax = Axes3D(fig)
+figure = plt.figure("Markers")
+ax = figure.add_subplot(1,1,1, projection='3d')
 
 markers = {
         '.'  :  'point marker',
@@ -32,8 +39,8 @@ markers = {
 markers = list(markers.keys())
 
 for i, marker in enumerate(markers):
-    ax.scatter([i], [i], s = 100, marker=marker, c = np.random.rand(3))
-plt.gcf().canvas.set_window_title('Markers')
+    ax.scatter([i], [i], s = 100, marker=marker, color = np.random.rand(3))
+
 plt.show()
 
 

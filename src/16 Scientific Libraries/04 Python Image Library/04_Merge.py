@@ -1,3 +1,16 @@
+'''
+Merge
+=====
+
+Merge doesn't merge images; it allows you to interchange the RGB channels of an image.  In the example we
+change:
+            r --> b
+            g --> g
+            b --> r
+
+i.e. we swap red and blue channels.
+'''
+
 import os, sys
 from PIL import Image
 

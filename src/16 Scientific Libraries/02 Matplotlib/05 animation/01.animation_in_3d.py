@@ -8,16 +8,19 @@ MatPlotLib supports animation using the function:
 This does not provide sophisticated animation as in games, but is intended to add a timing element to plotting.
 The key part of this call is the second parameter:
             update_plot
+
 which specifies a function pointer; the function will be called repeatedly during the animation.  The update will 
 be performed every 100 msec and frames will indicate the number of frame in the animation.  When update_plot
 is called, the frame number will be passed as a monotonically increasing number, starting at 1.  If you look at
 the function def statement:
             def update_plot(frame, data, sc):
+
 you will notice two more parameters are passed to update_plot.  These parameters were specified in the "fargs"
 tuple of FuncAnimation.  In this example we calculate all our animation data prior to calling FuncAnimation, 
 but this is not required.
 
 Other points of interest are:
+
 1)          matplotlib.use('TkAgg')
 This defines the backend graphics driver used by MatPlotLib.  "backend" does all the hard work behind the scenes
 to make draw the figure. There are two types of backends: user interface backends (for use in PyQt/PySide, 

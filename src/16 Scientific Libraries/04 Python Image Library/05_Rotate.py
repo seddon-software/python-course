@@ -1,3 +1,11 @@
+'''
+Rotate
+======
+
+Rotate an image by specifying a rotation angle:
+            img = img.rotate(45)
+'''
+
 import os, sys
 from PIL import Image
 
