@@ -1,3 +1,4 @@
+import os
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
@@ -5,12 +6,11 @@ import openpyxl
 
 def writeToCell(row, col, color):
     cell = f"{row}{col}"
-    row = ws[cell].row
-    col = ws[cell].column
     fill = PatternFill(start_color=f"{color}", fill_type = "solid")
     ws.cell(row, col).fill = fill
 
-wb = load_workbook(filename='data/colored.xlsx')
+fileName = 'data/colored.xlsx'
+wb = load_workbook(filename=fileName)
 ws = wb.active
 ws.title = "writing colors to cells"
 
@@ -22,13 +22,12 @@ for row in range(1, 1000):
     ws.row_dimensions[row].height = 21.0
 
 # now color cells    
-rows = [c for c in "ABCDEFGHIJKLM"]
-for row in rows:
-    for col in range(1, 30):
-        writeToCell(row, col, "FF0000")
-    for col in range(30, 60):
-        writeToCell(row, col, "00FF00")
-    for col in range(60, 90):
-        writeToCell(row, col, "0000FF")
+for row in range(1, 100):
+    for col in range(1, 90):
+        h = f"{(0xFF0000 + row * col) % 0x1000000:06X}"
+        writeToCell(row, col, h)
 
-wb.save('data/colored.xlsx')
+wb.save(fileName)
+
+cmd = f"libreoffice {fileName}"
+os.system(cmd)

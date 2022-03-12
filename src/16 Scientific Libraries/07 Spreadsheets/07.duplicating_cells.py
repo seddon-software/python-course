@@ -1,9 +1,11 @@
+import os
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
 import openpyxl
 
-wb = load_workbook(filename='data/colored.xlsx')
+fileName = 'data/colored.xlsx'
+wb = load_workbook(filename=fileName)
 ws = wb.active
 ws.title = "writing to cells"
 
@@ -22,4 +24,7 @@ for row in range(1, 1000):
 ws['A2'].fill = PatternFill(start_color="FF0000", fill_type = "solid")
 ws['B1'].fill = PatternFill(start_color="00FF00", fill_type = "solid")
 ws['C2'].fill = PatternFill(start_color="0000FF", fill_type = "solid")
-wb.save('data/colored.xlsx')
+wb.save(fileName)
+
+cmd = f"libreoffice {fileName}"
+os.system(cmd)

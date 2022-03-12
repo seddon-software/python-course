@@ -1,3 +1,4 @@
+import os
 from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.chart import (
@@ -38,4 +39,8 @@ chart.set_categories(yData)
 chart.shape = 4
 ws.add_chart(chart, "B10")
 
-wb.save('data/barCharts.xlsx')
+fileName = 'data/barCharts.xlsx' 
+wb.save(fileName)
+
+cmd = f"libreoffice {fileName}"
+os.system(cmd)
