@@ -1,8 +1,22 @@
-############################################################
-#
-#    decorators
-#
-############################################################
+'''
+Chaining Decorators
+===================
+
+Decorators can be combined (chained together).  Here we define "bold()" and "us()" decorators.  These decorators
+can be used on their own or in combination:
+            @bold
+            @us
+            def getBoldUsDate():
+                return getDate()
+
+In this case:
+            getBoldUsDate()
+
+gets translated to 
+            us(getBoldUsDate)()
+and the second decorator further translates to
+            bold(us(getBoldUsDate))
+'''
 
 def bold(fn):
     def decorate():

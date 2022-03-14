@@ -1,4 +1,5 @@
 import scipy
+import scipy.fft
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -9,16 +10,16 @@ sample_rate = 500       # sampling rate [Hz]
 dt = 1.0/sample_rate    # time between two samples [s]
 df = 1.0/signal_length  # frequency between points in frequency domain [Hz]
 
-t = scipy.arange(0,signal_length ,dt)     # the time vector
+t = np.arange(0,signal_length ,dt)     # the time vector
 
 # create synthetic signal (without noise)
-y = scipy.sin(2*π*155*t+π/3) + scipy.sin(2*π*50*t) + scipy.sin(2*π*70*t+π/4)
+y = np.sin(2*π*155*t+π/3) + np.sin(2*π*50*t) + np.sin(2*π*70*t+π/4)
 
 # compute fourier transform
-f = scipy.fft(y)
+f = scipy.fft.fft(y)
 
 # work out meaningful frequencies in fourier transform
-freqs = df*scipy.arange(0, (len(t)-1)/2., dtype='d')   # d=double precision float
+freqs = df*np.arange(0, (len(t)-1)/2., dtype='d')   # d=double precision float
 
 # plot input data y against time
 rows = 2
@@ -40,5 +41,7 @@ plt.tight_layout()  # make sure everything fits in window
 
 # save plot to disk
 plt.savefig('fft-results.pdf')
-plt.gcf().canvas.set_window_title("Fast Fourier Transform")
+
+fig = plt.gcf()
+fig.canvas.manager.set_window_title("Fast Fourier Transform")
 plt.show()

@@ -1,6 +1,8 @@
 import scipy
+import scipy.fft
 import numpy as np
 from numpy import pi, sin, cos
+from numpy import pi as 
 import matplotlib.pyplot as plt
 
 Fs = 1000                   # Sampling frequency                    
@@ -15,7 +17,7 @@ SS = (0.3*sin(2*pi*75*t) + 0.3*sin(2*pi*85*t) +
 S = SS - 7.9*np.random.random_sample(len(t))
 
 # perform discrete Fourier Transformation
-Y = scipy.fft(S)
+Y = scipy.fft.fft(S)
 Z = zeroFrequencyTerm = sumOfSignal = Y[0]
 P = positiveFrequencyTerms = Y[1:L//2]
 N = negativeFrequencyTerms = Y[L//2 + 1:]

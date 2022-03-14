@@ -1,9 +1,26 @@
-############################################################
-#
-#    decorators
-#
-############################################################
+'''
+Decorators with Attributes
+==========================
 
+You can have all sorts of decorators.  In this exmple we look at decorators with method attributes.
+This time we have two functions
+            circle() 
+            square()
+
+that are decorated with method instances of MyClass (@red.div and @blue.span).
+
+Now a call to circle() gets translated to:
+            red.div(cicle)()
+
+and red.div is a simple decorator that returns "inner()":
+            MyClass.inner() with closure on self.color = "red" and fn = circle
+and hence executes
+            print(f'<div class="{self.color}">{fn()}</div>')
+which translates to:
+            print(f'<div class="red">circle()</div>')
+and prints
+            <div class="red">circle()</div>
+'''
 
 
 class MyClass(object):
@@ -11,15 +28,13 @@ class MyClass(object):
         self.color = color
 
     def div(self, fn):
-        # print(fn)
         def inner():
-            print('<div class="{0}">{1}</div>'.format(self.color, fn()))
+            print(f'<div class="{self.color}">{fn()}</div>')
         return inner
 
     def span(self, fn):
-        # print(fn)
         def inner():
-            print('<span class="{0}">{1}</span>'.format(self.color, fn()))
+            print(f'<span class="{self.color}">{fn()}</span>')
         return inner
 
         
@@ -40,4 +55,3 @@ circle()    # red.div(circle)()
 square()    # blue.span(square)()
 
 
-1

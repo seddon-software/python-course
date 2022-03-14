@@ -1,8 +1,9 @@
-############################################################
-#
-#    Creating Datasets
-#
-############################################################
+'''
+Creating Dataset
+================
+
+A dataset is a multidimensional array of data elements, together with supporting metadata.
+'''
 
 import h5py, os
 
@@ -16,7 +17,5 @@ print("Dataset Numpy datatype is", dataset.dtype)
 print("Dataset name is", dataset.name)
 print("Dataset is a member of the group", dataset.parent)
 print("Dataset was created in the file", dataset.file)
-#
-# Close the file before exiting
-#
+
 file.close()

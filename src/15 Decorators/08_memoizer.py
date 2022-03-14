@@ -1,7 +1,24 @@
+'''
+Memoizer
+========
+
+This is a decorator that is used to reduce the number of calls in a recursive function.  Here we apply it to
+a Fibonacci function, but it can be applied to any recursive function.
+
+The idea is that the first time a recursive function of depth n is called, the result is stored in a cache.  When
+future calls are made, the cache is checked to see if the call has been calculated before, in which case the cached
+value is used, otherwise the calculation is performed and the new result is placed in the cache.
+
+It can be surprising how many recursive calls are made if we don't use a cache.  Here we compare timings using 
+the cache (the memoize decorator) with the recursion without the cache for n == 6, by repeating the calculation
+1,000,000 times.  As n increases the non memoizer case becomes incredibly slow, but the memoize case remains
+fast.
+'''
+
 def memoize(f):
     cache = {}
     def inner(n):
-        # print("{}: {}".format(n, cache))
+        # print(f"{n}: {cache}")
         if n in cache:
             return cache[n]
         else:

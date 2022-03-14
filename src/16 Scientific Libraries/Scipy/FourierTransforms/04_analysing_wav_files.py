@@ -1,5 +1,6 @@
 import scipy.io.wavfile as wavfile
 import scipy
+import scipy.fft
 import scipy.fftpack
 import numpy as np
 from matplotlib import pyplot as plt
@@ -28,7 +29,7 @@ def analyzeSignal():
 signal, Fs, L, secs, Ts = analyzeSignal() 
 
 t = scipy.arange(0, secs, Ts)
-Y = scipy.fft(signal)
+Y = scipy.fft.fft(signal)
 Z = zeroFrequencyTerm = sumOfSignal = Y[0]
 P = positiveFrequencyTerms = Y[1:L//2]
 N = negativeFrequencyTerms = Y[L//2 + 1:]

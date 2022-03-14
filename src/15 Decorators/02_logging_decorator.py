@@ -1,8 +1,25 @@
-############################################################
-#
-#    decorators
-#
-############################################################
+'''
+Logging Decorator
+=================
+
+This time we allow the decorator to take a parameter:
+            @log(logging.WARNING)
+            def square(x): 
+
+Python modifies the generated code to accomodate this parameter by providing an extra level of nested functions.
+The parameter is passed to the outer function in the decorator and can be seen in both the inner functions by 
+closure.  
+
+The inner two functions follow the normal pattern with the decorator defining a new function (which it returns)
+that calls the function being decorated.
+
+Realise that this design was decided as the best way to allow decorators to accept parameters; remember that
+the Python interpreter then modifies your code, such that, for example, a call to "square()":
+            square(4)
+            
+when decorated as above, is translated to:
+            log(logging.WARNING)(square)(4)
+'''
 
 import logging
 import sys

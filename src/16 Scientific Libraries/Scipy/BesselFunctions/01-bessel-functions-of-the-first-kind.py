@@ -15,5 +15,5 @@ fig.suptitle('Bessel function of first kind', fontsize=14, fontweight='bold')
 for n in range(4):
     label = r"$J_{}(x)$".format(n)
     ax.plot(x, jn(n, x), label=label)
-ax.legend();
+ax.legend()
 plt.show()

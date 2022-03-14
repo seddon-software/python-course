@@ -1,8 +1,9 @@
-############################################################
-#
-#    Writing to a Dataset
-#
-############################################################
+'''
+Writing to a Dataset
+====================
+
+In this example we create a dataset and then write data to it.  We then see how to read the data back into memory.
+'''
 
 import h5py
 import numpy as np
