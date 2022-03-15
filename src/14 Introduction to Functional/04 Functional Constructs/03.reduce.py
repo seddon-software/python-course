@@ -1,4 +1,7 @@
 '''
+Reduce
+======
+
 reduce(fn, sequence) takes two parameters
         fn          function (mapping) to apply to each item in the sequence
         sequence    collection to be mapped

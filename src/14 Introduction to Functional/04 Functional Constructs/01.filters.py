@@ -1,4 +1,7 @@
 '''
+Filter
+======
+
 filter(fn, sequence) takes two parameters
         fn          function returning boolean
         sequence    collection to be filtered
