@@ -1,3 +1,11 @@
+'''
+Vectorising
+===========
+
+Numpy has a vectorize function to allow scaler functions work with arrays.  We can provide a convenient decorator
+to do the same thing. 
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 
