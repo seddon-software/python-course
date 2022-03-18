@@ -1,24 +1,30 @@
+'''
+Tasks run Concurrently
+======================
+
+In the last example, the coroutines ran serially.  To get them run in parallel you need to create tasks and
+then await the tasks.
+'''
+
 import asyncio
-import time
 
-async def task(id):
-    for i in range(10):
-        await asyncio.sleep(0)
-        print(f"{id}", end="")
+# this is a new style coroutine
+async def coroutineA():
+    print('I am coroutineA')
+    await asyncio.sleep(1)                # yield control
+    print('I am coroutineA')
 
-# note main() runs all calls concurrently
+async def coroutineB():
+    print('I am coroutineB')
+    await asyncio.sleep(1)                # yield control
+    print('I am coroutineB')
+
+
 async def main():
-    tasks = []
+    taskA = asyncio.create_task(coroutineA())
+    taskB = asyncio.create_task(coroutineB())
 
-    # schedule tasks
-    for id in range(1, 10):
-        t = asyncio.create_task(task(f"{id}"))
-        tasks.append(t)
+    await taskA
+    await taskB
 
-    # schedule tasks
-    for t in tasks:
-        await t
-    print()
-    
-asyncio.run(main())
-
+asyncio.run(main())      

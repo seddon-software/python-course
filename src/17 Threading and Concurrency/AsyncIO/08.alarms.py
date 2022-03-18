@@ -1,3 +1,10 @@
+'''
+Alarms
+======
+We conclude the section with a brief look at alarms used in asyncio (wait for a period and then interrupt).
+Note that these alarms include a timeout. 
+'''
+
 import asyncio
 import time
 

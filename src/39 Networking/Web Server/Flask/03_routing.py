@@ -52,7 +52,6 @@ def client():
 
 Thread(target=client).start()
 
-
 if __name__ == "__main__":
     Server(app)
 

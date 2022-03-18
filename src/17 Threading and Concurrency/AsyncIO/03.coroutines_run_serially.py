@@ -1,23 +1,30 @@
+'''
+Coroutines Run Serially by Default
+==================================
+
+In the previous example our coroutines ran concurrently.  However this is not the default behaviour for coroutines;
+they need to be made into tasks before they can run in parallel.
+
+In this example we run two separate coroutines, called from the "main()" coroutine, but they are not made into 
+tasks.  When you run this example you will see that the coroutines run serially and not concurrently.
+'''
+
 import asyncio
-import time
 
-# coroutines do NOT run in parallel by default
-# but must be called using await
+# this is a new style coroutine
+async def coroutineA():
+    print('I am coroutineA')
+    await asyncio.sleep(1)                # yield control
+    print('I am coroutineA')
 
-async def printMessage(delay):
-    await asyncio.sleep(delay)
-    print(f"message delayed by {delay} secs")
+async def coroutineB():
+    print('I am coroutineB')
+    await asyncio.sleep(1)                # yield control
+    print('I am coroutineB')
+
 
 async def main():
-    print(f"started at {time.strftime('%X')}")
-    await printMessage(2)
-    print(f"continued at {time.strftime('%X')}")
-    await printMessage(4)
-    print(f"continued at {time.strftime('%X')}")
+    await coroutineA()
+    await coroutineB()
 
-    # calling asyncIO routine without awaiting causes an error
-    printMessage(6)
-    print(f"finished at {time.strftime('%X')}")
-
-# entry point to async program
-asyncio.run(main())
+asyncio.run(main())      
