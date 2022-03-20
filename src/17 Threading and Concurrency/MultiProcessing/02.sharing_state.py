@@ -1,12 +1,6 @@
-############################################################
-#
-#    sharing state between processes
-#
-############################################################
-
-import multiprocessing as mp
-
 '''
+Sharing State
+=============
 One drawback of using subprocesses is that you can't easily share state (variables).  In this example, we define
 a global list called "results" and attempt to populate it from a subprocess.  When you run this program, you
 will see the global variable doesn't appear to get updated.
@@ -15,11 +9,14 @@ This is because there are 2 global variables! one in each process.  The global v
 get updated, but we are looking at the second global variable that doesn't get updated.
 '''
 
-results = []        # global state
+import multiprocessing as mp
+
 
 def fn(N):
     for n in range(N):
         results.append(n*n)
+
+results = []        # global state
 
 if __name__ == '__main__': 
     p = mp.Process(target=fn, args=(20,))

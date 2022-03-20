@@ -1,7 +1,6 @@
 '''
 Sharing State using Pipes
 =========================
-Although queues
 For passing messages between multiple processes you can use Queues.  For passing messages between two processes
 you can use a Pipe().
 

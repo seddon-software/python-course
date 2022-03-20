@@ -1,3 +1,11 @@
+'''
+Popen
+=====
+For more complex tasks you can use "Popen()" instead of "run()".  However, "run()" covers most use cases.  The
+"popen()" example is shown here for completeness, but note this example could have been written using "run()".  
+'''
+
+import sys
 import subprocess
 
 try:

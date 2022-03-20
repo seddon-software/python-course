@@ -25,13 +25,6 @@ Examples of these two mechanisms are given below.  Note that Python creates wrap
 
 import multiprocessing as mp
 
-# mp.Value and mp.Array use shared memory
-size = mp.Value('i', 10)
-results = mp.Array('i', [0]*size.value)
-
-# expose the wrapper objects
-print(type(size))
-print(type(results))
 
 # this code is executed in a child process, but it modifies shared memory, so the changes can be seen
 # by the parent process
@@ -40,6 +33,14 @@ def fn(size, results):
         results[n] = n*n
 
 if __name__ == '__main__': 
+    # mp.Value and mp.Array use shared memory
+    size = mp.Value('i', 10)
+    results = mp.Array('i', [0]*size.value)
+
+    # expose the wrapper objects
+    print(type(size))
+    print(type(results))
+
     p = mp.Process(target=fn, args=(size, results))
     p.start()
     p.join()                # wait for child to complete

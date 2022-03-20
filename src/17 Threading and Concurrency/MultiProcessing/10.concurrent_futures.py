@@ -30,9 +30,10 @@ def sum_of_squares(lo, hi):
         total += i**2
     return total
  
-pool = ThreadPoolExecutor(3)
+if __name__ == '__main__': 
+    pool = ThreadPoolExecutor(3)
 
-print("computing sum of squares using thread pool") 
-compute1(pool)
-print("computing sum of squares using thread pool and blocking until result is available") 
-compute2(pool)
+    print("computing sum of squares using thread pool") 
+    compute1(pool)
+    print("computing sum of squares using thread pool and blocking until result is available") 
+    compute2(pool)
