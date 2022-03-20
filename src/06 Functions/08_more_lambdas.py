@@ -1,4 +1,6 @@
 '''
+More Lambdas
+============
 Here we show how to pass a lambda to another function object
             power(lambda x:x**n, 2)
 

@@ -40,6 +40,7 @@ def timeDictionaryAccess(N):
     statement = f"""v = d['key{N//2}']"""
     print(f"{N:8} {timeit.timeit(statement, globals=globals()):.3f}")
 
+print("Access times of SortedDict (independent of size)", end="\n\n")
 print(f'{"size":>8} {"access time"}')
 timeDictionaryAccess(      10)
 timeDictionaryAccess(      50)
@@ -53,5 +54,4 @@ timeDictionaryAccess(  100000)
 timeDictionaryAccess(  500000)
 timeDictionaryAccess( 1000000)
 timeDictionaryAccess( 5000000)
-timeDictionaryAccess(10000000)
     

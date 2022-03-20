@@ -1,11 +1,11 @@
-############################################################
-#
-#    Lone *
-#
-############################################################
+'''
+Lone Star
+=========
 
 # The lone star delimit positional parameters.  All parameters 
 # thereafter must be passed as keyword arguments (kwargs)
+'''
+
 
 def f(a, b, *, c="c_default", d="d_default"):  # c, d must be passed by name
     print(a, b, c, d)

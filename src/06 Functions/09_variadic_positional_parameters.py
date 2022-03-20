@@ -1,17 +1,17 @@
-############################################################
-#
-#    Variable Length Parameter Lists
-#
-############################################################
+'''
+Variadic Positional Parameters
+==============================
+'''
 
-def  f(*args):
-    print('args:', args)
-    
-a = (3,4,7,8)
-b = [3,4,7,8]
+def average(*a):     # wraps up inputs into a tuple
+    print(a, type(a))
+    a = list(a)
+    print(a, type(a))
+    result = sum(a)/len(a)
+    return result
 
-f(1,3,4,7,8,9)      # pass multiple args
-f(1,a,9)            # pass int, tuple, int
-f(1,b,9)            # pass int, list, int
-f(1,*a)             # treat tuple as multiple args
-f(1,*b)             # treat list as multiple args
+l = [4, 6, 12, 5, 7, 3]
+result = average(*l)  # unwraps the list
+print(result)
+result = average(4, 6, 12, 5, 7, 3)
+print(result)

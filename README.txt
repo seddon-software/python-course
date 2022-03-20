@@ -1,10 +1,3 @@
-25 October 2021
-Note:
-    I'm currently using the debug terminal to see results.  This doesn't work 
-    for examples with input statements (you have to use the terminal for those 
-    examples).
-    I've set up Ctrl-# as a shortcut to display the debug console.
-
 Timings:
 ========
      9.00 - 10.00
@@ -20,8 +13,8 @@ To clone this repository:
 	git clone https://github.com/seddon-software/python-course.git
     cd python-course
     ls
-    module load python/3.7
-    module load vscode/1.42.1
+    module load python/3.7          # or later
+    module load vscode/1.42.1       # or later
     code .
 
 If you've downloaded the examples already and you want to get updates:
@@ -43,15 +36,17 @@ vscode key bindings
 F11                 toggle full screen
 Ctrl-k Ctrl-r       show key bindings
 Ctrl-b              toggle sidebar
-Ctrl-Shift C        open terminal window
+Ctrl-Shift C        open external terminal window
 Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
 Ctrl -              zoom out
 
-I've set up Ctrl-# to display the debug console
+I've set up 
+    Ctrl# to display the debug console
+    Ctrl' to display the terminal window
 
-Interpreter used on course (October 2021)
-=========================================
-Python 3.8.8 64-bit('base':conda)
+Interpreter used on course (Mar 2022)
+=====================================
+Python 3.9.7 64-bit('base':conda)
 
 
