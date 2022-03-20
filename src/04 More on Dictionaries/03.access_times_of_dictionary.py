@@ -1,4 +1,6 @@
 '''
+Access Times of Dictionary
+==========================
 The dict data structure is implemented in CPython as a hash table.  Hash tables are really fast.  The 
 access time to retreive an item from a hash is independent of the size of the hash.  This is nomally represented
 as searching in O(1) time (i.e. constant time).

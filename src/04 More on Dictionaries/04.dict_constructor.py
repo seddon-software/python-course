@@ -2,7 +2,6 @@
 '''
 Dict constructor
 ================
-
 Dictionaries are usually created using the familiar {} syntax:
     d = {'three': 3, 'one': 1, 'two': 2}
 

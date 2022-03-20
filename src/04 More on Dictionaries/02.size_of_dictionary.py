@@ -1,4 +1,6 @@
 '''
+Size of Dictionary
+==================
 The dict data stucture can become very large.  CPython reserves space for new entries, but periodically the
 dict becomes full and needs to be resized.  
 
