@@ -1,10 +1,34 @@
-# the descriptor protocol defines 3 methods:
-#    __get__()
-#    __set__()
-#    __delete__()
+'''
+Descriptor Protocol
+===================
+The descriptor protocol allows you to intercept all dotted object attribute lookups.  The protocol defines 3 
+methods:
+            __get__()
+            __set__()
+            __delete__()
  
-# any class implementing any of the above methods is a descriptor
-# as in this class
+In this example we define a descriptor class called "Trace" that implements the __get__() and __set()__ descriptor
+methods.  This class is used to intercept lookups on another class, namely "Point".
+
+Any class ("Trace") implementing any of the above methods is defined as a descriptor class.  Objects of the 
+descriptor class intercept dotted attribute access on a separate class ("Point").  Effectively they allow you 
+to override the dot operator in the other class, for example:
+            result = p1.x           calls Trace.__get__()
+            p1.x = 20               calls Trace.__set__()
+
+
+Note, for the descriptor to become active you must define class attributes in the "Point" class with the same 
+names as the object attributes being intercepted, in this case x and y:
+            x = Trace("x")
+            y = Trace("y")
+
+Note:
+    1) the descriptor is invoked by dotted attribute access:  A.x or a.x
+    2) the descriptor is not invoked by direct dictionary access: p1.__dict__['x']
+    3) the __get__() and __set__() methods normally eventually delegate to the object class to extract the
+       relevant attribute.  However, you don't have call these object methods if you so desire.
+'''
+
 class Trace(object):
     def __init__(self, name):
         self.name = name
@@ -20,11 +44,6 @@ class Trace(object):
 
 # define the class attributes to be references to instances of a descriptor
 class Point(object):
-# NOTES:
-# 1. descriptor invoked by dotted attribute access:  A.x or a.x
-# 2. descripor reference must be stored in the class dict, not the instance dict
-# 3. descriptor not invoked by direct dictionary access: self.__dict__['x']
-
     x = Trace("x")
     y = Trace("y")
     
