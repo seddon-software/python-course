@@ -1,4 +1,16 @@
-# encapsulate attributes
+'''
+Private Attributes
+==================
+Many languages allow you to encapsulate object attributes by making them private.  This is not the Python way.
+However, if you insists, there is a way ...
+
+The trick is to create a dictionary in init that is pointed at by a local variable and then define getters and
+setters using this dict before the dictionary goes out of scope.  Pointers to the getters and setters need to 
+be added to the normal object dictionary to make them available outside the class.
+
+Now all object access will have to be made via the getters and setters; x and y are not visible in the main
+program.
+'''
 
 class MyClass:
     def __init__(self):
@@ -28,3 +40,13 @@ print(m2.dogetX())
 print(m2.dogetY())
 print(m1)
 print(m2)
+
+# x and y are not visible
+try:
+    print(m1.x)
+except Exception as e:
+    print(e)
+try:
+    print(m1.y)
+except Exception as e:
+    print(e)
