@@ -1,3 +1,11 @@
+'''
+Encodings
+=========
+Unicode supports a number of different encodings.  In this example we compare encodings of the string "résumé".
+Note that not all Unicode code points can be represented in some encodings and in particular, the Japanese encoding 
+"shift_jis" can't represent "résumé".
+'''
+
 def encodeString(string, encoding):
     bytes = string.encode(encoding)
     print(f"{encoding}: {bytes}")

@@ -17,19 +17,24 @@ There are 3 cases to consider.
     3) We might want a combination of the above
                 c[10:13, ..., 5:7, ..., -2]
 
-In the last case, the 3 dots are called Ellipses and are a special 
+In the last case, the 3 dots are a special object called Ellipses.  You can use this object how you like; we
+merely treat it as a separator and ignore it in this code.  The "__getitem__()" method does all the hard work
+for the above cases.  
+
+Note that we are using itertools to flatten the resulting list in the last case.  The itertools method only 
+works on 2D arrays so we have to be careful when processing "-2" and wrap it in a list inside the list of results.
 '''
 
 import itertools
 
-trace = True
+debug = True
 print(...)
 class MyList:
     def set(self, theList):
         self.theList = theList
         
     def __getitem__(self, items):
-        if trace: print(f"DEBUG: {items}")
+        if debug: print(f"DEBUG: {items}")
         if isinstance(items, int): return self.theList[items]
         if isinstance(items, slice):        # items = only one slice 
             theSlice = items
@@ -37,7 +42,7 @@ class MyList:
         else:                               # items = mixture of slices and Ellipses
             result = []
             for item in items:           # process each slice and ignore the Ellipses
-                if trace: print(f"DEBUG: next item = {item}")
+                if debug: print(f"DEBUG: next item = {item}")
                 # ignore Ellipses (...)
                 if item == Ellipsis: continue
                 if isinstance(self.theList[item], int):  # single ints need to be in a list
