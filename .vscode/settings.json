@@ -15,5 +15,9 @@
     "python.testing.promptToConfigure": false,
     "git.ignoreLimitWarning": true,
     "workbench.sideBar.location": "right",
-    "debug.terminal.clearBeforeReusing": true
+    "debug.terminal.clearBeforeReusing": true,
+    "python.analysis.extraPaths": [
+        "./src/09 Modules and Packages/More Complex Example/mylib",
+        "./src/09 Modules and Packages/mylib2"
+    ]
 }

@@ -1,9 +1,13 @@
-############################################################
-#
-#       Type hints: Union
-#
-############################################################
+'''
+Union
+=====
+Union is used when a parameter can be multiple types.  Here number can be int or float.  Again, this is an 
+invalid program that raises an exception.  Mypy reports what's wrong.
+'''
 
+############################################################
+# 1) run the program
+############################################################
 from typing import Union
 
 number = Union[int,float]
@@ -20,9 +24,8 @@ try:
 except Exception as e:
     print(e)
 
-#):
 ############################################################
-# now check the above code
+# 2) perform static analysis with Mypy
 ############################################################
 
 import os
