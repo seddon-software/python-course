@@ -33,6 +33,6 @@ axes[1][0].set_title("axis 21")
 axes[1][1].set_title("axis 22")
 axes[1][2].set_title("axis 23")
 
-plt.gcf().canvas.set_window_title('Figure with 2x3 set of Axes') 
+plt.gcf().canvas.manager.set_window_title('Figure with 2x3 set of Axes')
 plt.show()
 

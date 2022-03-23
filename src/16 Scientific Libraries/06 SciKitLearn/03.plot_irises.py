@@ -1,3 +1,14 @@
+'''
+Plot Irises
+===========
+Before we make predictions on new irises, it is helpful to display the current dataset.  As there are 4 key
+characteristics we really need a 4 dimensional plot.  Since that is impossible, we make do with 4 three 
+dimensional plots instead.
+
+You can clearly see that the different species cluster in different regions of 4 dimensional space.  We can 
+make use of this to predict the species of new irises once we have their position in this 4 dimensional space.
+'''
+
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import pandas as pd

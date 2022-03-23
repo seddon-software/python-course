@@ -1,3 +1,10 @@
+'''
+Plot 3 Unclassified Irises
+==========================
+Now we have the predictions from the estimators we can plot the new irises and see how good the estimators are.
+The new irises are coloured "orange", "lime" and "fuchsia".
+'''
+
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import pandas as pd
