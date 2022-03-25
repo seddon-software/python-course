@@ -1,6 +1,25 @@
 '''
 Analyse KNeighbors Accuracy
 ===========================
+KNeighbors takes a parameter "n" to determine the number of neighbours to use for kneighbours queries.  We can
+see which value of "n" is best suited to our dataset.
+
+We split the dataset into two parts, one part to train the estimator, the other to check the accuracy of the 
+estimator.
+
+We split the dataset into the training set (X_train, Y_train) and a test set (X_test, Y_test) using a test_size:
+            X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=test_size, random_state=4)
+
+We pass the training set to the estimator:
+            estimator.fit(X_train, Y_train)
+
+Now we predict results for our test set: 
+            prediction = estimator.predict(X_test)
+
+and then compare with the actual results (Y_test)
+            return metrics.accuracy_score(Y_test, prediction)
+
+Looks as though n=7 gives the best results.
 '''
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -37,6 +56,7 @@ plt.gcf().canvas.manager.set_window_title("plot the relationship between K and t
 plt.plot(range(1, 26), results)
 plt.xlabel(f'Value of K for KNN (test_size={test_size})')
 plt.ylabel('Testing Accuracy')
+plt.grid()
 plt.show()
 
 # vary test_size

@@ -1,3 +1,9 @@
+'''
+Plot using Seaborn
+==================
+There are alternative ways to present our results.  We can use Seaborn as shown here.  
+'''
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt

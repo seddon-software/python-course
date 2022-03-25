@@ -1,3 +1,12 @@
+'''
+Plot using Bokeh
+================
+Bokeh is a web based presentation program.  Bokeh creates an HTML file; you can display this file in a browser
+using:
+            output_notebook()
+            show(p)
+'''
+
 import pandas as pd
 from bokeh.plotting import figure, show, output_file
 from bokeh.transform import factor_cmap, factor_mark
