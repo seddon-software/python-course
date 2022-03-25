@@ -1,3 +1,10 @@
+'''
+Rice
+====
+This is a similar example, except this time we use a real image.  This image is monochrome rather than colour, 
+which means the RGB values are the same for each pixel (0 to 255), with 0 as black through to 255 as white.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 import PIL.Image as Image

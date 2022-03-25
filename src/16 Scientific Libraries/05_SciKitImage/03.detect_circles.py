@@ -1,3 +1,13 @@
+'''
+Detect Circles
+==============
+This example uses the "Canny" algorithm to detect edges in an image and then the "Hough" algorithm to detect 
+circles.  The actual image is a number of vitamin D tablets randomly distributed on a table top.
+
+The two algorithms combine to give an accurate count of the tablets.  Note, however, that the algorithms have
+a number of parameters and I've selected suitable values by trial and error.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 import skimage.io as io
@@ -50,6 +60,7 @@ df = removeNearDuplicates(df)
        
 # display the original image with the circles highlighted
 fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(10, 4), dpi=72*2)
+fig.canvas.manager.set_window_title("Vitamin D Tablets")
 image = io.imread("images/tablets.jpg", as_gray=False)
 
 for index, row in df.iterrows():

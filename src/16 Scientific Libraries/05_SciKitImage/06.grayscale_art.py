@@ -1,3 +1,9 @@
+'''
+Grayscale Art
+=============
+This is a bit of fun. I've just used the previous image and filled in areas with greyscales to create some "art".
+'''
+
 import os, sys
 import numpy as np
 import scipy.ndimage as nd
@@ -10,6 +16,7 @@ import time
 
 import skimage.io as io
 fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(10, 4), dpi=72*3)
+fig.canvas.set_window_title("Chris Seddon in Black and White")
 image = io.imread("images/chris.jpg", as_gray=True) * 256
 t1 = 90
 t2 = 116

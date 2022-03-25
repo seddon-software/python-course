@@ -1,3 +1,11 @@
+'''
+Customized Colormap
+===================
+In this example I've used the results from the previous example to select suitable parameters for the image.
+I've then defined a customized colormap (very faint colors) that can be used to print the image on paper such 
+that you can use the image as the basis of a pencil drawing (it is very like tracing the image faintly).
+'''
+
 import os, sys
 import numpy as np
 import scipy.ndimage as nd

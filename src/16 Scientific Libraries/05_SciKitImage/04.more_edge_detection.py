@@ -1,3 +1,13 @@
+'''
+More Edge Detection
+===================
+This example shows what you can do with edge detection.  This is edge detection on an image of me, where I vary
+some edge detection parameters.
+
+So we can see multiple attempts, I've set MatPlotLib to "interactive on":
+            plt.ion()
+'''
+
 import os, sys
 import numpy as np
 import scipy.ndimage as nd
