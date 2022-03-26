@@ -1,8 +1,10 @@
-############################################################
-#
-#    Creating Attributes
-#
-############################################################
+'''
+One of the important features of HDF5 is the ability to attach attributes to datasets.  At Diamond these 
+attributes are generated automatically during experiments.
+
+In this example we add a 4x6 array to a dataset, a string to say what "Units" we are working in and a "Speed".
+Just to make sure things worked, we read the HDF5 file back into memory
+'''
 
 import h5py
 import numpy as np

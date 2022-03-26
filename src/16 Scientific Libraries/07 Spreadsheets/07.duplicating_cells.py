@@ -4,11 +4,10 @@ Note that the size of each cell is set with:
             ws.column_dimensions[letter].width = 4
             ws.row_dimensions[row].height = 21.0
 
-where 4 and 21.0 were determined by trial and error (not sure what units they are in).
+where 4 and 21.0 were determined by trial and error (not sure about units).
 '''
 
 import os
-from openpyxl import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
 import openpyxl
@@ -18,11 +17,11 @@ wb = load_workbook(filename=fileName)
 ws = wb.active
 ws.title = "writing to cells"
 
-# width = 1 => 7 pixels
 
 
 for col in range(1, 1000):
     letter = openpyxl.cell.cell.Cell(ws, row=3, column=col).column_letter
+    # width = 4 => 28 pixels
     ws.column_dimensions[letter].width = 4
 for row in range(1, 1000):
     ws.row_dimensions[row].height = 21.0

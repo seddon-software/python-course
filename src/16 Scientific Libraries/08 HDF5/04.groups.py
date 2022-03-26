@@ -1,3 +1,12 @@
+'''
+With HDF5 data can be arranged in groups and sub-groups.  These are very much like directories in the filesystem.
+The idea is that large datafiles can be split into groups and then individual groups loaded into memory without
+the need to read in the whole file.
+
+With very large files (from experiments) it would be very inconvenient to read the entire file into memory.  In
+fact this is one of the main objectives of HDF5 - being able to load subsets of data into memory.  The groups and
+subgroups effectively create a "filesystem within a file".
+'''
 ############################################################
 #
 #    Creating Groups
