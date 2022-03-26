@@ -1,18 +1,26 @@
+'''
+Bar Charts
+==========
+Openpyxl makes it relatively easy to create bar charts.  First you have to write data to the spreadsheet and
+then refer to it in the chart:
+            xData = Reference(ws, min_col=2, min_row=1, max_row=7, max_col=3)
+            yData = Reference(ws, min_col=1, min_row=2, max_row=7)
+
+The only problem I've had is the axis titles don't get aligned properly (and sometimes they don't appear at all).
+I think this is because openpyxl was tested on Excel and charts behave slightly differently in LibreOffice.
+'''
+
 import os
 from openpyxl import Workbook
-from openpyxl.utils import get_column_letter
 from openpyxl.chart import (
-    AreaChart3D,
-    AreaChart,
     Reference,
-    Series,
 )
 
 wb = Workbook()
 ws = wb.active
 
 from openpyxl import Workbook
-from openpyxl.chart import BarChart, Series, Reference
+from openpyxl.chart import BarChart, Reference
 wb = Workbook(write_only=True)
 ws = wb.create_sheet()
 rows = [

@@ -1,3 +1,12 @@
+'''
+This is another example of playing around with coloured cells to create pretty paterns in a spreadsheet.
+Note that the size of each cell is set with:
+            ws.column_dimensions[letter].width = 4
+            ws.row_dimensions[row].height = 21.0
+
+where 4 and 21.0 were determined by trial and error (not sure what units they are in).
+'''
+
 import os
 from openpyxl import Workbook
 from openpyxl import load_workbook

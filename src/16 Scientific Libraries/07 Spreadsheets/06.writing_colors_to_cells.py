@@ -1,3 +1,13 @@
+'''
+Writing Colors to Cells
+=======================
+Setting colours for cells is based around the "PaternFill" class:
+            fill = PatternFill(start_color=f"{color}", fill_type = "solid")
+            ws.cell(row, col).fill = fill
+
+where color is defined in hex.
+'''
+
 import os
 from openpyxl import Workbook
 from openpyxl import load_workbook
