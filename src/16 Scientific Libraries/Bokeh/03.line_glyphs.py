@@ -1,3 +1,9 @@
+'''
+Line Glyphs
+===========
+This time we are plotting a sinusoidal graph from Numpy arrays.
+'''
+
 #from bokeh.plotting import figure, output_file, show
 import bokeh.plotting as bp
 import numpy as np

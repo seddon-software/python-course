@@ -1,3 +1,9 @@
+'''
+Grid Layout
+===========
+Bokeh can produce multiple plots on a web page based around a grid layout.
+'''
+
 import bokeh.plotting as bp
 import numpy as np
 

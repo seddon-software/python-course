@@ -1,8 +1,12 @@
+'''
+Bar Charts
+==========
+Bokeh can produce bar charts from Numpy arrays.
+'''
+
 #from bokeh.plotting import figure, output_file, show
 import bokeh.plotting as bp
 import numpy as np
-
-
     
 bp.output_file("html/vbar.html")
 

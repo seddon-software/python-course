@@ -1,3 +1,12 @@
+'''
+Basic Glyphs
+============
+We take a look at a few of the basic glyphs you can produce with the Bokeh package.  The library creates
+HTML files for display in a browser:
+            bp.output_file("html/basic-glyphs.html")
+            bp.show(fig)
+'''
+
 import bokeh.plotting as bp
 
 X = [1, 2, 3, 4, 5]

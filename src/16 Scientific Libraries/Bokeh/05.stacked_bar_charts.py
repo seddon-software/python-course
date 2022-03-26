@@ -1,3 +1,9 @@
+'''
+Stacked Bar Charts
+==================
+Bokeh can also produce more complex bar charts.  In this example we stack a second bar chart on the first.
+'''
+
 import bokeh.plotting as bp
 import numpy as np
     
