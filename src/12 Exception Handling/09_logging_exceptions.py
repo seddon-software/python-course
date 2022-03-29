@@ -1,9 +1,19 @@
-############################################################
-#
-#    logging exceptions
-#
-############################################################
+'''
+Logging Exceptions
+==================
+When working with exceptions it is not usually a good idea to just print a message when something goes wrong.
+It may well be that the code is run unattended an there is no one to see the error message on a console.  Much
+better to use the logging framework to permanently record problems.
 
+So try to log all exceptions and optionally print a message on the console.  The worst thing you can do is to
+ignore the exception.  So NEVER do this:
+            try:
+                # perform some work in library code
+                do_work()
+            except Exception as e:
+                pass
+
+'''
 
 import logging, os
 
