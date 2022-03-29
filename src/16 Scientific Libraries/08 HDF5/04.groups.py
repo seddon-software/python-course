@@ -6,12 +6,12 @@ the need to read in the whole file.
 With very large files (from experiments) it would be very inconvenient to read the entire file into memory.  In
 fact this is one of the main objectives of HDF5 - being able to load subsets of data into memory.  The groups and
 subgroups effectively create a "filesystem within a file".
+
+This time we create an array attribute in the dataset "MyGroup/MySubGroup/my_dset".  After creating the HDF5 file 
+we read it back into memory.
+
+In the next example, we use a command line utility to check the contents of the file.
 '''
-############################################################
-#
-#    Creating Groups
-#
-############################################################
 
 import h5py
 import numpy as np
