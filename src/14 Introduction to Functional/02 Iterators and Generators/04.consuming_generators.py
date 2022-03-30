@@ -9,7 +9,6 @@ In this example we use the sum() builtin.  sum() will exhaust the generator and 
 return the sum of all the generated values.  However, if you call sum() a second time, the generator will already
 be exhausted and raise the exception immediately; sum() will return 0 in this case.
 '''
-from math import sqrt
 
 roots = (x for x in range(10))   # identity generator
 

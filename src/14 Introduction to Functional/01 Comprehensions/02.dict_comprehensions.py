@@ -9,10 +9,10 @@ The full set of comprehensions is:
     generator comprehension
 
 with the following syntax
-    list        [ value for item in sequence ]
+    list        [ fn(item) for item in sequence ]
     dict        { key:value for item in sequence }
     set         { fn(item) for item in sequence }
-    list        ( fn(item) for item in sequence )
+    generator   ( fn(item) for item in sequence )
 
 Here we investigate creating a dict comprehension.    
 '''
