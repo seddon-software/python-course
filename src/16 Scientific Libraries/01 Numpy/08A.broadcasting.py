@@ -39,7 +39,16 @@ Now Numpy can easily compute Z:
             [ 16  25  36  49  64  81]
             [ 25  36  49  64  81 100]]
 '''
-
+'''
+Y = [1 1 1 1 1 1
+     2 2 2 2 2 2
+     3 3 3 3 3 3
+     4 4 4 4 4 4]
+x = [1 2 3 4 5 6]
+     1 2 3 4 5 6
+     1 2 3 4 5 6
+     1 2 3 4 5 6
+'''
 import numpy as np
 
 X = np.arange(1,7)
@@ -55,7 +64,7 @@ print("\nX is still a 1D array")
 print(X)
 
 print("\nbroadcast X and Y, because arrays are different sizes")
-M = X * Y 
+M = (X + Y)**2 
 print(M)
 
 

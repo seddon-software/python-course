@@ -22,7 +22,8 @@ from math import sin
 
 plt.ion()
 figure = plt.figure()
-ax = Axes3D(figure)         # ax = figure.add_subplot(1,1,1, projection='3d')
+ax = Axes3D(figure, auto_add_to_figure=False)
+figure.add_axes(ax)
 ax.view_init(elev=20.0, azim=105.0)
 
 plt.rcParams['lines.linewidth'] = 4
@@ -48,6 +49,7 @@ def plotHeights(y):
 for y in range(MIN, MAX):
     # put breakpoint in here
     plotHeights(y)
+    input(">")
 
 plt.ioff()
 plt.show()

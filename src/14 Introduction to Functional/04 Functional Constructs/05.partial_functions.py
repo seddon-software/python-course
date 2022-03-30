@@ -7,7 +7,7 @@ The new function can then be called with values supplied for the missing paramet
 
 We use partial functions in situations where you only know the values of some parameters and you need
 to pass the partial function as a parameter to another function for a callback.  Then by the time the callback 
-is made, the remaining parameters are known and cn be supplied to the partial function. 
+is made, the remaining parameters are known and can be supplied to the partial function. 
 '''
 
 import functools as ft
