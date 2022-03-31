@@ -34,7 +34,8 @@ def getGeoDataFrame():
 
 def setupPlot():
     plt.figure(figsize=(13,8))
-    plt.gcf().canvas.set_window_title('GeoPandas')
+    figure = plt.gcf()
+    figure.canvas.manager.set_window_title('GeoPandas')
     ax = plt.gca()
     ax.set_title("States with WIND Data Points in USA")
     ax.set_facecolor("aqua")
@@ -54,7 +55,7 @@ def plotWIND_data(ax, WIND_gdf):
     # plot a small marker for each state
     WIND_gdf.plot(ax=ax, color='white', markersize=1.0)
     # annotate map with state names    
-    WIND_gdf.apply(lambda row: ax.annotate(s=row.State, 
+    WIND_gdf.apply(lambda row: ax.annotate(text=row.State, 
                                            xy=row.geometry.coords[0], 
                                            horizontalalignment='center', 
                                            fontsize=6), axis=1)

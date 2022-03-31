@@ -16,10 +16,10 @@ which prints a trace message and calls
 Notice that the "enhance()" function has access to the parameter passed to the decorator (fn) by closure.
 
 So in summary, when a function "fn" is decorated with a decorator "d":
-            @d
+            @trace
             def fn(x): ...
 calls to "fn" get replaced with:
-            fn(x)  --> decorator(fn)(x)
+            fn(x)  --> trace(fn)(x)
 '''
 
 def trace(fn):

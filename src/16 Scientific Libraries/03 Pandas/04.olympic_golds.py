@@ -70,10 +70,23 @@ def main():
                                engine = 'python',
                                skiprows = 1,
                                sep = '[ )(]{2,}')
-    
+    # look at some records in the dataframe
+    print(medal_table.head(10))
+
+    # try to get Korean Golds
+    korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"]
+    print(korean_golds)
+    print(type(korean_golds))
+
+    # try again
+    korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"].values
+    print(korean_golds)
+    print(type(korean_golds))
+
+    # try one more time
     korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"].values[0]
-    print(korean_golds, type(korean_golds))
     print(f"South Korea earned {korean_golds} golds")
+    
     print("\nCountries with more golds than South Korea:")
     result = medal_table[medal_table["Gold"] > korean_golds][["Country", "Gold"]]
     print(result.to_string(index=False))

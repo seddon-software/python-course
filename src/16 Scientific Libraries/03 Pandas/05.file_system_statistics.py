@@ -24,13 +24,16 @@ def summarize_files(topdir):
                 'mtime'    : os.path.getmtime(fullname)
             }
             filedata.append(data)
-    return filedata
-
+        return filedata
+    
 import pandas
 filedata = pandas.DataFrame(summarize_files("/home/chris/home/workspace/python-course"))
 #filedata = pandas.DataFrame(summarize_files("/dls_sw/i21/scripts"))
-print(filedata)
-print("Top 5 most common file extensions:")
+
+# look at the first few rows of data
+print(filedata.iloc[:10]) 
+
+print("\nTop 5 most common file extensions:")
 print(filedata['ext'].value_counts()[:5])
 pyfiles = filedata[filedata['ext'] == '.py']
 print()

@@ -62,13 +62,20 @@ def main():
         lambda row : (row['year']//4)*4, raw = False, 
         axis = 1
         )
+    
+    # look at some of the records with the new column added
+    print(oxford_data.iloc[100:150])
 
     # drop columns we are not using (not necessary)
     oxford_data.drop(['year', 'month', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'], axis = 1, inplace = True)
 
+    # look at some of the records now unused columns dropped
+    print(oxford_data.iloc[100:150])
+
     # group results into 4 year periods
     # the groupby column (period) becomes the index
     summary = oxford_data.groupby(['period']).aggregate(np.mean)
+    print(summary)
 
     # plot the data
     ax = summary.plot(figsize=(10, 6), 
