@@ -5,19 +5,17 @@
 ############################################################
 
 from threading import Thread
-from threading import Event
-import random
+from threading import Event, Lock
 import time
-import sys
 
+lock = Lock()
 
 class MyClass:
-    def __call__(self, name):
-        global event
-        print((name + " waiting for event"));
+    def __call__(self, name, event):
+        print(f"\tthread{name} waiting for event", flush=True)
         event.wait()
-        print(("\t" + name + " proceeding after event"));
-
+        with lock:
+            print(f"\tthread{name}  proceeding after event", flush=True)
 
 event = Event()
 
@@ -25,17 +23,18 @@ m1 = MyClass()
 m2 = MyClass()
 m3 = MyClass()
 
-t1 = Thread(target = m1, args = ("1",))
-t2 = Thread(target = m2, args = ("2",))
-t3 = Thread(target = m3, args = ("3",))
+t1 = Thread(target = m1, args = ("1", event))
+t2 = Thread(target = m2, args = ("2", event))
+t3 = Thread(target = m3, args = ("3", event))
 
+with lock: print("\nevent has been set in main", flush=True)
 t1.start()
 t2.start()
 t3.start()
 
-print("... main waiting for 15 seconds")
-time.sleep(15)
-print("... main clearing event flag")
+with lock: print("main waiting for 10 seconds", flush=True)
+time.sleep(10)
+print("main clearing event flag")
 event.set()
 
 t1.join()
