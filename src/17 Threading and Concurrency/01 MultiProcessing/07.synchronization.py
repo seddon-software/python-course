@@ -22,7 +22,7 @@ def fn(lock):
 
 if __name__ == '__main__': 
     ''' output will be garbled unless synchronize = True '''
-    synchronize = False
+    synchronize = True
 
     processes = []
     lock = mp.Lock()
