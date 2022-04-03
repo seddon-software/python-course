@@ -1,7 +1,6 @@
 import subprocess,os,sys
-sys.path.append('../..')
-import set_paths
 
+print("Uninstalling fibonacci module")
 subprocess.call("tree".split())
 os.chdir("build")
 response = subprocess.run("ls *.whl", shell=True, capture_output=True)
