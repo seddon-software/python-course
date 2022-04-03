@@ -3,5 +3,7 @@ sys.path.append('../..')
 import set_paths
 
 
-os.chdir("../src")
-subprocess.call("python setup.py -v build_ext".split())
+#os.chdir("..")
+#subprocess.call("python -m build -h".split())
+subprocess.call("python -m build --outdir=build ../src".split())
+subprocess.call("tree ..".split())
