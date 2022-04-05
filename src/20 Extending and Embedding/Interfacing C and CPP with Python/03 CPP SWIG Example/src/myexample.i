@@ -2,11 +2,7 @@
 
 
 
-%include "std_vector.i"
-namespace std {
-   %template(IntVector) vector<int>;
-   %template(DoubleVector) vector<double>;
-};
+%inline 
 
 %{
 #define SWIG_FILE_WITH_INIT
@@ -14,6 +10,11 @@ namespace std {
 #include "average.hpp"
 %}
 
+%include "std_vector.i"
+namespace std {
+   %template(IntVector) vector<int>;
+   %template(DoubleVector) vector<double>;
+};
 
 %include "hello.h"
 %include "average.hpp"

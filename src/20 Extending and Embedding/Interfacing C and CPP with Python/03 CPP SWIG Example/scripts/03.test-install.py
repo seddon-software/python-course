@@ -1,8 +1,7 @@
-import sys, os, re
-sys.path.append("../src")  
-
-
+import sys
 import myexample
+
+sys.path.append("../src")  
 
 myexample.say_hello("World")
 myexample.say_goodbye("Universe")

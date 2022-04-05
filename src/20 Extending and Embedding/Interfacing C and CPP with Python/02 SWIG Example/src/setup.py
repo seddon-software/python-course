@@ -3,11 +3,12 @@ from setuptools import setup, Extension
 
 
 example_module = Extension('_myhello',
-            sources=['hello.i', 'hello.c'],
-                           )
-
+            sources=['hello.c', 'hello.i'],
+            include_dirs=[],
+            extra_compile_args=[])
+#            language="c")
 setup (
-       name = 'SWIG example',
+       name = 'SWIG C Example',
        version = '1.0',
        author = "CRS Enterprises Ltd",
        author_email='seddon-software@keme.co.uk',
@@ -22,5 +23,6 @@ setup (
        platforms = sys.platform,
        license = "none",
        ext_modules = [example_module],
-       py_modules = ["myhello"],
+       py_modules = ["_myhello", "myhello"],
+#       data_files=["myhello.py"]
        )

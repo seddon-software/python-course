@@ -1,8 +1,10 @@
-import subprocess,os,sys
-sys.path.append('../..')
-import set_paths
+import subprocess,os
 
 
-os.system("swig -version")
 os.chdir("../src")
-os.system("python setup.py -v build_ext")
+subprocess.call("swig -python hello.i".split())
+os.chdir("../scripts")
+subprocess.call("python -m build -n ../src".split())
+subprocess.call("tree ..".split())
+
+
