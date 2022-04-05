@@ -1,14 +1,14 @@
-import os
+import os, subprocess
 
 def remove(target, options=""):
     print(f"removing {target}")
-    os.system(f"rm {options} {target}")
+    subprocess.run(f"rm {options} {target}", shell=True)
 
 os.chdir("../src")
 remove("dist", "-r")
 remove("hello_wrap.c")
 remove("myhello.py")
-remove("SWIGexample.egg-info", "-r")
+remove("*.egg-info", "-r")
 print("staging area cleaned")
 
 

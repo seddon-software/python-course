@@ -13,5 +13,5 @@ def fibonacci(n):
 def sumOfSquares(lo, hi):
     sum = 0.0
     for n in range(lo, hi + 1):
-        sum += n**1.1
+        sum += n**2
     return sum

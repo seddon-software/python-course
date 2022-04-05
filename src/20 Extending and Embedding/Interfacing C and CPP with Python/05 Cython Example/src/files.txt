@@ -1,2 +1,0 @@
-/home/chris/.local/lib/python3.8/site-packages/functions.cpython-38-x86_64-linux-gnu.so
-/home/chris/.local/lib/python3.8/site-packages/MyCython_Package-2.0-py3.8.egg-info
