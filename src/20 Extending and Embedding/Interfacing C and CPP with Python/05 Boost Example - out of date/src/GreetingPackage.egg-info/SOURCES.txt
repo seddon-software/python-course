@@ -1,0 +1,6 @@
+greeting.cpp
+setup.py
+GreetingPackage.egg-info/PKG-INFO
+GreetingPackage.egg-info/SOURCES.txt
+GreetingPackage.egg-info/dependency_links.txt
+GreetingPackage.egg-info/top_level.txt
