@@ -1,27 +1,21 @@
-import sys
+import os, sys
 import curses
 
 stdscr = curses.initscr()
-
-# STACK_COL = 50
-VALUE_COL = 53
-VARIABLE_COL = 62
-DEBUG = True if len(sys.argv) == 1 else False 
 
 def debug(text):
     output(2, 60, str(text), curses.color_pair(1))
     refresh()
 
 def start():
-#    curses.cbreak()
     curses.nocbreak()
     curses.curs_set(0)
-#    setup_colors()
 
 def finish():
     stdscr.keypad(False)
     curses.echo()
     curses.endwin()
+    sys.exit()
 
 def refresh():
     stdscr.refresh()
@@ -35,9 +29,26 @@ def output(row, col, text, color=None):
         print(e)
     return row
 
-def wait():
-    if not DEBUG: 
-        stdscr.getch()
+def message(row=12, col=20, text=""):
+    blanks = " "*30
+    output(row, col, blanks, curses.color_pair(6))
+    output(row, col, text, curses.color_pair(6))
+    refresh()
+    wait()
+    output(row, col, blanks, curses.color_pair(6))
+    refresh()
+
+def arrow(fro, to):
+    row = to.stack.row + to.getRowOffset()
+    col = fro.stack.col + fro.stack.width + len(fro.name) + 1
+    count = to.stack.col - fro.stack.col - fro.stack.width - len(fro.name) - 2
+    text = "─"*count + "➤"
+    output(row, col, text, curses.color_pair(1))
+
+def wait():    
+    if not os.environ.get('TERM_PROGRAM') == "vscode": 
+        ch = stdscr.getch()
+        if ch == 3: finish()    # terminate on Ctl-C 
 
 class Code:
     '''
@@ -63,26 +74,35 @@ class Code:
         if(self.previous_row): output(self.previous_row, col, self.previous_line, curses.color_pair(1))
         self.index += rows
         new_row = self.index + self.row_const
-        line = self.code[self.index]
-        output(new_row, self.col_const, line, Thread.current_thread.get_color())
-        self.previous_row = new_row
-        self.previous_line = self.code[self.index]
-        refresh()
-        wait()
+        try:
+            line = self.code[self.index]
+            output(new_row, self.col_const, line, Thread.current_thread.get_color())
+            self.previous_row = new_row
+            self.previous_line = self.code[self.index]
+            refresh()
+            wait()
+        except:
+            pass    # no more code
 
 class Color:
     def __init__(self):
         try:
             curses.start_color()
             if(not curses.has_colors()): raise Exception()
+#            print(f"Can we use extended colors? {curses.has_extended_color_support()}")
         except Exception as e:
             print("no colors")
             sys.exit(1)
+        curses.init_color(31, 0, 1000, 0)
+        curses.init_color(32, 0,  700, 300)
+        curses.init_color(41, 1000, 0, 0)
+        curses.init_color(42, 700, 300, 0)
         curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
-        curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
-        curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_BLACK)
-        curses.init_pair(4, curses.COLOR_RED, curses.COLOR_BLACK)
-        curses.init_pair(5, curses.COLOR_MAGENTA, curses.COLOR_BLACK)
+        curses.init_pair(2, 31, curses.COLOR_BLACK)
+        curses.init_pair(3, 32, curses.COLOR_BLACK)
+        curses.init_pair(4, 41, curses.COLOR_BLACK)
+        curses.init_pair(5, 42, curses.COLOR_BLACK)
+        curses.init_pair(6, curses.COLOR_RED, curses.COLOR_YELLOW)
         stdscr.bkgd(0, curses.color_pair(1))
 
 class Thread:
@@ -92,6 +112,10 @@ class Thread:
         self.color1 = color1
         self.color2 = color2
         self.current_color = color1
+        self.activate()
+
+    def activate(self):
+        Thread.current_thread = self
 
     def swap_colors(self):
         if self.current_color == self.color1:
@@ -137,10 +161,10 @@ class Variable:
         stack.add(self)
     
     def set(self, rhs):
-        if isinstance(rhs, int):
-            self.value = rhs
-        else:
+        if isinstance(rhs, Variable):
             self.value = rhs.value
+        else:
+            self.value = rhs
         self.print()
 
     def __iadd__(self, rhs):
