@@ -1,7 +1,4 @@
-from simulator import *
-import os
-
-program = '''
+'''
 int x = 100;
 int* px;
 int** ppx;
@@ -10,10 +7,15 @@ ppx = &px;
 printf("%i\\n", *px);
 '''
 
+from simulator import *
+import os
+
+
 start()
 colors = Color()
-message(12, 20, "Start of Simulation")
-code = Code(row=2, col=5, code=program)
+m = Message(12, 20)
+m("Start of Simulation")
+code = Code(row=2, col=5)
 
 stack1 = Stack(row=2, col=30, boxes=1)
 stack2 = Stack(row=2, col=50, boxes=1)
@@ -36,12 +38,12 @@ ppx.show()
 ppx.print()
 code.step()
 px.set("&x")
-arrow(px, x)
+px.arrow(x)
 code.step()
 ppx.set("&px")
-arrow(ppx, px)
+ppx.arrow(px)
 code.step()
-message(12, 20, "100")
+m("100")
 code.step()
-message(12, 20, "End of Simultion")
+m("End of Simulation")
 finish()

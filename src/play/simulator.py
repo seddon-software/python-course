@@ -1,5 +1,8 @@
+from inspect import stack
 import os, sys
+from sqlite3 import Row
 import curses
+import __main__
 
 stdscr = curses.initscr()
 
@@ -8,7 +11,7 @@ def debug(text):
     refresh()
 
 def start():
-    curses.nocbreak()
+#    curses.cbreak()
     curses.curs_set(0)
 
 def finish():
@@ -16,6 +19,13 @@ def finish():
     curses.echo()
     curses.endwin()
     sys.exit()
+
+def wait():    
+    if not os.environ.get('TERM_PROGRAM') == "vscode": 
+        stdscr.keypad(True)
+        ch = stdscr.getch()
+        if ch == -1: finish()    # terminate on Ctl-C
+        stdscr.keypad(False)
 
 def refresh():
     stdscr.refresh()
@@ -26,36 +36,33 @@ def output(row, col, text, color=None):
         stdscr.addstr(row, col, text, color)
         row += 1
     except Exception as e:
-        print(e)
+        if not os.environ.get('TERM_PROGRAM') == "vscode": 
+            print(e)
     return row
 
-def message(row=12, col=20, text=""):
-    blanks = " "*30
-    output(row, col, blanks, curses.color_pair(6))
-    output(row, col, text, curses.color_pair(6))
-    refresh()
-    wait()
-    output(row, col, blanks, curses.color_pair(6))
-    refresh()
+class Message:
+    def __init__(self, row, col):
+        self.row = row
+        self.col = col
 
-def arrow(fro, to):
-    row = to.stack.row + to.getRowOffset()
-    col = fro.stack.col + fro.stack.width + len(fro.name) + 1
-    count = to.stack.col - fro.stack.col - fro.stack.width - len(fro.name) - 2
-    text = "─"*count + "➤"
-    output(row, col, text, curses.color_pair(1))
-
-def wait():    
-    if not os.environ.get('TERM_PROGRAM') == "vscode": 
-        ch = stdscr.getch()
-        if ch == 3: finish()    # terminate on Ctl-C 
+    def __call__(self, text="", max=50):
+        row = self.row
+        col = self.col
+        blanks = " "*max
+        output(row, col, blanks, curses.color_pair(6))
+        output(row, col, text, curses.color_pair(6))
+        refresh()
+        wait()
+        output(row, col, blanks, curses.color_pair(6))
+        refresh()
 
 class Code:
     '''
     self.index = index of code line
     self.row = screen row of start line of code 
     '''
-    def __init__(self, row, col, code):
+    def __init__(self, row, col):
+        code = __main__.__doc__
         self.row_const = row
         self.col_const = col
         self.code = code.split("\n")
@@ -158,36 +165,96 @@ class Variable:
         self.name = name
         self.stack = stack
         self.value = value
+        self.hasArrow = False
         stack.add(self)
     
     def set(self, rhs):
+        '''sets variable and updates screen'''
         if isinstance(rhs, Variable):
             self.value = rhs.value
         else:
             self.value = rhs
         self.print()
 
-    def __iadd__(self, rhs):
-        self.value += rhs.value
-        self.print()
-        return self
-
     def getRowOffset(self):
         return self.stack.rowOffset(self)
 
-    def print(self):
+    def print(self, hide=False):
+        '''prints the value on screen'''
         stack = self.stack
         width = stack.width
         row = stack.row + self.getRowOffset()
         col = stack.col + width//2 - 2
         blanks = " "*7
         output(row, col, blanks)
-        output(row, col, str(self.value), Thread.current_thread.get_color())
+        if not hide: output(row, col, str(self.value), Thread.current_thread.get_color())
 
     def show(self):
+        '''displays variable on screen'''
         stack = self.stack
         width = stack.width
         row = stack.row + self.getRowOffset()
         col = stack.col + width + 1
         output(row, col, self.name)
+
+    def hide(self):
+        stack = self.stack
+        width = stack.width
+        row = stack.row + self.getRowOffset()
+        col = stack.col + width + 1
+        blanks = " "*len(self.name)
+        output(row, col, blanks)
+        self.print(hide=True)
+        if self.hasArrow:
+            self.arrow(self.to, hide=True)
+
+    def arrow(self, to, hide=False):
+        if (self.stack.row + self.getRowOffset()) == (to.stack.row + to.getRowOffset()):
+            self.arrowStraight(to, hide)
+        else:
+            self.arrowDogLeg(to, hide)
+    
+    def arrowStraight(self, to, hide=False):
+        self.hasArrow = True
+        self.to = to
+        row = to.stack.row + to.getRowOffset()
+        col = self.stack.col + self.stack.width + len(self.name) + 1
+        count = to.stack.col - self.stack.col - self.stack.width - len(self.name) - 2
+        if hide:
+            text = " "*(count+1)
+        else:
+            text = "─"*count + "➤"
+        output(row, col, text, curses.color_pair(1))
+
+    def arrowDogLeg(self, to, hide=False):
+        self.hasArrow = True
+        self.to = to
+        to_row = to.stack.row + to.getRowOffset()
+        self_row = self.stack.row + self.getRowOffset()
+            
+        col = self.stack.col + self.stack.width + len(self.name) + 1
+        count = to.stack.col - self.stack.col - self.stack.width - len(self.name)
+
+        leftCount = count//2
+        rightCount = count-leftCount
+
+        if not hide:
+            leftText = "─"*(leftCount-1) + "┐"
+            rightText = "└" + "─"*(rightCount-2) + "➤"
+            output(self_row, col, leftText, curses.color_pair(1))
+            while self_row != to_row:
+                output(self_row+1, col+leftCount-1, "│", curses.color_pair(1))
+                self_row += 1
+            output(to_row, col+leftCount-1, rightText, curses.color_pair(1))
+        else:
+            leftText = " "*(leftCount-1) + " "
+            rightText = " " + " "*(rightCount-2) + " "
+            output(self_row, col, leftText, curses.color_pair(1))
+            refresh()
+            while self_row != to_row:
+                output(self_row+1, col+leftCount-1, " ", curses.color_pair(1))
+                refresh()
+                self_row += 1
+            output(to_row, col+leftCount-1, rightText, curses.color_pair(1))
+            refresh()
 
