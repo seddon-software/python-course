@@ -22,7 +22,7 @@ import os
 
 start()
 colors = Color()
-m = Message(1, 20)
+m = Message(20, 20)
 m("Start of Simulation")
 code = Code(row=2, col=5)
 

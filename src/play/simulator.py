@@ -1,6 +1,5 @@
 from inspect import stack
 import os, sys
-from sqlite3 import Row
 import curses
 import __main__
 
@@ -46,6 +45,7 @@ class Message:
         self.col = col
 
     def __call__(self, text="", max=50):
+        return
         row = self.row
         col = self.col
         blanks = " "*max
@@ -61,20 +61,68 @@ class Code:
     self.index = index of code line
     self.row = screen row of start line of code 
     '''
-    def __init__(self, row, col):
+    def __init__(self, row, col, lineNumbers=False):
+        def add_line_numbers():
+            for n, line in enumerate(self.code):
+                self.code[n] = f"{n:2}: {line}"
         code = __main__.__doc__
         self.row_const = row
         self.col_const = col
         self.code = code.split("\n")
+        if lineNumbers: 
+            add_line_numbers()
         self.index = 0
         self.previous_row = None
         self.show()
+        self.lineNumbers = lineNumbers
+        self.messages = {}
+    
+    def set_message_area(self, row, col):
+        self.message_row = row
+        self.message_col = col
+        
+    def __setitem__(self, index, message):
+        self.messages[index] = message
+
+    def __getitem__(self, index):
+        if index in self.messages: 
+            message = self.messages[index]
+            self.messages.pop(index)      # remove message
+            return message
+        else:
+            return ""
 
     def show(self):
         row = self.row_const
         for line in self.code:
             row = output(row, self.col_const, line, curses.color_pair(1))
         refresh()
+
+    def __call__(self, index):
+        index = index - 1
+
+        # goto required code line
+        col = self.col_const
+        if(self.previous_row): output(self.previous_row, col, self.previous_line, curses.color_pair(1))
+        self.index = index
+        new_row = self.index + self.row_const
+        try:
+            line = self.code[self.index]
+            output(new_row, self.col_const, line, Thread.current_thread.get_color())
+            self.previous_row = new_row
+            self.previous_line = self.code[self.index]
+            refresh()
+            wait()
+        except:
+            pass    # no more code
+
+        # display messages
+        output(self.message_row, self.message_col, self[index+1], curses.color_pair(6))
+        refresh()
+        wait()
+        output(self.message_row, self.message_col, " "*40, curses.color_pair(6))
+        refresh()
+
 
     def step(self, rows=1):
         col = self.col_const
@@ -96,7 +144,6 @@ class Color:
         try:
             curses.start_color()
             if(not curses.has_colors()): raise Exception()
-#            print(f"Can we use extended colors? {curses.has_extended_color_support()}")
         except Exception as e:
             print("no colors")
             sys.exit(1)
