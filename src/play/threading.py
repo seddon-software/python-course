@@ -1,9 +1,10 @@
-'''# x = x + 1
+'''
+# x = x + 1
 # loop several times
 LOAD_NAME R1, x
 LOAD_CONST R2, 1
 BINARY_ADD
-STORE_NAME y
+STORE_NAME R2, x
 # now loop back
 '''
 
@@ -11,11 +12,10 @@ from simulator import *
 import os
 
 start()
-colors = Color()
-m = Message(20, 20)
-m("Start of Simulation")
-code1 = Code(row=2, col=5)
-code2 = Code(row=2, col=5)
+code1 = Code(row=2, col=5, lineNumbers=True)
+code2 = Code(row=2, col=5, lineNumbers=True)
+code1.set_message_area(20, 20)
+code2.set_message_area(20, 20)
 
 stack1 = Stack(row=2, col=30, boxes=1)
 stack2 = Stack(row=2, col=50, boxes=2)
@@ -31,43 +31,40 @@ R4 = Variable(name="R2", stack=stack3, value="????")
 for v in R1, R2, R3, R4, x:
     v.show()
     v.print()
+thread2.activate()
 for v in R3, R4:
-    thread2.activate()
     v.show()
     v.print()
 
 def incX(thread, code, RA, RB):
     thread.activate()
-    code.step()
     while(True):
-        code.step()
+        code(4)
         RA.set(x)
-        code.step()
-        RB.set(1)
-        code.step()
-        RA.set(f"{int(RA.value) + int(RB.value)}")
-        code.step()
+        code(5)
         yield
-        code.step(0)
+        RB.set(1)
+        code(6)
+        RA.set(f"{int(RA.value) + int(RB.value)}")
+        code(7)
         x.set(RA)
-        code.step(-4)
+        code(8)
         yield
         thread.swap_colors()
 
 gen1 = incX(thread1, code1, R1, R2)
 gen2 = incX(thread2, code2, R3, R4)
 
-m("Thread 1 starts")
 for n in range(7): 
     next(gen1)
-m("Thread 1 gets suspended")
-m("Thread 2 starts")
-for n in range(40): 
+code1(0, "Thread 1 gets suspended")
+code2(0, "Thread 2 starts")
+for n in range(30): 
     next(gen2)
-m("Thread 2 gets suspended")
-m("Thread 1 continues")
+code2(0, "Thread 2 gets suspended somewhere")
+code1(0, "Thread 1 continues")
 thread1.activate()
 next(gen1)
-m("Thread 1 has overwritten x")
-m("End of Simulation")
+code1(0, "Thread 1 has overwritten x")
+code1(0, "End of Simulation")
 finish()

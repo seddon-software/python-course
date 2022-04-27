@@ -5,13 +5,18 @@ import __main__
 
 stdscr = curses.initscr()
 
+class TooBig(Exception):
+    pass
+
 def debug(text):
     output(2, 60, str(text), curses.color_pair(1))
     refresh()
 
 def start():
-#    curses.cbreak()
     curses.curs_set(0)
+    curses.raw()
+    Color()
+
 
 def finish():
     stdscr.keypad(False)
@@ -20,11 +25,9 @@ def finish():
     sys.exit()
 
 def wait():    
-    if not os.environ.get('TERM_PROGRAM') == "vscode": 
-        stdscr.keypad(True)
+    if not os.environ.get('TERM_PROGRAM') == "xvscode": 
         ch = stdscr.getch()
-        if ch == -1: finish()    # terminate on Ctl-C
-        stdscr.keypad(False)
+        if ch == 3: finish()    # terminate on Ctl-C
 
 def refresh():
     stdscr.refresh()
@@ -39,23 +42,6 @@ def output(row, col, text, color=None):
             print(e)
     return row
 
-class Message:
-    def __init__(self, row, col):
-        self.row = row
-        self.col = col
-
-    def __call__(self, text="", max=50):
-        return
-        row = self.row
-        col = self.col
-        blanks = " "*max
-        output(row, col, blanks, curses.color_pair(6))
-        output(row, col, text, curses.color_pair(6))
-        refresh()
-        wait()
-        output(row, col, blanks, curses.color_pair(6))
-        refresh()
-
 class Code:
     '''
     self.index = index of code line
@@ -64,7 +50,7 @@ class Code:
     def __init__(self, row, col, lineNumbers=False):
         def add_line_numbers():
             for n, line in enumerate(self.code):
-                self.code[n] = f"{n:2}: {line}"
+                self.code[n] = f"{n+1:2}: {line}"
         code = __main__.__doc__
         self.row_const = row
         self.col_const = col
@@ -81,47 +67,40 @@ class Code:
         self.message_row = row
         self.message_col = col
         
-    def __setitem__(self, index, message):
-        self.messages[index] = message
-
-    def __getitem__(self, index):
-        if index in self.messages: 
-            message = self.messages[index]
-            self.messages.pop(index)      # remove message
-            return message
-        else:
-            return ""
-
     def show(self):
         row = self.row_const
         for line in self.code:
             row = output(row, self.col_const, line, curses.color_pair(1))
         refresh()
 
-    def __call__(self, index):
+    def __call__(self, index, message=""):
         index = index - 1
 
-        # goto required code line
-        col = self.col_const
-        if(self.previous_row): output(self.previous_row, col, self.previous_line, curses.color_pair(1))
-        self.index = index
-        new_row = self.index + self.row_const
-        try:
-            line = self.code[self.index]
-            output(new_row, self.col_const, line, Thread.current_thread.get_color())
-            self.previous_row = new_row
-            self.previous_line = self.code[self.index]
-            refresh()
-            wait()
-        except:
-            pass    # no more code
-
-        # display messages
-        output(self.message_row, self.message_col, self[index+1], curses.color_pair(6))
-        refresh()
-        wait()
+        # clear message
         output(self.message_row, self.message_col, " "*40, curses.color_pair(6))
         refresh()
+
+        if index != -1:
+            # goto required code line
+            col = self.col_const
+            if(self.previous_row): output(self.previous_row, col, self.previous_line, curses.color_pair(1))
+            self.index = index
+            new_row = self.index + self.row_const
+            try:
+                line = self.code[self.index]
+                output(new_row, self.col_const, line, Thread.current_thread.get_color())
+                self.previous_row = new_row
+                self.previous_line = self.code[self.index]
+                refresh()
+            except:
+                pass    # no more code
+            wait()
+
+        # display messages
+        if not message == "":
+            output(self.message_row, self.message_col, message, curses.color_pair(6))
+            refresh()
+            wait()
 
 
     def step(self, rows=1):

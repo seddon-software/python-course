@@ -20,68 +20,51 @@ from simulator import *
 import os
 
 start()
-colors = Color()
-m = Message(20, 20)
-m("Start of Simulation")
-code = Code(row=2, col=5)
-
+code = Code(row=2, col=5, lineNumbers=True)
+code.set_message_area(20, 20)
 stack1 = Stack(row=2, col=50, boxes=2)
 stack2 = Stack(row=2, col=80, boxes=5)
 thread = Thread(2, 4)
-
 a = []
 for i in range(5):
     a.append( Variable(name=f"a[{i}]", stack=stack2, value=f"{100*(i+1)}") )
 
 
 # start in main
-code.step(13)
-m("push locals on stack")
-code.step(0)
-
+code(12, "Start of Simulation")
 for i in range(5):
     a[i].show()
     a[i].print()
-code.step()
+code(14, "push local variables")
+code(15, "call function and push parameters")
 thread.swap_colors()
 
 # call function
-code.step(-11)
-m("push locals on stack")
-code.step(0)
 myArray = Variable(name="myArray", stack=stack1, value="&a[0]")
 myArray.show()
 myArray.print()
 myArray.arrow(a[0])
-code.step(2)
+code(4, "label parameter")
+code(6)
 i = Variable(name="i", stack=stack1, value="0")
 i.show()
 for n in range(5):
-    m("push locals on stack")
     i.set(f"{n}")
-    code.step(2)
+    code(8)
     a[n].set(f"{2*int(a[n].value)}")
-    code.step()
+    code(9)
     if n == 4: break
-    code.step(-3)
-code.step()
-m("remove locals from stack")
+    code(6)
+code(10, "pop i")
 i.hide()
-code.step(0)
 
 thread.swap_colors()
 
 # return to main
-code.step(5)
-m("remove parameters from stack")
+code(15, "pop parameters")
 myArray.hide()
-code.step(0)
-code.step()
-m("clean up stack")
-code.step(0)
+code(16, "pop locals")
 for i in range(5):
     a[i].hide()
-code.step()
-
-m("End of Simulation")
+code(17, "End of Simulation")
 finish()

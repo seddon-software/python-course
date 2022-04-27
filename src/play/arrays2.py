@@ -21,10 +21,8 @@ from simulator import *
 import os
 
 start()
-colors = Color()
-m = Message(20, 20)
-m("Start of Simulation")
-code = Code(row=2, col=5)
+code = Code(row=2, col=5, lineNumbers=True)
+code.set_message_area(20, 20)
 
 stack1 = Stack(row=2, col=50, boxes=2)
 stack2 = Stack(row=2, col=80, boxes=6)
@@ -37,61 +35,46 @@ dummy = Variable(name=f"", stack=stack2, value=f"{100*(i+1)}")  # end of stack
 
 
 # start in main
-code.step(14)
-m("push locals on stack")
-code.step(0)
+code.set_message_area(20, 20)
+code(13, "Start Simulation")
 
 for i in range(5):
     a[i].show()
     a[i].print()
-code.step()
-m("call function and push parameter on stack")
-code.step(0)
+code(15, "push parameter on stack")
 myArray = Variable(name="myArray", stack=stack1, value="&a[0]")
 myArray.print()
 myArray.arrow(a[0])
-code.step(0)
+code(16, "call function and push parameter")
 
 # call function
 myArray.show()
 thread.swap_colors()
-code.step(-12)
-m("push locals on stack")
-code.step(2)
+code(4, "push locals on stack")
 i = Variable(name="i", stack=stack1, value="0")
 i.show()
-m("push locals on stack")
 for n in range(5):
-    code.step(0)
     i.set(f"{n}")
-    code.step(2)
+    code(6)
+    code(8)
     a[n].set(f"{2*int(a[n].value)}")
-    code.step()
+    code(9)
     myArray.set(f"&a[{n+1}]")
     myArray.arrow(a[n], True)
     if n == 4: break
     myArray.arrow(a[n+1])
-    code.step(-3)
+    code(10)
 myArray.arrow(dummy)
-code.step()
-m("pop i on exit from stack frame")
-code.step(0)
+code(11, "pop i on exit from stack frame")
 i.hide()
-code.step()
 
 thread.swap_colors()
 
 # return to main
-code.step(5)
-m("remove parameters from stack")
+code(16, "pop parameter")
 myArray.hide()
-code.step(0)
-code.step()
-m("clean up stack")
-code.step(0)
+code(17, "clean up stack")
 for i in range(5):
     a[i].hide()
-code.step()
-
-m("End of Simulation")
+code(17, "End of Simulation")
 finish()
