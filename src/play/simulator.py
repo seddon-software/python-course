@@ -97,15 +97,15 @@ class Code:
                 self.previous_line = self.code[self.index]
             except Exception as e:
                 output(self.message_row, self.message_col, e.__str__(), curses.color_pair(6))
-            wait()
+#            wait()
         
 
         # display messages
         if not message == "":
             output(self.message_row, self.message_col, message, curses.color_pair(6))
             refresh()
-            wait()
             self.size = max(self.size, len(message))
+        wait()
 
     def step(self, rows=1):
         col = self.col_const
@@ -118,7 +118,7 @@ class Code:
             self.previous_row = new_row
             self.previous_line = self.code[self.index]
             refresh()
-            wait()
+#            wait()
         except:
             pass    # no more code
 
@@ -208,7 +208,10 @@ class Variable:
             self.value = rhs.value
         else:
             self.value = rhs
-        self.print()
+        try:
+            self.print()
+        except:
+            pass
 
     def getRowOffset(self):
         return self.stack.rowOffset(self)
@@ -221,7 +224,9 @@ class Variable:
         col = stack.col + width//2 - 4
         blanks = " "*7
         output(row, col, blanks)
+        refresh()
         if not hide: output(row, col, str(self.value), Thread.current_thread.get_color())
+        refresh()
 
     def show_and_print(self):
         self.show()
@@ -238,6 +243,11 @@ class Variable:
     def hide_and_wait(self):
         self.hide()
         wait()
+
+    def remove(self):
+        self.hide()
+        stack = self.stack
+        stack.variables.pop()
 
     def hide(self):
         stack = self.stack
@@ -256,6 +266,9 @@ class Variable:
             self.arrowStraight(to, hide)
         else:
             self.arrowDogLeg(to, hide)
+        if hide:
+            self.hasArrow = False
+
     
     def arrowStraight(self, to, hide=False):
         self.hasArrow = True
