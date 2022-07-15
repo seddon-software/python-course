@@ -1,2 +1,17 @@
 bottle
 CherryPy
+pandas 
+numpy
+matplotlib
+scipy
+mypy
+scikit-image
+scikit-learn
+openpyxl
+h5py
+bokeh
+opencv-python
+sympy
+beautifulsoup4
+
+

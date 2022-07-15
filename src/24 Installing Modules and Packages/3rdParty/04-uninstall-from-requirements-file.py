@@ -1,4 +1,8 @@
-import os, setPath
+import sys, os
+import subprocess
 
-os.system("pip uninstall -y -r requirements.txt")
+try:
+    subprocess.run(f"{sys.executable} -m pip uninstall -r requirements.txt -y".split()) 
+except CalledProcessError as e:
+    print(e)
 
