@@ -46,7 +46,7 @@ pd.set_option('display.width', 100)
 def main(): 
     # set column names and read in data from file
     column_names = ['year', 'month', 'tmax', 'tmin', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment']
-    oxford_data = pd.read_csv("data/oxford.txt", 
+    oxford_data = pd.read_csv("data/oxford_2022.txt", 
                               engine = 'python', 
                               skiprows = 7, 
                               names = column_names, 

@@ -262,6 +262,7 @@ class Variable:
             self.arrow(self.to, hide=True)
 
     def arrow(self, to, hide=False):
+        '''if hide==False then to must be the original "to", not the new "to"'''
         if (self.stack.row + self.getRowOffset()) == (to.stack.row + to.getRowOffset()):
             self.arrowStraight(to, hide)
         else:
