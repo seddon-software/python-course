@@ -1,0 +1,14 @@
+MANIFEST.in
+README.txt
+setup.py
+mymodule.egg-info/PKG-INFO
+mymodule.egg-info/SOURCES.txt
+mymodule.egg-info/dependency_links.txt
+mymodule.egg-info/top_level.txt
+mypackage/__init__.py
+mypackage/f1.py
+mypackage/mysubpackage/__init__.py
+mypackage/mysubpackage/f1.py
+mypackage/mysubpackage/f2.py
+mypackage/mysubpackage/f3.py
+mypackage/mysubpackage/f4.py

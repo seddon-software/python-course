@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: mymodule
+Version: 1.0
+Summary: very simple example of a python module
+Home-page: http://localhost:8000/repo
+Author: CRS Enterprises Ltd
+Author-email: email@abc.com
+License: UNKNOWN
+Platform: UNKNOWN
+
+Really long text here.
+

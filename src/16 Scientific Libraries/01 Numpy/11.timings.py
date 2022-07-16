@@ -38,6 +38,11 @@ def numpyMethod(n):
     return numpy.sum(y)
 
 @numba.jit(nopython=True, parallel=True)
+def parallelNumba(n):
+    x = numpy.arange(0, n)
+    y = numpy.sqrt(x)
+    return numpy.sum(y)
+@numba.jit(nopython=False, parallel=False)
 def numbaMethod(n):
     x = numpy.arange(0, n)
     y = numpy.sqrt(x)
@@ -48,24 +53,37 @@ if not EXCLUDE_C_EXAMPLE:
     def cModule(n):
         return roots.sumOfRoots(n)
 
+@numba.jit(nopython=True, parallel=False)
+def forLoopWithNumba(n):
+    _sum = 0
+    for i in range(n):
+        _sum += float(i)**0.5
+    return _sum
+
+
 # set up timers
 from timeit import Timer
 n = 10 * 1000 * 1000
-ForLoop           = Timer('forLoop({})'          .format(n),'from __main__ import forLoop')
-ForLoop2          = Timer('forLoop2({})'         .format(n),'from __main__ import forLoop2')
-ListComprehension = Timer('listComprehension({})'.format(n),'from __main__ import listComprehension')
-Numpy             = Timer('numpyMethod({})'      .format(n),'from __main__ import numpy, numpyMethod')
-C_Module          = Timer('cModule({})'          .format(n),'import _roots as roots; from __main__ import cModule')
-Numba             = Timer('numbaMethod({})'      .format(n),'from __main__ import numpy, numbaMethod')
+ForLoop           = Timer('forLoop(n)'          , 'from __main__ import n, forLoop')
+ForLoop2          = Timer('forLoop2(n)'         , 'from __main__ import n, forLoop2')
+ListComprehension = Timer('listComprehension(n)', 'from __main__ import n, listComprehension')
+Numpy             = Timer('numpyMethod(n)'      , 'from __main__ import n, numpy, numpyMethod')
+C_Module          = Timer('cModule(n)'          , 'import _roots as roots; from __main__ import n, cModule')
+ParallelNumba     = Timer('parallelNumba(n)'    , 'from __main__ import n, numpy, parallelNumba')
+Numba             = Timer('numbaMethod(n)'      , 'from __main__ import n, numpy, numbaMethod')
+ForLoopWithNumba  = Timer('forLoopWithNumba(n)' , 'from __main__ import n, numpy, forLoopWithNumba')
 
-
-print("results")
-print(forLoop(n))
-print(forLoop2(n))
-print(listComprehension(n))
-print(numpyMethod(n))
-print(numbaMethod(n))
-if not EXCLUDE_C_EXAMPLE: print(cModule(n))
+print("\nresults")
+print("=======")
+print(f"{'forLoop:':20s} {forLoop(n)}")
+print(f"{'forLoop2:':20s} {forLoop2(n)}")
+print(f"{'listComprehension:':20s} {listComprehension(n)}")
+print(f"{'numpyMethod:':20s} {numpyMethod(n)}")
+print(f"{'parallelNumba:':20s} {parallelNumba(n)}")
+print(f"{'numbaMethod:':20s} {numbaMethod(n)}")
+if not EXCLUDE_C_EXAMPLE: print(f"{'cModule:':20s} {cModule(n)}")
+print(f"{'forLoopWithNumba:':20s} {forLoopWithNumba(n)}")
+print()
 
 # perform timings
 count = 1
@@ -74,16 +92,20 @@ t2 = ForLoop2.timeit(number=count)
 t3 = ListComprehension.timeit(number=count)
 t4 = Numpy.timeit(number=count)
 if not EXCLUDE_C_EXAMPLE: t5 = C_Module.timeit(number=count)
-t6 = Numba.timeit(number=count)
+t6 = ParallelNumba.timeit(number=count)
+t7 = Numba.timeit(number=count)
+t8 = ForLoopWithNumba.timeit(number=count)
 
 print("{:20s}{:>8s}{:>8s}".format("code", "time", "t2/time"))
 print("{:20s}{:>8s}{:>8s}".format("====", "====", "======="))
-print("{:20s}{:8.3f}{:8.3f}".format("For Looop (v1)"     , t1, t2/t1))
-print("{:20s}{:8.3f}{:8.3f}".format("For Looop (v2):"    , t2, t2/t2))
-print("{:20s}{:8.3f}{:8.3f}".format("List Comprehension:", t3, t2/t3))
-print("{:20s}{:8.3f}{:8.3f}".format("Numpy:"             , t4, t2/t4))
+print("{:20s}{:8.3f}{:8.3f}".format("For Loop (v1)"     ,  t1, t2/t1))
+print("{:20s}{:8.3f}{:8.3f}".format("For Loop (v2):"    ,  t2, t2/t2))
+print("{:20s}{:8.3f}{:8.3f}".format("List Comprehension:",  t3, t2/t3))
+print("{:20s}{:8.3f}{:8.3f}".format("Numpy:"             ,  t4, t2/t4))
 if not EXCLUDE_C_EXAMPLE: 
-    print("{:20s}{:8.3f}{:8.3f}".format("C Module"           , t5, t2/t5))
-print("{:20s}{:8.3f}{:8.3f}".format("Numba:"             , t6, t2/t6))
+    print("{:20s}{:8.3f}{:8.3f}".format("C Module"       ,  t5, t2/t5))
+print("{:20s}{:8.3f}{:8.3f}".format("Parallel Numba:"    ,  t6, t2/t6))
+print("{:20s}{:8.3f}{:8.3f}".format("Non Parallel Numba:",  t7, t2/t7))
+print("{:20s}{:8.3f}{:8.3f}".format("For Loop with Numba:", t8, t2/t8))
 
 
