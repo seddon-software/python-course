@@ -1,5 +1,9 @@
-Timings:
-========
+Course Timings:
+===============
+     9.00 - 4:30
+
+Virtual Course Timings:
+======================
      9.00 - 10.00
     11.00 - 12.00
      2.00 -  3.00
@@ -7,6 +11,7 @@ Timings:
 
 If you are on a Diamond machine, setup vscode with:
     module load vscode/1.42.1
+Note: later versions of vscode may not work because of memory requirements
     
 To clone this repository:
     cd 
@@ -24,7 +29,7 @@ If this fails because you've made changes to some of the code, then stash your c
     git stash
     git pull
 
-Most of the examples on this course are available as a Juypter Notebook.  You can clone these examples with:
+Most of the examples on this course are available as a Juypter Notebook.  You can clone the Jupyter examples with:
     cd 
     git clone https://github.com/seddon-software/python-notebooks.git
     cd python-notebooks
@@ -47,6 +52,6 @@ I've set up
 
 Interpreter used on course (Mar 2022)
 =====================================
-Python 3.9.7 64-bit('base':conda)
+Python 3.7.3 64-bit(Anaconda)
 
 
