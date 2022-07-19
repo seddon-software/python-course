@@ -1,8 +1,15 @@
-############################################################
-#
-#    sorting-dictionaries
-#
-############################################################
+'''
+Converting a File to a Dictionary
+=================================
+
+If we have a file containing information of the form of key value pairs, we can read the file into a dictionary.
+Because a dictionary is hashed, we can then retreive information about indivial keys in an efficient manner.
+'''
+
+trace = True
+
+def Print(item):
+    if trace: print(item)
 
 # dictionaries can't be sorted, but we can print out
 # key value pairs in lexical order (see previous example)
@@ -12,14 +19,17 @@ phones = {}
 try:
     f = open("data/codes.txt", "r")
     for line in f:
-        theList = line.rstrip().split(' ')
+        Print(f"current line: {line}")
+        strippedLine = line.rstrip().split(' ')
+        Print(f"current line as list (stripped): {strippedLine}")
         value = theList[0]
         x = theList[1:]
-        print(x)
+        Print(x)
         y = "".join(x)
-        print(y)
+        Print(y)
         key = " ".join(theList[1:])
         phones[key] = value
+        Print(phones)
 except IOError as e:
     print("Reading data from file failed!")
     print(e)

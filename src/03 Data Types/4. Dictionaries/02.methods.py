@@ -1,8 +1,11 @@
-############################################################
-#
-#    dictionary
-#
-############################################################
+'''
+Dictionary Methods
+==================
+Dictionaries support a number of methods (operations).  Common operations are shown in the examples below.
+
+Note that, starting with Python 3.7, the standard guarantees that dictionaries preserve the order in which 
+key, value pairs were inserted.
+'''
 
 # set up a dictionary
 salary = {
@@ -12,11 +15,18 @@ salary = {
           "rocco": 12500,
           "zoe":   66000
          }
-salary["sara"] = 28000
-salary["sara"] = None
-salary["george"] = 137000
+print(salary)
 
-# read and write
+# update an existing key in dictionary
+salary["sara"] = 28000
+salary["sara"] = None       # use None if value unknown
+print(salary)  # preserves order in which key, value pairs were inserted (standard behaviour in Python 3.7+)
+
+# add a new key, value pair (same syntax as updating)
+salary["george"] = 137000
+print(salary)
+
+# read and write entries
 salary["pedro"] = 53000
 print(salary["pedro"])
 
@@ -34,7 +44,7 @@ print()
 for key, value in salary.items():
     print(key, value)
 
-# enumerate all key value pairs
+# enumerate all key value pairs (includes loop count)
 for i, (key, value) in enumerate(salary.items()):
     print(i, key, value)
 
@@ -44,10 +54,7 @@ if "sara" in salary: print("sara is in dictionary")
 if "tom" not in salary: print("tom is NOT in dictionary")
 
 # delete keys using del or pop
-del salary["zak"]           # nothing returned
-value = salary.pop("sara")
-
-# print whole dictionary
-print(salary)  # preserves input order
+del salary["zak"]           # nothing returned (discouraged)
+value = salary.pop("sara")  # returns value of key that has been deleted
 
 
