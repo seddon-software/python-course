@@ -49,7 +49,6 @@ def plotHeights(y):
 for y in range(MIN, MAX):
     # put breakpoint in here
     plotHeights(y)
-    input(">")
 
 plt.ioff()
 plt.show()

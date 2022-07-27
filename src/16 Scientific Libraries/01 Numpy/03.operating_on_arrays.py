@@ -3,7 +3,7 @@ Operating on Arrays of the Same Size
 ====================================
 
 In Numpy you can perform matrix arithmetic on 2 dimensional arrays (see later examples).  However, if the arrays 
-are not 2 dimensional then this wouldn't work in the general case. The@ sign is reserved for matrix multiplication. 
+are not 2 dimensional then this wouldn't work in the general case. The @ sign is reserved for matrix multiplication. 
 All other mathematical operators and functions are performed element by element on Numpy arrays.
 
 It is easy to see how this scheme works on arrays of the same size. Consider the following operations with 1 

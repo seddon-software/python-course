@@ -27,7 +27,7 @@ def inspect(item):
     print()
     print(item)
     print(type(item))
-    print("-"*len(str(type(item))))
+    print("-"*len(str(type(item))))  # print underscores
 
 def main(): 
     df = pd.read_csv("data/sample.csv", 
@@ -50,7 +50,7 @@ def main():
     inspect(list(df.index))    # convert index to a list    
     inspect(list(df.columns))  # convert columns to a list
     # extracting a single column can create a new dataframe or a series
-    inspect(df[['County']])    # [[list parameter]] => returns a dataset
+    inspect(df[['County']])    # [[list parameter]] => returns a dataFrame
     inspect(df['County'])      # [scalar parameter] => returns a series
         
     # using .loc
