@@ -1,0 +1,8 @@
+for file in $(ls images*.jpg)
+do
+    out=$(echo $file | tr ' ' '_' | sed 's/images/Slide/')
+    echo $out
+    #mv "$file" $out
+    #echo mv $in $out
+    #mv "$in" "$out"
+done

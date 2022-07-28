@@ -1,0 +1,30 @@
+Python Level 1 & 2
+==================
+
+To get started you need to enter commands at your command prompt:
+
+1. Load Python and Jupyter Notebook:
+
+    module load python/3.7
+
+2. Get the example notebook files from github:
+
+    cd
+    mkdir python_course
+    cd python_course
+    git clone https://github.com/seddon-software/python-notebooks.git
+
+3. Open the folder with the downloaded notebooks
+
+    cd python-notebooks
+    ls
+
+4. (Optional) To setup Juypter styles:
+
+    ./setup.sh
+
+5. Fire up Jupyter Notebook:
+
+    jupyter notebook
+
+

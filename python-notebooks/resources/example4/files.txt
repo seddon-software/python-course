@@ -1,0 +1,2 @@
+/Users/seddon/.local/lib/python3.7/site-packages/functions.cpython-37m-darwin.so
+/Users/seddon/.local/lib/python3.7/site-packages/MyCython_Package-2.0-py3.7.egg-info

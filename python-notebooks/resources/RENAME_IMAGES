@@ -1,0 +1,11 @@
+for f in *.jpg
+do
+    mv "$f" $(echo $f | tr ' ' '_')
+done
+
+for f in *.jpg
+do
+    out=$(echo $f | sed 's/images_-_/Slide/')
+    mv $f $out
+done
+

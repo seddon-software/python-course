@@ -35,7 +35,17 @@ Most of the examples on this course are available as a Juypter Notebook.  You ca
     cd python-notebooks
     jupyter notebook --browser firefox
 
-   
+
+install vscode extensions
+=========================
+If you are missing vscode extensions you can install them with the following instructions:
+
+Launch VS Code Quick Open (Ctrl+P), paste the following command(s), and press enter.
+    Python:     ext install ms-python.python
+    C++:        ext install ms-vscode.cpptools
+    Jupyter:    ext install ms-toolsai.jupyter-renderers
+
+
 vscode key bindings
 ===================
 F11                 toggle full screen
@@ -46,9 +56,15 @@ Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
 Ctrl -              zoom out
 
-I've set up 
+I've set up (on my machine)
     Ctrl# to display the debug console
     Ctrl' to display the terminal window
+
+vscode bug fixes:
+================
+    https://stackoverflow.com/questions/54092486/visual-studio-code-terminal-blank-screen
+    
+    terminal.integrated.inheritEnv": false,
 
 Interpreter used on course (Mar 2022)
 =====================================

@@ -1,0 +1,13 @@
+{
+    "workbench.colorCustomizations": {
+        "notebook.cellEditorBackground": "#00FF00",
+      },    
+    "jupyter.jupyterServerType": "local",
+    "python.pythonPath": "/home/chris/anaconda3/bin/python",
+    "vscode_custom_css.imports": [
+      "file://home/chris/home/workspace/Notebooks/python-notebooks/.vscode/custom.css",
+      "file:///home/chris/.jupyter/custom/custom.css"
+    ]
+}
+
+

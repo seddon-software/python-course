@@ -1,0 +1,21 @@
+/* GLOBALS */
+/* body {background-color: #f7f7f7;} */
+.text_cell {background-color: cornsilk;}
+.code_cell { background-color: lightskyblue; }
+.selected { background-color: peachpuff; }
+.output { background-color: aliceblue; }
+
+/* Make the notebook cells take almost all available width */
+/*
+.container {
+    width: 99% !important;
+}   
+*/
+/* Prevent the edit cell highlight box from getting clipped;
+ * important so that it also works when cell is in edit mode*/
+/*
+div.cell.selected {
+    border-left-width: 1px !important;
+*/
+}
+
