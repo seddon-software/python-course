@@ -11,7 +11,7 @@ Virtual Course Timings:
 
 If you are on a Diamond machine, setup vscode with:
     module load vscode/1.42.1
-Note: later versions of vscode may not work because of memory requirements
+Note: later versions of vscode may not work
     
 To clone this repository:
     cd 
@@ -29,11 +29,8 @@ If this fails because you've made changes to some of the code, then stash your c
     git stash
     git pull
 
-Most of the examples on this course are available as a Juypter Notebook.  You can clone the Jupyter examples with:
-    cd 
-    git clone https://github.com/seddon-software/python-notebooks.git
-    cd python-notebooks
-    jupyter notebook --browser firefox
+Most of the examples on this course are available as a Juypter Notebook.  These are included with the above
+download.
 
 
 install vscode extensions
@@ -51,6 +48,7 @@ vscode key bindings
 F11                 toggle full screen
 Ctrl-k Ctrl-r       show key bindings
 Ctrl-b              toggle sidebar
+Ctrl-Shift P        set themes etc
 Ctrl-Shift C        open external terminal window
 Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
@@ -70,4 +68,37 @@ Interpreter used on course (Mar 2022)
 =====================================
 Python 3.7.3 64-bit(Anaconda)
 
+
+Python 3 Examples
+=================
+cd
+git clone https://github.com/seddon-software/python-course.git
+cd python-course
+
+Module Loads
+============
+module avail python
+module load python/3.7
+module load swig/3.0.12
+python -V
+
+VSCode
+======
+code .
+
+Eclipse
+=======
+module load eclipse
+eclipse &
+
+Jupyter Notebook
+================
+jupyter notebook &
+
+
+
+
+To Log into Windows
+===================
+user: clrc\<fed-id>
 
