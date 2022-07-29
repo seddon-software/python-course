@@ -1,3 +1,11 @@
+'''
+Deleter Decorator
+=================
+
+This decorator is used to prevent accidental deletion of an attribute.  Again we must also provide a
+property decorator before defing the deleter decoration on the "attribute".
+'''
+
 import math
 
 class Circle(object):
@@ -10,13 +18,13 @@ class Circle(object):
     
     @radius.deleter      # version 2.6
     def radius(self):
-        raise TypeError("Can't delete radius")
+        raise TypeError("can't delete radius")
                 
 try:
     circle = Circle(10.0)
     del circle.radius
 except TypeError as e:
-	print(e)
+	print(f"Error: {e}")
 
 
 1

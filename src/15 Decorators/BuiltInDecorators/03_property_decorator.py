@@ -41,8 +41,8 @@ circle3 = Circle(30.0)
 
 print(circle1.__dict__)
 print(circle1.radius)
-print(circle1.area)
-print(circle1.perimeter)
+print(circle1.area)         # this calls circle1.area()
+print(circle1.perimeter)    # this calls circle1.perimeter()
 print()
 
 print(circle2.radius)
@@ -55,5 +55,8 @@ print(circle3.area)
 print(circle3.perimeter)
 print()
 
-
-1
+try:
+    # property decorator makes access read only
+    circle1.area = 40.0
+except Exception as e:
+    print(e)
