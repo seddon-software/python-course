@@ -1,6 +1,6 @@
-DEBUG    2021-10-21 16:36:56,137 FILTER IP: 192.2.2.53      User: Sheila   A debug message
-DEBUG    2021-10-21 16:37:06,439 FILTER IP: 192.2.2.53      User: Sheila   A debug message
-DEBUG    2021-10-21 16:37:07,466 FILTER IP: 192.2.2.53      User: Sheila   A debug message
-INFO     2021-10-21 16:37:15,658 FILTER IP: 192.1.1.13      User: Tom      An info message
-INFO     2021-10-21 16:37:16,198 FILTER IP: 192.1.1.13      User: Tom      An info message
-INFO     2021-10-21 16:37:17,011 FILTER IP: 192.1.1.13      User: Tom      An info message
+DEBUG    2022-07-29 17:08:42,614 FILTER IP: 192.2.2.53      User: Sheila   A debug message
+DEBUG    2022-07-29 17:08:42,615 FILTER IP: 192.2.2.53      User: Sheila   A debug message
+DEBUG    2022-07-29 17:08:42,615 FILTER IP: 192.2.2.53      User: Sheila   A debug message
+INFO     2022-07-29 17:08:47,624 FILTER IP: 192.1.1.13      User: Tom      An info message
+INFO     2022-07-29 17:08:47,625 FILTER IP: 192.1.1.13      User: Tom      An info message
+INFO     2022-07-29 17:08:47,625 FILTER IP: 192.1.1.13      User: Tom      An info message
