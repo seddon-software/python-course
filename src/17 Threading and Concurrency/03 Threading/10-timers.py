@@ -1,15 +1,14 @@
-############################################################
-#
-#    timers
-#
-############################################################
+'''
+Timers
+======
+
+I should mention the simple Timer:
+'''
 
 from threading import Timer
 
 def hello():
     print("hello, world")
 
-t = Timer(30.0, hello)
-t.start() # after 30 seconds, "hello, world" will be printed
-
-1
+t = Timer(15.0, hello)
+t.start() # after 15 seconds, "hello, world" will be printed

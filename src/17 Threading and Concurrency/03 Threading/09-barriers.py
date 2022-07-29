@@ -1,18 +1,21 @@
-############################################################
-#
-#    barriers
-#
-############################################################
+'''
+Barriers
+========
 
+Barriers are yet another synchronization object.  
 
+A barrier is created with a count and a timeout:
+            b = Barrier(5, timeout=10)
+
+In this example a server and 4 clients synchronize by waiting on this barrier in their respective threads:
+            b.wait()
+            
+When all five threads are waiting, the barrier is satisfied and the Python interpreter removes the barrier and 
+all 5 threads continue.
+'''
 
 from threading import Thread, Barrier
 import time
-
-
-# In this example a server a 4 clients synchronize by waiting on a barrier
-# in their respective threads.  When all five threads are waiting, 
-# the barrier is removed and all 5 threads continue.
 
 b = Barrier(5, timeout=10)
 

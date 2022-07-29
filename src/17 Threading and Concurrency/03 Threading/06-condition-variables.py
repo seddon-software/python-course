@@ -1,8 +1,22 @@
-############################################################
-#
-#    locking
-#
-############################################################
+'''
+Condition Variables
+===================
+
+Apart from locks, there are some other synchronization primatives to consider.  Let's now look at the 
+producer/consumer code below.  The problem we have here is that the producer will create data for each of 
+the consumers, but it might take some time to do so.  It is important that the consumers don't attempt to 
+use the data before it is available.
+
+We can use a "condition" variable to synchronize the threads:
+            dataAvailable = threading.Condition()
+
+The consumers all wait on the "condition" variable:
+            dataAvailable.wait()
+
+until the producer is ready to provide the data.  The producer notifies all the consumers that they can 
+proceed with:
+            dataAvailable.notifyAll()
+'''
 
 import threading
 from threading import Thread

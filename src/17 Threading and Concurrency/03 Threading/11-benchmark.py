@@ -1,3 +1,20 @@
+'''
+Benchmarking
+============
+
+Finally, as mentioned in the introduction to this tutorial, with multi threaded CPU-bound programs, the threads 
+are executed sequentially because of the GIL.  Performance then becomes an issue.
+
+It is recommended to use the multiprocessing module to speed things up in such situations.  We don't use threads 
+in this case, but execute code in separate processes such that the GIL is irrelevant.
+
+It will be interesting to compare a multthreaded program with a mutiprocessing program for timings.  Both programs 
+calculate the value of the sum of i**0.3 where i ranges from 0 to 50,000,000.  We can see the performance of both 
+with varying numbers of threads and processes (don't worry to much about the code details):
+
+Conclusion: threads do not speed up cpu bound calculations; use multiple processes.
+'''
+
 import time, os
 from threading import Thread
 from multiprocessing import Process, Pool

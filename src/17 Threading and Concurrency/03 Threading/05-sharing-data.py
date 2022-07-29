@@ -13,7 +13,7 @@ by the interpreter to the try-finally form (so these forms are equivalent).
 
 Note that often code is modified after the initial design and we might introduce code that could throw an exception
 between obtaining the lock and releasing it.  That's why it's better to use the with statement than the straight
-lock.release() because with is exception safe.
+lock.release() because "with" is exception safe.
 '''
 
 from threading import Thread
@@ -30,20 +30,13 @@ class M:
     count1 = 0
     count2 = 0
 
-    def __call__(self, name):        
-        def progress(v):
-            M = N//50
-            if i%M == 0 and i!=0:
-                print(f"{int(i/M) + (v-1)*50}% ", end="", flush=True)
-        
+    def __call__(self, name):                
         if name == "A":
             for i in range(0, N):
                 M.count1 += 1
-                progress(1)
             M.lock.acquire()
             for i in range(0, N):
                 M.count2 += 1
-                progress(2)
             M.lock.release()
         if name == "B":
             for i in range(0, N):

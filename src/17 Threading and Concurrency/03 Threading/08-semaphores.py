@@ -1,8 +1,21 @@
-############################################################
-#
-#    semaphores
-#
-############################################################
+'''
+Semaphores
+==========
+Semaphores (aka Bounded Semaphores) are like a set of multiple locks.  
+
+A bounded semaphore is created with an initial count:
+            semaphore = BoundedSemaphore(3)
+
+Threads can acquire the semaphore by decrementing the count:
+            semaphore.acquire()
+
+However the count can never go negative.  So after 3 threads have acquired the semaphore the next thread will be 
+blocked until another thread releases the semaphore and increments the count by one:
+            semaphore.release()
+
+This continues until all the threads have acquired and released the semaphore.  Thus this bounded semaphore 
+behaves as a set of 3 locks.
+'''
 
 from threading import Thread
 from threading import BoundedSemaphore

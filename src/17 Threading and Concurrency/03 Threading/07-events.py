@@ -1,8 +1,18 @@
-############################################################
-#
-#    events
-#
-############################################################
+'''
+Events
+======
+
+Event objects are very similar to condition variables.  
+
+The event object is created by:
+            event = Event()
+
+and any thread can wait on the event:
+            event.wait()
+
+All waiting threads are released when any thread "sets" the event:
+            event.set()
+'''
 
 from threading import Thread
 from threading import Event, Lock
