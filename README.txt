@@ -106,3 +106,6 @@ To Log into Windows
 ===================
 user: clrc\<fed-id>
 
+Notes
+=====
+All Level 2 examples are documented upto the Pandas chapter.
