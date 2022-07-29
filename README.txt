@@ -11,7 +11,11 @@ Virtual Course Timings:
 
 If you are on a Diamond machine, setup vscode with:
     module load vscode/1.42.1
-Note: later versions of vscode may not work
+    
+Note: later versions of vscode may not work (you need the following libraries):
+    GLIBCXX version 3.4.21 or later
+    GLIBC version 2.17 or later
+
     
 To clone this repository:
     cd 
