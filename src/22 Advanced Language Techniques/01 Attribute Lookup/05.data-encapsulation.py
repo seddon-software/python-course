@@ -7,7 +7,7 @@ access to an object's attributes has to be via the methods defined in the class.
 on the web as to why this is a good idea - basically to make code more reliable and less fragile.
 
 Python on the other hand has never provided similar facilities and probably never will.  Nevertheless, an
-attempt was made to provide something similar way baci in Python 2 days and its still available.  The idea was
+attempt was made to provide something similar way back in Python 2 days and its still available.  The idea was
 to restrict access to attributes that were defined with two leading underscores as in:
             self.__x
             self.__y       
