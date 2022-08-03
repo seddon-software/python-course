@@ -15,7 +15,7 @@ that extra doesn't get used if you pass all three parameters as in
             Grow(theList, 1, [9, 10])
 '''
 
-# avoid using mutable default parameters - not intuitive!!
+# avoid using mutable default parameters - non intuitive!!
 def Grow(theList, item = 0, extra = []):
     extra.append(item)
     theList.extend(extra)
@@ -23,7 +23,7 @@ def Grow(theList, item = 0, extra = []):
     
 theList = []
 
-Grow(theList, 1, [9, 10])
+Grow(theList, 1, [9, 10])   # not using defaults
 Grow(theList)       # extra = [0]
 Grow(theList)       # extra = [0, 0]
 Grow(theList)       # extra = [0, 0, 0]
