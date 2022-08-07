@@ -1,5 +1,7 @@
 '''
-This example show a typical design of a class.  For full details look at the accompanying Jupyter Notebook
+This example show a typical design of a class.  Classes are quite complicated and this example needs a full
+explanation.  Therefore I've given full details in the accompanying Jupyter Notebook (see the 
+python-notebooks section).
 '''
 
 
