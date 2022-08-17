@@ -1,0 +1,54 @@
+1660677819836	geckodriver	INFO	Listening on 127.0.0.1:48725
+1660677820157	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--remote-debugging-port" "35393" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileAsUad8"
+Gtk-Message: 20:23:40.184: Failed to load module "xapp-gtk3-module"
+Gtk-Message: 20:23:40.225: Failed to load module "canberra-gtk-module"
+Gtk-Message: 20:23:40.226: Failed to load module "canberra-gtk-module"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1660677820784	Marionette	INFO	Marionette enabled
+1660677820791	Marionette	INFO	Listening on port 41401
+WebDriver BiDi listening on ws://localhost:35393
+Read port: 41401
+1660677820960	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileAsUad8/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:35393/devtools/browser/472eefa7-7193-485c-a144-401f624b98e9
+1660677900990	geckodriver	INFO	Listening on 127.0.0.1:50005
+1660677901451	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--remote-debugging-port" "57981" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileVZGe7j"
+Gtk-Message: 20:25:01.475: Failed to load module "xapp-gtk3-module"
+Gtk-Message: 20:25:01.516: Failed to load module "canberra-gtk-module"
+Gtk-Message: 20:25:01.517: Failed to load module "canberra-gtk-module"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1660677902058	Marionette	INFO	Marionette enabled
+1660677902060	Marionette	INFO	Listening on port 46037
+WebDriver BiDi listening on ws://localhost:57981
+Read port: 46037
+1660677902337	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVZGe7j/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:57981/devtools/browser/66c6252c-4a8d-4e18-bf57-6737eaf972fd
+1660677958472	geckodriver	INFO	Listening on 127.0.0.1:47945
+1660677958933	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--remote-debugging-port" "39091" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileJFtalB"
+Gtk-Message: 20:25:58.957: Failed to load module "xapp-gtk3-module"
+Gtk-Message: 20:25:58.998: Failed to load module "canberra-gtk-module"
+Gtk-Message: 20:25:58.999: Failed to load module "canberra-gtk-module"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1660677959547	Marionette	INFO	Marionette enabled
+1660677959550	Marionette	INFO	Listening on port 37089
+WebDriver BiDi listening on ws://localhost:39091
+Read port: 37089
+1660677959800	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileJFtalB/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
+DevTools listening on ws://localhost:39091/devtools/browser/f7fc33b8-f865-4d03-845a-0e64e9f5da24

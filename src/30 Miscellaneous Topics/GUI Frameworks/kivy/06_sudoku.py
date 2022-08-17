@@ -1,18 +1,52 @@
+'''
+Sudoku Solver
+=============
+
+This Sudoku Solver can be run in one of two ways:
+    1) Use a puzzle scraped from the site: "https://alzheimer.ca/en/on/Living-with-dementia/BrainBooster/Sudoku"
+    2) By providing your own puzzle
+
+If you provide our own puzzle, you need to type in the puzzle below.  Start with big square 1 and enter 9 
+numbers/hyphens in the order: 11 12 13 21 22 23 31 32 33.  Then repeat for other big squares, working in the same
+order as for the little squares.
+
+Note if you use the alzheimer puzzle, this program will import code from
+            scrape_sudoku.py
+
+to perform the web scraping.
+'''
+
+ownPuzzle = False
+if ownPuzzle:
+    initialCells = """  8-1----97   
+                        96--7-3--   
+                        5--4-8---   
+                        93--68---
+                        ---------
+                        ---95--86
+                        ---1-9--2
+                        --8-2--49
+                        21----8-3"""
+
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
-from kivy.lang import Builder
-from kivy.core.window import Window
 from kivy.uix.button import Button
-from kivy.uix.label import Label
 from kivy.graphics import Color, Rectangle, Line
 from kivy.core.window import Window
 from kivy.clock import Clock
 from functools import partial
 import re
+# import chromedriver_autoinstaller
+# from selenium import webdriver
 
-import scrape_sudoku
-from sqlalchemy.sql.expression import false
+# opt = webdriver.ChromeOptions()
+# opt.add_argument("--start-maximized")
+# chromedriver_autoinstaller.install()
+
+
+if not ownPuzzle:
+    import scrape_sudoku
+    initialCells = scrape_sudoku.getPuzzle()
 
 
 black = (0,0,0,1)
@@ -24,16 +58,6 @@ level3_divider_color = [0,0,0,1]
 cell_background_color = [0.9,1,1,1]
 cell_foreground_color = [0.1,0,0,1]
 
-initialCells = scrape_sudoku.getPuzzle()
-initialCells = """  ---26----
-                    6---1---3
-                    4---3--18
-                    -7182-6-5
-                    92----8-7
-                    ---------
-                    --------9
-                    -------4-
-                    5---691--"""
 class Cell(Button):
     cells = []
     def __init__(self, rowsAndCols):
