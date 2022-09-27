@@ -1,0 +1,3 @@
+cd
+git clone https://github.com/seddon-software/python-course.git
+cd python-course
