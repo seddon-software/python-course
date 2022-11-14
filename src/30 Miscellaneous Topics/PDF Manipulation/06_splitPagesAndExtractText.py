@@ -2,8 +2,8 @@ import os
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
 os.makedirs("out", exist_ok=True)
-inputFile = "pdfs/python_tutorial.pdf"
-outputFile = "out/python_tutorial"
+inputFile = "pdfs/python-tutorial.pdf"
+outputFile = "out/python-tutorial"
 
 input = PdfFileReader(open(inputFile, "rb"))
 

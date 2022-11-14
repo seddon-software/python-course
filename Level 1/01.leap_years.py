@@ -13,3 +13,27 @@ Examples:
     2100        is NOT a leap year  (divisible by 100)
 '''
 print("Days in Gregorian Year:", 365 + 1/4 + 1/400)
+
+# year = int(input("Enter a year: "))
+
+def isLeapYear(year):
+    isLeap = False
+    if year % 4 == 0: isLeap = True
+    if year % 100 == 0: isLeap = False
+    if year % 400 == 0: isLeap = True
+    if isLeap:
+        return f"{year} is a Leap Year"
+    else:
+        return f"{year} is NOT a Leap Year"
+
+# def isLeapYear(year):
+#     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+#         return f"{year} is a Leap Year"
+#     else:
+#         return f"{year} is NOT a Leap Year"
+
+print(isLeapYear(2000))
+print(isLeapYear(2003))
+print(isLeapYear(2024))
+print(isLeapYear(2100))
+
