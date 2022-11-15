@@ -61,7 +61,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(111, projection='3d')
+
 X = np.arange(0, 10, 0.01)
 Y = np.arange(0, 10, 0.01)
 X, Y = np.meshgrid(X, Y)

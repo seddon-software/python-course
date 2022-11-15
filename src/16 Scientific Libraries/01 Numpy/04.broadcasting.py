@@ -68,7 +68,9 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
+
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(111, projection='3d')
+
 ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
 plt.show()
