@@ -43,7 +43,7 @@ for smaller values of "x".
 def main():
     """ try different values of x and y to trigger exceptions"""
     try:
-        x = 400
+        x = 10
         y = 0
         
         if x > 150:
@@ -52,7 +52,7 @@ def main():
             raise Exception("x is too big")
     
         print(f"x is {x}")
-        print(f"x/y is {x/y}")  # divid=sion by zero error detected by Python runtime
+        print(f"x/y is {x/y}")  # division by zero error detected by Python runtime
     except Exception as e:
         print(e)
 

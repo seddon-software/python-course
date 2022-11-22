@@ -72,5 +72,5 @@ from matplotlib import cm
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
+ax.plot_surface(X, Y, Z, cmap=cm.jet)
 plt.show()

@@ -19,7 +19,7 @@ def load_image( infilename ) :
 
 def set_title(title):
     figure = plt.gcf()
-    figure.canvas.set_window_title(title)
+#    figure.canvas.set_window_title(title)
 
 def enhanceImage(image, threshold):
     image[ image[:,:] <= threshold ] = 0

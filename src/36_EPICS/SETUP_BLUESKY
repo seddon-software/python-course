@@ -1,0 +1,9 @@
+module load python/3.8
+python -m venv .venv
+source .venv/bin/activate
+git clone https://github.com/bluesky/tutorials
+cd tutorials
+python -m pip install -r binder/requirements.txt
+python -m pip install -e ./bluesky-tutorial-utils
+./binder/start jupyter lab
+

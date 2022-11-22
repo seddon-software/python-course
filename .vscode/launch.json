@@ -11,6 +11,7 @@
             "cwd": "${fileDirname}",
             "program": "${file}",
             "console": "integratedTerminal",
+//            "console": "internalConsole",
             "stopOnEntry": true,
             "justMyCode": true,
             "preLaunchTask": "Clear terminal"

@@ -21,7 +21,7 @@ class MuchTooBig(Exception): pass
 def main():
     """ try different values of x and y to trigger exceptions"""
     try:
-        x = 400
+        x = 10
         y = 0
         
         if x > 150:

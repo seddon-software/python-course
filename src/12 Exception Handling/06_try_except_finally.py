@@ -24,7 +24,7 @@ def f(x):
         raise Exception('exception thrown')
 
 try:
-    x = 100
+    x = 10
     f(x)
 except Exception as e:
     print(f'caught exception ... {e}')

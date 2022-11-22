@@ -2,7 +2,7 @@ import os, pylab
 
 def set_title(title):
     figure = pylab.gcf()
-    figure.canvas.set_window_title(title)
+#    figure.canvas.set_window_title(title)
 
 def summarize_files(topdir):
     headers = { 'path'     : "",
@@ -27,7 +27,7 @@ def summarize_files(topdir):
         return filedata
     
 import pandas
-filedata = pandas.DataFrame(summarize_files("/home/chris/home/workspace/python-course"))
+filedata = pandas.DataFrame(summarize_files("/home/chris/home"))
 #filedata = pandas.DataFrame(summarize_files("/dls_sw/i21/scripts"))
 
 # look at the first few rows of data
