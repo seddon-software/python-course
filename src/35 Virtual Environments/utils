@@ -1,0 +1,32 @@
+function pause() {
+    read x
+    set +v
+}
+function zzz() {
+    local last="${!#}"
+    local argv=("${@:1:$#-1}")
+    echo "last: $last"
+    rest="${argv[@]}"
+    echo "rest: $rest"
+}
+function cmd() {
+    set -v
+    local last="${!#}"
+    local argv=("${@:1:$#-1}")
+    rest="${argv[@]}"
+    # echo LAST=$last
+    # echo REST=$rest
+    #others="${@:0, -1}"
+    echo
+    echo -n '>>>' "$rest $last"
+    pause
+    $rest
+    set +v
+}
+
+function print() {
+    set -v
+    echo $*
+    set +v    
+}
+

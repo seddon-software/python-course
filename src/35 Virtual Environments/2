@@ -1,0 +1,11 @@
+#! /bin/bash
+
+source utils
+
+clear
+cmd cd projectA ' '
+cmd pipenv install numpy '        # install numpy'
+cmd pipenv install pandas '       # install pandas'
+cmd pipenv shell '                # start virtual environment'
+cmd which python '                # check on python executable'
+cmd exit '                        # exit from virtual environment'

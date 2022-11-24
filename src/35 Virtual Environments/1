@@ -1,0 +1,28 @@
+#! /bin/bash
+# To create a new project with pipenv you should first create a folder and then run the install command to create a
+# virtual environment.  As you do this pipenv will create:
+#         Pipfile
+#         Pipfile.lock
+
+# The Pipfile will contain all the required sub-dependencies for your packages. 
+# You can continue changing dependencies until you reach a suitable baseline.  You can issue the command:
+#         pinenv lock
+        
+# and Pipenv will update the Pipfile.lock with all of your application’s interdependencies, including their versions.
+
+source utils
+
+clear
+cmd mkdir -p projectA '                   # create directory for project'
+cmd cd projectA '                         # enter project'
+cmd pwd ' '
+cmd pipenv install '                      # create virtual environment'
+cmd pipenv --venv '                       # check where virtual environment was created'
+echo "We will now get pipenv to create a sub-shell for you to continue with your work."
+echo "Try running the next example to see typical commands you can use in this shell"
+cmd pipenv shell '                        # create a sub-shell for you to continue with your work'
+# s("python -m venv venv")
+# s("ls venv")
+# print("bash venv/bin/activate venv")
+# print("conda env list")
+# print("python -m pip install numpy")

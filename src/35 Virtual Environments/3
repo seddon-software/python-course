@@ -1,0 +1,16 @@
+source utils
+
+clear
+cmd pipenv shell '             # reactivate virtual environment'
+cmd pipenv graph '             # check dependency graph'
+echo "add script to Pipfile"
+if [ -z $(grep scripts Pipfile) ];
+then
+    echo '[scripts]' >> Pipfile
+    echo 'man = "man python"' >> Pipfile
+fi
+
+cmd tail -2 Pipfile '          # script added to Pipfile ' 
+cmd pipenv run man '           # run <man python> command'
+cmd pipenv lock '              # lock virtual environment'
+cmd pipenv requirements '      # generate requirements file'

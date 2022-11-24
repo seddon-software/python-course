@@ -1,0 +1,18 @@
+#! /bin/bash
+
+source utils
+
+clear
+cmd pipenv shell '            # reactivate virtual environment'
+cmd pipenv check '            # check for security vulnerabilities'
+cmd pipenv graph '            # check dependency graph'
+
+section=$(grep '\[scripts\]' Pipfile)
+echo $section
+
+if [ -z "$section" ];
+then
+    echo '[scripts]' >> Pipfile
+    echo 'man = "man python"' >> Pipfile
+fi
+cmd exit '                    # leave virtual environment'
