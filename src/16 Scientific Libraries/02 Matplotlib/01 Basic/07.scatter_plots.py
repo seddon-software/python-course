@@ -2,7 +2,7 @@
 Scatter Plots
 =============
 
-Scatter plots are very similar to odinary plots in that dots are draw at each xy point.
+Scatter plots are very similar to ordinary plots in that dots are draw at each xy point.
 '''
 
 import numpy as np

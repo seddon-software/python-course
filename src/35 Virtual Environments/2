@@ -1,11 +1,15 @@
 #! /bin/bash
 
+'''
+Once you start your virtual environment you can install libraries and they will be recorded in you PipFile.
+'''
 source utils
 
 clear
 cmd cd projectA ' '
+cmd pipenv shell '                # start virtual environment'
 cmd pipenv install numpy '        # install numpy'
 cmd pipenv install pandas '       # install pandas'
-cmd pipenv shell '                # start virtual environment'
 cmd which python '                # check on python executable'
+cmd cat ../Pipfile '              # display Pipfile'
 cmd exit '                        # exit from virtual environment'

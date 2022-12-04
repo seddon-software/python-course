@@ -4,13 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "*"
-pandas = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.10"
-
-[scripts]
-man = "man python"

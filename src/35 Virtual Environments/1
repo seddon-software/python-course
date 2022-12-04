@@ -6,9 +6,11 @@
 
 # The Pipfile will contain all the required sub-dependencies for your packages. 
 # You can continue changing dependencies until you reach a suitable baseline.  You can issue the command:
-#         pinenv lock
+#         pipenv lock
         
 # and Pipenv will update the Pipfile.lock with all of your application’s interdependencies, including their versions.
+# if things don't work try:
+#       pipenv --support
 
 source utils
 
