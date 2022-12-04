@@ -9,7 +9,7 @@ def quadratic(x, a, b, c):
     return a*x**2 + b*x + c
 
 def main():    
-    plt.gcf().canvas.set_window_title("Curve Fitting")
+    plt.gcf().canvas.manager.set_window_title("Curve Fitting")
     ax = plt.gca()
     ax.set_title("quadratic")
     x = np.arange(-4, 4, 0.01)

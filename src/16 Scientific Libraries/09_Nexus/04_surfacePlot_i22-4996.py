@@ -29,9 +29,8 @@ print(f"shape of Y data: {Y.shape}")
 
 
 fig = plt.figure()
-fig.canvas.set_window_title("i22-4996.nxs")
-
-ax = fig.gca(projection='3d')
+fig.canvas.manager.set_window_title("i22-4996.nxs")
+ax = fig.add_subplot(projection='3d')
 ax.set_title("surface plot of Rapid2D")
 surface = ax.plot_surface(X, Y, cropped_image, cmap='terrain')
 

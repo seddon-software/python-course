@@ -1,7 +1,6 @@
 from operator import *
 
-# see http://pymotw.com/2/operator/
-
+# see https://pymotw.com/3/operator/index.html
 a = -1
 b = 5
 

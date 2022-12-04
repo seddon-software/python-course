@@ -50,7 +50,7 @@ x, y = np.meshgrid(x, y)
 
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 8))
-plt.gcf().canvas.set_window_title('2D Gaussian Fitting')
+plt.gcf().canvas.manager.set_window_title('2D Gaussian Fitting')
 ax1.set_title("raw 2D Gaussian")
 ax2.set_title("fitted 2D Gaussian")
 

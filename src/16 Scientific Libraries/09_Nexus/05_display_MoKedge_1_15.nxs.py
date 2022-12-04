@@ -5,7 +5,7 @@ from scipy.signal import savgol_filter  # for smoothing
 
 def set_title(title):
     figure = plt.gcf()
-    figure.canvas.set_window_title(title)
+    figure.canvas.manager.set_window_title(title)
 
 def setupAxes(xLabel, yLabel):
     set_title("MoKedge_1_15.nxs")

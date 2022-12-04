@@ -1,6 +1,6 @@
 # Demonstrate Currying of composition of function
 
-def change(b, c, d):
+def chain(b, c, d):
 	def a(x):
 		return b(c(d(x)))
 	return a
@@ -18,7 +18,7 @@ def minutestoseconds(time):
 	return time * 60
 	
 if __name__ == '__main__':
-	transform = change(minutestoseconds, hourstominutes, daystohour)
+	transform = chain(minutestoseconds, hourstominutes, daystohour)
 	e = transform(10)
 	print(e)
 	
