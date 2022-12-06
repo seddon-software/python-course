@@ -30,7 +30,7 @@ class Particle:
         # v = ∫a.dt = at + s0
         # s = ∫v.dt = ∫at.dt = at^2/2 + s0.t + v0
         self.v = a * t + self.s0
-        self.s = a * t**2 + self.s0 * t + self.v0
+        self.s = 0.5 * a * t**2 + self.s0 * t + self.v0
     
     def getPosition(self):
         return self.s

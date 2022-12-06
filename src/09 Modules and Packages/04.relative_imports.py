@@ -13,7 +13,8 @@ mylib2
         ├── __init__.py
         └── module2.py
 
-Note: Since Python 3.3, __init__.py is no longer required to define directories as importable Python packages.
+Note: Since Python 3.3, __init__.py is no longer required to define directories as importable
+      Python packages.
 
 Our package is "app" and this must be on the PYTHONPATH, so we need to:
             sys.path.append("mylib2")
@@ -42,6 +43,8 @@ This is similar to Unix relative paths:
 
 import sys
 sys.path.append("mylib2")
+import os
+os.system("tree mylib2 -I __pycache__")
 
 print(f"This is module: {__name__}")
 print(f"in package: {__package__}")

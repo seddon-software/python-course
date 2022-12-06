@@ -22,7 +22,7 @@ from math import sin
 
 plt.ion()
 figure = plt.figure()
-ax = Axes3D(figure, auto_add_to_figure=False)
+ax = Axes3D(figure)
 figure.add_axes(ax)
 ax.view_init(elev=20.0, azim=105.0)
 
