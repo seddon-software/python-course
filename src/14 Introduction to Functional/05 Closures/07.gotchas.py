@@ -6,8 +6,9 @@ Recall the closures will be on mutable variables and r-valued immutable variable
 trying to use y from the "outer" function in "inner".  The code looks OK, but the lines
         z = y * 2
         y = z
-defines a new local variable "y" because y is used an an l-value (left hand side of =) on the second line.
-The second line now refers to the local y which is so far undefined and hence the line raises an exception.
+actually define a new local variable "y".  This is because y is used an an l-value (left hand side of =) on the 
+second line.  The second line now refers to the local y which is so far undefined and hence the line raises an 
+exception.
 
 Thus the code fails.
 '''
@@ -26,7 +27,7 @@ def f(x):
     return inner()
 
 try:
-    print((f(5)))
+    print(f(5))
 except UnboundLocalError as e:
     print(e)
     

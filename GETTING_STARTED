@@ -21,9 +21,10 @@ code --no-sandbox .
 
 # to install jupyter lab (probably with python/3.9+):
 python -m pip install jupyterlab --user
-# and then add ~/.local/bin to your PATH
+# and then add ~/.local/bin to your PATH (in your ~/.bashrc file)
 # and to run jupyter lab:
+source ~/.bashrc
 jupyter lab
-# jupyter lab now supports debugging
+# jupyter lab now supports debugging (python 3.9+)
 
 

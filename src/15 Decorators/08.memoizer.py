@@ -37,5 +37,5 @@ import timeit, sys
 sys.setrecursionlimit(20000)  
 print( f"with memoize fib(6): {timeit.timeit(stmt='fib(6)', setup='from __main__ import fib', number=1000000):.2f}" )
 print( f"without memoize fib(6): {timeit.timeit(stmt='Fib(6)', setup='from __main__ import Fib', number=1000000):.2f}" )
-print( f"with memoize fib(8): {timeit.timeit(stmt='fib(8)', setup='from __main__ import fib', number=1000000):.2f}" )
-print( f"without memoize fib(8): {timeit.timeit(stmt='Fib(8)', setup='from __main__ import Fib', number=1000000):.2f}" )
+print( f"with memoize fib(10): {timeit.timeit(stmt='fib(8)', setup='from __main__ import fib', number=1000000):.2f}" )
+print( f"without memoize fib(10): {timeit.timeit(stmt='Fib(8)', setup='from __main__ import Fib', number=1000000):.2f}" )

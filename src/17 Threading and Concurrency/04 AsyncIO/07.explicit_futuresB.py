@@ -7,7 +7,7 @@ of parameters.
 
 The problem with doing this is that all the parameters to "asyncio.gather" are function calls and they can't 
 easily be set up in advance because the call has to be made in the parameter list and not before.  We can
-work around this restriction by creating a list of partial functions and then pass this list to "asyncio.gather"
+work around this restriction by creating a list of partial finctions and then pass this list to "asyncio.gather"
 in a list comprehension.  We do this because we can expand the comprehension with * and call each operation 
 with ():
             *[op() for op in ops]

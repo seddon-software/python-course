@@ -90,6 +90,11 @@ print(next(g), end=", ")
 print(next(g))
 
 # use g in a loop as an iterator
+for n in g:      #  powers() instantiates a new generator
+    print(n, end=", ")
+print()
+
+# use g in a loop as an iterator
 for n in powers():      #  powers() instantiates a new generator
     print(n, end=", ")
 print()

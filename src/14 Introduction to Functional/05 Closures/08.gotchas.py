@@ -10,7 +10,7 @@ but since
             x += 1
 is really
             x = x + 1
-Because we are incrementing by an int x will have type int.  This means x is immutable which in turn means it
+we are incrementing by an int and hence x will have type int.  This means x is immutable which in turn means it
 will be defined as a local variable. Now the right hand side of this line also refers to x.  Which x?  Is it the
 outer x because of a closure or is it the local x defined on the left hand side of the line?
 

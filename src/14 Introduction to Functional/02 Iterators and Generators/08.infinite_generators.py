@@ -21,7 +21,7 @@ while x < 1000:
     print(x, end=", ")
 print()
     
-for n in range(10):
+for n in range(1000):
     print(next(g), end=", ") 
 print()
        

@@ -11,7 +11,8 @@ values of p1 and p2 to see the effect of the calls.
 '''
 
 class Point:
-    def __init__(self, x0, y0):
+    def __init__(self, name, x0, y0):
+        self.name = name
         self.x = x0
         self.y = y0
     
@@ -24,10 +25,12 @@ class Point:
         self.y *= yzoom
     
     def display(self):
-        print((self.x, self.y))    
+        print(f"{self.name} = ({self.x}, {self.y})")    
     
-p1 = Point(5, 6)
-p2 = Point(15, 16)
+p1 = Point("p1", 5, 6)
+p2 = Point("p2", 15, 16)
+p1.display()
+p2.display()
 
 moveP1 = p1.moveBy      # closure on p1.x and p1.y
 zoomP1 = p1.zoom        # closure on p1.x and p1.y
@@ -39,9 +42,11 @@ def DoIt(func, param1, param2):
     
 DoIt(moveP1, 5, 1)
 DoIt(moveP2, 6, 1)
+p1.display()
+p2.display()
+
 DoIt(zoomP1, 10, 10)
 DoIt(zoomP2, 20, 10)
-
 p1.display()
 p2.display()
 

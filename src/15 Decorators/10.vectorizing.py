@@ -27,7 +27,7 @@ def quad(n):
     return n**4
 
 x = np.linspace(-3, 3, 100)
-y = quad(x)
+y = cube(x)
 
 plt.gca().set_title("vectorize decorator")
 plt.grid()

@@ -26,8 +26,8 @@ f50 = f(50)   # f50 points to a function returning 50 + y + z
 print(f15[0](1,2))
 print(f15[1](3,4))
 
-print( f20(1,2) )  # prints 20 + 1 + 2
-print( f20(7,9) )  # prints 20 + 7 + 9
-print( f50(1,2) )  # prints 50 + 1 + 2
-print( f50(7,9) )  # prints 50 + 7 + 9
+print( f20[0](1,2) )  # prints 20 + 1 + 2
+print( f20[0](7,9) )  # prints 20 + 7 + 9
+print( f50[0](1,2) )  # prints 50 + 1 + 2
+print( f50[0](7,9) )  # prints 50 + 7 + 9
 
