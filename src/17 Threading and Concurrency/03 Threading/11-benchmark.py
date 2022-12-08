@@ -66,7 +66,7 @@ for N in chain(range(1, 11), range(20, 101, 20)):
     finish = time.perf_counter()
     print(f"{N:2} processes:{finish-start:6.2f}")
 
-# run job with varying number of processes
+# run job with varying number of threads
 for N in chain(range(1, 11), range(20, 101, 20)):
     start = time.perf_counter()
     jobUsingThreads(N)

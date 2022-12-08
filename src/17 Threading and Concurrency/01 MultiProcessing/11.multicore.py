@@ -8,7 +8,6 @@ Notes:
     2) use htop to monitor CPUs utilisation.
 '''
 
-
 from multiprocessing import Pool, cpu_count
 
 def some_calculation(x):

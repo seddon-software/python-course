@@ -75,9 +75,9 @@ def myfunc(name):
       
 
 # define a callback function as the target - to be called via start()
-thread1 = Thread(target=myfunc, args=("1",))
-thread2 = Thread(target=myfunc, args=("2",))
-thread3 = Thread(target=myfunc, args=("3",))
+t1 = Thread(target=myfunc, args=("1",))
+t2 = Thread(target=myfunc, args=("2",))
+t3 = Thread(target=myfunc, args=("3",))
 
 # create the worker threads
 t1.start()

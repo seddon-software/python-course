@@ -19,7 +19,7 @@ ax.plot(t, t,    redDashes,
          t, t**2, blueSquares,  
          t, t**3, greenTriangles)
 ax.set_title("3 plots on One Axes")
-plt.gcf().canvas.set_window_title('Multiple Plots')
+plt.gcf().canvas.manager.set_window_title('Multiple Plots')
 
 plt.show()
 
