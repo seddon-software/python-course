@@ -1,6 +1,6 @@
 '''
 With asynchronous programming you are never sure when a calculation has completed.  You can use a futures object
-to wait until a result is available.  Futures effectively contain all the syncrionization code internally, thus 
+to wait until a result is available.  Futures effectively contain all the synchronization code internally, thus 
 simplifying you code.  Use
             asyncio.ensure_future
 
@@ -24,8 +24,8 @@ async def myCoroutine(future, x):
 
 async def main(n):
     future = asyncio.Future()
-    # wrap a coroutine or an awaitable in a future
-    await asyncio.ensure_future(myCoroutine(future, n))
+    # wrap a coroutine in a future
+    await asyncio.create_task(myCoroutine(future, n))
     print(f"fib({n}) = {future.result()}")
 
 # Start event loop and run until completed

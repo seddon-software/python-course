@@ -12,8 +12,6 @@ In this example we download data from a number of websites in parallel using the
 has been especially designed to allow asynchronous downloads.  We then compare our results with that obtained
 with the "requests" library (which performs the downloads synchronously).
 '''
-# python -m pip install asyncio --user
-# python -m pip install aiohttp --user
 
 import asyncio
 import timeit
@@ -41,24 +39,29 @@ async def main():
         bytesRead += await task
     return bytesRead
 
-def doit():
-    doit.bytesRead = asyncio.run(main())
+def doAsynchronous():
+    doAsynchronous.bytesRead = asyncio.run(main())
 
-def doit2():
+def doSynchronous():
     bytesRead = 0
     for _ in range(N):
         for site in sites:
             response = requests.get(f"http://{site}", headers={'Cache-Control': 'no-cache'})
             # print(f"{site}: {len(response.content)}")
             bytesRead += len(response.content)
-    doit2.bytesRead = bytesRead
+    doSynchronous.bytesRead = bytesRead
 
 print("comparing asynchronous and synchronous")
-print(f"\t{N} x {len(sites)} asynchronous downloads with aiohttp", end=": ")
-secs = timeit.timeit(setup="from __main__ import doit", stmt="doit()", number=1)
-print(f"{doit.bytesRead/2**20:6.2f}MB read in {secs:5.2f} secs")
 
-print(f"\t{N} x {len(sites)} synchronous downloads with requests", end=": ")
-secs = timeit.timeit(setup="from __main__ import doit2", stmt="doit2()", number=1)
-print(f"{doit2.bytesRead/2**20:6.2f}MB read in {secs:5.2f} secs")
+def timeDownloads(fn, lib, type):
+    # to import fn with timeit we must make it global 
+    global f
+    f = fn
+    print(f"{N:8} x {len(sites)} {type} downloads with {lib}", end=": ")
+    secs = timeit.timeit(setup="from __main__ import f", stmt="f()", number=1)
+    print(f"{f.bytesRead/2**20:6.2f} MB read in {secs:5.2f} secs")
+
+timeDownloads(doAsynchronous, "aiohttp", "asynchronous")
+timeDownloads(doSynchronous, "requests", "synchronous")
+
 

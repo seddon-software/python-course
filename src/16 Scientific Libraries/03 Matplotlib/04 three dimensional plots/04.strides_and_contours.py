@@ -24,7 +24,7 @@ import numpy as np
 from dask.array.creation import meshgrid
 
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection='3d')
 
 N = 8           # number of X and Y values 
 STRIDE = 1     # try changing this to 2, 4 and 8

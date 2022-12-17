@@ -24,16 +24,21 @@ colormaps = [eval('cm.'+s) for s in dir(cm)]
 
 import time
 
-fig = plt.figure()
+fig = plt.figure("Colormaps")
+
 for cmap in colormaps:
-    if type(cmap) is not matplotlib.colors.LinearSegmentedColormap: continue
-    ax = Axes3D(fig)
-    surface = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cmap, linewidth=0, antialiased=False)
-    ax.set_title(cmap.name)
-    ax.set_zlim(-1.01, 1.01)
-    ax.zaxis.set_major_locator(LinearLocator(10))
-    ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
-    fig.colorbar(surface, shrink=0.5, aspect=5)
-    plt.draw()
-    plt.pause(0.001)
-    time.sleep(0.005)
+    try:
+        if type(cmap) is not matplotlib.colors.LinearSegmentedColormap: continue
+        rows = cols = position = 1
+        ax = fig.add_subplot(rows, cols, position, projection='3d')
+        surface = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cmap, linewidth=0, antialiased=False)
+        ax.set_title(cmap.name)
+        ax.set_zlim(-1.01, 1.01)
+        ax.zaxis.set_major_locator(LinearLocator(10))
+        ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+        fig.colorbar(surface, shrink=0.5, aspect=5)
+        fig.canvas.draw()
+        plt.pause(0.5)
+        plt.clf()
+    except Exception as e:
+        print(e)

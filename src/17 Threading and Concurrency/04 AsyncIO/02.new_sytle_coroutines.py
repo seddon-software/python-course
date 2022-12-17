@@ -45,13 +45,12 @@ async def Fib(n):
     return result
 
 async def main():
-    task1 = loop.create_task(Fib(23))
-    task2 = loop.create_task(Fib(21))
-    task3 = loop.create_task(Fib(15))
-    task4 = loop.create_task(Fib(7))
+    task1 = asyncio.create_task(Fib(23))
+    task2 = asyncio.create_task(Fib(21))
+    task3 = asyncio.create_task(Fib(15))
+    task4 = asyncio.create_task(Fib(7))
     await asyncio.wait([task1, task2, task3, task4])
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-    loop.close()
+    asyncio.run(main())
+

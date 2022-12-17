@@ -33,7 +33,7 @@ y = 10 * np.outer(sin(u),sin(v))
 z = 10 * np.outer(np.ones(np.size(u)),cos(v))
 
 fig = plt.figure()
-ax = mpl.Axes3D(fig)
+ax = fig.add_subplot(projection='3d')
 ax.plot_wireframe(x,y,z, color="black")
 ax.set_xlabel('X')
 ax.set_ylabel('Y')

@@ -8,6 +8,12 @@ code .          # note the dot
 
 
 
+# you will need to ensure the Microsoft Pythonn extension is installed.  Search for it with:
+    @id:ms-python.python
+# alternatively look at recommendations:
+    @recommended
+
+
 
 # if you wish to try a later version of python, try
 module unload python/3.7

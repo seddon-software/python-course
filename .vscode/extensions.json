@@ -1,4 +1,9 @@
 {
-    "recommendations": ["ms-python.python"]
+    "recommendations": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-vscode.cpptools",
+        "Guyutongxue.cpp-reference"
+    ]
 }
 

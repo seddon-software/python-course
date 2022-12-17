@@ -7,5 +7,6 @@
 # result and let other routines run in the meantime, thereby facilitating
 # concurrent execution.
 
-# To install async web library:
-#   pip install aiohttp
+# To install async web library and aiohttp:
+#   python -m pip install asyncio --user
+#   python -m pip install aiohttp --user

@@ -1,0 +1,13 @@
+'''
+See src/32 Database for Bottle examples
+
+https://realpython.com/fastapi-python-web-apis/
+
+    Compare Bottle vs CherryPy
+    Compare Bottle vs web2py
+    Compare Django vs Bottle
+    Compare Django vs CherryPy
+    Compare Django vs Fast API
+    Compare Django vs Flask
+    Compare Django vs Pyramid
+'''

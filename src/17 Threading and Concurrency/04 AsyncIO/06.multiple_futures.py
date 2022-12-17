@@ -11,18 +11,15 @@ async def myCoroutine(future, x):
     async def fib(n):
         await asyncio.sleep(0.0001)
         return n if n < 2 else await fib(n-1) + await fib(n-2)
-    future.set_result(await fib(x))
+    future.set_result({'index':x, 'fib': await fib(x)})
+
 
 async def main(n):
     futures = [asyncio.Future() for n in range(n)]
     tasks = [asyncio.create_task(myCoroutine(futures[i], i)) for i in range(n)]
-    for i, task in enumerate(tasks):
-        await task
-        print(f"fib({i}) = {futures[i].result()}")
+    [await task for task in tasks]
+    for future in futures:
+        result = future.result()
+        print(f"fib({result['index']}) = {result['fib']}")
 
-# Start event loop and run until completed
-loop = asyncio.get_event_loop()
-try:
-    loop.run_until_complete(main(n=15))
-finally:
-    loop.close()
+loop = asyncio.run(main(n=15))
