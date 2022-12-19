@@ -4,7 +4,7 @@ import unittest
 
 class testPoint(unittest.TestCase):
     """
-    A test class for the Point class
+    A class to test the Point class
     """
 
     def setUp(self):
@@ -14,28 +14,28 @@ class testPoint(unittest.TestCase):
         """
         self.point = Point(3, 4)
 
-    def testConstructor(self):
-        """constructor test"""
+    def testWeCanDisplayCoordinatesOfFixture(self):
+        """display test"""
         self.assertEqual("3,4", self.point.display())
 
-    def testMoveBy5and2(self):
-        """moveBy test(1)"""
+    def testMoveFixtureBy5inXand2inY(self):
+        """moveBy Point by X=5, Y=2"""
         self.point.moveBy(5, 2)
         self.assertEqual("8,6", self.point.display())
         
-    def testMoveBy5and2version2(self):
-        """moveBy test(2)"""
+    def testMoveFixtureBy5inXand2inYusingBuggyMethod(self):
+        """moveBy test using buggy method"""
         self.point.moveBy(5, 2)
         self.assertEqual("8,7", self.point.display())
         
-    def testDistanceIs5(self):
-        """distance test(1)"""
+    def testDistanceFromOriginIs5(self):
+        """distance of fixture from origin is 5"""
         self.assertTrue(5 == self.point.get_distance())
 
-    def testDistanceIs5_1(self):
-        """distance test(2)"""
+    def testDistanceFromOriginIs5usingBuggyMethod(self):
+        """distance test using buggy method"""
         self.assertTrue(5.1 == self.point.get_distance())
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(exit=False)

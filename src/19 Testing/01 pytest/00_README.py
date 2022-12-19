@@ -3,3 +3,5 @@
 # Note: pytest will not understand import statements unless you make
 #       both folders modules.  This means you should add empty "__init__.py" 
 #       files to both folders.
+
+# python -m pip install pytest --user

@@ -2,13 +2,13 @@ from src.mycode import *
 
 
 
-def test_the_square_function(): 
+def test_square_of_4_is_16(): 
     assert square(4) == 16 
 
-def test_the_cube_function(): 
+def test_cube_of_4_is_64(): 
     assert cube(4) == 64 
 
-def test_the_quad_function(): 
+def test_quad_of_4_is_256(): 
     assert quad(4) == 256 
 
 

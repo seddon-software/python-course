@@ -12,5 +12,14 @@ class Point:
     
     def display(self):
         return str(self.x) + "," + str(self.y)
+
+    # this method contains a coding error
+    def buggy_get_distance(self):
+        return (self.x + self.y **2) **0.5
         
+    # this method contains a coding error
+    def buggyMoveBy(self, dx, dy):
+        self.x += dx * 2
+        self.y += dy
+    
     

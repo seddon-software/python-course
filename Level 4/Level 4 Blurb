@@ -1,0 +1,30 @@
+This 1 day workshop will be fast paced. Knowledge of Object Orientation and Functional programming will be assumed. The workshop will concentrate on interprocess communication and communicating with EPICS and other hardware.
+Objectives
+The workshop will aim to cover the topics below.
+
+Jupyter Lab and Juypter Notebook
+	• Python and Bash engines
+	• Debugging in Jupyter Lab
+EPICS interfacing
+	• Using provided python generated PVs
+	• How to setup a simple and more complicated Ophyd device
+	• How to use prebuild plans under the bluesky framework
+	• How to make a bluesky plan from scratch for our Ophyd devices and use that plan on the runengine
+EPICS Archiver interfacing
+Asyncio library
+Networking with Sockets
+	• Web ServersBuilding a RESTful API
+	• Using fastAPI or Requests
+JSON
+	• Communication between client server
+	• Communication between Python and Javascript
+YAML
+	• Configuration files
+Modern Python Best Practices
+	• Unit testing
+	• Type hints
+	• Virtual Environments
+
+Recommended for
+This workshop is designed for Scientists, EPICS/controls engineers and Data Analysts with considerable experience of Python, but with minimal knowledge of the topics covered.
+

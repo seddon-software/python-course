@@ -14,6 +14,8 @@ class TestBasicAsserts(unittest.TestCase):
     def test_assertIsInstance(self):    self.assertIsInstance(5, int)
     def test_assertNotIsInstance(self): self.assertNotIsInstance(5, float)
 
+unittest.main(exit=False)
+
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(exit=False)
     
