@@ -1,6 +1,12 @@
-Unit testing is the process of testing the small units of the program. This is done to make sure that each unit of the program is designed and working properly. The following modules are provided by Python for this purpose:
-1. PyTest
-2. Unittest
-3. DocTest
-4. Testify
-5. Nose2
+'''
+Unit testing is the process of testing the small units of the program. This is done to make sure that each unit 
+of the program is designed and working properly. Tests are also very helpful when upgrading software; run the original tests
+to make sure enhancements do not introduce errors into the existing code.
+
+The following modules are provided by Python for this purpose:
+            PyTest
+            Unittest
+            Nose2
+            DocTest
+            Testify
+'''
