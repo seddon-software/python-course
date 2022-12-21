@@ -1,18 +1,21 @@
+'''
+We can use the pstats module to extract statistics from the profiler.
+'''
+
 import profile, pstats, os
 
 
 class memoize:
-    # from http://avinashv.net/2008/04/python-decorators-syntactic-sugar/
     def __init__(self, function):
         self.function = function
-        self.memoized = {}
+        self.cache = {}
 
     def __call__(self, *args):
         try:
-            return self.memoized[args]
+            return self.cache[args]
         except KeyError:
-            self.memoized[args] = self.function(*args)
-            return self.memoized[args]
+            self.cache[args] = self.function(*args)
+            return self.cache[args]
 
 @memoize
 def fib(n):
@@ -46,4 +49,3 @@ stats.sort_stats('time')
 stats.print_stats()
 
 
-1

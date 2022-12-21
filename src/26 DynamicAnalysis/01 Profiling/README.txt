@@ -9,3 +9,5 @@ Installation:
     sudo apt-get install -y kcachegrind
     pip install pyprof2html
 
+Also check out:
+    https://pythonspot.com/python-profiling/
