@@ -2,7 +2,6 @@
   
 > import os, unittest
 > from mycode import process_input
-> from mycode import InvalidInput
   
 > class TestApp(unittest.TestCase):
 >     """Test the mathematical operations"""
@@ -27,20 +26,4 @@
 >     def test_divide_operation(self):
 >         result = process_input(self.a, self.b, "divide")
 >         self.assertEqual(result, 2)
-  
->     def test_divide_operation_with_zero_denominator(self):
->         self.assertRaises(InvalidInput, process_input, self.a, 0, "divide")
-  
-  
-  # def suite():
-  #     "Test suite"
-  #     suite = unittest.TestSuite()
-  
-  #     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestApp))
-  #     return suite
-  
-  # if __name__ == "__main__":
-  #     unittest.TextTestRunner(verbosity=2).run(suite())
-  #     print("all tests completed")
-  #     os.system("coverage run test_3rd_attempt.py")
   

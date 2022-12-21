@@ -11,10 +11,10 @@
             "cwd": "${fileDirname}",
             "program": "${file}",
             "console": "integratedTerminal",
-//            "console": "internalConsole",
+            "comment1": {"console": "internalConsole"},
             "stopOnEntry": true,
             "justMyCode": true,
-//            "justMyCode": false,
+            "comment2": {"justMyCode": false},
             "preLaunchTask": "Clear terminal"
         }
     ]

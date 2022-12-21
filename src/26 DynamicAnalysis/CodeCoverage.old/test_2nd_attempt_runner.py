@@ -8,6 +8,6 @@ if __name__ == "__main__":
     os.system("coverage html")      # create web page
     os.system("coverage annotate")  # create annotated '*,cover' file
     url = f"file://{pathname2url(os.path.abspath('htmlcov/index.html'))}"
-    webbrowser.open_new(url)
+    webbrowser.open_new_tab(url)
 
 
