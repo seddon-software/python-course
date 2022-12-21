@@ -1,7 +1,9 @@
 '''
 dictionaries
 ============
-This example raises an exception; Mypy will report what is wrong.
+This time we are working with dictionaries.  We give two examples of calling our function 'sum_values', one
+with correct types and one with incorrect types.  The second call raises an exception at runtime; mypy will 
+report on what is wrong.
 '''
 
 ############################################################
@@ -19,7 +21,7 @@ try:
     print(sum_values(salary))   # ok, salary is Dict[str,int]  
     print(sum_values(names))    # names is not Dict[str,int]
 except Exception as e:
-    print(e)
+    print(f"Exception: {e}")
 
 ############################################################
 # 2) perform static analysis with Mypy

@@ -2,7 +2,13 @@
 Union
 =====
 Union is used when a parameter can be multiple types.  Here number can be int or float.  Again, this is an 
-invalid program that raises an exception.  Mypy reports what's wrong.
+invalid program that raises an exception and mypy reports what's wrong.  Note that the syntax for Union is 
+changing to the more succinct form that uses | in later versions of Python
+            number = int|float
+
+instead of
+            number = Union[int,float]
+
 '''
 
 ############################################################
@@ -10,12 +16,10 @@ invalid program that raises an exception.  Mypy reports what's wrong.
 ############################################################
 from typing import Union
 
-number = Union[int,float]
+number = Union[int,float]           # use number = int|float from Python 3.10 onwards
 
 def average(x:number, y:number, z:number) -> float:
     return (x + y + z)/3
-# The following notation is simpler, but only available in Python 3.10
-# def average(x: int|float, y: int|float, z: int|float) -> int|float:
 
 try:
     print(average(1, 2, 3))
@@ -25,7 +29,7 @@ except Exception as e:
     print(e)
 
 ############################################################
-# 2) perform static analysis with Mypy
+# 2) perform static analysis with mypy
 ############################################################
 
 import os

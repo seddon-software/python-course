@@ -1,8 +1,11 @@
 '''
 Optional
 ========
-OPtional is used for parameters that have default values.  In this example the "order" parameter of "orderInts()"
+Optional is used for parameters that have default values.  In this example the "order" parameter of "orderInts()"
 defaults to "ascending"; i.e. an optional parameter.
+
+Optional[str] is a shorthand notation for Union[str, None], telling the type checker that either a str or None is
+required.
 
 This time we have a valid program.
 '''
@@ -26,7 +29,7 @@ orderInts(6, 7, "descending")
 orderInts(6, 7)           # omit optional parameter
 
 ############################################################
-# 2) perform static analysis with Mypy
+# 2) perform static analysis with mypy
 ############################################################
 
 import os

@@ -1,7 +1,7 @@
 '''
 Lists
 =====
-This example is valid, so Mypy should report all is well
+This example is valid, so mypy should report all is well.  This show how to add type hints for lists of int.
 '''
 
 ############################################################
@@ -17,7 +17,7 @@ def average(nums: List[int]) -> float:
 print(average([1, 2, 3, 4]))
 
 ############################################################
-# 2) perform static analysis with Mypy
+# 2) perform static analysis with mypy
 ############################################################
 import os
 print(f"mypy {os.path.basename(__file__)}")
