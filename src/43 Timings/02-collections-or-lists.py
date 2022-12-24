@@ -19,10 +19,6 @@ In the example we compare timings for 100, 1000 and 10000 iterations to see the 
 
 from timeit import timeit
 
-count = 100
-stmt = 's.appendleft(100)'
-setup = 'import collections; s = collections.deque()'
-
 def runit(title, stmt, setup, count):
     t = timeit(f'{stmt}', f'{setup}', number=count)
     print(f"count={count:<6}: {title} {t/count:0.10f}")
@@ -32,16 +28,3 @@ for count in 100, 1000, 5000, 10000, 100000:
 
 for count in 100, 1000, 5000, 10000, 100000:
     runit("lists      ", "s.insert(0,100)", "s = []", count)
-
-# print(f"collections {timeit(f'stmt={stmt}', setup=f'{setup}', number=count):0.6f}")
-# print("lists       {:0.6f}".format(timeit('s.insert(0,100)', 's = []', number=count)))
-
-# count = 1000
-# print("collections {:0.6f}".format(timeit('s.appendleft(100)', 'import collections; s = collections.deque()', number=count)))
-# print("lists       {:0.6f}".format(timeit('s.insert(0,100)', 's = []', number=count)))
-
-# count = 10000
-# print("collections {:0.6f}".format(timeit('s.appendleft(100)', 'import collections; s = collections.deque()', number=count)))
-# print("lists       {:0.6f}".format(timeit('s.insert(0,100)', 's = []', number=count)))
-
-# # 1

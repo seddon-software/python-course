@@ -1,11 +1,14 @@
+'''
+Using from is supposed to be slightly quicker than using import.  Let's use timeit to check things out.
+'''
+
 from timeit import timeit
 
-# compare two ways of performing sqrt (1,000,000 iterations)
-print("import {:0.6f}".format(timeit('math.sqrt(50.0)','import math')))
-print("from   {:0.6f}".format(timeit('sqrt(50.0)','from math import sqrt')))
+def runit(title, stmt, setup, count):
+    t = timeit(f'{stmt}', f'{setup}', number=count)
+    print(f"count={count:<6}: {title} {t/count:0.10f}")
 
-# just do 10,000 iterations
-print("import {:0.6f}".format(timeit('math.sqrt(50.0)','import math', number=10*1000)))
-print("from   {:0.6f}".format(timeit('sqrt(50.0)','from math import sqrt', number=10*1000)))
+for count in 10000, 1000000:
+    runit("import", "math.sqrt(50.0)", "import math", count)
+    runit("from", "sqrt(50.0)", "from math import sqrt", count)
 
-1

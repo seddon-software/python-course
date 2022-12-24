@@ -1,3 +1,11 @@
+'''
+Objects normally store their attributes in dicts.  However slots were introduced as an alternative, supposedly
+for performance reasons.  Here we compare slots based objects with convential objects and for good measure we 
+see how this compares with using a dict directly.
+
+Bypassing the class mechanism is certainly faster, but the coding is clearly more complex.  So although we
+do get a speed up, code clarity is always more important.'''
+
 from timeit import timeit
 
 count = 1000 * 1000
