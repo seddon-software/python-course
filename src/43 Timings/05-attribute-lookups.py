@@ -1,5 +1,5 @@
 '''
-One final example.  We can use attribute lookup on a Point object, or cache values locally.  The later approach should be faster, but is 
+Another example.  We can use attribute lookup on a Point object, or cache values locally.  The later approach should be faster, but is 
 only useful if the Point object is immutable
 '''
 

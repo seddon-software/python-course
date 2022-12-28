@@ -1,3 +1,8 @@
+'''
+What's the best way of concatenating a string if you need to repeat the operation many times?  The timeit module
+will reveal all.
+'''
+
 from timeit import timeit
 
 count = 10 * 1000 * 1000

@@ -1,3 +1,7 @@
+'''
+Compiled regexs should be faster than uncompiled regexs.  Let's check it out.
+'''
+
 from timeit import timeit
 
 
