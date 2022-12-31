@@ -1,9 +1,6 @@
 {
     "version": "0.2.0",
-    "configurations": [
-
-    
-    
+    "configurations": [    
         {
             "name": "Python: Current File",
             "type": "python",
@@ -13,6 +10,20 @@
             "console": "integratedTerminal",
             "comment1": {"console": "internalConsole"},
             "stopOnEntry": true,
+            "justMyCode": true,
+            "comment2": {"justMyCode": false},
+            "preLaunchTask": "Clear terminal"
+        },
+        {
+            "name": "Python: uvicorn",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${fileDirname}",
+            "module": "uvicorn",
+            "args":["server:app", "--reload"],
+            "console": "integratedTerminal",
+            "comment1": {"console": "internalConsole"},
+            "stopOnEntry": false,
             "justMyCode": true,
             "comment2": {"justMyCode": false},
             "preLaunchTask": "Clear terminal"

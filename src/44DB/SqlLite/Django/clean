@@ -1,3 +1,0 @@
-set -v
-killServer
-rm -rf mysite
