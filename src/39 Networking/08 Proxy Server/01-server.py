@@ -13,5 +13,5 @@ class JustAProxy(SimpleHTTPSServer.SimpleWebSocketServer):
       print(url)
 
 httpd = SimpleWebSocketServer.SimpleWebSocketServer('localhost',PORT,JustAProxy)
-print ("Proxy Srever at" , str(PORT))
+print ("Proxy Server at" , str(PORT))
 httpd.serveforever()
