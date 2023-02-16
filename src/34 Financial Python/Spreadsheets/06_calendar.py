@@ -6,16 +6,16 @@ import datetime
 
 daysOfTheWeek = ['M','Tu','W','Th','F','Sa','Su']
 cellsNames = "ABCDEFGHIJKLMNOP"
-daysInMonth = [31,29,31,30,31,30,31,31,30,31,30,31]
+daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
 monthNames = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE",
           "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"]
-
+YEAR = 2023
 wb = Workbook()
 ws = wb.active
-ws.title = "2020"
-
+ws.title = f"{YEAR}"
     
-monthStyle = Font(name="Arial", size = "14", color=colors.RED, bold=True)
+RED = colors.COLOR_INDEX[2]
+monthStyle = Font(name="Arial", size = "14", color=RED, bold=True)
 dayStyle = Font(name="Arial", size = "10", color=colors.BLACK)
 
 for col in "BCDEFGHI":
@@ -37,7 +37,7 @@ for month in range(12):
     ws.cell(row=row, column=4).value = monthNames[month]
     ws.cell(row=row, column=4).font = monthStyle
     row += 1
-    col = datetime.datetime(2020, month+1, 1).weekday() + 2
+    col = datetime.datetime(YEAR, month+1, 1).weekday() + 2
     for dayNo in range(1, daysInMonth[month]+1):
         ws.cell(row=row, column=col).value = dayNo
         ws.cell(row=row, column=col).font = dayStyle
@@ -46,6 +46,6 @@ for month in range(12):
             col = 2
             row += 1
     row += 2
-wb.save('data/calendar.xlsx')
+wb.save(f'data/calendar-{YEAR}.xlsx')
         
     

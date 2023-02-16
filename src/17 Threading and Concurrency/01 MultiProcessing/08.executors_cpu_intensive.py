@@ -4,7 +4,8 @@ Executors CPU Intensive
 The concurrent.futures module offers facilities for pooling processes, equivalent to using the multiprocessing
 pools.  Which you use is a matter of taste.
 
-As we have seen before, pools of processes are generally faster the pools of threads because of the GIL. 
+As we have seen before, pools of processes are generally faster the pools of threads because of the GIL when we are 
+considering cpu intensive calculations.  Thread pools work well for IO bound operations. 
 '''
 
 from concurrent.futures import ProcessPoolExecutor

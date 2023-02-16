@@ -20,10 +20,10 @@ and use attributes from
             ../src/setup.cfg
 
 This interim solution is not deprecated and should work for the forseeable future.
+Note: You must install build for these scripts to work:
+    python -m pip install build --user
 '''
 
 import subprocess
 
 subprocess.call("python -m build ../src".split())
-# see what files are produced
-subprocess.call("tree ..".split())

@@ -1,0 +1,6 @@
+functions.c
+setup.py
+MyCython_Package.egg-info/PKG-INFO
+MyCython_Package.egg-info/SOURCES.txt
+MyCython_Package.egg-info/dependency_links.txt
+MyCython_Package.egg-info/top_level.txt

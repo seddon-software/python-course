@@ -1,0 +1,9 @@
+To get hese scripts working you will need to:
+
+1. module load python/3.9
+2. module load gcc/11
+3. module load swig
+
+These scripts use the Python package "build", so you need to install it first:
+    python -m pip install build --user
+
