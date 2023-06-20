@@ -51,8 +51,6 @@ Finally we use a color map to make the plot attractive.
 
 Note:
 1. This example is repeated in the MatPlotLib chapter
-2. We are getting an shared library error with Anaconda.  It seems to be an error with MatPlotLib using the wrong version of 
-the C ++ library: libstdc++.  This doesn't seem to affect the result and hopefully will be corrected in the next release of MatPlotLib.
 '''
 
 import numpy as np

@@ -7,7 +7,7 @@ ppx = &px;
 printf("%i\\n", *px);
 '''
 
-from simulator import *
+from play.xsimulator import *
 import os
 
 

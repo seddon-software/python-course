@@ -1,4 +1,0 @@
-cd tutorials
-source .venv/bin/activate
-./binder/start jupyter lab
-

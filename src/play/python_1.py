@@ -5,7 +5,7 @@ y = x
 x = x + 1
 '''
 
-from simulator import *
+from play.xsimulator import *
 import os
 
 start()

@@ -49,7 +49,7 @@ def main():
     oxford_data = pd.read_csv("data/oxford_2022.txt", 
                               engine = 'python', 
                               skiprows = 7, 
-                              names = column_names, 
+                              names = column_names,     
                               na_values = ['---'], 
                               skipinitialspace = True, 
                               sep = '[*# ]+')

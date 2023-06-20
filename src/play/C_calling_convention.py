@@ -22,7 +22,7 @@ void   func(char* s, char x, int i, double g)
 }
 '''
 
-from simulator import *
+from play.xsimulator import *
 import os
 
 start()
