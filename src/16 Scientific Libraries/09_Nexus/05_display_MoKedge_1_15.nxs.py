@@ -1,3 +1,13 @@
+'''
+In this example we take a Nexus file and smooth the data using a Savgol filter.
+Note the use of Unicode variable names when setting up the smoothed plot.
+    k̂wargs = {'linewidth':3, 'color':'blue'}
+    ...
+    plt.plot(X, Ŷ, **k̂wargs)    # smoothed plot
+
+The Unicode variable names are not necessary, but make the code easier to read.
+'''
+
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt
@@ -32,8 +42,8 @@ kwargs = {'linewidth':1, 'color':'red'}
 
 # plot It
 setupAxes('Energy', 'It')
-plt.plot(X, Ŷ, **k̂wargs)
-plt.plot(X, Y, **kwargs)
+plt.plot(X, Ŷ, **k̂wargs)    # smoothed plot
+plt.plot(X, Y, **kwargs)    # original data
 plt.show()
 
 # plot d(It)

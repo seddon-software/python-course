@@ -1,3 +1,10 @@
+'''
+Most programming languages privide an array data structure to contain items.  In Python we have two types
+of array: tuples (immutable) and lists (mutable).  List use [] and tuples use ().
+
+In this example we create several lists of integers and compute their average value.
+'''
+
 mylist = [3, 6, 10, 15, 21, 28, 36]
 total = 0
 for n in mylist:

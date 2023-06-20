@@ -1,8 +1,9 @@
 '''
-This program prints tables.  For example:
+This program uses loops to print mathematical tables.  For example:
 
         5 x 8 = 40
         6 x 8 = 48
+        7 x 8 = 56
         ...
 '''
 
