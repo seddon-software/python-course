@@ -8,7 +8,7 @@ code .          # note the dot
 
 
 
-# you will need to ensure the Microsoft Pythonn extension is installed.  Search for it with:
+# you will need to ensure the Microsoft Python extension is installed.  Search for it with:
     @id:ms-python.python
 # alternatively look at recommendations:
     @recommended
