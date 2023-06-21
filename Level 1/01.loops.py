@@ -7,8 +7,6 @@ This program uses loops to print mathematical tables.  For example:
         ...
 '''
 
-mylist = [0]*30
-print(mylist)
 n = int(input("Enter a number: "))
 print(f"About to print {n} times table")
 
