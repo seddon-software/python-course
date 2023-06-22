@@ -11,18 +11,28 @@ but to update an entry we write:
 
 '''
 
-salary = {
-          'jim'  : 30000,
-          'sue'  : 28000,
-          'peter': 41000,
-          'zoe'  : 51000,
-          'kwazi': 500000
-         }
 
+# dict      key  : value
+salary = {"Susan": 33000, 
+          "John" : 27000,
+          "Zak"  : 27000,
+          "Jim"  : 24000,
+          "Zoe"  : 29000}
 
-salary['peter'] = 22222
-salary['george'] = 22222
-print(salary)
+# key must be unique and immutable
+# value doesn't have to be unique
 
-name = 'peter'
-print(f"{name}'s salary is {salary[name]}")
+# update an entry at run-time (using existing key)
+salary["Zak"] = salary["Zak"] * 1.1
+
+# introduce a new key (creates a new key-value pair)
+salary["Chris"] = 50000
+
+# extract key-value pairs with item()
+for key, value in salary.items():
+    print(f"{key}'s salary is {value:,.2f}") # format with 2 decimal places and commas after thousands
+
+# extract values with values() and calculate average salary
+listOfSalaries = list(salary.values())
+averageSalary = sum(listOfSalaries) / len(listOfSalaries)
+print(f"Average salary is {averageSalary:,.2f}")

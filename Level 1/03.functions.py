@@ -3,11 +3,11 @@ In the last example code to compute the average value of the list was repeated 3
 we would rewrite this example using functions to avoid the duplication.
 '''
 
-def findAverage(theList):
+def findAverage(anyList):
     total = 0
-    for n in theList:
+    for n in anyList:
         total = total + n
-    average = total / len(theList)
+    average = total / len(anyList)
     return average
 
 mylist = [3, 6, 10, 15, 21, 28, 36]
