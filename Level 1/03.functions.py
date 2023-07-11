@@ -1,6 +1,6 @@
 '''
 In the last example code to compute the average value of the list was repeated 3 times.  In practice
-we would rewrite this example using functions to avoid the duplication.
+we would rewrite that example as below by using functions to avoid the duplication.
 '''
 
 def findAverage(anyList):
