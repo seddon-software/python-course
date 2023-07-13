@@ -36,14 +36,30 @@ will be 48 rows with the same value of column (unless some data is missing).  Th
 (summary) with far fewer rows ans suitable for plotting.
 '''
 
+import os
 import pandas as pd
 import pylab as pl
 import numpy as np
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', 100)
+pd.set_option('display.max_column', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_seq_items', None)
+pd.set_option('display.max_colwidth', 500)
+pd.set_option('expand_frame_repr', True)
 
+def clearTerminal():
+    os.system("clear")
+
+def displayHeadAndTailOfInputFile(fileName):
+    clearTerminal()
+    os.system(f"head {fileName}")
+    print("=======================")
+    os.system(f"tail {fileName}")
     
-def main(): 
+def main():
+    displayHeadAndTailOfInputFile("data/oxford_2022.txt")
+
     # set column names and read in data from file
     column_names = ['year', 'month', 'tmax', 'tmin', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment']
     oxford_data = pd.read_csv("data/oxford_2022.txt", 
@@ -54,9 +70,24 @@ def main():
                               skipinitialspace = True, 
                               sep = '[*# ]+')
 
-    # some of the tmin values are missing, so drop these rows
-    oxford_data.dropna()
-    
+    # drop columns we are not using
+    oxford_data.drop(['air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'], axis = 1, inplace = True)
+
+    # look at some of the records now unused columns dropped
+    clearTerminal()
+    print(oxford_data.iloc[90:150])
+
+    # look at some of the records with the values missing (now NaN)
+    clearTerminal()
+    print(oxford_data.iloc[92:98])
+
+    # drop rows with missing data
+    oxford_data.dropna(inplace=True)
+
+    # look at the same records now missing data dropped
+    clearTerminal()
+    print(oxford_data.iloc[92:98])
+
     # create a new column from year and month columns
     oxford_data['period'] = oxford_data.apply(
         lambda row : (row['year']//4)*4, raw = False, 
@@ -64,16 +95,26 @@ def main():
         )
     
     # look at some of the records with the new column added
+    clearTerminal()
     print(oxford_data.iloc[100:150])
 
-    # drop columns we are not using (not necessary)
-    oxford_data.drop(['year', 'month', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'], axis = 1, inplace = True)
+    # we want "period" to be an int
+    oxford_data = oxford_data.astype({'period': int})
 
-    # look at some of the records now unused columns dropped
+    # look again at some of the records with the new column added
+    clearTerminal()
+    print(oxford_data.iloc[100:150])
+
+    # drop remaining columns we are not using (not necessary)
+    oxford_data.drop(['year', 'month'], axis = 1, inplace = True)
+
+    # look at some of the cleaned up records
+    clearTerminal()
     print(oxford_data.iloc[100:150])
 
     # group results into 4 year periods
     # the groupby column (period) becomes the index
+    clearTerminal()
     summary = oxford_data.groupby(['period']).aggregate(np.mean)
     print(summary)
 
@@ -86,10 +127,11 @@ def main():
                                kind = 'bar')
 
     ax.set_xlabel("4 year period")
-    ax.set_ylabel(f"{chr(0x2103)}")     # degrees C
+    ax.set_ylabel(f"{chr(0x2103)}")     # unicode ℃
     for item in [ax. title, ax.xaxis.label, ax.yaxis.label]:
         item.set_fontsize(20)
     pl.show()
+    pass
 
 
 main()
