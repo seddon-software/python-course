@@ -1,36 +1,47 @@
-# Setup for Python courses:
+Setup for Python courses:
+=========================
+
 cd
 git clone https://github.com/seddon-software/python-course.git
 cd python-course
-module load python/3.7
-module load vscode/1.42.1
-code .          # note the dot
+module load python
+module load vscode
+code --no-sandbox .          # note the dot (important)
 
 
+Problem with Firefox??
+======================
+firefox -p
 
+
+Microsoft Python Plugin
+=======================
 # you will need to ensure the Microsoft Python extension is installed.  Search for it with:
     @id:ms-python.python
 # alternatively look at recommendations:
     @recommended
 
-
-
-# if you wish to try a later version of python, try
-module unload python/3.7
-module load python/3.10
-code --no-sandbox .
-
-# if you wish to try a later version of vscode, try
-module unload vscode/1.42.1
-module load vscode/latest
-code --no-sandbox .
-
-# to install jupyter lab (probably with python/3.9+):
+Jupyter
+=======
+# Jupyter notebook is automatically installed with the module load, but Jupyter Lab insn't.
+# to install jupyter lab
 python -m pip install jupyterlab --user
 # and then add ~/.local/bin to your PATH (in your ~/.bashrc file)
 # and to run jupyter lab:
 source ~/.bashrc
 jupyter lab
 # jupyter lab now supports debugging (python 3.9+)
+
+Git
+===
+# If you've downloaded the examples already and you want to get updates:
+    git pull
+
+# If this fails because you've made changes to some of the code, then stash your changes:
+    git stash
+    git pull
+
+# Most of the examples on this course are available as a Juypter Notebook.  These are included with the above
+# download of course examples.
 
 
