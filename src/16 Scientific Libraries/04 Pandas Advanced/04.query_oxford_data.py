@@ -2,7 +2,7 @@
 Query Oxford Data
 =================
 
-Say we wan to find year with lowest number of sun(hours) in the month of August.  Last year was the worst year in 
+Say we want to find year with lowest number of sun(hours) in the month of August.  2021 was the worst year in 
 the last 90.  Or at least it was until the Met Office revised it's data at the begining of this year.  Let's find
 the new year with the worst August sunshine using Pandas.
 
