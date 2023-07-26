@@ -2,8 +2,7 @@
 Function Pointers
 =================
 
-I have been making the point that Python functions are different from those in other languages.  Let's examine
-what I mean.  
+Python functions are different from those in other languages.  Let's examine how:
 
 Despite appearances, all Python functions are anonymous.  When we write
             def fib(n):
