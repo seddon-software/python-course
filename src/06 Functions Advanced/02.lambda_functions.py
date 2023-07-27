@@ -34,8 +34,8 @@ def f(a, b, c, d):
 
 # lambda's are not allowed to have a body
 # this is equivalent to the function above (minus the body)
-f = lambda a, b, c, d: a + b + c + d
+fn = lambda a, b, c, d: a + b + c + d
 
 # call the lambda
-result = f(1, 10, 100, 1000)
+result = fn(1, 10, 100, 1000)
 print(result)

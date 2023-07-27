@@ -55,7 +55,11 @@ print(fib)
 # we can still call the function with the new reference
 f(50)
 
-# using fib to call the function won't work
-fib(50)
+# but using fib to call the function won't work because "fib" is now a float
+try:
+    fib(50)
+except Exception as e:
+    print(e)
+
 
 

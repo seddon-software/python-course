@@ -13,7 +13,6 @@ official documentation).
 d1 = dict(one=1, two=2, three=3)
 
 # using zip and lists
-
 d2 = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
 
 # using several tuples
