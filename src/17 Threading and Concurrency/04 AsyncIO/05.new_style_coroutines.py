@@ -1,20 +1,6 @@
 '''
-AsyncIO
-=======
-
-The async/await keywords are introduced in Python 3.5 to make grammar of coroutine programming more meaningful.
-These coroutines are slightly different from earlier coroutines in that they generate data but do not consume
-data.  They are primary aimed at providing concurrency for IO based applications.
-
-Note that all new style coroutine functions must be adorned with the "async" keyword and must be awaited by
-their calling coroutine.  To yield control a coroutine has to call:
-            asyncio.sleep()
-
-Even sleeping for 0 seconds is sufficient to yield control.
-
-The asyncio module in which these new style coroutines are defined differs from the more traditional threading 
-or multiprocess approach to concurrency in that it utilizes an event loop to handle the scheduling of asynchronous
-‘tasks’ instead of relying on the kernel to perform the scheduling.
+Here we work with an implicit event loop.  The asyncio event loop is created with
+            asyncio.run(main())
 
 Asyncio is designed to solve I/O network performance, not CPU bound operations (which is where multiprocessing 
 should be used).  Asyncio is designed around the concept of ‘cooperative multitasking’, so you have to yield 

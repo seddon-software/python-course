@@ -1,25 +1,25 @@
 '''
-Tasks with aiohttp
-==================
-In a CPU bound asyncio application all the code runs in a single thread.  As we have seen this allows coroutines
-to run concurrently, but it does not provide any performance gains (use multi-processing for that).
+In a asyncio application all the code runs in a single thread.  As we have seen this allows coroutines
+to run concurrently, but it does not provide any performance gains for CPU intensive applications (use 
+multi-processing for that).
 
-However for IO bound asyncio applications there will be a lot of time spent waiting for IO to complete.  In this
-case you can make performance gains by running tasks concurrently.  This is particularly evident when downloading
-from the web.
+However for IO bound asyncio applications there will be a lot of time spent waiting for IO to complete.  
+In this case you can make performance gains by running tasks concurrently.  This is particularly evident 
+when downloading from the web.
 
-In this example we download data from a number of websites in parallel using the "aiohttp" library.  This library
-has been especially designed to allow asynchronous downloads.  We then compare our results with that obtained
-with the "requests" library (which performs the downloads synchronously).
+In this example we download data from a number of websites in parallel using the "aiohttp" library.  This 
+library has been especially designed to allow asynchronous downloads.  We then compare our results with that 
+obtained with the "requests" library (which performs the downloads synchronously).
 '''
 
 import asyncio
 import timeit
 import aiohttp
 import requests
-N = 10
 
+N = 5
 sites = "abc.com", "bbc.co.uk", "ibm.co.uk", "www.nytimes.com", "www.freeview.co.uk"
+
 async def download(site):
     async with aiohttp.ClientSession() as session:
         async with session.get(site) as response:
@@ -33,7 +33,6 @@ async def main():
     for _ in range(N):
         for site in sites:
             tasks.append( asyncio.create_task(download(f"http://{site}")) )
-
     bytesRead = 0
     for task in tasks:
         bytesRead += await task

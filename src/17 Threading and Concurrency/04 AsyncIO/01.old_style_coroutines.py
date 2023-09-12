@@ -1,6 +1,4 @@
 '''
-Old Style Coroutines
-====================
 Coroutines were introduced as long ago as Python 2.5.  Coroutines were essentially generators that had additonal
 capabilities: the yield statement could be used on the right hand side of an expression to allow data to be
 fed to the geenerator (rather than the traditional yield which always 'generates' data).
@@ -29,5 +27,3 @@ for n in range(10):
     next(cr)
     print(cr.send(n), end=", ")
 
-# or more simply
-#asyncio.run(main())

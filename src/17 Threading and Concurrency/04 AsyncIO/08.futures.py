@@ -1,11 +1,10 @@
 '''
-With asynchronous programming you are never sure when a calculation has completed.  You can use a futures object
-to wait until a result is available.  Futures effectively contain all the synchronization code internally, thus 
-simplifying you code.  Use
-            asyncio.ensure_future
+With asynchronous programming you are never sure when a calculation has completed.  You can use a futures 
+object to wait until a result is available.  Futures effectively contain all the synchronization code 
+internally, thus simplifying you code.  
 
-to wrap a coroutine in a future.  When the coroutine finishes you set the result in the future with: 
-            future.set_result
+When a coroutine finishes you set the result in the future with: 
+            future.set_result(...)
 
 and then examine the result in the calling routine:
             future.result()

@@ -1,5 +1,6 @@
 '''
-run multiple tasks, each with a future
+We can run multiple tasks, each defined with a future object.  In this example we run coroutines as tasks
+that each calculate a different Fibonacci number.
 '''
 
 import asyncio
