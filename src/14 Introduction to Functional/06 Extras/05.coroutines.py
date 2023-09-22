@@ -1,7 +1,7 @@
 '''
 Originally generators could only produce output, but PEP 342 (Python 2.5) enhanced generators such that they
 can now also consume input.  When yield is used on the right hand side of an = it is an input yield; if there 
-is no = then yield produces output.  You can send data to a generator with he "send()" builtin.
+is no = then yield produces output.  You can send data to a generator with the "send()" builtin.
 
 In this example we create a "sentenceBuilder()" generator.  We send words to the generator and it adds the input
 to the current sentence and returns the current state of the sentence.
