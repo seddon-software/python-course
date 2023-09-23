@@ -12,7 +12,7 @@ void say_goodbye(const char* name);
 
 %}
 //%include <stdio.h>  // This wraps the interface defined in the header
-//%include "hello.h"  // This wraps the interface defined in the header
+%include "hello.h"  // This wraps the interface defined in the header
 
 //%include "/home/chris/hello.h"  // This wraps the interface defined in the header
 // void say_hello(const char* name);
