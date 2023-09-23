@@ -1,16 +1,28 @@
-from invoke import task
+from invoke import task, Context
+
+source = "hello_goodbye"
+python_version = "python3.9"
 
 @task
-def build(c, docs=False):
+def build(c):
     c.run(
-       "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC hello.c "
-    "-o libcppmult.so ")
+       f"g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC {source}.c "
+       f"-o libhello_goodbye.so ", echo=True)
 
 @task
-def run(c, docs=False):
+def run(c):
     c.run( f"g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC " 
-    "-I/opt/anaconda3/include/python3.9 -I/opt/anaconda3/lib/python3.9/site-packages/pybind11/include "
     "-I /usr/include/python3.9 -I .  " 
-    f"pybind11_wrapper.cpp " 
-    f"-o pybind11_example.cpython-39-x86_64-linux-gnu.so "
-    "-L. -lcppmult -Wl,-rpath,.")
+    "$(python3 -m pybind11 --includes) "
+    f"hello_goodbye_wrapper.cpp " 
+    f"-o {source}$({python_version}-config --extension-suffix) "
+    "-L. -lhello_goodbye -Wl,-rpath,.", echo=True)
+
+@task
+def go(c):
+    c.run("python testit.py", echo=True)
+
+c = Context()
+build(c)
+run(c)
+go(c)

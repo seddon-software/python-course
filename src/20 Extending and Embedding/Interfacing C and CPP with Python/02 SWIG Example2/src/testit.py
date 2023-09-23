@@ -1,4 +1,4 @@
-import pybind11_example as ex
+import hello_goodbye as h
 
-print(dir(ex))
-ex.cpp_function("ABC")
+h.hello("Simon")
+h.goodbye("John")
