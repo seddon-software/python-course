@@ -30,13 +30,15 @@ b2 = B()
 c1 = C()
 c2 = C()
 
-a1 + a2
-b1 + b2
-b1 + c2
-c1 + b2
-c1 + c2
+# B doesn't define its own __add__()
+# C does define its own __add__()
+a1 + a2     # a1.__add__(a2)
+b1 + b2     # b1.__add__(b2)     
+b1 + c2     # b1.__add__(c2)     
+c1 + b2     # c1.__add__(b2)
+c1 + c2     # c1.__add__(c2)
 
 # take a look at other special (dunder) methods:
 import webbrowser
-url = "https://holycoders.com/python-dunder-special-methods/"
+url = "https://www.geeksforgeeks.org/dunder-magic-methods-python/"
 webbrowser.open(url)

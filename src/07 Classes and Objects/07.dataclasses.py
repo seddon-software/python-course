@@ -51,6 +51,6 @@ for d in dates:
     print(d)
 print()
 
-# find all methods in class
+print("List all methods in class: ")
 method_list = [attribute for attribute in dir(Date) if callable(getattr(Date, attribute))]
 print(method_list)
