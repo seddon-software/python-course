@@ -6,4 +6,3 @@ You can be the shared library in two ways:
 To test the shared library:
     python testit.py
 
-
