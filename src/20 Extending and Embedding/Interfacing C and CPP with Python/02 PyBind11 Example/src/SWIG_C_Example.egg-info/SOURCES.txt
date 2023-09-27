@@ -1,0 +1,5 @@
+setup.py
+SWIG_C_Example.egg-info/PKG-INFO
+SWIG_C_Example.egg-info/SOURCES.txt
+SWIG_C_Example.egg-info/dependency_links.txt
+SWIG_C_Example.egg-info/top_level.txt
