@@ -1,1 +1,0 @@
-/usr/bin/g++ -fPIC -g -Wall -fPIC -flto -shared -Wl,-soname,hello_goodbye.cpython-39-x86_64-linux-gnu.so -o hello_goodbye.cpython-39-x86_64-linux-gnu.so CMakeFiles/hello_goodbye.dir/hello_goodbye.cpp.o CMakeFiles/hello_goodbye.dir/hello_goodbye_wrapper.cpp.o  -Wl,-rpath,/opt/anaconda3/lib /opt/anaconda3/lib/libpython3.9.so 

@@ -1,8 +1,10 @@
-You can be the shared library in two ways:
+Managed to install extension module by providing:
+    *.so
+    setup.py
 
-1. python tasks.py
-2. BUILD
+You can build and test the shared library using:
+    BUILD_and_RUN
 
-To test the shared library:
-    python testit.py
+
+Can't build a wheel file yet
 

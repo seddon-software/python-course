@@ -1,3 +1,0 @@
-/home/chris/home/workspace/python-course/src/20 Extending and Embedding/Interfacing C and CPP with Python/02 PyBind11 Example/src/build/CMakeFiles/hello_goodbye.dir
-/home/chris/home/workspace/python-course/src/20 Extending and Embedding/Interfacing C and CPP with Python/02 PyBind11 Example/src/build/CMakeFiles/edit_cache.dir
-/home/chris/home/workspace/python-course/src/20 Extending and Embedding/Interfacing C and CPP with Python/02 PyBind11 Example/src/build/CMakeFiles/rebuild_cache.dir

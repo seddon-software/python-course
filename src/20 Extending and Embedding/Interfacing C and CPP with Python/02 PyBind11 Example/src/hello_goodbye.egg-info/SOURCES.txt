@@ -1,7 +1,6 @@
+README
 hello_goodbye.cpp
-hello_goodbye.cpython-39-x86_64-linux-gnu.so
 hello_goodbye_wrapper.cpp
-libhello_goodbye.so
 setup.py
 hello_goodbye.egg-info/PKG-INFO
 hello_goodbye.egg-info/SOURCES.txt

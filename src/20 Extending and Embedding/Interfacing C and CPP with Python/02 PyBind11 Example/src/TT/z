@@ -1,0 +1,3 @@
+  python -m pip uninstall hello_goodbye
+  python -m pip install dist/hello_goodbye.whl
+  python -m pip install dist/*.whl
