@@ -1,0 +1,10 @@
+Managed to install extension module by providing:
+    *.so
+    setup.py
+
+You can build and test the shared library using:
+    BUILD_and_RUN
+
+
+Can't build a wheel file yet
+
