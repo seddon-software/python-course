@@ -1,8 +1,0 @@
-hello.cpp
-myexample.i
-myexample.py
-setup.py
-CPP_SWIG_example.egg-info/PKG-INFO
-CPP_SWIG_example.egg-info/SOURCES.txt
-CPP_SWIG_example.egg-info/dependency_links.txt
-CPP_SWIG_example.egg-info/top_level.txt

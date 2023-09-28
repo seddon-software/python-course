@@ -11,10 +11,10 @@ wb.open("https://pypa-build.readthedocs.io/en/latest/")
 # pip install --user poetry
 # poetry completions bash > /etc/bash_completion.d/poetry.bash-completion
 
-To set up local repo:
->>> poetry config repositories.myrepo https://myrepo/interfacing_c_c++/
+# To set up local repo:
+# >>> poetry config repositories.myrepo https://myrepo/interfacing_c_c++/
 
-To use local repo:
+# To use local repo:
 
 
 '''

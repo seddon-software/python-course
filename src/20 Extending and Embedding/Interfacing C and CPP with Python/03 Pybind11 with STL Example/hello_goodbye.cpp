@@ -5,10 +5,10 @@
 using namespace std;
 
 void say_hello(const string& name) {
-    cout << "Hello" << name << endl;
+    cout << "Hello " << name << endl;
 }
 
 void say_goodbye(const string& name) {
-    cout << "Goodbye" << name << endl;
+    cout << "Goodbye " << name << endl;
 }
 

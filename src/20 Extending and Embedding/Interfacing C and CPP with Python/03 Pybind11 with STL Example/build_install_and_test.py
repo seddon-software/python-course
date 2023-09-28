@@ -2,7 +2,7 @@ import os, subprocess, time, glob
 
 def printMessage(m):
     time.sleep(5)
-    subprocess.call(["clear"])
+#    subprocess.call(["clear"])
     print(m)
     print("-" *  len(m))
     print()
@@ -65,4 +65,5 @@ call("rm -rf dist")
 call("rm -rf build")
 call(f"rm {wheelFile}")
 call(f"rm {glob.glob('*.so')[0]}")
+call("python -m pip uninstall --yes hello_goodbye_cpp")
 
