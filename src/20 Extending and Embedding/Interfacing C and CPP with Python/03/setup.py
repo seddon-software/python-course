@@ -2,7 +2,7 @@ from glob import glob
 from setuptools import setup
 from pybind11.setup_helpers import Pybind11Extension
 
-mymodule = "hello_goodbye"
+mymodule = "hello_goodbye_cpp"
 
 ext_modules = [
     Pybind11Extension(

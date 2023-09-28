@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: hello-goodbye-cpp
+Version: 1.0
+Summary: pybind11 example
+Home-page: http://btinternet.com/~seddon-software
+Download-URL: local
+Author: CRS Enterprises Ltd
+Author-email: seddon_software@btinternet.com
+Maintainer: CRS Enterprises Ltd
+Maintainer-email: seddon_software@btinternet.com
+License: none
+Classifier: Developers
+Classifier: Python Programming Course
+
+This is a simple example,
+           using pybind11 to wrap up a C++ extension module

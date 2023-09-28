@@ -1,8 +1,0 @@
-README
-hello_goodbye.cpp
-hello_goodbye_wrapper.cpp
-setup.py
-hello_goodbye.egg-info/PKG-INFO
-hello_goodbye.egg-info/SOURCES.txt
-hello_goodbye.egg-info/dependency_links.txt
-hello_goodbye.egg-info/top_level.txt

@@ -22,7 +22,7 @@ call("cmake --build build")
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")
-call("python -m pip uninstall --yes hello_goodbye")
+call("python -m pip uninstall --yes hello_goodbye_cpp")
 
 # install new version
 printMessage("install new version")
@@ -41,7 +41,7 @@ os.chdir("..")
 
 # uninstall again
 printMessage("uninstall again")
-call("python -m pip uninstall --yes hello_goodbye")
+call("python -m pip uninstall --yes hello_goodbye_cpp")
 
 # build wheel
 printMessage("build wheel")

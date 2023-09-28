@@ -1,0 +1,9 @@
+README
+average.cpp
+hello_goodbye.cpp
+hello_goodbye_wrapper.cpp
+setup.py
+hello_goodbye_cpp.egg-info/PKG-INFO
+hello_goodbye_cpp.egg-info/SOURCES.txt
+hello_goodbye_cpp.egg-info/dependency_links.txt
+hello_goodbye_cpp.egg-info/top_level.txt
