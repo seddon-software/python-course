@@ -7,9 +7,12 @@
 
 cmake_minimum_required(VERSION 3.22)
 project("Pybind11 Example")
+
 set (PYBIND11_PYTHON_VERSION "3.9")
 find_package(Python COMPONENTS Interpreter Development)
 find_package(pybind11 CONFIG REQUIRED)
+target_link_libraries(hello_goodbye_cpp PRIVATE pybind11::headers)
+
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")

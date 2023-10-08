@@ -1,2 +1,0 @@
-TestFolder
-hello_goodbye_cpp

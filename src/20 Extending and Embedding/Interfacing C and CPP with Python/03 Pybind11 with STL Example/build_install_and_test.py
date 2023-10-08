@@ -1,7 +1,14 @@
+'''
+This script uses pip as a front end to build a C++ extension module as a whl file.
+I've tried to use build because it uses a virtual environment, but this always fails to find header files
+The script installs the wheel using pip as a back end.
+'''
+
 import os, subprocess, time, glob
+N = 1
 
 def printMessage(m):
-    time.sleep(5)
+    time.sleep(N)
 #    subprocess.call(["clear"])
     print(m)
     print("-" *  len(m))
@@ -10,11 +17,10 @@ def printMessage(m):
 
 def call(cmd):
     print(cmd)
-    time.sleep(5)
+    time.sleep(N)
     subprocess.call(cmd.split())
 
 
-call("rm -rf build")
 
 '''
 # Use CMake to build extension module
@@ -25,6 +31,7 @@ call("cmake --build build")
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")
+call("rm -rf build")
 call("python -m pip uninstall --yes hello_goodbye_cpp")
 
 # install new version
@@ -66,5 +73,7 @@ printMessage("clean up")
 call("rm -rf dist")
 call("rm -rf build")
 call(f"rm {wheelFile}")
+eggFolder = glob.glob("*.egg-info")[0]
+call(f"rm -rf {eggFolder}")
 call("python -m pip uninstall --yes hello_goodbye_cpp")
 
