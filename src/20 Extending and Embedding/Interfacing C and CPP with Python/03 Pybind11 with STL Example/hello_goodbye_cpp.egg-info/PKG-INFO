@@ -1,16 +1,24 @@
 Metadata-Version: 2.1
 Name: hello-goodbye-cpp
-Version: 1.0
-Summary: pybind11 example
+Version: 1.0.0
+Summary: A minimal STL example built with pybind11
 Home-page: http://btinternet.com/~seddon-software
 Download-URL: local
 Author: CRS Enterprises Ltd
-Author-email: seddon_software@btinternet.com
+Author-email: Chris Seddon <chris.seddon@email.com>
 Maintainer: CRS Enterprises Ltd
 Maintainer-email: seddon_software@btinternet.com
 License: none
 Classifier: Developers
 Classifier: Python Programming Course
+Requires-Python: >=3.9
 
-This is a simple example,
-           using pybind11 to wrap up a C++ extension module
+This example creates a C/C++ extension module using the STL
+The shared library is built using CMake
+It is installed using pip
+We then create a wheel file
+All testing is performed in a separate folder
+
+Run:
+    python build_install_and_test.py
+    

@@ -14,11 +14,14 @@ def call(cmd):
     subprocess.call(cmd.split())
 
 
+call("rm -rf build")
+
+'''
 # Use CMake to build extension module
 printMessage("Use CMake to build extension module")
-call("rm -rf build")
 call("cmake -S . -B build")
 call("cmake --build build")
+'''
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")
@@ -26,7 +29,7 @@ call("python -m pip uninstall --yes hello_goodbye_cpp")
 
 # install new version
 printMessage("install new version")
-call("python -m pip install -e .")
+call("python -m pip install .")
 
 # clean up
 printMessage("clean up")
@@ -45,7 +48,6 @@ call("python -m pip uninstall --yes hello_goodbye_cpp")
 
 # build wheel
 printMessage("build wheel")
-#call("python setup.py bdist_wheel --universal")
 call("python -m pip wheel -e .")
 
 # install wheel
@@ -64,6 +66,5 @@ printMessage("clean up")
 call("rm -rf dist")
 call("rm -rf build")
 call(f"rm {wheelFile}")
-call(f"rm {glob.glob('*.so')[0]}")
 call("python -m pip uninstall --yes hello_goodbye_cpp")
 

@@ -6,4 +6,5 @@ h.hello("Simon")
 h.goodbye("John")
 print( "average of ints: ", h.average(a) )
 print( "average of doubles: ", h.average2(b) )
+print()
 

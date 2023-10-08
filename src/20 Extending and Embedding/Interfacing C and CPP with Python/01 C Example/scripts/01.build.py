@@ -4,8 +4,9 @@ build
 Python packaging is in a state of change.  Formely, packages were built and installed using distutils, but
 distutils is now deprecated and will be removed in future versions of Python.
 
-Instead, Python packaging is being driven by PEP 517 which recommends using a build system that provides
-a pyproject.toml to specify how to build the module and a backend system such as pip to install the package.
+Instead, Python packaging is being driven by PEP 517 which recommends using a build system that utilises
+a pyproject.toml file to specify how to build the module and a backend system such as pip to install 
+the package.
 
 Unfortunately, details are still a little sketchy, so in the interim I'm building C/C++ extension modules with
 the PEP 517 build tool:
@@ -16,6 +17,7 @@ and installing wheel files with
 
 The build system will run code in
             ../src/setup.py
+
 and use attributes from
             ../src/setup.cfg
 

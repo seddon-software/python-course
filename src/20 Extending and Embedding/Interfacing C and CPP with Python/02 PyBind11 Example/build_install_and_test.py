@@ -1,8 +1,8 @@
 import os, subprocess, time, glob
-
+N = 1
 def printMessage(m):
-    time.sleep(5)
-    subprocess.call(["clear"])
+    time.sleep(N)
+#    subprocess.call(["clear"])
     print(m)
     print("-" *  len(m))
     print()
@@ -10,15 +10,17 @@ def printMessage(m):
 
 def call(cmd):
     print(cmd)
-    time.sleep(5)
+    time.sleep(N)
     subprocess.call(cmd.split())
 
+call("rm -rf build")
 
+'''
 # Use CMake to build extension module
 printMessage("Use CMake to build extension module")
-call("rm -rf build")
 call("cmake -S . -B build")
 call("cmake --build build")
+'''
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")

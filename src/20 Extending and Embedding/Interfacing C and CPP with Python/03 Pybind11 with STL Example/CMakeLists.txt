@@ -25,5 +25,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 set(CMAKE_RULE_MESSAGES:BOOL=OFF)
 pybind11_add_module(hello_goodbye_cpp SHARED ${SOURCES})
 
-
+install(TARGETS hello_goodbye_cpp DESTINATION hello_goodbye_cpp)
 

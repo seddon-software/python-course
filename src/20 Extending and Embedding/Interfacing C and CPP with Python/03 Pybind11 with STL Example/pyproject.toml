@@ -1,0 +1,15 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "pybind11>=2.10.0",
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "hello_goodbye_cpp"
+version = "1.0.0"
+description="A minimal STL example built with pybind11"
+readme = "README"
+authors = [{name = "Chris Seddon", email = "chris.seddon@email.com" }]
+requires-python = ">=3.9"

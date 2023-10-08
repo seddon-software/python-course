@@ -1,0 +1,7 @@
+fibmodule.c
+setup.cfg
+setup.py
+FibonacciPackage.egg-info/PKG-INFO
+FibonacciPackage.egg-info/SOURCES.txt
+FibonacciPackage.egg-info/dependency_links.txt
+FibonacciPackage.egg-info/top_level.txt
