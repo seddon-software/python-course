@@ -11,6 +11,7 @@ import subprocess
 # output is returned as bytes and needs to be converted to a string for display
 response = subprocess.run('ls -l'.split(), capture_output=True)  # CompletedProcess returned
 output = response.stdout
+print(output)
 print(f'There are {len(output)} bytes in output')
 print(output.decode("utf-8"))
 

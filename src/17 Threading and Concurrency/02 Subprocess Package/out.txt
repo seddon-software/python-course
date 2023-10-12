@@ -1,7 +1,1 @@
--rw-rw-r-- 1 chris chris  706 Mar 19  2022 01.subprocess_call.py
--rw-rw-r-- 1 chris chris  375 Jul 27 16:11 02.call_from_shell.py
--rw-rw-r-- 1 chris chris 1.1K Mar 19  2022 03.shell_injection.py
--rw-rw-r-- 1 chris chris 1021 Mar 19  2022 04.run.py
--rw-rw-r-- 1 chris chris  849 Jul 27 19:50 05.capture_stdout.py
--rw-rw-r-- 1 chris chris  671 Mar 19  2022 06.popen.py
--rw-rw-r-- 1 chris chris  486 Mar 19  2022 07.output_to_files.py
+      7      63     432

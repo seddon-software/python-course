@@ -24,12 +24,10 @@ sequence = list(range(1, 20))
 
 # apply a comprehension to entire sequence
 roots = [sqrt(x) for x in sequence]
-n     = [   x    for x in sequence if x < 10 ]      # identity transformation with filter applied
-cubes = [cube(x) for x in sequence if x%2==0 ]      # even number filter applied
-
-# print results
 print(roots)
+n     = [   x    for x in sequence if x < 10 ]      # identity transformation with filter applied
 print(n)
+cubes = [cube(x) for x in sequence if x%2==0 ]      # even number filter applied
 print(cubes)
 
 # other examples
