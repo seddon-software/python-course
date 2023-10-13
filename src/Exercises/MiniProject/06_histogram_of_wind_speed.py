@@ -3,8 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plotBarChart(df):
-    plt.figure(figsize=(13,8))
-    plt.gcf().canvas.set_window_title('GeoPandas')
+    plt.figure(figsize=(13,8), num='GeoPandas')
     ax = plt.gca()
     ax.set_title("Average Wind Speed")
     ax.set_facecolor("orange")
