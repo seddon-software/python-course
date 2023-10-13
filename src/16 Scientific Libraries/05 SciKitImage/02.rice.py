@@ -1,8 +1,14 @@
 '''
-Rice
-====
-This is a similar example, except this time we use a real image.  This image is monochrome rather than colour, 
-which means the RGB values are the same for each pixel (0 to 255), with 0 as black through to 255 as white.
+This example uses a real image; the image is monochrome rather than colour, which means the RGB values 
+are the same for each pixel (0 to 255), with 0 as black through to 255 as white.
+
+Note the function:
+            def enhanceImage(image, threshold):
+                image[ image[:,:] <= threshold ] = 0
+                image[ image[:,:]  > threshold ] = 255
+
+which uses indexing to convert greylevels less than or equal to a given threshold to black (=0) and
+all other pixels to white (=255).
 '''
 
 import numpy as np
