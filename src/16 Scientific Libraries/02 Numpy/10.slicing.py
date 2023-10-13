@@ -1,5 +1,5 @@
 '''
-Slicingxxxx
+Slicing
 =======
 
 As with ordinary Python arrays (list and tuple) we can use slicing. The notation in Numpy is slightly different 
