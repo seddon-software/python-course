@@ -14,5 +14,16 @@
     "python.analysis.extraPaths": [
         "./src/09 Modules and Packages/More Complex Example/mylib",
         "./src/09 Modules and Packages/mylib2"
+    ],
+    "openInExternalApp.openMapper": [
+        {
+            "extensionName": "pptx",
+            "apps": [
+                {
+                    "title": "powerpoint",
+                    "openCommand": "/usr/bin/libreoffice"
+                }
+            ]
+        }
     ]
 }
