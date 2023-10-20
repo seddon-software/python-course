@@ -51,6 +51,27 @@ for rowcell in allcells:
         except:
             pass
 
+# set the correct day in all the cells
+c = calendar.Calendar()
+days = c.yeardayscalendar(2023, 1)
+
+for rowcell in allcells:
+    for cell in rowcell:
+        try:
+            month = days.pop(0) 
+#            print(month[0])
+            for week in month[0]:
+#                print(week) 
+                if 1 in week: 
+                    cell.value = "MONTH"
+                for day in week:
+                    print(day, end="")
+            # if value == 0: value = ""
+            # cell.value = value
+        except:
+            pass
+
+
 wb.save(fileName)
 cmd = f"libreoffice {fileName}"
 os.system(cmd)
