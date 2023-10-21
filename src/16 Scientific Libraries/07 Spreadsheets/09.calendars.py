@@ -50,7 +50,7 @@ def setDays(year, iterator, comments=False):
                     if 1 in week: 
                         # spacing before and after month name
                         sendSpaces(10)
-                        iterator.send((f"{calendar.month_name[i+1]}", True))
+                        iterator.send((f"{calendar.month_name[i+1].upper()}", True))
                         sendSpaces(3)
                         # add days of the week
                         iterator.send(("M", True))

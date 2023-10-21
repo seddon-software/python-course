@@ -10,6 +10,11 @@ subgroups effectively create a "filesystem within a file".
 This time we create an array attribute in the dataset "MyGroup/MySubGroup/my_dset".  After creating the HDF5 file 
 we read it back into memory.
 
+Note the use of:
+        visit(fn)
+
+to select the names of all the groups and datasets.  Here fn is a callback function that takes the name of the group or dataset.
+
 In the next example, we use a command line utility to check the contents of the file.
 '''
 
@@ -17,21 +22,23 @@ import h5py
 import numpy as np
 
 def write(fileName):
-    file = h5py.File(fileName,'w')
-    group = file.create_group("MyGroup")
-    subgroup = group.create_group("MySubGroup")
-    print("Writing data...")
-    ds = subgroup.create_dataset("my_dset", (4, 6))
-    ds[...] = np.arange(101, 125).reshape(4,6)    
-    file.close()
+    with h5py.File(fileName,'w') as file:
+        group = file.create_group("MyGroup")
+        subgroup = group.create_group("MySubGroup")
+        print("Writing data...")
+        ds = subgroup.create_dataset("my_dset", (4, 6))
+        ds[...] = np.arange(101, 125).reshape(4,6)    
     
 def readBack(fileName):
-    file = h5py.File(fileName,'r')
-    subgroup = file['/MyGroup/MySubGroup']
-    print("Reading data back...")
-    data = subgroup['my_dset'][()]
-    print(data)
-    file.close()
+    def get_all(name):
+        print(name)
+
+    with h5py.File(fileName,'r') as file:
+        file.visit(get_all)
+        subgroup = file['/MyGroup/MySubGroup']
+        print("Reading data back...")
+        data = subgroup['my_dset'][()]
+        print(data)
 
 fileName = 'data/dset.h5'
 write(fileName)

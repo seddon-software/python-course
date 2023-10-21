@@ -22,7 +22,7 @@ def readBack(fileName):
     # read attrs back and print it
     file = h5py.File(fileName,'r')
     dataset = file['/dset']
-    z = dataset.attrs.keys()
+    print(f"keys = {dataset.attrs.keys()}")
     print("Reading data back...")
     for k,v in dataset.attrs.items():
         print(f"key={k}, value={v}")

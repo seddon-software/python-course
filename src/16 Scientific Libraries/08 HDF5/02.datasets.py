@@ -9,20 +9,18 @@ import h5py
 import numpy as np
 
 def write(fileName):
-    file = h5py.File(fileName,'w')
-    file.create_dataset("dset",(4, 6))
-    dataset = file['/dset']
-    print("Writing data...")
-    dataset[...] = np.arange(1, 25).reshape(4,6)    
-    file.close()
+    with h5py.File(fileName,'w') as file:
+        file.create_dataset("dset",(4, 6))
+        dataset = file['/dset']
+        print("Writing data...")
+        dataset[...] = np.arange(1, 25).reshape(4,6)    
 
 def readBack(fileName):
-    file = h5py.File(fileName,'r')
-    dataset = file['/dset']
-    print("Reading data back...")
-    data = dataset[()]
-    print(data)
-    file.close()
+    with h5py.File(fileName,'r') as file:
+        dataset = file['/dset']
+        print("Reading data back...")
+        data = dataset[()]      # copy to numpy array
+        print(data)
 
 fileName = 'data/dset.h5'
 dataset = '/dset'
