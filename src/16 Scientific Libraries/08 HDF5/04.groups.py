@@ -13,9 +13,9 @@ we read it back into memory.
 Note the use of:
         visit(fn)
 
-to select the names of all the groups and datasets.  Here fn is a callback function that takes the name of the group or dataset.
+to select the names of all the groups and datasets.  Here "fn" is a callback function that takes the name of the group or dataset.
 
-In the next example, we use a command line utility to check the contents of the file.
+In the next example, we use a command line utility to check the contents of this HDF5 file.
 '''
 
 import h5py
@@ -37,9 +37,9 @@ def readBack(fileName):
         file.visit(get_all)
         subgroup = file['/MyGroup/MySubGroup']
         print("Reading data back...")
-        data = subgroup['my_dset'][()]
+        data = subgroup['my_dset'][()]      # read into Numpy array
         print(data)
 
-fileName = 'data/dset.h5'
+fileName = 'data/mydataset.h5'
 write(fileName)
 readBack(fileName)

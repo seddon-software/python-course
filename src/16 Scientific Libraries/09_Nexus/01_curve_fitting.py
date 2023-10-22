@@ -1,3 +1,7 @@
+'''
+Before we take a look at Nexus files we introduce a curve fitting example
+'''
+
 import h5py
 import numpy as np
 import pandas as pd

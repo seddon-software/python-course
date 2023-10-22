@@ -9,11 +9,16 @@ the second dataframe (mode='a).
 Once both datframes have been written, we can read them back individually using:
             pd.read_hdf()
 
-            and supplying the appropriate key
+and supplying the appropriate key.
 '''
 
 import h5py
 import pandas as pd
+
+
+OXFORD_DATA = "data/oxford_2022.txt"
+LERWICK_DATA = "data/lerwick.txt"
+HDF5_FILE = "data/met_office.h5"
 
 def read_met_data(fileName):
     column_names = ['year', 'month', 'tmax', 'tmin', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment']
@@ -26,17 +31,17 @@ def read_met_data(fileName):
                                 sep = '[*# ]+')
     return df
 
-oxford_df = read_met_data("data/oxford_2022.txt")
-oxford_df.to_hdf("data/met_office", key='oxford', mode='w') 
-lerwick_df = read_met_data("data/lerwick.txt")
-lerwick_df.to_hdf("data/met_office", key='lerwick', mode='a') 
+oxford_df = read_met_data(OXFORD_DATA)
+oxford_df.to_hdf(HDF5_FILE, key='oxford', mode='w') 
+lerwick_df = read_met_data(LERWICK_DATA)
+lerwick_df.to_hdf(HDF5_FILE, key='lerwick', mode='a') 
 
 # this will only read the lerwick dataframe.  The oxford dataframe does NOT get read into memory here. 
-lerwick_df2 = pd.read_hdf("data/met_office", key="lerwick")
+lerwick_df2 = pd.read_hdf(HDF5_FILE, key="lerwick")
 print(lerwick_df2)
 
 # now read the oxford dataframe
-oxford_df2 = pd.read_hdf("data/met_office", key="oxford")
+oxford_df2 = pd.read_hdf(HDF5_FILE, key="oxford")
 print(oxford_df2)
 
 # check for differences
