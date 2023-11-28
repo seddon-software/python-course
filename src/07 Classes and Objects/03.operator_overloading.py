@@ -21,6 +21,16 @@ we need to overload __add__ in the Time class.  However, when we try to add a Ti
 we would have to overload a method in the int class.  Since we don't have access to the int class, Python
 provides an alternative: the special method __radd__().  This performs a reverse add (i.e. the arguments are 
 swapped such that t1 becomes the left hand operand.  This in turn means we overload __radd__() in the Time class.
+
+Note that += is implemented with __iadd__.  This method has strange semantics:
+            t1 += t3
+
+behaves as:
+            t1 = t1.__iadd__(t3)
+
+and this in turn implies you must return something from __iadd__(): Python assigns the return value of your
+__iadd__ implementation to the object you're "adding to", AFTER the implementation completes.  This rather 
+strange semantics is to allow += to make sense with immutable objects (where you return a copy of a new object).
 '''
 
 class Time:    
@@ -46,8 +56,8 @@ class Time:
     
     # called for +=
     def __iadd__(self, other):
-        self = self + other
-        return self
+        self = self + other     # self now points to a different object (the one returned from __add__)
+        return self             # note this is required (see description above)
     
     # used by print
     def __str__(self):
@@ -57,20 +67,20 @@ class Time:
 t1 = Time(5,30)
 t2 = Time(3,30)
 
-t3 = t1 + t2
+t3 = t1 + t2        # t3 = t1.__add__(t2)
 print(t3)
 
-t3 = t1 + 42
+t3 = t1 + 42        # t3 = t1.__add__(42)
 print(t3)
 
 t3 = 27 + t1        # t1.__radd__(27)
 print(t3)
 
-t1 += t3
-print(t3)
+t1 += t3            # t1 = t1.__iadd__(t3)
+print(t1)
 
-t1 += 33            # t1.__iadd__(33)
-print(t3)
+t1 += 33            # t1 = t1.__iadd__(33)
+print(t1)
 
 try:
     t3 = t1 + "two mins"

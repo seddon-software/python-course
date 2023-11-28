@@ -26,6 +26,8 @@ def f2():
     try:
         x = int(input("Enter positive integer: "))
         root = sqrt(x)
+        print("sqrt() succeeded ...")
+        print(root)
     except Exception as e:
         print("sqrt() failed ...")
         print(e)

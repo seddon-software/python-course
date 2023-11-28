@@ -10,7 +10,7 @@ in your classes that delegate to the "__init__()" method in the "super" class as
 class TooBig(Exception): 
     def __init__(self, message): 
         super().__init__(message)       # delegate to Exception.__init__()
-class MuchTooBig(Exception): 
+class MuchTooBig(TooBig): 
     def __init__(self, message): 
         super().__init__(message)       # delegate to Exception.__init__()
 
