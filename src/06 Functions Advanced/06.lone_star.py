@@ -25,5 +25,5 @@ f(a="one", b="two", c="three", d="four")
 # use default kwargs
 f(a="one", b="two")
 
-# check on the dfault for kwargs
+# check on the defaults for kwargs
 print(f.__kwdefaults__)

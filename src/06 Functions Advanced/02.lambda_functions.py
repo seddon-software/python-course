@@ -39,3 +39,6 @@ fn = lambda a, b, c, d: a + b + c + d
 # call the lambda
 result = fn(1, 10, 100, 1000)
 print(result)
+
+# equivalent call
+print((lambda a, b, c, d: a + b + c + d)(1, 10, 100, 1000))
