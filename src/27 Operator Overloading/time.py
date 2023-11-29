@@ -21,7 +21,7 @@ class Time:
         return self
 t1 = Time(4, 50)
 t2 = Time(3, 25)
-t1 += t2        # t1.__iadd__(t2)
+t1 += t2        # t1 = t1.__iadd__(t2)
 print(t1)
 t = t1 + 20
 print(t)
