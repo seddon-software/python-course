@@ -9,7 +9,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import pandas as pd
 
-colors = ["red", "green", "blue", "orange", "lime", "fuchsia"]
+colors = ["orange", "green", "blue", "red", "lime", "fuchsia"]
 markers = ["o", "o", "o", "D", "D", "D"]
 sizes = [10, 10, 10, 100, 100, 100]
 labels = ['sepal length', 'sepal width', 'petal length', 'petal width']
@@ -22,7 +22,7 @@ iris1 = [4.1, 3.1, 1.8, 0.5, 3]
 iris2 = [6.9, 3.5, 2.5, 2.5, 4]  
 iris3 = [6.7, 3.0, 5.2, 2.3, 5] 
 df = pd.DataFrame([iris1, iris2, iris3], columns = iris_df.columns) 
-iris_df = iris_df.append(df)
+iris_df = pd.concat([iris_df, df])
 
 # plot
 figure = plt.figure(figsize=(12, 8))
@@ -58,3 +58,4 @@ scatter(222, 0, 1, 3)
 scatter(223, 0, 2, 3)
 scatter(224, 1, 2, 3)
 plt.show()
+pass

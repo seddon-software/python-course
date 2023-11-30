@@ -13,7 +13,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import pandas as pd
 
-colors = ["red", "green", "blue", "black", "black"]
+colors = ["orange", "green", "blue", "red", "lime", "fuchsia"]
 markers = ["o", "o", "o", "D", "D"]
 sizes = [10, 10, 10, 100, 100]
 labels = ['sepal length', 'sepal width', 'petal length', 'petal width']
@@ -58,9 +58,9 @@ def scatter(subplot, i, j, k):
 
 
 # Reorder the labels to have colors matching the cluster results
-scatter(221, 0, 1, 2)
-scatter(222, 0, 1, 3)
-scatter(223, 0, 2, 3)
-scatter(224, 1, 2, 3)
+scatter(221, 0, 1, 2)        # 2x2 sublot; subplot 1
+scatter(222, 0, 1, 3)        # 2x2 sublot; subplot 2
+scatter(223, 0, 2, 3)        # 2x2 sublot; subplot 3
+scatter(224, 1, 2, 3)        # 2x2 sublot; subplot 4
 plt.tight_layout()
 plt.show()
