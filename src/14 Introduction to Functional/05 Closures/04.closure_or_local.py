@@ -24,20 +24,20 @@ def closures(fn):
         print(f"closure for {fn.__name__}: {c} {c.cell_contents}")
 
 def main():
-    x1 = [1, 1, 1, 1]         # mutable
-    x2 = [2, 2, 2, 2]         # mutable
+    x1 = ["x1"]               # mutable
+    x2 = ["x2"]               # mutable
     y1 = "y1"                 # immutable
     y2 = "y2"                 # immutable
     y3 = "y3"                 # immutable
-    print(f"main symbols: {list(locals().keys())}")
+    print(f"main symbol table: {list(locals().keys())}")
 
     def f():
         # note y1 and y2 are locals, not closures
         # y3 is used as an r-value and is part of the closure
-        x1[0] = 1
-        x2[1] = 2
+        x1[0] = "x1"
+        x2[0] = "x2"
         y1 = "y1"
-        print(f"f symbols: {list(locals().keys())}")
+        print(f"f symbol table: {list(locals().keys())}")
         y2 = y3
         closures(f)
         pass
