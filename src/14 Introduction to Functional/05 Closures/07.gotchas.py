@@ -14,7 +14,7 @@ Thus the code fails.
 '''
 
 def f(x):
-    y = x * x       # defines a local variable
+    y = x * x       # defines a local variable y
     print(("locals for f(): ", locals()))        
     def inner():
         print(("locals for inner(): ", locals()))        

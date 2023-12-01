@@ -21,12 +21,18 @@ In part 2 we store 50 in a list.  Since the list is mutable, it is captured by t
 without raising an exception.
 '''
 
+import os
+os.system("clear")
+
 ############################################################
 # Part 1 - no closure (immutable l-value)
 def outer():
     x = 50      # local variable, lifetime ends at end of function
     def inner():
-        x += 1  # x refers to local x, not a closure on outer.x so this raises an exception
+        try:
+            x += 1  # x refers to local x, not a closure on outer.x so this raises an exception
+        except Exception as e:
+            print(e)
     return inner
 
 f = outer()

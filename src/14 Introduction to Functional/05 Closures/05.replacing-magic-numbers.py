@@ -2,7 +2,7 @@
 Replacing Magic Numbers
 =======================
 
-Here is another example of defining partial functions where w define 3 formatting functions.
+Here is another example of defining nesting functions that define 3 formatting functions.
 '''
 
 # define a closure containing width and precision

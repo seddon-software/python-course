@@ -13,15 +13,19 @@ In this example, the closure has 2 items (x and y).  Note that only mutable item
 included in this closure (so a is not part of the closure).
 '''
 
+def displayClosures(fn):
+    for c in fn.__closure__:
+        print(c)
+
 def f():
-    a = [100]
-    x = [200]
-    y = [300]
+    a = [100]; print(f"a:{id(a):x}")
+    x = [200]; print(f"x:{id(x):x}")
+    y = [300]; print(f"y:{id(y):x}")
     def g():
+        # a not referenced, so not part of closure
         x.append(201)
         y.append(301)
     g()
-    for c in g.__closure__:
-        print(f"closure for g: {c.cell_contents}")
+    displayClosures(g)
 
 f()
