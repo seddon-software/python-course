@@ -2,7 +2,7 @@
 CPython is both a Compiler and Interpreter
 ==========================================
 
-CPython is both a compiler and interpreter.  The compiler translates out source code into bytecode and the 
+CPython is both a compiler and interpreter.  The compiler translates source code into bytecode and the 
 interpreter executes the code.  Each operating system has a different interpreter that understands native
 code for that system.  Most of the work in running a Python program is done by the interpreter.  The compiler
 stage is relatively simple.
@@ -50,6 +50,9 @@ line 36:
             SET_TOP(x);
             if (x != NULL) continue;
             break;
+
+If you are interested in bytecode, check out:
+            https://opensource.com/article/18/4/introduction-python-bytecode
 '''
 
 import dis
