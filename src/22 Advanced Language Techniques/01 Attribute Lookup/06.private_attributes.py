@@ -1,8 +1,10 @@
 '''
 Private Attributes
 ==================
-Many languages allow you to encapsulate object attributes by making them private.  This is not the Python way.
-However, if you insists, there is a way ...
+Many languages allow you to encapsulate object attributes by making them private.  The attempt in the
+previous example is easily circumvented.  This is not the Pythonic way.
+
+However, if you insist, there is a way ...
 
 The trick is to create a dictionary in __init__() that is pointed at by a local variable and then define getters
 and setters using this dict before the dictionary goes out of scope.  Pointers to the getters and setters need to 

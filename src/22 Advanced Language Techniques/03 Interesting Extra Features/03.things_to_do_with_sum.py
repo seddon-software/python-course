@@ -20,7 +20,7 @@ first = [5, 6, 7]
 second = 100
 print((sum(first, second)))
 
-# if the second argument is a list, the first argument is flattened and append to the second argument
+# if the second argument is a list, the first argument is flattened and appended to the second argument
 first = [[1, [2, 3]], [4, 5], [6], [[7, 8], 9]]
 second = ['abc', 'def']
 print((sum(first, second)))

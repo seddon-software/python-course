@@ -8,8 +8,8 @@ Python allows you to trace access to an object's attributes if you provide any o
             def __setattr__(self, name, value):         called when writing to an attribute
 
 Recall that you can access an attribute in of two ways, using the dot notation or via the __dict__ as in:
-            obj.__dict__['x']")
-            obj.x)
+            obj.__dict__['x']
+            obj.x
 
 These methods are explored below.
 

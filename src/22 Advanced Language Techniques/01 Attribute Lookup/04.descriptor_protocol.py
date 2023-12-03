@@ -27,6 +27,8 @@ Note:
     2) the descriptor is not invoked by direct dictionary access: p1.__dict__['x']
     3) the __get__() and __set__() methods normally eventually delegate to the object class to extract the
        relevant attribute.  However, you don't have call these object methods if you so desire.
+    4) the attribute hook __getattribute__ doesn't use __dict__ and hence will trigger the descriptor protocol
+       but the other attribute hooks do use __dict__ and hence bypass the descriptor protocol
 '''
 
 class Trace(object):
@@ -65,7 +67,7 @@ p2 = Point(16, 26)
 p2.x = 30
 p2.moveBy(1, 1)
 
-1
+
 
 
 

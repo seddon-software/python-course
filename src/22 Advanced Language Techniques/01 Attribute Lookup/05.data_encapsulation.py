@@ -11,7 +11,7 @@ attempt was made to provide something similar way back in Python 2 days and its 
 to restrict access to attributes that were defined with two leading underscores as in:
             self.__x
             self.__y       
-While this appears to make the attributes private, it is easy to work around.  If you look at the object's 
+While this appears to make the attributes private, there is an easy workaround.  If you look at the object's 
 dictionary you'll see immediately that Python has obfuscated the attribute names as follows:
             self._Point__x
             self._Point__y
