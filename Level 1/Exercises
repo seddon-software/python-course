@@ -1,5 +1,5 @@
-                                    Python Level 1 - Example Solutions
-                                    ==================================
+                                    Python Level 1 - Questions
+                                    ==========================
 
 1. Write a temperature conversion program that converts degC to degF.  Also write the inverse program.  
 Print out the conversions in tabular form every few degrees beween freezing and boiling points.  Try to make your code as clean as possible - use functions.
