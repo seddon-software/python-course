@@ -2,7 +2,8 @@
                                     ==========================
 
 1. Write a temperature conversion program that converts degC to degF.  Also write the inverse program.  
-Print out the conversions in tabular form every few degrees beween freezing and boiling points.  Try to make your code as clean as possible - use functions.
+Print out the conversions in tabular form every few degrees beween freezing and boiling points.  Try to make your code as clean as possible
+ - use functions.
 
 2. Write a program that prints a large X on the terminal (as shown below):
 
@@ -16,7 +17,9 @@ Print out the conversions in tabular form every few degrees beween freezing and 
  ╱     ╲
 ╱       ╲
 
-Ask the user how big the X should be and restrict the size to 13 lines maximum.  Make sure the user enters an odd number of lines (because of he crossover in the middle).  Handle all errors using exception handling and use functions throughout.
+Ask the user how big the X should be and restrict the size to 13 lines maximum.  Make sure the user enters 
+an odd number of lines (because of he crossover in the middle).  Handle all errors using exception handling 
+and use functions throughout.
 
 You can find all the Box Drawing characters at:
     https://symbl.cc/en/unicode/table/#box-drawing
