@@ -4,11 +4,11 @@ from distutils.core import setup, Extension
 
 example_module = Extension('_roots',
         sources=['sumOfRoots.i', 'sumOfRoots.c'],
-        extra_compile_args=["-fPIC"]
+        extra_compile_args=["-I../src", "-fPIC"]
                            )
 
 setup (
-       name = 'SWIG example',
+       name = 'C example',
        version = '1.0',
        author = "CRS Enterprises Ltd",
        author_email='seddon-software@keme.co.uk',

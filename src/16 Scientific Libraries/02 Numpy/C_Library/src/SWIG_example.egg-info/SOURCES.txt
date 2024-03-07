@@ -1,4 +1,3 @@
-files.txt
 roots.py
 setup.py
 sumOfRoots.c
@@ -9,4 +8,3 @@ SWIG_example.egg-info/PKG-INFO
 SWIG_example.egg-info/SOURCES.txt
 SWIG_example.egg-info/dependency_links.txt
 SWIG_example.egg-info/top_level.txt
-dist/SWIG_example-1.0-py3.9-linux-x86_64.egg
