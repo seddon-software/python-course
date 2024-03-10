@@ -27,7 +27,7 @@ class SmallProblem(Exception): pass
 def main():
     try:
         part1()
-        part2(500)
+        part2(150)
         part3()
         part4()
     except BigProblem as e:

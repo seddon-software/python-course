@@ -1,3 +1,3 @@
 import os
 
-os.system("jupyter notebook")
+os.system("jupyter lab")

@@ -1,3 +1,14 @@
+'''
+1. Create the BankAccount class with deposit, withdraw, display.  Create 3 sample objects and
+deposit, withdraw followed by display
+
+2. Create a class attribute: accountsList and a method printAllAccounts
+
+3. Add overdraft to account and test
+
+4. Use proper testing
+
+'''
 class BankAccount:
     accounts = {}
     def __init__(self, name, openingBalance):
