@@ -48,7 +48,8 @@ class M:
             finally:
                 M.lock.release()
         if name == "C":
-            M.count1 += 1
+            for i in range(0, N):
+                M.count1 += 1
             with M.lock:
                 for i in range(0, N):
                     M.count2 += 1
