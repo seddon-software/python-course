@@ -12,9 +12,10 @@ and releases a lock with
 The code between these calls is guarded.  Such locks are often called monitor locks; they monitor code and only 
 allow one thread at a time execute code between the "acquire" and "release" calls.
 
-In this example, 4 threads execute code in the "__call__()" method, but the monitor lock ("lock3") serializes 
+In this example, 4 threads execute code in the "__call__()" method, but the monitor lock ("lock1") serializes 
 execution.
 
+I have provide 4 separate monitor locks so you can experiment with using different locks with different threads.
 If you try using two or more locks you will find threads sharing the same lock do not execute concurrently'''
 
 from threading import Thread, Lock
@@ -42,7 +43,7 @@ m2 = MyClass()
 m3 = MyClass()
 m4 = MyClass()
 
-# give each thread the same lock
+# give each thread the same lock (try experimenting using the other locks)
 t1 = Thread(target = m1, args = ("1", lock1))
 t2 = Thread(target = m2, args = ("2", lock1))
 t3 = Thread(target = m3, args = ("3", lock1))
@@ -62,4 +63,4 @@ t4.join()
 
 print("\nEnd of main")
 
-1
+

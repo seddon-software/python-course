@@ -4,11 +4,11 @@ Sharing Data
 As discussed previously, code using += is not thread safe.  As an illustration of this we define two counts and
 then increment these counts in 3 separate threads.  One of the counts is protected by a lock, but the other is not.
 We have to increment many (10 million) times to maximise the chance of being suspended in the critical section of 
-codeen.  The protected count will always end up at 3 threads x 10 million = 30,000,000, but the other count will
+code.  The protected count will always end up at 3 threads x 10 million = 30,000,000, but the other count will
 usually end up less as a result of the contention between the threads.
 
 Because programmers are prone to forget to release locks, we give alternate ways of using a lock in threads "B"
-and "C".  Thread "B" uses a finally block and thread "C" uses a with statement.  The with statement is expanded
+and "C".  Thread "B" uses a finally block and thread "C" uses a with statement.  The "with" statement is expanded
 by the interpreter to the try-finally form (so these forms are equivalent).
 
 Note that often code is modified after the initial design and we might introduce code that could throw an exception
@@ -30,7 +30,7 @@ class M:
     count1 = 0
     count2 = 0
 
-    def __call__(self, name):                
+    def __call__(self, name):
         if name == "A":
             for i in range(0, N):
                 M.count1 += 1
@@ -48,7 +48,8 @@ class M:
             finally:
                 M.lock.release()
         if name == "C":
-            M.count1 += 1
+            for i in range(0, N):
+                M.count1 += 1
             with M.lock:
                 for i in range(0, N):
                     M.count2 += 1

@@ -10,15 +10,22 @@ are between 1 and 4 bytes long, see:
 s = "résumé".encode("utf-8")  # convert to bytes using UTF8 encoding
 print(type(s))
 print(s)
+print(s.hex())          # display as hex
 
 b = b"r\xc3\xa9sum\xc3\xa9".decode("utf-8") # decode a byte string assuming UTF8 encoding
 print(type(b))
 print(b)
 
+b = bytes(bytearray(b'\x72\xc3\xa9\x73\x75\x6d\xc3\xa9'))
+print(type(b))
+print(b)
+print(b.decode("utf-8"))
+
 # repeat with 'El Niño'
 s = "El Niño".encode("utf-8")
 print(type(s))
 print(s)
+print(s.hex())
 
 b = b"El Ni\xc3\xb1o".decode("utf-8")
 print(type(b))

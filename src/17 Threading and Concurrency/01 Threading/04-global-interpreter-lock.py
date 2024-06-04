@@ -10,7 +10,7 @@ Other implementation of the Python interpreter such as Jython and IronPython hav
 multithreading.  PyPy currently has a GIL (similar to CPython) and Cython also has a GIL.  Note, the GIL in Cython 
 can be released temporarily using a "with" statement. 
 
-In CPython, the GIL is released every few (<10) msec after completing a byte code instruction.  Operations 
+In CPython, the GIL is released every few (<10) msec, but never during a byte code instruction.  Thus operations 
 consisting of a single byte code instruction are atomic and hence thread safe.
 
 A thread may release the GIL voluntarily to allow another thread to run.  A thread only needs to hold the GIL 
@@ -23,12 +23,13 @@ In the code below we use the dis module to disassemble code for:
             x += 1
             sort([2,5,3,6])
 
-Note that the first sequence is mutable and hence not thread safe.  If we are suspended after INPLACE_ADD then
-we would overwrite any work performed by other threads executing the same code.
+Note that the first instruction (x += 1) consists of several byte code instructions including one mutable
+byte code instruction (INPLACE_ADD) and hence is not thread safe.  If a thread is suspended after INPLACE_ADD 
+then when the thread resumes it could overwrite any work performed by other threads executing the same code.
 
-Surprisingly, although the second sequence is more complicated, it is thread safe.  This is because the byte code
-instructions are all immutable, so the code is idempotent and hence thread safe.  Recall that the GIL will not be 
-released in the middle of a byte code instruction and hence the BUILD_LIST and CALL_FUNCTION (call to sort) 
+Surprisingly, although the second instruction (sort([2,5,3,6])) is more complicated, it is thread safe.  This is 
+because the byte code instructions are all immutable, so the code is idempotent and hence thread safe.  Recall 
+that the GIL will not be released in the middle of a byte code instruction and hence the BUILD_LIST and CALL_FUNCTION (call to sort) 
 instructions are atomic and hence thread safe.
 '''
 
@@ -37,7 +38,7 @@ import dis
 dis.dis("x += 1")           # not thread safe
 #               0 LOAD_NAME                0 (x)
 #               2 LOAD_CONST               0 (1)
-#               4 INPLACE_ADD
+#               4 INPLACE_ADD                          <== mutable
 #               6 STORE_NAME               0 (x)
 
 dis.dis("sort([2,5,3,6])")  # thread safe
@@ -46,6 +47,6 @@ dis.dis("sort([2,5,3,6])")  # thread safe
 #               4 LOAD_CONST               1 (5)
 #               6 LOAD_CONST               2 (3)
 #               8 LOAD_CONST               3 (6)
-#              10 BUILD_LIST               4            <== ATOMIC
+#              10 BUILD_LIST               4            
 #              12 CALL_FUNCTION            1            <== ATOMIC
 #              14 RETURN_VALUE

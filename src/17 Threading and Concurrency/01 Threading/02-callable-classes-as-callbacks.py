@@ -2,12 +2,12 @@
 Callable Classes as Callbacks
 =============================
 
-As an alternative to specifying the target function for a thread, we can make the callback function a method in a 
-class; this ultimately depends on operator overloading.  In the previous example the callback function was "myfunc" 
-and after the "start" method is called, Python calls back on this function.
+As an alternative to specifying the target function for a thread, we can make the callback function a method 
+in a class; this ultimately depends on operator overloading.  In the previous example the callback function 
+was "myfunc" and after the "start" method is called, Python calls back on this function.
 
 We can equally specify an object as a callback.  Python will try to call this object; i.e. call the overloaded
-() for the class.  Thus if the target is the object "m1" 
+() operator for the class.  Thus if the target is the object "m1" 
             t1 = Thread(target = m1, args = ("1",))
 
 the callback will be on:
