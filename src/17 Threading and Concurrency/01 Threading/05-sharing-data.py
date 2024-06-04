@@ -30,7 +30,7 @@ class M:
     count1 = 0
     count2 = 0
 
-    def __call__(self, name):
+    def __call__(self, name):                
         if name == "A":
             for i in range(0, N):
                 M.count1 += 1
@@ -48,8 +48,7 @@ class M:
             finally:
                 M.lock.release()
         if name == "C":
-            for i in range(0, N):
-                M.count1 += 1
+            M.count1 += 1
             with M.lock:
                 for i in range(0, N):
                     M.count2 += 1
