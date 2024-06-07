@@ -3,16 +3,24 @@ Benchmarking
 ============
 
 Finally, as mentioned in the introduction to this tutorial, with multi threaded CPU-bound programs, the threads 
-are executed sequentially because of the GIL.  Performance then becomes an issue.
+are executed sequentially because of the GIL.  Performance then becomes an issue.  Furthermore, Python only uses
+a single CPU even if the host has multiple CPUs; you need to use a library package to leverage multiple CPUs.
 
-It is recommended to use the multiprocessing module to speed things up in such situations.  We don't use threads 
-in this case, but execute code in separate processes such that the GIL is irrelevant.
+It is recommended to use the multiprocessing module to speed things up in such situations.  We don't 
+use threads in this case, but instead execute code in separate processes each running their own Python
+interpreter and hence the GIL becomes irrelevant.
 
-It will be interesting to compare a multthreaded program with a mutiprocessing program for timings.  Both programs 
-calculate the value of the sum of i**0.3 where i ranges from 0 to 50,000,000.  We can see the performance of both 
-with varying numbers of threads and processes (don't worry to much about the code details):
+It will be interesting to compare a multthreaded program with a mutiprocessing program for timings.  The
+functions:
+    jobUsingProcesses(N)
+    jobUsingThreads(N)
 
-Conclusion: threads do not speed up cpu bound calculations; use multiple processes.
+both calculate the value of the sum of i**0.3 where i ranges from 0 to 50,000,000.  We can see the 
+performance of both functions with varying numbers of threads and processes (don't worry to much about the 
+code details):
+
+Conclusion: threads do not speed up cpu bound computations (but are fine for I/O bound computations) - use 
+multiple processes.
 '''
 
 import time, os
