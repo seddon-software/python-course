@@ -1,0 +1,8 @@
+README
+roots.cpp
+roots_wrapper.cpp
+setup.py
+roots.egg-info/PKG-INFO
+roots.egg-info/SOURCES.txt
+roots.egg-info/dependency_links.txt
+roots.egg-info/top_level.txt

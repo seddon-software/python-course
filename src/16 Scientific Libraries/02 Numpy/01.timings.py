@@ -49,7 +49,7 @@ def numbaMethod(n):
     return numpy.sum(y)
 
 if not EXCLUDE_C_EXAMPLE:
-    import _roots as roots
+    import roots
     def cModule(n):
         return roots.sumOfRoots(n)
 

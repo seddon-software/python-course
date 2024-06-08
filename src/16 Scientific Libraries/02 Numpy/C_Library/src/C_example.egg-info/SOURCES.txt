@@ -1,8 +1,0 @@
-roots.py
-setup.py
-sumOfRoots.c
-sumOfRoots.i
-C_example.egg-info/PKG-INFO
-C_example.egg-info/SOURCES.txt
-C_example.egg-info/dependency_links.txt
-C_example.egg-info/top_level.txt

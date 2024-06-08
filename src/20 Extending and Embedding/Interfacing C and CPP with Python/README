@@ -1,20 +1,5 @@
-MesonPy
-Enscons - probably not
-Hatch-mypyc
+To install packages
+===================
 
-cibuildwheel
-multibuild
-maturin-action (Rust)
-
-CFFI
-MyPyC
-Cython  @cython.ccall
-pybind11 header only
-Nanobind
-CLI11
-PEP 621
-
+pip install Cython
 pip install cmake
-pip install ninja
-
-manylinux
