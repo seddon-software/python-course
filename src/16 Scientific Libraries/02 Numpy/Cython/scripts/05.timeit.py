@@ -15,8 +15,8 @@ def doTimings():
                                    statement = "python_functions.sumOfSquares(1000, 4000000)")
     
     Timings.titles()
-    t1.run(10000000)
-    t2.run(10000000)
+    t1.run(30725700)
+    t2.run(30725700)
     u1.run(50)
     u2.run(50)
 
