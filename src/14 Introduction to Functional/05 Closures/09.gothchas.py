@@ -21,9 +21,7 @@ they are called, the closure refers to the immutable object 3.  Hence the print 
 import os
 os.system("clear")
 
-def displayClosures(fn):
-    for cell in fn.__closure__:
-        print(f"{fn.__name__}:{cell}")
+from utils import *
 
 ############################################################
 # Closures are over variable names, not values
@@ -42,7 +40,7 @@ def main():
         funcs.append(f)
     # at the end of the loop the closure on "f" is set to latest function object and the closure
     # on "i" is set to the latest int object (i=3)
-    displayClosures(f)
+
     # funcs now contains 4 function pointers, but there is only one closure for "f"
 
     for f in funcs:

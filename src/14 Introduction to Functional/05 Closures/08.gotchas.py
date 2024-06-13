@@ -48,23 +48,14 @@ print()
 ############################################################
 # Part 2 - workaround for the above problem
 
-def displayClosures(fn):
-    if fn.__closure__:
-        closures = zip(fn.__closure__, fn.__code__.co_freevars)
-        next(closures)      # skip the closure cell on the function name (always the first)
-        for c, f in closures:
-            print(f"closure for {fn.__name__}: {f} = {c.cell_contents}")
-    else:
-        print(f"closure for {fn.__name__}: empty")
+from utils import *
 
 def outer():
     x = [50]     # x is mutable and will be part of the closure
     def inner():
         displayClosures(inner)
-#        print(f"closure on outer, x = {inner.__closure__[1].cell_contents}")
         x[0] += 1  # x refers to outer 'x' because its mutable => closure
         displayClosures(inner)
-#        print(f"closure on outer, x = {inner.__closure__[1].cell_contents}")
     return inner
 
 f = outer()
