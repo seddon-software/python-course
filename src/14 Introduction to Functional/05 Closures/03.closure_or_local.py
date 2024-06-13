@@ -19,28 +19,27 @@ local symbol table of f() by the locals() built in.
 import os
 os.system("clear")
 
-def closures(fn):
-    for c in fn.__closure__:
-        print(f"closure for {fn.__name__}: {c} {c.cell_contents}")
+from utils import *     # for displayClosures
+
 
 def main():
-    x1 = ["x1"]               # mutable
-    x2 = ["x2"]               # mutable
-    y1 = "y1"                 # immutable
-    y2 = "y2"                 # immutable
-    y3 = "y3"                 # immutable
+    x1 = ["mx1"]               # mutable
+    x2 = ["mx2"]               # mutable
+    y1 = "my1"                 # immutable
+    y2 = "my2"                 # immutable
+    y3 = "my3"                 # immutable
     print(f"main symbol table: {list(locals().keys())}")
 
     def f():
         # note y1 and y2 are locals, not closures
         # y3 is used as an r-value and is part of the closure
-        x1[0] = "x1"
-        x2[0] = "x2"
-        y1 = "y1"
         print(f"f symbol table: {list(locals().keys())}")
+        displayClosures(f)
+        x1[0] = "fx1"
+        x2[0] = "fx2"
+        y1 = "fy1"
         y2 = y3
-        closures(f)
-        pass
+        displayClosures(f)
     f()
 
 main()

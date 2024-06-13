@@ -21,7 +21,7 @@ they are called, the closure refers to the immutable object 3.  Hence the print 
 import os
 os.system("clear")
 
-from utils import *
+from utils import *     # for displayClosures
 
 ############################################################
 # Closures are over variable names, not values

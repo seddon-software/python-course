@@ -13,9 +13,7 @@ In this example, the closure has 2 items (x and y).  Note that only mutable item
 included in this closure (so a is not part of the closure).
 '''
 
-def displayClosures(fn):
-    for c in fn.__closure__:
-        print(c)
+from utils import *     # for displayClosures
 
 def f():
     a = [100]; print(f"a:{id(a):x}")

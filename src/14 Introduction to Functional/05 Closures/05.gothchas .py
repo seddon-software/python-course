@@ -16,12 +16,7 @@ Now the code behaves as expected and prints 0, 1, 2, 3.
 import os
 os.system("clear")
 
-def displayClosures(fn):
-    try:
-        for cell in fn.__closure__:
-            print(f"{fn.__name__}:{cell}")
-    except:
-        print(f"{fn.__name__}:closure is empty")
+from utils import *     # for displayClosures
 
 ############################################################
 # 
@@ -29,8 +24,9 @@ def main():
     funcs = []
     for i in range(4):
         def f(i=i):             # this creates a local variable i (initialised with the current loop count)
+                                # note: default values like "i" are not added to the closure cell because they can't be used again)
             print(locals())
-            print(i)    # this i refers to a local and not to a closure
+            print(i)            # this i refers to a local and not to a closure
         displayClosures(f)
         funcs.append(f)
 
