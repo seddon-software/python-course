@@ -1,0 +1,7 @@
+def displayClosures(fn):
+    if fn.__closure__:
+        for c, f in zip(fn.__closure__, fn.__code__.co_freevars):
+            print(f"closure for {fn.__name__}: {f} = {c.cell_contents}")
+    else:
+        print(f"closure for {fn.__name__}: empty")
+

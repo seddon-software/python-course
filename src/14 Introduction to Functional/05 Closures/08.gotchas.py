@@ -27,9 +27,10 @@ os.system("clear")
 ############################################################
 # Part 1 - no closure (immutable l-value)
 def outer():
-    x = 50      # local variable, lifetime ends at end of function
+    x = 50      # immutable local variable, lifetime ends at end of function
     def inner():
         try:
+                    # x appears on LHS of assignment, hence ...
             x += 1  # x refers to local x, not a closure on outer.x so this raises an exception
         except Exception as e:
             print(e)
@@ -47,12 +48,21 @@ print()
 ############################################################
 # Part 2 - workaround for the above problem
 
+def displayClosures(fn):
+    if fn.__closure__:
+        for c, f in zip(fn.__closure__, fn.__code__.co_freevars):
+            print(f"closure for {fn.__name__}: {f} = {c.cell_contents}")
+    else:
+        print(f"closure for {fn.__name__}: empty")
+
 def outer():
     x = [50]     # x is mutable and will be part of the closure
     def inner():
-        print(f"closure on outer, x = {inner.__closure__[1].cell_contents}")
+        displayClosures(inner)
+#        print(f"closure on outer, x = {inner.__closure__[1].cell_contents}")
         x[0] += 1  # x refers to outer 'x' because its mutable => closure
-        print(f"closure on outer, x = {inner.__closure__[1].cell_contents}")
+        displayClosures(inner)
+#        print(f"closure on outer, x = {inner.__closure__[1].cell_contents}")
     return inner
 
 f = outer()
