@@ -14,10 +14,9 @@ instead of
 ############################################################
 # 1) run the program
 ############################################################
-from typing import Union
 
-number = Union[int,float]           # use number = int|float from Python 3.10 onwards
-
+#number = Union[int,float]       # Python < 3.10 
+number = int|float              # Python >= 3.10
 def average(x:number, y:number, z:number) -> float:
     return (x + y + z)/3
 

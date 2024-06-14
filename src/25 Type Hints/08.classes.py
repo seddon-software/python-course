@@ -4,10 +4,11 @@ Classes
 Here is a valid program with a user defined class.  The main point of interest is the Point constructor:
             def __init__(self, x0:int, y0:int) -> None:
 
-You need to specify the return type of "__init__()" as None or the static analysis will report errors.
+1. You need to specify the return type of "__init__()" as None or the static analysis will report errors.  
+2. Do not anotate "self"
 
-Note too, that @staticmethod is not required for static methods in Python3.  However, mypy reports an error
-if you don't use @staticmethod.
+Note too, that although @staticmethod is not required for static methods in Python3, mypy reports an error
+if is missing.
 '''
 
 ############################################################
@@ -26,6 +27,9 @@ class Point:
     def getCount()->int:
         return Point.count
 
+    def moveBy(self, dx:int, dy:int) -> None:
+        self.x += dx
+        self.y += dy
 
 p1 = Point(5, 9)
 p2 = Point(4, 8)

@@ -15,7 +15,7 @@ This time we have a valid program.
 ############################################################
 from typing import Optional
 
-def orderInts(a:int, b:int, order:Optional[str]="ascending", **kwargs):
+def orderInts(a:int, b:int, order:str|None="ascending", **kwargs):
     lowest = a if a < b else b
     highest = a if a > b else b
     if not order or order=="ascending":
@@ -27,6 +27,7 @@ orderInts(6, 7, None)
 orderInts(6, 7, "ascending")
 orderInts(6, 7, "descending")
 orderInts(6, 7)           # omit optional parameter
+print()
 
 ############################################################
 # 2) perform static analysis with mypy
