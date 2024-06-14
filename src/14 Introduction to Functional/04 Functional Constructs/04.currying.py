@@ -4,6 +4,9 @@ Currying
 
 Currying is the transformation of a function with multiple arguments into a sequence of single-argument functions.
 That means converting a function like this f(a, b, c, ...) into a function like this f(a)(b)(c)... 
+
+Currying divides your function into multiple smaller functions that can handle one responsibility each. This makes your functions 
+pure and less prone to errors and side effects.
 '''
 
 # conventional function that takes 5 args
@@ -12,7 +15,7 @@ def func(a, b, c, d, e):
 
 print(func(10, 20, 30, 40, 50))
 
-# curried version that takes 1 arg
+# curried version where functions take 1 arg
 def f(a):
     def g(b):
         def h(c):

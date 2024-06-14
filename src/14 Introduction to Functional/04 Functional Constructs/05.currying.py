@@ -1,3 +1,7 @@
+# The function partial of the module functools of Python allows you to create partially applied functions. A partially applied function is a new function that is derived from an existing function by fixing a certain number of arguments in advance. The result is a function that can be called with the remaining arguments. We can use it for the commposition of functions.
+
+
+
 # Demonstrate Currying of composition of function
 
 def chain(b, c, d):
