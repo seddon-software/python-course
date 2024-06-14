@@ -1,9 +1,7 @@
 '''
-# The function partial of the module functools of Python allows you to create partially applied functions. A partially applied function is a new function that is derived from an existing function by fixing a certain number of arguments in advance. The result is a function that can be called with the remaining arguments. We can use it for the commposition of functions.
-
-
-
-# Demonstrate Currying of composition of function
+In this example we take a complicated function and split it into simpler functions. While not strictly currying, it does show the use case for decomposing 
+a function that has several responsibilities into several smaller functions that have a single responsibilty (DRY principle - don't repeat yourself).  One 
+could argue this leads to simpler coding and greater flexibility as the individual functions can be combined in multiple ways.
 '''
 
 import datetime
@@ -22,7 +20,7 @@ def getBoldUsDate():
 
 print(f"without currying: {getBoldUsDate()}")
 
-# currying means we split the above function into 3 simpler functions
+# split the above function into 3 simpler functions
 def bold(fn):
     def decorate():
         # surround with bold tags before calling original function
