@@ -1,2 +1,10 @@
-DEBUG:root:This message goes to the log file
-INFO:root:This message was timed at: Jul 29 2022 15:35:23
+INFO     2024-06-14 21:16:35,937                               Group: GROUP-1 IP: 192.1.1.52      User: sheila   An info message
+DEBUG    2024-06-14 21:16:35,937                               Group: GROUP-1 IP: 192.1.1.52      User: sheila   A debug message
+WARNING  2024-06-14 21:16:35,937                               Group: GROUP-1 IP: 192.1.1.52      User: sheila   A warning message
+INFO     2024-06-14 21:16:35,937                               Group: GROUP-2 IP: 192.2.1.103     User: jon      An info message
+DEBUG    2024-06-14 21:16:35,937                               Group: GROUP-2 IP: 192.2.1.103     User: jon      A debug message
+WARNING  2024-06-14 21:16:35,937                               Group: GROUP-2 IP: 192.2.1.103     User: jon      A warning message
+INFO     2024-06-14 21:16:35,937                               Group: GROUP-1 IP: 192.1.1.63      User: tom      **** changed extra info ****
+INFO     2024-06-14 21:16:35,937                               Group: GROUP-2 IP: 192.2.1.154     User: zoe      **** changed extra info ****
+WARNING  2024-06-14 21:16:35,937                               Group: GROUP-1 IP: 192.1.1.63      User: tom      A warning message
+CRITICAL 2024-06-14 21:16:35,937                               Group: GROUP-2 IP: 192.2.1.154     User: zoe      A critical message

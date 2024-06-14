@@ -2,7 +2,7 @@
 Using Adaptors
 ==============
 
-Adaptors are used to add extra information to your logfiles.  In this example we define two adapter that
+Adaptors are used to add extra information to your logfiles.  In this example we define two adapters that
 provide additional logging information:
             Group
             IP
@@ -17,17 +17,18 @@ import datetime
 import time
 import subprocess
 
-# clear log file
-LOGFILE = 'logs/example2.log'
-subprocess.call(f"rm {LOGFILE}", shell=True)
+LOG_FILENAME = 'logs/example.log'
+
+# delete log file
+subprocess.call(f"rm {LOG_FILENAME}", shell=True)
 
 # setup logging with a format defined
-logging.basicConfig(filename=LOGFILE,
+logging.basicConfig(filename=LOG_FILENAME,
                     level=logging.DEBUG,
                     format='''%(levelname)-8s %(asctime)-15s \
                               Group: %(name)s IP: %(ip)-15s User: %(user)-8s %(message)s''')
 
-# define values for extra fields
+# define dicts for extra fields
 extraInfo1 = {"ip": '192.1.1.52', "user": 'sheila'}
 extraInfo2 = {"ip": '192.2.1.103', "user": 'jon'}
 
@@ -50,10 +51,10 @@ extraInfo2["user"] = 'zoe'
 extraInfo2["ip"] = '192.2.1.154'
 
 # and log some more messages
-adapter1.info('changed extra info')
-adapter2.info('changed extra info')
+adapter1.info('**** changed extra info ****')
+adapter2.info('**** changed extra info ****')
 adapter1.warning('A warning message')
 adapter2.critical('A critical message')
 
 # inspect log file
-subprocess.call(f"cat {LOGFILE}", shell=True)
+subprocess.call(f"cat {LOG_FILENAME}", shell=True)

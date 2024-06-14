@@ -10,24 +10,23 @@ import datetime
 import time
 import subprocess
 
-# clear log file
-subprocess.call("rm logs/example.log", shell=True)
 
+LOG_FILENAME = 'logs/example.log'
+
+# delete log file
+subprocess.call(f"rm {LOG_FILENAME}", shell=True)
+
+# get current time (formatted)
 t = time.mktime(time.localtime())
 t = time.strftime("%b %d %Y %H:%M:%S", time.gmtime(t))
-
-# set the root logger
-LOG_FILENAME = 'logs/example.log'
 
 # set debug level
 logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
 
 # log some messages
-logging.debug('This message goes to the log file')
+logging.debug('This debug message goes to the log file')
 logging.info(f'This message was timed at: {t}')   # timestamp included in message
 
 # inspect log file
 import os
-os.system("cat logs/example.log")
-
-subprocess.call("cat logs/example.log", shell=True)
+subprocess.call(f"cat {LOG_FILENAME}", shell=True)
