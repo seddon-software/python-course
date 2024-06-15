@@ -5,8 +5,8 @@ This example is intended to be used in the debugger.  Note we are using interact
 Put a breakpoint on the line:
             plotHeights(y)
 
-Then as you step through this example you will notice the product of the  x and y coordinates are plotted for
-a grid of points on the z=0 plane.  
+Then as you step through this example (by running to breakpoint) you will notice the product of the  x and y 
+coordinates are plotted for a grid of points on the z=0 plane.  
         ax.plot([x,x],[y,y],[0,x*y])
 
 The height (z=x*y) is illustrated row by row.  As the rows unfold, you can see we are forming a surface plot.

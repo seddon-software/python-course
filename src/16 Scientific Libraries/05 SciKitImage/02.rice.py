@@ -4,8 +4,9 @@ are the same for each pixel (0 to 255), with 0 as black through to 255 as white.
 
 Note the function:
             def enhanceImage(image, threshold):
-                image[ image[:,:] <= threshold ] = 0
-                image[ image[:,:]  > threshold ] = 255
+                # apply filter to every pixel of image
+                image[ image <= threshold ] = 0
+                image[ image  > threshold ] = 255
 
 which uses indexing to convert greylevels less than or equal to a given threshold to black (=0) and
 all other pixels to white (=255).
@@ -24,8 +25,9 @@ def load_image( infilename ) :
     return data
 
 def enhanceImage(image, threshold):
-    image[ image[:,:] <= threshold ] = 0
-    image[ image[:,:]  > threshold ] = 255
+    # apply filter to every pixel of image
+    image[ image <= threshold ] = 0
+    image[ image  > threshold ] = 255
     
 rice = load_image("images/rice.jpg")
 print("Shape of raw image: {}".format(rice.shape))

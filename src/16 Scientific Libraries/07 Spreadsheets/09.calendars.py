@@ -1,9 +1,13 @@
+'''
+In this example we create a calandar and copy it to a spreadsheet.  Note the use of a coroutine to step through cells a row at a time
+'''
+
 import calendar, os
 import os
 import openpyxl
 
 # define year
-YEAR = 2024
+YEAR = 2025
 
 def coroutine(worksheet, range):
     ''' 
@@ -74,7 +78,6 @@ def main():
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = f"{YEAR}"
-
 
     # create iterator for range of cells
     iterator = coroutine(ws, "B1:H120")      # enough cells for a complete year
