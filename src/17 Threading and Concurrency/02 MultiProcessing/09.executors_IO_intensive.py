@@ -12,23 +12,22 @@ import requests
 
 
 def work():
-    requests.get("https://www.nytimes.com/puzzles/sudoku/easy")
-    requests.get("https://www.nytimes.com/puzzles/sudoku/medium")
-    requests.get("https://www.nytimes.com/puzzles/sudoku/hard")
+    requests.get("https://docs.python.org/3/")
+    requests.get("https://numpy.org/doc/")
+    requests.get("https://matplotlib.org/stable/index.html")
 
-def compute(executor, name):
+def compute(executor):
     futures = [executor.submit(work) for job in range(JOBS)]
-    results = [futures[job].result() for job in range(JOBS)]
 
 def threadPools():
-    with ThreadPoolExecutor(max_workers=50) as executor: compute(executor, "threads")
+    with ThreadPoolExecutor(max_workers=6) as executor: compute(executor)
 
 def processPools():
-    with ProcessPoolExecutor(max_workers=50) as executor: compute(executor, "processes")
+    with ProcessPoolExecutor(max_workers=6) as executor: compute(executor)
 
 if __name__ == '__main__': 
     JOBS = 25
-    REPEATS = 5
+    REPEATS = 10
 
     secs = timeit.timeit(setup="from __main__ import threadPools", stmt="threadPools()", number=REPEATS)
     print(f"threads took {secs:6.2f} secs")

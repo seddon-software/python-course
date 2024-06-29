@@ -2,7 +2,6 @@
 Pools
 =====
 The Pool/ThreadPool class allows you to easily create a pool of processes/threads to share the load on a complex computation. 
-Unfortunately, the overhead of the pool means it might be quicker to use a single process/thread.
 
 Not: The map function has 2 parameters:
     parameter-1:    the transform to apply
@@ -11,7 +10,7 @@ Not: The map function has 2 parameters:
 Thus all items in the iterable get transformed.
 '''
 
-POOL_SIZE = 5
+POOL_SIZE = 12
 NUMBER = 1
 
 from multiprocessing import Pool
@@ -20,7 +19,8 @@ from multiprocessing.pool import ThreadPool
 import os, timeit
 
 def SingleProcess():
-    results = map(f, range(N))
+    # results = map(f, range(N))
+    results = map(work, range(2,N))
     return sum(results)
 
 def PoolOfThreads():
@@ -28,7 +28,7 @@ def PoolOfThreads():
     # to perform the same operation, but split across a pool of POOL_SIZE threads
     # this function aggregates the results from each child process
     with ThreadPool(POOL_SIZE) as pool:
-        results = pool.map(f, range(N))
+        results = pool.map(work, range(2,N))
     return sum(results)
 
 def PoolOfProcesses():
@@ -36,11 +36,12 @@ def PoolOfProcesses():
     # to perform the same operation, but split across a pool of POOL_SIZE processes
     # this function aggregates the results from each child process
     with Pool(POOL_SIZE) as pool:
-        results = pool.map(f, range(N))
+        results = pool.map(work, range(2,N))
     return sum(results)
 
-def f(x):
-    return x**2
+def work(n):
+    # some complicated calculation
+    return (n/10)**(1/n**2) + (n/7)**(3/n**3)
 
 N = 20000000
 
