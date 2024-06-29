@@ -1,0 +1,11 @@
+#! /bin/bash
+counter=1
+
+repeat=true
+while $repeat
+do
+  ((counter++))
+  python 05b.py
+  [[ $counter -le 10 ]] && repeat=true || repeat=false
+done
+

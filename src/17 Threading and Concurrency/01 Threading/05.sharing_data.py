@@ -1,49 +1,59 @@
 '''
 Sharing Data
 ============
-As discussed previously, code using += is not thread safe.  As an illustration of this we define a counter and
-then increment it in 2 separate threads.  When we set:
-            useLocks = False
+As discussed previously, code using += is now thread safe.  However, if we look at a more complicated example we can create
+some code that is not thread safe.  
 
-we get random behaviour (because the code is not thread safe).  Correct behaviour is observed if we set:
-            useLocks = True
+In this rather artificial example, we copy a global variable into a local variable, increment the local and finally store the 
+result back in the global; the code ends up not thread safe.
 
-Note the use of the "sleep" call to maximise the chance of being suspended in the critical section of 
-code.
+Note the use of a call a function (that doesn't do anything) to maximise the chance of being suspended in the critical section of code.
+If we remove this call (DELAY=False) then he code is unlikely to go wrong.
 '''
 
-from threading import Thread, Lock
-from time import sleep
 import threading
 
+N = 100*1000
+NUMBER_OF_THREADS = 10
+REPEATS = 20
+DELAY = True
+
+# this global counter is not protected by a lock
 counter = 0
-useLocks = False
 
-def increase(by, lock):
+def delay():
+    pass
+
+def increaseCounters(lock):
     global counter
-    for n in range(10):
-        if useLocks: lock.acquire()
-
-        local_counter = counter
-        local_counter += by
-        sleep(0.17)
-        counter = local_counter
-
-        if useLocks: lock.release()
-
-lock = Lock()
-
-# create threads
-t1 = Thread(target=increase, args=(1, lock))
-t2 = Thread(target=increase, args=(2, lock))
-
-# start the threads
-t1.start()
-t2.start()
+    for _ in range(N):
+        n = counter
+        if DELAY: delay()
+        n += 1
+        if DELAY: delay()
+        counter = n
 
 
-# wait for the threads to complete
-t1.join()
-t2.join()
+def create_and_start_threads(threads, lock):
+    for _ in range(NUMBER_OF_THREADS):
+        thread = threading.Thread(target=increaseCounters, args=(lock,))
+        threads.append(thread)
+        thread.start()
 
-print(counter)
+def repeat():
+    global counter
+    counter = 0
+    threads = []
+    lock = threading.Lock()
+    create_and_start_threads(threads, lock)
+    for thread in threads:
+        thread.join()
+
+    print(f"actual value of counter:  {counter:8}")
+
+print(f"expected value of counter:{N * NUMBER_OF_THREADS:8}")
+for _ in range(REPEATS): repeat()
+
+# try without calling delay()
+DELAY = False
+for _ in range(REPEATS): repeat()
