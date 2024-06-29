@@ -5,10 +5,9 @@ As discussed previously, code using += is now thread safe.  However, if we look 
 some code that is not thread safe.  
 
 In this rather artificial example, we copy a global variable into a local variable, increment the local and finally store the 
-result back in the global; the code ends up not thread safe.
+n between these operations we call a function that doesn't do anything, but this makes the code not thread safe.
 
-Note the use of a call a function (that doesn't do anything) to maximise the chance of being suspended in the critical section of code.
-If we remove this call (DELAY=False) then he code is unlikely to go wrong.
+If we remove the call to the function (DELAY=False) then the code never goes wrong.
 '''
 
 import threading
