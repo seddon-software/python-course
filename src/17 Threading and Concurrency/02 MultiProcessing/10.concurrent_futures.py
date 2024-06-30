@@ -1,10 +1,25 @@
+'''
+Concurrent Futures
+==================
+
+The concurrent.futures module provides a high-level interface for asynchronously executing functions. The ThreadPoolExecutor 
+can work synchronously or asynchronously.
+
+In this example we examine both synchronous and asynchronous modes.  In both examples we use "future" objects that handle all 
+interactions between threads.  In the asynchronous mode we wait until the "future3" has finished (assumong this future takes the
+longest to complete) before querying the results and while we are waiting we print dots to emphasize the asynchrous nature of the 
+futures.
+
+In the second example we simply block until all "future" objects obtain their results.
+'''
+
 from concurrent.futures import ThreadPoolExecutor
 from time import sleep
 import sys
  
 
 def compute1(pool):
-    # not blocking, printing dots while calculations in progress
+    # non blocking, printing dots while calculations in progress
 
     future1 = pool.submit(sum_of_squares, 1, 100)
     future2 = pool.submit(sum_of_squares, 101, 10000)

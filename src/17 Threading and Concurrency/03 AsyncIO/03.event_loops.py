@@ -7,6 +7,12 @@ Coroutines wrapped as tasks will be executed concurrently inside the event loop.
 
 Normally we work implicitly with an event loops (see later examples), but here we work with the event loop
 explicitly to illustate what is happening more clearly.
+
+Note that all new style coroutine functions must be adorned with the "async" keyword and must be awaited by
+their calling coroutine.  To yield control a coroutine has to call:
+            asyncio.sleep()
+
+Even sleeping for 0 seconds is sufficient to yield control.
 '''
 
 import asyncio

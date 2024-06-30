@@ -1,6 +1,6 @@
 '''
-We can run multiple tasks, each defined with a future object.  In this example we run coroutines as tasks
-that each calculate a different Fibonacci number.
+We can run multiple async tasks, each defined with a future object.  In this example we run a coroutine that calls a recursive
+"fib" routine.  Each "fib" populates its own future with its Fibonacci number.
 '''
 
 import asyncio
@@ -16,9 +16,16 @@ async def myCoroutine(future, x):
 
 
 async def main(n):
+    # define a set of futures
     futures = [asyncio.Future() for n in range(n)]
+
+    # create a task corresponding to each future
     tasks = [asyncio.create_task(myCoroutine(futures[i], i)) for i in range(n)]
+
+    # await all the tasks using a comprehension
     [await task for task in tasks]
+
+    # now print the results from each future
     for future in futures:
         result = future.result()
         print(f"fib({result['index']}) = {result['fib']}")

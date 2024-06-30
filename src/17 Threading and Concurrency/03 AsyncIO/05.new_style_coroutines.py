@@ -1,7 +1,4 @@
 '''
-Here we work with an implicit event loop.  The asyncio event loop is created with
-            asyncio.run(main())
-
 Asyncio is designed to solve I/O network performance, not CPU bound operations (which is where multiprocessing 
 should be used).  Asyncio is designed around the concept of ‘cooperative multitasking’, so you have to yield 
 control to other tasks to allow them to run.
@@ -15,9 +12,8 @@ the tasks without the need for multi-threading or multi-tasking.
 Notice the calculations will be completed with the simpler calculations finishing first (because all the 
 calculations are performed in parallel irrespective of the starting order.
 
-Asyncio is intended to work in a single thread and it uses coroutines (i.e. generators) to switch between tasks.  
-It utilises an event loop in much the same way as a Graphical User Interface works.  Thus asyncio is an alternative
-to using multiple threads and because it is single threaded you don't tend to need locks.
+Asyncio is intended to work in a single thread; it utilises an event loop in much the same way as a Graphical User Interface 
+works.  Thus asyncio is an alternative to using multiple threads.
 '''
 
 import asyncio

@@ -1,11 +1,11 @@
 '''
 Using Multiple Cores
 ====================
-The Pool module allows you to spread computation across multiple cores.
+Normally Python executes on a single core; the Pool module allows you to spread computation across multiple cores.  This program runs indefinitely and intentionally uses 
+multiple cores and a lot of CPU.
 
 Notes: 
-    1) this program runs indefinitely and uses a lot of CPU.   
-    2) use htop to monitor CPUs utilisation.
+    use htop to monitor CPUs utilisation.
 '''
 
 from multiprocessing import Pool, cpu_count

@@ -1,6 +1,6 @@
 '''
-As an alternative you can run multiple tasks with implicit futures.  In this case use use "asyncio.gather"
-to obtain results; asyncio.gather automatically waits for all tasks to complete
+As an alternative to explicit futures, you can run multiple tasks with implicit futures.  In this case use use "asyncio.gather"
+to obtain results; asyncio.gather automatically waits for all tasks to complete.
 '''
 
 import asyncio

@@ -1,13 +1,12 @@
 '''
-Note that all new style coroutine functions must be adorned with the "async" keyword and must be awaited by
-their calling coroutine.  To yield control a coroutine has to call:
-            asyncio.sleep()
-
-Even sleeping for 0 seconds is sufficient to yield control.
-
 Coroutines run serially by default; they need to be wrapped as a task before they can be run in parallel.  
-Needless to say, the default behaviour is unesirable; we want to run the coroutines concurrently.
+Needless to say, this default behaviour is unesirable; we want to run the coroutines concurrently.
 
+Here we work with an implicit event loop.  The asyncio event loop is created with
+            asyncio.run(main())
+or
+            asyncio.run(main2())
+            
 In this example we run three separate coroutines, called from the "main()" coroutine, but they are not made 
 into tasks.  When you run this example you will see that the coroutines run serially and not concurrently.
 
@@ -17,7 +16,7 @@ Compare this with "main2()" where we wrap the same coroutines as tasks and this 
 import asyncio
 import random
 
-N = 10
+N = 20
 def delay():
     return random.random()*0.5
 
