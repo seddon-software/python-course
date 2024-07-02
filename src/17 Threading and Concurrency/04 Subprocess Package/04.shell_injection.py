@@ -5,6 +5,10 @@ Shell injection or command injection occurs when your program accepts unparsed i
 the example below we demonstrate (safetly!) how this works.  The program prompts for a filename, but the 
 malicious user enters a filename followed by a semi colon.  The semi-colon is the command separator on Linux, so
 whatever follows the semi-colon will be executed as in addition command in this example.
+
+The shlex cpmmand protects against this type of attack by surrounding the user input with quotes.  This time the shell 
+looks for a filename that includes the whole user input including the semi colon and almost certainly won't find such a 
+filename and hence the shell generates an error - no damage done!
 '''
 
 import shlex

@@ -1,7 +1,7 @@
 '''
 Popen
 =====
-For more complex tasks you can use "Popen()" instead of "run()".  However, "run()" covers most use cases.  The
+For more complex tasks you can use "Popen()" instead of "run()".  However, "run()" is simpler and covers most use cases.  The
 "popen()" example is shown here for completeness, but note this example could have been written using "run()".  
 '''
 

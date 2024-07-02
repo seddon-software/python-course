@@ -9,6 +9,6 @@ shell injection when the command accepts input, ref:
 import subprocess
 
 
-subprocess.call("ls -l *.py", shell=True)
+subprocess.run("ls -l *.py", shell=True)
 
 
