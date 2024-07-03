@@ -1,3 +1,12 @@
+'''
+One of the problems with polymorphism in Python is that an object that is not in the inheritance hierarchy (Horse) can
+be passed to a polymorhic method provided it implements the same set of polymorphic methods even though it doesn't make
+sense.  This is called duck typing:
+            If it walks like a duck, quacks like a duck then it is a duck
+
+Although undesirable, it is difficult to prevent objects behaving in this way (but see the next example).
+'''
+
 class Person:
     def Eat(self): pass
     def Drink(self): pass

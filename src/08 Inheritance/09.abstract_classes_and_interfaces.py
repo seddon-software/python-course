@@ -1,3 +1,30 @@
+'''
+We can take a more formal approach to abstract classes using the ABC (Abstract Base Class) module.  This module provides the 
+infrastructure for defining abstract base classes (ABCs) in Python, as outlined in PEP 3119.
+
+We use decorators to define abstract methods that must be defined in the concrete derived classes.  Note that an interface class 
+is made up entirely of abstract methods.  It is a common convention to prepend class names with "I" to indicate an interface class.
+Note how the Shape class is used to define a default implementation for the draw method, but because it doesn't define the 
+other methods specified in the interface IShape (hide() and show()), the Shape class is itself abstract and can't be instantiated 
+(see the end of the example).
+
+             IShape
+                ^
+                |
+                |
+              Shape
+                ^
+               /|\
+              / | \
+             /  | \
+            /   |  \
+           /    |   \
+          /     |    \
+         /      |     \
+        /       |      \
+  Triangle Rectangle Ellipse      
+'''
+
 from abc import ABC, abstractmethod
 
 # define an interface

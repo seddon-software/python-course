@@ -1,15 +1,12 @@
-############################################################
-# 
-# Subclassing built in types - e.g. dict
-# 
-############################################################
+'''
+In the final example in this chapter we take a look at subclassing built in types (e.g. dict).
+Here we define a dictionary type that doesn't allow duplicate values by overloading the "__setitem__" method.
+'''
 
-# define a dictionary type that doesn't allow duplicate values
-
-class DistinctError(Exception):
+class DistinctError(Exception):     # define our own exception class
     pass
 
-class DictionaryWithUniqueValues(dict):
+class DictionaryWithUniqueValues(dict):     # our class derives from dict
     def __setitem__(self, key, value):
         try:
             values = list(self.values())  # get existing values
@@ -17,7 +14,7 @@ class DictionaryWithUniqueValues(dict):
             existing_key = list(self.keys())[value_index]
             if existing_key != key:
                 message = f"This value already exists for '{existing_key}'"
-                raise DistinctError(message)
+                raise DistinctError(message)    # this exception is not caught in this method
         except ValueError:
             pass    # eat exception because value is new
         # update dict in super class with new value
@@ -30,7 +27,7 @@ d['key3'] = 'value3'
 d['key4'] = 'value4'
 d['key5'] = 'value5'
 try:
-    d['other_key'] = 'value4'   # this will cause problems
-except Exception as e:
+    d['other_key'] = 'value4'   # this will cause problems and raise a DistinctError object
+except DistinctError as e:
     print(e)
 
