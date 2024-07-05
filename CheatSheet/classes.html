@@ -1,0 +1,64 @@
+<h2 id="1">1</h2>    
+The full set of comprehensions is:
+<pre>
+    list comprehension
+    dict comprehension
+    set comprehension
+    generator comprehension
+</pre>
+with the following syntax
+<pre>
+    list        [ fn(item) for item in sequence ]
+    dict        { key:value for item in sequence }
+    set         { fn(item) for item in sequence }
+    generator   ( fn(item) for item in sequence )
+</pre>
+<u>Example:</u>
+<pre>def cube(x):
+    return x * x * x
+
+# set up a sequence
+sequence = list(range(1, 20))
+
+# apply a comprehension to entire sequence
+roots = [sqrt(x) for x in sequence if > 10]
+</pre>
+
+<h2 id="2">2</h2>
+Python iterators are defined as classes that support the following methods: <br>
+<pre>__iter__() and __next__()</pre>
+<br>
+<u>Example:</u>
+<pre>
+class Fibonacci:
+    def __init__(self):
+        self.x,self.y = 0,1
+        
+    def __iter__(self):
+        return self  # the object on which to call next() - usually ourself
+
+    def __next__(self):
+        if self.x > 100:
+            raise StopIteration     # indicate end of iteration
+        
+        self.x, self.y = self.y, self.x + self.y
+        return self.x
+
+i = Fibonacci()     # create the iterator
+i = i.__iter__()    # iterate on self
+print(next(i))      # call __next__()
+print(next(i))      # call __next__()
+print(next(i))      # call __next__()
+</pre>
+
+<h2 id="3">3</h2>
+Generators are a special type of iterator.  A generator is defined as any function that uses the "yield" instruction.<br>
+<u>Example:</u>
+<pre>
+def powers():
+    x = 1
+    while(x < 1000):
+        x = x * 2
+        yield x
+        pass        # just to show execution resumes after the yield
+    return

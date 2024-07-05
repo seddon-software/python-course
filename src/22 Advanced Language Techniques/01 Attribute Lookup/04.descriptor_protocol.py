@@ -67,6 +67,8 @@ p2 = Point(16, 26)
 p2.x = 30
 p2.moveBy(1, 1)
 
+o = object()
+pass
 
 
 
