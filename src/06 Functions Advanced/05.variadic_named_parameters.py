@@ -3,9 +3,8 @@ Variadic Named Parameters
 =========================
 Variadic named parameters work in a similar way to their positional counterparts.
 
-On calling a variadic function, the ** unwraps a dict parameter into individual key-value pairs of parameters.
-When the function is called that defines a **parameter, individual key-value pairs of parameters get wrapped into
-a dict.
+In a variadic function, the ** wraps a variable number of key-value pairs into a dict.
+When the passing a dict to a variadic function ** unpacks the dict before the call is made.
 
 Positional parameters are often called args:
             *args       variable number of arguments

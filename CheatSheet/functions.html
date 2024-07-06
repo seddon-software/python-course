@@ -1,5 +1,24 @@
-<h2 id="functions">Functions - TODO</h2>    
-TODO
+<style>
+    pre {
+      background-color: #eeeeee;
+    }
+</style>
+
+<h2 id="functions">Functions</h2>    
+Functions are introduced with the "def" keyword; parameters are placed in brackets. Functions can return values using a "return" statement.<br> 
+Despite appearances, functions don't really have a name.  In the example below
+"fib" is a pointer to an anonymous function.  Think of the anonymous function as a set of bytecode instructions.
+<br> <br>
+<u>Example:</u>
+<pre>
+def fib(n):  # fib is a pointer to the bytecode
+    a, b = 0, 1
+    while b < n:
+        a, b = b, a+b
+    return a
+
+print(fib(1000))    # print fibonacci number just under 1000
+</pre>
 
 <h2 id="lambdas">Lambdas</h2>
 Lambda functions are an alternative to using def's to define a function.  Lambdas are expressions (not statements)
@@ -30,18 +49,44 @@ which is equivalent to a def with no body:<br>
         def <name>(<input-parameters>):
             return <return-value>
 </pre>
-<br>
 <u>Example:</u>
 <pre>
 # lambda's are not allowed to have a body
 # this is equivalent to the function above (minus the body)
 fn = lambda a, b, c, d: a + b + c + d
 
-# call the lambda
+# call the lambda'''
 result = fn(1, 10, 100, 1000)
 print(result)
 
 # equivalent call
 print((lambda a, b, c, d: a + b + c + d)(1, 10, 100, 1000))
 </pre>
+
+<h2 id="variadic_named_parameters">Variadic Named Parameters</h2>
+Variadic named parameters work in a similar way to their positional counterparts.<br>
+
+In a variadic function, the ** wraps a variable number of key-value pairs into a dict.<br>
+When the passing a dict to a variadic function ** unpacks the dict before the call is made.<br>
+
+Positional parameters are often called args:<br>
+<pre>
+            *args       variable number of arguments
+</pre>
+and key-value pairs are often called kwargs:<br>
+<pre>
+            *kwargs     variable number of keyword arguments
+</pre>
+<br>
+<pre>
+def volume(*args, **kwargs):    # **kwargs wraps as a dict
+    print(args, type(args))
+    print(type(kwargs), kwargs)
+    return (kwargs['height']+2)*(kwargs['width']+10)*kwargs['depth']
+
+myDict = { 'height':12, 'depth':20, 'width':30, 'junk':88 }
+print(volume(77, 88, 99, **myDict))   # ** unpacks the dict
+print(volume(width=30, height=12, depth=20)) 
+</pre>
 <a href="index.html#home">home</a>
+
