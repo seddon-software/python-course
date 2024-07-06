@@ -1,64 +1,47 @@
 <h2 id="functions">Functions - TODO</h2>    
-The full set of comprehensions is:
-<pre>
-    list comprehension
-    dict comprehension
-    set comprehension
-    generator comprehension
-</pre>
-with the following syntax
-<pre>
-    list        [ fn(item) for item in sequence ]
-    dict        { key:value for item in sequence }
-    set         { fn(item) for item in sequence }
-    generator   ( fn(item) for item in sequence )
-</pre>
-<u>Example:</u>
-<pre>def cube(x):
-    return x * x * x
-
-# set up a sequence
-sequence = list(range(1, 20))
-
-# apply a comprehension to entire sequence
-roots = [sqrt(x) for x in sequence if > 10]
-</pre>
+TODO
 
 <h2 id="lambdas">Lambdas</h2>
-Python iterators are defined as classes that support the following methods: <br>
-<pre>__iter__() and __next__()</pre>
+Lambda functions are an alternative to using def's to define a function.  Lambdas are expressions (not statements)
+and as such can be used wherever an expression is allowed.  Lambda functions are often used as parameters to other
+functions.<br>
+
+A big difference between def's and lambda's is that the lambda is not permitted to have a function body.  This
+restriction was introduced to keep lambdas simple (unlike languages like C++ where lambdas can have complex 
+bodies).<br>
+
+Lambdas define an anonymous function.  In the line<br>
+<pre>
+            f = lambda a, b, c, d: a + b + c + d
+</pre>
+the anonymous function object is assign to the pointer f.  Once this is done, the function can be called in the 
+normal way:<br>
+<pre>
+        f(1, 10, 100, 1000)
+</pre>
+
+Note the syntax of a lambda is<br>
+<pre>
+        lambda <input-parameters> : <return-value>
+</pre>pre>
+        
+which is equivalent to a def with no body:<br>
+<pre>
+        def <name>(<input-parameters>):
+            return <return-value>
+</pre>
 <br>
 <u>Example:</u>
 <pre>
-class Fibonacci:
-    def __init__(self):
-        self.x,self.y = 0,1
-        
-    def __iter__(self):
-        return self  # the object on which to call next() - usually ourself
+# lambda's are not allowed to have a body
+# this is equivalent to the function above (minus the body)
+fn = lambda a, b, c, d: a + b + c + d
 
-    def __next__(self):
-        if self.x > 100:
-            raise StopIteration     # indicate end of iteration
-        
-        self.x, self.y = self.y, self.x + self.y
-        return self.x
+# call the lambda
+result = fn(1, 10, 100, 1000)
+print(result)
 
-i = Fibonacci()     # create the iterator
-i = i.__iter__()    # iterate on self
-print(next(i))      # call __next__()
-print(next(i))      # call __next__()
-print(next(i))      # call __next__()
+# equivalent call
+print((lambda a, b, c, d: a + b + c + d)(1, 10, 100, 1000))
 </pre>
-
-<h2 id="generators">Generators</h2>
-Generators are a special type of iterator.  A generator is defined as any function that uses the "yield" instruction.<br>
-<u>Example:</u>
-<pre>
-def powers():
-    x = 1
-    while(x < 1000):
-        x = x * 2
-        yield x
-        pass        # just to show execution resumes after the yield
-    return
+<a href="index.html#home">home</a>

@@ -1,64 +1,44 @@
-<h2 id="1">1</h2>    
-The full set of comprehensions is:
-<pre>
-    list comprehension
-    dict comprehension
-    set comprehension
-    generator comprehension
-</pre>
-with the following syntax
-<pre>
-    list        [ fn(item) for item in sequence ]
-    dict        { key:value for item in sequence }
-    set         { fn(item) for item in sequence }
-    generator   ( fn(item) for item in sequence )
-</pre>
-<u>Example:</u>
-<pre>def cube(x):
-    return x * x * x
-
-# set up a sequence
-sequence = list(range(1, 20))
-
-# apply a comprehension to entire sequence
-roots = [sqrt(x) for x in sequence if > 10]
-</pre>
-
-<h2 id="2">2</h2>
-Python iterators are defined as classes that support the following methods: <br>
-<pre>__iter__() and __next__()</pre>
+<h2 id="classes">Classes</h2>  
+Classes represents a group of objects having similar properties and behaviour.<br>
+Properties are often called attributes and are represented by data.<br>
+Behaviour are usually called methods or operations and are represented by functions.<br> 
 <br>
+Objects are created from the class definition which defines the properties and behaviour for each object.<br>
+The attributes are normally defined in a constructor (initializer) as in:
+<pre>
+            self.x = x0
+</pre>
+Each object's attributes are stored in the object's dictionary<br>.
+Every object in a class shares the same set of methods.  These are stored in the class's dictionary.<br>
+
 <u>Example:</u>
 <pre>
-class Fibonacci:
-    def __init__(self):
-        self.x,self.y = 0,1
+class Point:
+    def __init__(self, name, x0 = 0, y0 = 0):
+        ''' this is the constructor - its called automatically '''
+        self.name = name
+        self.x = x0
+        self.y = y0
+    
+    def moveBy(self, dx, dy):
+        self.x += dx
+        self.y += dy
+    
+    def display(self):
+        print("Point {} is at ({},{})".format(self.name, self.x, self.y))
         
-    def __iter__(self):
-        return self  # the object on which to call next() - usually ourself
+# create objects
+p1 = Point('point-1', 100, 200)
+p2 = Point('point-2', 200, 300)
+p3 = Point('point-3', 300, 500)
 
-    def __next__(self):
-        if self.x > 100:
-            raise StopIteration     # indicate end of iteration
-        
-        self.x, self.y = self.y, self.x + self.y
-        return self.x
-
-i = Fibonacci()     # create the iterator
-i = i.__iter__()    # iterate on self
-print(next(i))      # call __next__()
-print(next(i))      # call __next__()
-print(next(i))      # call __next__()
+# call methods
+p1.moveBy(1, 1)
+p2.moveBy(2, 3)
+p3.moveBy(3, 6)
+p1.display()
+p2.display()
+p3.display()
 </pre>
 
-<h2 id="3">3</h2>
-Generators are a special type of iterator.  A generator is defined as any function that uses the "yield" instruction.<br>
-<u>Example:</u>
-<pre>
-def powers():
-    x = 1
-    while(x < 1000):
-        x = x * 2
-        yield x
-        pass        # just to show execution resumes after the yield
-    return
+<a href="index.html#home">home</a>
