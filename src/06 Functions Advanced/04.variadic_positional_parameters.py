@@ -13,15 +13,9 @@ is equivalent to writing:
 When a function is called, the * works the other way round
             result = average(4, 6, 12, 5, 7, 3)
             def average(*a):     # wraps up inputs into a tuple
-is equivalent to
-            result = average(tuple(4, 6, 12, 5, 7, 3))  # unwraps the list
-            def average(*a):     # wraps up inputs into a tuple
 '''
 
 def average(*a):     # wraps up inputs into a tuple
-    print(a, type(a))
-    # a = list(a)
-    # print(a, type(a))
     result = sum(a)/len(a)
     return result
 

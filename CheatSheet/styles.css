@@ -1,0 +1,13 @@
+body {
+    background-color: #ffeeee;
+}
+.container {
+    column-count: 3;
+}
+.block {
+    background-color: #eedddd;
+    break-inside: avoid;
+}
+pre {
+    background-color: #eedddd;
+}

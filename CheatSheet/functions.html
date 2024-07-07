@@ -1,8 +1,6 @@
-<style>
-    pre {
-      background-color: #eeeeee;
-    }
-</style>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
 
 <h2 id="functions">Functions</h2>    
 Functions are introduced with the "def" keyword; parameters are placed in brackets. Functions can return values using a "return" statement.<br> 
@@ -31,7 +29,7 @@ bodies).<br>
 
 Lambdas define an anonymous function.  In the line<br>
 <pre>
-            f = lambda a, b, c, d: a + b + c + d
+        f = lambda a, b, c, d: a + b + c + d
 </pre>
 the anonymous function object is assign to the pointer f.  Once this is done, the function can be called in the 
 normal way:<br>
@@ -63,21 +61,67 @@ print(result)
 print((lambda a, b, c, d: a + b + c + d)(1, 10, 100, 1000))
 </pre>
 
+<h2 id="variadic_positional_parameters">Variadic Positional Parameters</h2>
+Sometimes you need to design a function that takes a variable number of parameters.  For instance, the 
+"average()" function defined below can find the average of a variable number of parameters.  To allow for
+such functions Python uses the * as follows.<br>
+<br>
+When calling a function the * will unwrap a list or tuple such that<br>
+<pre>
+            result = average(*l)  # unwraps the list
+</pre>
+is equivalent to writing:<br>
+<pre>
+            result = average(4, 6, 12, 5, 7, 3)
+
+</pre>
+When a function is called, the * works the other way round<br>
+<pre>
+            result = average(4, 6, 12, 5, 7, 3)
+            def average(*a):     # wraps up inputs into a tuple
+</pre>
+
+<u>Example:</u>
+<pre>
+
+def average(*a):     # wraps up inputs into a tuple
+    result = sum(a)/len(a)
+    return result
+
+result = average(4, 6, 12, 5, 7, 3)
+print(result)
+
+l = [4, 6, 12, 5, 7, 3]
+result = average(*l)  # unwraps the list
+print(result)
+</pre>
+
 <h2 id="variadic_named_parameters">Variadic Named Parameters</h2>
 Variadic named parameters work in a similar way to their positional counterparts.<br>
 
-In a variadic function, the ** wraps a variable number of key-value pairs into a dict.<br>
-When the passing a dict to a variadic function ** unpacks the dict before the call is made.<br>
-
-Positional parameters are often called args:<br>
+When calling a function the ** will unwrap a dict
+<pre>
+            result = volume(**d)
+</pre>
+is equivalent to writing:
+<pre>
+            result = volume('height':12, 'depth':20, 'width':30})
+</pre>
+When a function is called, the ** works the other way round
+<pre>
+            result = volume('height':12, 'depth':20, 'width':30})
+            def volume(**d):     # wraps up inputs into a dict
+</pre>
+Positional parameters are often called args:
 <pre>
             *args       variable number of arguments
 </pre>
-and key-value pairs are often called kwargs:<br>
+and key-value pairs are often called kwargs:
 <pre>
             *kwargs     variable number of keyword arguments
 </pre>
 <br>
+<u>Example:</u>
 <pre>
 def volume(*args, **kwargs):    # **kwargs wraps as a dict
     print(args, type(args))
