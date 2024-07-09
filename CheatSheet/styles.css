@@ -1,5 +1,5 @@
 body {
-    background-color: #ffeeee;
+    background-color: cadetblue;
 }
 .example {
     background-color: cornsilk;
@@ -8,8 +8,14 @@ body {
     column-count: 3;
 }
 .block {
-    background-color: cornsilk;
+    background-color: peachpuff;
     break-inside: avoid;
+    padding: 5% 2% 2% 5%;
+    margin-bottom: 5%;
+    border-radius: 5%;
+    border-color: black;
+    border-bottom-style: ridge
+    ;
 }
 pre {
     background-color: mintcream;
