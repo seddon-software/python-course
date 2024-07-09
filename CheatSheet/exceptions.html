@@ -2,27 +2,82 @@
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
-<h2 id="1">1</h2>    
-TBD
-<br> <br>
-<u>Example:</u>
+<h2 id="try_blocks">try blocks</h2>    
+Exception handling in Python uses the following keywords:
 <pre>
-TBD
+            try raise except
 </pre>
 
-<h2 id="2">2</h2>    
-TBD
-<br> <br>
-<u>Example:</u>
+You can mark a block of code with a try block and then the idea is that when you or library code detects an error you can raise an exception:
 <pre>
-TBD
+            raise Exception("my error message")
+</pre>
+
+This creates an anonymous object of type Exception.  To interact with this object we need a reference to it:
+<pre>
+                Exception as e
+</pre>
+This in turn defines a pointer "e" that points to the object created above.<br>
+
+Probably the most important thing to realise about exception handling is that once an exception is raised, code
+transfers directly to the exception handler; it is a "GOTO" technology.  All remaining statements in the try block
+are skipped.  Thus only the first problem is detected; there could be other undetected problems in the try block
+in the code that gets skipped.  <br> <br>
+<u>Example:</u>
+<pre class="example">
+try:
+    x = 1000
+    y = 0
+    
+    if x > 150:
+        raise Exception("x is much too big")
+    if x > 50:
+        raise Exception("x is too big")
+
+    print(f"x is {x}")
+    print(f"x/y is {x/y}")  # division by zero error detected by Python runtime
+except Exception as e:
+    print(e)
+</pre>
+
+<h2 id="try_finally">try finally</h2>    
+'''
+It is often the case that you need to take actions in pairs.  Good examples are opening and closing files, locking
+and unlocking a mutex or starting a stopping a timer.  We say this is resource allocation and deallocation.  Bad
+things happen if you allocate a resource and forget to deallocate.
+
+Unfortunately, to err is human and programmers often fall into this trap.  This is particularly true when an
+unexpected exception occurs.  To help you, Python allows you to define a "finally" block which is guaranteed to
+be called even if an exception occurs.
+
+We use the "finally" block to make sure the resource is deallocated.
+'''
+
+<u>Example:</u>
+<pre class="example">
+def f(x):
+    print("Locking the mutex")
+    if x > 50:
+        raise Exception('exception thrown')
+try:
+    x = 10
+    f(x)
+except Exception as e:
+    print(f'caught exception ... {e}')
+else:
+    print('no exception thrown')
+finally:
+    print('finally block is always called ...')
+    print("Unlocking the mutex")
+
+print("End of program")
 </pre>
 
 <h2 id="3">3</h2>    
 TBD
 <br> <br>
 <u>Example:</u>
-<pre>
+<pre class="example">
 TBD
 </pre>
 

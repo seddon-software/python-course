@@ -1,13 +1,16 @@
 body {
     background-color: #ffeeee;
 }
+.example {
+    background-color: cornsilk;
+}
 .container {
     column-count: 3;
 }
 .block {
-    background-color: #eedddd;
+    background-color: cornsilk;
     break-inside: avoid;
 }
 pre {
-    background-color: #eedddd;
+    background-color: mintcream;
 }

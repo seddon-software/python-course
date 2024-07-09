@@ -18,7 +18,8 @@ with the following syntax
     generator   ( fn(item) for item in sequence )
 </pre>
 <u>Example:</u>
-<pre>def cube(x):
+<pre class="example">
+def cube(x):
     return x * x * x
 
 # set up a sequence
@@ -33,7 +34,7 @@ Python iterators are defined as classes that support the following methods: <br>
 <pre>__iter__() and __next__()</pre>
 <br>
 <u>Example:</u>
-<pre>
+<pre class="example">
 class Fibonacci:
     def __init__(self):
         self.x,self.y = 0,1
@@ -58,7 +59,7 @@ print(next(i))      # call __next__()
 <h2 id="generators">Generators</h2>
 Generators are a special type of iterator.  A generator is defined as any function that uses the "yield" instruction.<br>
 <u>Example:</u>
-<pre>
+<pre class="example">
 def powers():
     x = 1
     while(x < 1000):

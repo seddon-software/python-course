@@ -8,7 +8,7 @@ Despite appearances, functions don't really have a name.  In the example below
 "fib" is a pointer to an anonymous function.  Think of the anonymous function as a set of bytecode instructions.
 <br> <br>
 <u>Example:</u>
-<pre>
+<pre class="example">
 def fib(n):  # fib is a pointer to the bytecode
     a, b = 0, 1
     while b < n:
@@ -39,8 +39,8 @@ normal way:<br>
 
 Note the syntax of a lambda is<br>
 <pre>
-        lambda <input-parameters> : <return-value>
-</pre>pre>
+        lambda &lt;input-parameters&gt; : &lt;return-value&gt;
+</pre>
         
 which is equivalent to a def with no body:<br>
 <pre>
@@ -48,7 +48,7 @@ which is equivalent to a def with no body:<br>
             return <return-value>
 </pre>
 <u>Example:</u>
-<pre>
+<pre class="example">
 # lambda's are not allowed to have a body
 # this is equivalent to the function above (minus the body)
 fn = lambda a, b, c, d: a + b + c + d
@@ -82,7 +82,7 @@ When a function is called, the * works the other way round<br>
 </pre>
 
 <u>Example:</u>
-<pre>
+<pre class="example">
 
 def average(*a):     # wraps up inputs into a tuple
     result = sum(a)/len(a)
@@ -122,7 +122,7 @@ and key-value pairs are often called kwargs:
 </pre>
 <br>
 <u>Example:</u>
-<pre>
+<pre class="example">
 def volume(*args, **kwargs):    # **kwargs wraps as a dict
     print(args, type(args))
     print(type(kwargs), kwargs)
