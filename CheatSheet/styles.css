@@ -1,11 +1,15 @@
 body {
     background-color: cadetblue;
 }
+a {
+    background-color: peachpuff;
+    font-size: x-large;
+}
 .example {
-    background-color: cornsilk;
+    background-color: peachpuff;
 }
 .container {
-    column-count: 3;
+    column-count: 4;
 }
 .block {
     background-color: peachpuff;
@@ -13,10 +17,10 @@ body {
     padding: 5% 2% 2% 5%;
     margin-bottom: 5%;
     border-radius: 5%;
-    border-color: black;
+    border-color: lab;
     border-bottom-style: ridge
     ;
 }
 pre {
-    background-color: mintcream;
+    background-color: honeydew;
 }

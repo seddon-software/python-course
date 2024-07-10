@@ -1,16 +1,40 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
+<h2 id="type_checking">type_checking</h2>    
+<p>Starting from version 3.5, support of optional static typing was added to Python.</p>
+<p>PEP 484 -- Type Hints was approved and implemented. This PEP adds support of optional declaration of types for method and function 
+arguments and their return values. </p>
+<p>Later, PEP 526 -- Syntax for Variable Annotations was implemented in Python 3.6, PEP 526 added the possibility to specify a variable type.</p> 
 
-<h2 id="1">1</h2>    
-TBD
-<br> <br>
-<u>Example:</u>
-<pre class="example">
-TBD
+Type annotations for variables and methods can be used by static code analyzers and IDEs. They do not impact 
+runtime performance (annotations are ignored at runtime).  For now (2022) mypy is the most popular static type 
+checker for Python. Static typing can be useful not only for big projects, but also for smaller scripts.<br>
+
+<p><em><b>mypy</b></em> is a static type checker for Python and will use type hints to validate programs.</p>  
+<em><b>mypy</b></em> is already available at DLS provided you are using python 3.8 or later.  On other systems you can install with:
+<pre>
+            python -m pip install mypy --user
+</pre>
+You can then check Python code files with:
+<pre>
+            mypy &lt;file_name.py&gt;
 </pre>
 
-<h2 id="2">2</h2>    
+<u>Example:</u>
+<pre class="example">
+def average(x:float, y:float, z:float) -> float:
+    return (x + y + z)/3.0
+
+print(average(5.5, 7.7, 9))
+</pre>
+
+<h2 id="invalid_code">invalid code</h2>    
+Here is an example of an invalid program that uses type hints.  Note that the type hints are ignored at runtime
+and the program executes without throwing an exception.  However, the static analysis uncovers the error with
+the wrong types of parameters pased to the routine (int instead of str).  
+
+We run this example first and then do a static analysis with mypy.
 TBD
 <br> <br>
 <u>Example:</u>
