@@ -39,15 +39,29 @@ TBD
 <br> <br>
 <u>Example:</u>
 <pre class="example">
-TBD
+def concat(x:str, y:str, z:str) -> str:
+    result = x + y + z
+    print(result)
+
+concat(5, 7, 9)
 </pre>
 
-<h2 id="3">3</h2>    
-TBD
+<h2 id="union">union</h2>    
+Union is used when a parameter can be multiple types.  Here number can be int or float.  Again, this is an 
+invalid program that raises an exception and mypy reports what's wrong.  
 <br> <br>
 <u>Example:</u>
 <pre class="example">
-TBD
+number = int|float              # Python >= 3.10
+def average(x:number, y:number, z:number) -> float:
+    return (x + y + z)/3
+
+try:
+    print(average(1, 2, 3))
+    print(average(10.1, 20.2, 30.3))
+    print(average('A', 2, 3))
+except Exception as e:
+    print(e)
 </pre>
 </div>
 
