@@ -2,28 +2,153 @@
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
-<h2 id="1">1</h2>    
-TBD
+<h2 id="create_arrays">create_arrays</h2>    
+Numpy is a library that lets us work with multi-dimensional arrays.  Most scientific analysis packages in Python 
+use Numpy. Several libraries extend Numpy including Pandas.<br>
+Let's begin by creating some Numpy arrays:
 <br> <br>
 <u>Example:</u>
 <pre class="example">
-TBD
+# create array filled with 1's
+a = np.ones( (3,5) ); print(a)
+b = np.ones( (3,5) ) * 13; print(b)
+
+# create array filled with 0's
+a = np.zeros( (3,5) ); print(a)
+
+# create empty array
+a = np.empty( (3,5), dtype=int); print(a) 
+
+# create array from a list
+a = np.array( [2,3,5,7,11,13,17] ); print(a)
+a = np.array( [ [3,4],[5,6] ]); print(a)
 </pre>
 
-<h2 id="2">2</h2>    
-TBD
+<h2 id="reshape">reshape</h2>    
+All Numpy arrays are stored as 1 dimensional arrays, irrespective of their real dimensionality. The data in the 
+array is pointed at by a structure called the "view" which contains, amongst other things, this dimensionality 
+information.
+
+In the following example we create two Numpy arrays sharing the same set of data, but having different views. The 
+first array is created with "arange" and the second is a shallow copy of the first, but with its dimensionality 
+changed using the "resize" function.
+
+"arange" is Numpy's version of the range generator. And no, its not a mispelling of "arrange"; it stands for 
+"array range". Where it differs from the built in "range" generator is that it can be used with floating point
+numbers.
+
+"reshape" takes an existing Numpy array and creates a new view on the same data. The idea is that the new view 
+contains different dimensionality data. Since the data is unchanged, the new dimensions must contain the same 
+number of data points as the original array. Thus in the example below, we start with a 1 dimensional array 
+with 24 elements and reshape it to a 3 dimensional array with 2 * 3 * 4 = 24 elements. 
 <br> <br>
 <u>Example:</u>
 <pre class="example">
-TBD
+import numpy as np
+
+# create array
+a = np.arange(24); print(a)
+# reshape it
+b = a.reshape(2,3,4); print(b)
+a[13] = 99
+print(a)
+print(b)
+# display properties held in the view
+print(type(b))
+print("Shape:", b.shape)
+print("Dimensions:", b.ndim)
+print("Size:", b.size)
+print("Item type:", b.dtype.name)
+print("Item size:", b.itemsize)
 </pre>
 
-<h2 id="3">3</h2>    
-TBD
+<h2 id="broadcasting">broadcasting</h2>    
+When operating on arrays of different sizes or dimensions, Numpy can't immediately do element by element calculations.  Instead
+Numpy has to modify the input arrays such that they become the same size.  This procedure is called broadcasting.
+<br>
+Lets see how Numpy uses broadcasting with a one dimensional X array:
+<pre>
+            [1 2 3 4 5 6]
+</pre>
+and a two dimensional Y array (of different size from X):
+<pre>
+            [[1]
+             [2]
+             [3]
+             [4]]
+</pre>
+
+Lets say we want to calculate a resulting array Z:
+<pre>
+            Z = (X + Y)**2 
+</pre>
+
+Numpy realizes that it needs to change X into a 2D array with the same number of rows as Y.  It therefore duplicates the first and only row of X
+to create a 4 x 6 array.  The duplication is termed broadcasing.  <br>
+The new array looks like:
+<pre>
+            [[1 2 3 4 5 6]
+             [1 2 3 4 5 6]
+             [1 2 3 4 5 6]
+             [1 2 3 4 5 6]]
+</pre>
+
+Likewise, with Y; Numpy duplicates the first column:
+<pre>
+            [[1 1 1 1 1 1]
+             [2 2 2 2 2 2]
+             [3 3 3 3 3 3]
+             [4 4 4 4 4 4]]
+</pre>
+
+Now the two arrays are both the same size (4 x 6) and Numpy can now proceed with element by element calculation, resulting in:
+<pre>
+            Z = [[  4   9  16  25  36  49]
+                [  9  16  25  36  49  64]
+                [ 16  25  36  49  64  81]
+                [ 25  36  49  64  81 100]]
+</pre>
+
+If you think about it, the Z array contains the heights of the function (x + y)**2 for each point in the x, y plane.  Therefore if we plot Z
+we will get a surface plot of this function.<br>
+
+We will use matplotlib to perform the surface plot. The plot function we will use is as follows:
+<pre>
+            ax.plot_surface(X, Y, Z, cmap)
+</pre>
+
+The X and Y parameters must both be 2 dimensional arrays that encompass all points in the xy plane that we wish to 
+use in our surface plot. In our case that's the 24 points.  As we've seen the Z values  be computed from the X an Y arrays 
+for each of our 24 points. The colormap is used to give artificial colors to the surface to make it easier to 
+visualise.
 <br> <br>
 <u>Example:</u>
 <pre class="example">
-TBD
+import numpy as np
+
+X = np.arange(1,7)
+Y = np.arange(1,5).reshape((4,1))
+print(f"X=\n{X}")
+print(f"Y=\n{Y}")
+print(f"X has shape {X.shape}")
+print(f"Y has shape {Y.shape}")
+
+print("\nbroadcast X and Y, because arrays are different sizes and dimensions and then compute Z")
+Z = (X + Y)**2 
+print(f"Z=\n{Z}")
+print(f"Z has shape {Z.shape}")
+
+# now visualize the surface
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+ax.plot_surface(X, Y, Z, cmap=cm.flag)
+plt.show()
 </pre>
 
 <a href="index.html#home">home</a>
