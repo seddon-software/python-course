@@ -4,7 +4,8 @@
 #
 ############################################################
 
-from scipy import * 
+#from scipy import * 
+from numpy import exp, inf
 from scipy.integrate import quad
 """
 integration using quadrature
@@ -29,4 +30,3 @@ print(quad(lambda x: -x**-2/2.0, 0, 1)) # divergent
 print(quad(lambda x: x**-2, 1, inf))
 
 
-1

@@ -66,7 +66,7 @@ import skimage.measure as measure
 
 def set_title(title):
     figure = plt.gcf()
-    figure.canvas.set_window_title(title)
+    figure.canvas.manager.set_window_title(title)
 
 data = np.array(
         [ 

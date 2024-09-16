@@ -15,7 +15,9 @@ data = {'x_values': [1, 2, 3, 4, 5],
 bp.output_file("html/using-columnDataSource.html")
 source = bp.ColumnDataSource(data=data)
 
-fig = bp.figure(plot_width=800, plot_height=600)
+bp.figure()
+#fig = bp.figure(plot_width=800, plot_height=600)
+fig = bp.figure(width=800, height=600)
 fig.circle(x='x_values', y='y_values', source=source, radius=0.1)
 bp.show(fig)
 

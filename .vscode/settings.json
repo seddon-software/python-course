@@ -4,6 +4,10 @@
         "**/__pycache__": true,
         "**/.*test_cache": true
     },
+        "terminal.integrated.env.linux": {
+        "GTK_PATH": null,
+        "GIO_MODULE_DIR": null,
+    },
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": false,

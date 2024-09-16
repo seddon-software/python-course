@@ -7,7 +7,7 @@ some code that is not thread safe.
 In this rather artificial example, we copy a global variable into a local variable, increment the local and finally store the 
 n between these operations we call a function that doesn't do anything, but this makes the code not thread safe.
 
-If we remove the call to the function (DELAY=False) then the code never goes wrong.
+If we remove the call to the function (SKIP=True) then the code never goes wrong.
 '''
 
 import threading
@@ -15,21 +15,21 @@ import threading
 N = 100*1000
 NUMBER_OF_THREADS = 10
 REPEATS = 20
-DELAY = True
+SKIP = False
 
 # this global counter is not protected by a lock
 counter = 0
 
-def delay():
+def dummy():
     pass
 
 def increaseCounters(lock):
     global counter
     for _ in range(N):
         n = counter
-        if DELAY: delay()
+        if not SKIP: dummy()
         n += 1
-        if DELAY: delay()
+        if not SKIP: dummy()
         counter = n
 
 
@@ -53,6 +53,7 @@ def repeat():
 print(f"expected value of counter:{N * NUMBER_OF_THREADS:8}")
 for _ in range(REPEATS): repeat()
 
-# try without calling delay()
-DELAY = False
+# try by skipping call to delay()
+print("\n*** skipping call to dummy ***\n")
+SKIP = True
 for _ in range(REPEATS): repeat()
