@@ -8,7 +8,7 @@ Note that tuples wth a single item have to be defined with a comma to avoid conf
 
 # define several tuples
 x1 = ()
-x2 = (1,)           # not the comma
+x2 = (1,)           # note the comma
 x3 = (1,2,3,4,5)
 x4 = (1, "mixed", 2, 'list')
 x5 = ((1,2),(3,4))
