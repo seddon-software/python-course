@@ -1,0 +1,5 @@
+Trace: ec9570b2256b9c394007ffff8ad44488621f3f8e7996f43e8575d9a96b3b840a
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File src/16 Scientific Libraries/04 Pandas/data/natural_earth_vector.gpkg.zip is 425.68 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: File src/16 Scientific Libraries/04 Pandas/data/packages/natural_earth_vector.gpkg is 844.28 MB; this exceeds GitHub's file size limit of 100.00 MB
+
