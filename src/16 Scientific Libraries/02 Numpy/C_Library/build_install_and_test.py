@@ -28,25 +28,6 @@ call("rm -rf build")
 printMessage("uninstall previous version of extension module (if it exists)")
 call("python -m pip uninstall --yes roots")
 
-# # install new version
-# printMessage("install new version")
-# call("python -m pip install --force-reinstall -e .")
-
-# # clean up
-# printMessage("clean up")
-# call("rm -rf build")
-# call("rm -rf roots.egg-info")
-# soFile = glob.glob('*.so')[0]
-# call(f"rm -rf {soFile}")
-# call("tree .")
-# os.system("pip freeze | grep roots")
-
-# # test in new folder
-# printMessage("test in new folder")
-# os.chdir("TestFolder")
-# call("python testit.py")
-# os.chdir("..")
-
 # build wheel
 printMessage("build wheel")
 call("python -m pip wheel -e .")
