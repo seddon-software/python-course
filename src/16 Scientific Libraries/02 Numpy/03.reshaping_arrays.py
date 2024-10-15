@@ -25,6 +25,8 @@ At he end of the example, we take a look at properties stored in the view.
 '''
 
 import numpy as np
+import os
+os.system("clear")
 
 # create array
 a = np.arange(24); print(a)

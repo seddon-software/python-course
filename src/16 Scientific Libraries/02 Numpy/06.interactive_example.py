@@ -2,8 +2,8 @@
 This example is intended to be used in the debugger.  Note we are using interactive mode:
             plt.ion()
 
-Put a breakpoint on the line:
-            plotHeights(y)
+Run the example from the command line and the program will break automatically into pdb.  Use c (=continue) to run
+to the next breakpoint.  You should see the plot building up.
 
 Then as you step through this example (by running to breakpoint) you will notice the product of the  x and y 
 coordinates are plotted for a grid of points on the z=0 plane.  
@@ -47,7 +47,7 @@ def plotHeights(y):
         ax.plot([x,x],[y,y],[0,x*y])
 
 for y in range(MIN, MAX):
-    # put breakpoint in here
+    breakpoint()
     plotHeights(y)
 
 plt.ioff()

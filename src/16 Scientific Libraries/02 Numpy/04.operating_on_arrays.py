@@ -23,6 +23,8 @@ We'll leave what to do about arrays of different sizes until later.
 
 import numpy as np
 np.set_printoptions(precision=3)
+import os
+os.system("clear")
 
 
 a = np.array( [3,3,3,3,4,3,3] )

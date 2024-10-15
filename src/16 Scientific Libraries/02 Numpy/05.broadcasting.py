@@ -49,7 +49,17 @@ for each of our 24 points. The colormap is used to give artificial colors to the
 visualise.
 '''
 
+import matplotlib
+import matplotlib._api
+import matplotlib._c_internal_utils
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+
 import numpy as np
+# import os
+# os.system("clear")
 
 X = np.arange(1,7)
 Y = np.arange(1,5).reshape((4,1))
@@ -58,19 +68,22 @@ print(f"Y=\n{Y}")
 print(f"X has shape {X.shape}")
 print(f"Y has shape {Y.shape}")
 
-print("\nbroadcast X and Y, because arrays are different sizes and dimensions and then compute Z")
+# broadcast X and Y because arrays are different sizes and dimensions
+# note: this is done automatically by numpy
+# these lines are for illustration only
+print("\nbroadcast X and Y")
+print(f"X=")
+print(f"{np.broadcast_to(X, (4,6))}")
+print(f"Y=")
+print(f"{np.broadcast_to(Y, (4,6))}")
+
+print("compute Z")
 Z = (X + Y)**2 
 print(f"Z=\n{Z}")
 print(f"Z has shape {Z.shape}")
 
 # now visualize the surface
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-
-
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 ax.plot_surface(X, Y, Z, cmap=cm.flag)
-plt.show()
