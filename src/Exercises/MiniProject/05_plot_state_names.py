@@ -7,6 +7,7 @@ pd.set_option('display.precision', 1)
 pd.set_option('display.width', 200)
 pd.set_option('display.max_columns', 500)
 
+
 def getGeoDataFrame():
     df = pd.read_csv("wtk_site_metadata.csv")
     
@@ -42,6 +43,7 @@ def setupPlot():
     return ax
 
 def plotCountries(ax):
+
     # extract maps of USA, Mexico and Canada and plot
     world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
     usa = world[world.name == 'United States of America']
