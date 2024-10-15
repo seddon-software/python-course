@@ -19,28 +19,29 @@ import skimage.measure as measure
 import skimage.morphology as morphology
 import scipy.ndimage as nd
 
-def load_image( infilename ) :
-    img = Image.open( infilename )
-    data = np.asarray( img, dtype="int32" )
-    return data
-
 def enhanceImage(image, threshold):
     # apply filter to every pixel of image
     image[ image <= threshold ] = 0
     image[ image  > threshold ] = 255
     
+def load_image( infilename ) :
+    img = Image.open( infilename )
+    data = np.asarray( img, dtype="int32" )
+    return data
+
+np.set_printoptions(linewidth=200, threshold=np.inf)
 rice = load_image("images/rice.jpg")
 print("Shape of raw image: {}".format(rice.shape))
 
 # algorithms work with monochrome images
 rice = rice[:,:,0]
-print(rice)
+#print(rice)
 print("Shape of red image: {}".format(rice.shape))
 plt.figure("monchrome image")
 plt.imshow(rice, interpolation="none", cmap="gray")
 plt.show()
 
-enhanceImage(rice, 120)
+enhanceImage(rice, 120) # 120 selected by trial and error
 plt.figure("enhanced image")
 plt.imshow(rice, interpolation="none", cmap="gray")
 plt.show()
@@ -64,6 +65,7 @@ plt.show()
 
 # look at object properties
 rice = measure.label(rice)
+print(rice[0:160,0:60])
 props = measure.regionprops(rice)
 plt.figure(f"labelling {len(props)} objects")
 for item in props:

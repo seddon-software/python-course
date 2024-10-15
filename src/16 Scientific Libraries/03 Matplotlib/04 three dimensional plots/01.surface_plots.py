@@ -22,7 +22,12 @@ In practice, we can generate the X and Y arrays in a much simpler way (see subse
 '''
 import numpy as np
 import matplotlib.pyplot as plt
+
+
+import mpl_toolkits
 from mpl_toolkits.mplot3d import Axes3D
+
+#from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
 fig = plt.figure()

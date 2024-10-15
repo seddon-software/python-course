@@ -29,5 +29,13 @@
                 }
             ]
         }
-    ]
+    ],
+    "cmake.ignoreCMakeListsMissing": true,
+    "notebook.find.filters": {
+        
+        "markupSource": true,
+        "markupPreview": true,
+        "codeSource": true,
+        "codeOutput": true
+    }
 }
