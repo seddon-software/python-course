@@ -70,6 +70,13 @@ def showPlot(ax):
     plt.show()
 
 def main():
+    try:
+        world = geopandas.read_file("https://naciscdn.org/naturalearth/110m/physical/ne_110m_land.zip")
+    except Exception as e:
+        print(e)
+        
+    # Reproject to Mercator (after dropping Antartica)
+    world = world.drop(7)
     WIND_gdf = getGeoDataFrame()
     ax = setupPlot()
     plotCountries(ax)
