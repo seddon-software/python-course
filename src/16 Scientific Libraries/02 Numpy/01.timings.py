@@ -12,6 +12,7 @@ Note that Numba runs on parallel CPUs and hence will be very fast; Numpy and C a
 
 EXCLUDE_C_EXAMPLE=False
 
+import numpy
 from timeit import timeit
 import numba
 

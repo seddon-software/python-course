@@ -36,6 +36,7 @@ call("python -m pip wheel -e .")
 printMessage("install wheel")
 wheelFile = glob.glob("*.whl")[0]
 call(f"python -m pip install --force-reinstall {wheelFile}")
+call(f"python --version")
 
 # test in new folder
 printMessage("test in new folder")
