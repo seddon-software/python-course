@@ -2,12 +2,9 @@
 Run this script from the command line (difficult to read output in VSCode)
 '''
 
-import os, sys, subprocess, time, glob
-
-N = 0
+import os, sys, subprocess, glob
 
 def printMessage(m):
-    time.sleep(N)
     print()
     print(m)
     print("-" *  len(m))
@@ -16,7 +13,6 @@ def printMessage(m):
 
 def call(cmd):
     print(cmd)
-    time.sleep(N)
     subprocess.call(cmd.split())
 
 
@@ -37,7 +33,6 @@ call("python -m pip wheel -e .")
 printMessage("install wheel")
 wheelFile = glob.glob("*.whl")[0]
 call(f"python -m pip install --force-reinstall {wheelFile}")
-call(f"python --version")
 
 # test
 printMessage("test Cython code")
