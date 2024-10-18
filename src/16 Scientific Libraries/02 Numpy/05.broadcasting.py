@@ -50,8 +50,6 @@ visualise.
 '''
 
 import matplotlib
-import matplotlib._api
-import matplotlib._c_internal_utils
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
@@ -88,4 +86,3 @@ ax = fig.add_subplot(111, projection='3d')
 
 ax.plot_surface(X, Y, Z, cmap=cm.flag)
 plt.show()
-pass

@@ -27,13 +27,7 @@ call("rm -rf build")
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")
-call("python -m pip uninstall --yes roots")
-
-# create shared object using cmake
-printMessage("build shared object with cmake")
-call("cmake -S . -B build")
-call("cmake --build build")
-
+call("python -m pip uninstall --yes functions")
 
 # build wheel
 printMessage("build wheel")
@@ -45,22 +39,16 @@ wheelFile = glob.glob("*.whl")[0]
 call(f"python -m pip install --force-reinstall {wheelFile}")
 call(f"python --version")
 
-import site
-sitePackages = site.getsitepackages()[0]
-printMessage(f"copy shared object to site packages: {sitePackages}")
-sharedObject = glob.glob("build/*.so")[0]
-call(f"cp {sharedObject} {sitePackages}")
-
-# test
-printMessage("test roots")
-import roots
-print(f"result: {roots.sumOfRoots(10)}")
+# test in new folder
+printMessage("test in new folder")
+os.chdir("TestFolder")
+call("python testit.py")
+os.chdir("..")
 
 # clean up
 printMessage("clean up")
 # call("rm -rf dist")
 call("rm -rf build")
-call("rm -rf CMakeFiles")
 call(f"rm {wheelFile}")
 # eggFolder = glob.glob("*.egg-info")[0]
 call("rm -rf roots.egg-info")
