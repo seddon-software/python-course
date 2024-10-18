@@ -39,18 +39,20 @@ wheelFile = glob.glob("*.whl")[0]
 call(f"python -m pip install --force-reinstall {wheelFile}")
 call(f"python --version")
 
-# test in new folder
-printMessage("test in new folder")
-os.chdir("TestFolder")
-call("python testit.py")
-os.chdir("..")
+# test
+printMessage("test Cython code")
+import functions
+functions.say_hello()
+functions.say_goodbye()
+print((functions.fibonacci(100000)))
+print((functions.sumOfSquares(2, 4)))
 
 # clean up
 printMessage("clean up")
 # call("rm -rf dist")
 call("rm -rf build")
 call(f"rm {wheelFile}")
-# eggFolder = glob.glob("*.egg-info")[0]
-call("rm -rf roots.egg-info")
+eggFolder = glob.glob("*.egg-info")[0]
+call(f"rm -rf {eggFolder}")
 call("tree .")
 
