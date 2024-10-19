@@ -22,6 +22,5 @@ set(CMAKE_CXX_FLAGS "-g -Wall -fPIC")
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
 set(CMAKE_RULE_MESSAGES:BOOL=OFF)
-pybind11_add_module(roots SHARED ${SOURCES})
-
-
+pybind11_add_module(sumOfRoots SHARED ${SOURCES})
+install(TARGETS sumOfRoots LIBRARY DESTINATION .)

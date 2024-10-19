@@ -37,5 +37,7 @@
         "markupPreview": true,
         "codeSource": true,
         "codeOutput": true
-    }
+    },
+    "workbench.startupEditor": "none",
+    "workbench.editor.sharedViewState": true
 }
