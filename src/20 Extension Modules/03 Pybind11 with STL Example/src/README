@@ -1,9 +1,0 @@
-This example creates a C/C++ extension module using the STL
-The shared library is built using CMake
-It is installed using pip
-We then create a wheel file
-All testing is performed in a separate folder
-
-Run:
-    python build_install_and_test.py
-    

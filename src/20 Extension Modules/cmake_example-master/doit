@@ -1,5 +1,0 @@
-rm -rf dist
-python -m build .
-python -m pip install dist/*.whl --force-reinstall
-python testit.py
-
