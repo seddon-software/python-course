@@ -4,5 +4,5 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "cython_functions"
-version = "0.0.1"
+version = "1.0.0"
 

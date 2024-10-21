@@ -1,8 +1,7 @@
 [build-system]
-requires = ["setuptools>=42", "cmake>=3.18", "ninja", "pybind11"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
 
 [project]
 name = "roots"
-version = "1.0.0"
-requires-python = ">=3.8"
+version = "1.0.2"

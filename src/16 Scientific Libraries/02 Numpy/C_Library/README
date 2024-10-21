@@ -1,9 +1,12 @@
-This example creates a C/C++ extension module.
-The shared library is built using CMake and pybind11
+This example creates a C/C++ extension module using scikit-build-core and pybind11.
 
-1) First install pybind11
-    pip install pybind11
+The wheel file is built using pipx and CMake
+It is installed using pip
+Finally we test importing the extension module
 
-2) Compile files into shared object, build wheel, copy files to site packages and test
+Run:
     python build_install_and_test.py
     
+
+To install pybind11:
+    pip install "pybind11"
