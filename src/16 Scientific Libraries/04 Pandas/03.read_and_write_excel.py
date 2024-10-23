@@ -11,6 +11,7 @@ Note: Working with Excel files requires the xlrd library.  You can install it vi
 
 import pandas as pd
 import pylab as pl
+import openpyxl
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', 100)
 

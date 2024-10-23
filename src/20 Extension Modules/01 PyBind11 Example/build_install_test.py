@@ -1,14 +1,19 @@
 import os
 
 def execute(message, cmd):
+    os.system("clear")
     input(message)
     print("="*len(message))
+    print(f">>> {cmd}\n")
     os.system(cmd)
     print()
+    input("continue?")
 
 execute(message="build extension module with pipx", cmd="pipx run build")
 execute(message="install extension module with pip", cmd="pip install --force-reinstall .")
-execute(message="test", cmd="")
+
+print("test")
+print("====")
 import using_STL as s
 s.hello("Chris")
 s.goodbye("Chris")
@@ -19,6 +24,7 @@ data2 = list(np.arange(3, 15.7, 0.1))
 print(s.average(data1))
 print(s.average2(data2))
 print()
+input("continue?")
 
 # clean up
-execute(message="remove dist folder", cmd="rm -r dist")
+execute(message="clean up", cmd="rm -r dist")

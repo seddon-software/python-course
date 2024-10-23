@@ -4,6 +4,7 @@ def execute(message, cmd):
     os.system("clear")
     input(message)
     print("="*len(message))
+    print(f">>> {cmd}\n")
     os.system(cmd)
     print()
     input("continue?")
@@ -22,7 +23,7 @@ print((cf.sumOfSquares(2, 4)))
 print()
 input("continue?")
 
-execute(message="", cmd="python timings.py")
+execute(message="timings", cmd="python timings.py")
 execute(message="uninstall", cmd="pip uninstall -y cython_functions")
 execute(message="clean", cmd="rm -r dist; rm -r __pycache__; tree .")
 
