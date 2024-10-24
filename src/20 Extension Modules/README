@@ -1,0 +1,15 @@
+If there are errors mapping the shared library with pipx then it is likely to be a problem with /tmp.
+You can change pipx's temp directory with:
+    mkdir ~/tmp
+    export TMPDIR=~/tmp
+
+
+If you get missing packages, use the commands below.  These commands will install the packages to yor home directory.
+To install pybind11:
+    pip install pybind11
+
+To install cython
+    pip install cython
+
+If you get missing pybind11 config files (it shouldn't happen), the following may resolve the problem
+    pip install pybind11[global]
