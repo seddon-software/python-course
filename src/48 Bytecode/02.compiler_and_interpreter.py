@@ -7,49 +7,39 @@ interpreter executes the code.  Each operating system has a different interprete
 code for that system.  Most of the work in running a Python program is done by the interpreter.  The compiler
 stage is relatively simple.
 
-Here we have a function that adds z and y.  Note that the bytecode produced by the compiler is the same for
-two integers as it is for two strings.  All the work is done by the BINARY_ADD opcode.  However, what we can't
-easily see is how BINARY_ADD works in the interpreter.  It turns out that BINARY handles the two cases very 
-differently.  But to see that, we would need to look at the C code inside CPython.  Unfortunately the code is
-too complicated to show here.
+Here we have a function that adds x and y.  Note that the bytecode produced by the compiler works for both
+integers and strings.  All the work is done by the BINARY_ADD opcode.  However, what we can't easily see is 
+how BINARY_ADD works in the interpreter.  It turns out that BINARY handles the two cases very differently.  
+But to see that, we would need to look at the C code inside CPython.  
 
-Older code from Python2 was a little easier to understand.  We reproduce it here to illustrate how the two cases
-are handled very differently in the interpreter.  Don't worry about the details, just observe that PyInt is used
-in CPython for integers and PyString for strings.  Line 20 checks for integers and then executes code in lines 21
-to 31.  Line 33 checks for strings and then executes code via the function string_concatenate that is called in 
-line 36: 
+The CPython interpreter is open source and you can read through it on GitHub. The implementation of the bytecode 
+interpreter is in the file Python/ceval.c.  In the Python 3.6.4 release the bytecode instructions are handled by 
+a switch statement beginning on line 1266.  The bytecode for BINARY_ADD begins on line 1475 and is reproduced 
+below (https://github.com/python/cpython/blob/d48ecebad5ac78a1783e09b0d32c211d9754edf4/Python/ceval.c)
 
-   case BINARY_ADD:
-            w = POP();
-            v = TOP();
-            if (PyInt_CheckExact(v) && PyInt_CheckExact(w)) {
-                /* INLINE: int + int */
-                register long a, b, i;
-                a = PyInt_AS_LONG(v);
-                b = PyInt_AS_LONG(w);
-                /* cast to avoid undefined behaviour
-                   on overflow */
-                i = (long)((unsigned long)a + b);
-                if ((i^a) < 0 && (i^b) < 0)
-                    goto slow_add;
-                x = PyInt_FromLong(i);
-            }
-            else if (PyString_CheckExact(v) &&
-                     PyString_CheckExact(w)) {
-                x = string_concatenate(v, w, f, next_instr);
-                /* string_concatenate consumed the ref to v */
-                goto skip_decref_vx;
+We reproduce it here to illustrate how the two cases are handled in the interpreter.  Don't worry about the 
+details, just observe that PyNumber is used for numbers and PyUnicode for strings.  Note how the unicode and 
+number parts are handled very differently.
+
+        TARGET(BINARY_ADD) {
+            PyObject *right = POP();
+            PyObject *left = TOP();
+            PyObject *sum;
+            if (PyUnicode_CheckExact(left) &&
+                     PyUnicode_CheckExact(right)) {
+                sum = unicode_concatenate(left, right, f, next_instr);
+                /* unicode_concatenate consumed the ref to left */
             }
             else {
-              slow_add:
-                x = PyNumber_Add(v, w);
+                sum = PyNumber_Add(left, right);
+                Py_DECREF(left);
             }
-            Py_DECREF(v);
-          skip_decref_vx:
-            Py_DECREF(w);
-            SET_TOP(x);
-            if (x != NULL) continue;
-            break;
+            Py_DECREF(right);
+            SET_TOP(sum);
+            if (sum == NULL)
+                goto error;
+            DISPATCH();
+        }
 
 If you are interested in bytecode, check out:
             https://opensource.com/article/18/4/introduction-python-bytecode
