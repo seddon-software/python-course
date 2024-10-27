@@ -8,7 +8,7 @@ In this example we are testing the method:
 in the class
             Market
 
-However, this method calls the 'getPrice' method of the 'Shares' class, but the 'getPrice' method is unavailable 
+This method calls the 'getPrice' method of the 'Shares' class, but the 'getPrice' method is unavailable 
 at the time of testing.  We can get round this by mocking out the 'getPrice' method.  There are various ways
 to achieve this.
   
@@ -49,15 +49,16 @@ class Market:
 class testStocks(unittest.TestCase):
     'testing a method that calls a mocked out method'
     @patch.object(Shares, 'getPrice')
+
     def test_change_in_share_price(self, mocked_getPrice):
         return_values= [31.2, 25.7]  # values will get popped (in reverse order)
         def side_effect():
             return return_values.pop()
-        # mock out getPrice using 'side_effect@ property 
+        # mock out getPrice using 'side_effect property 
         mocked_getPrice.side_effect = side_effect
         ibm =  Shares("IBM")
         market = Market()
-        change = market.calculateChangeInSharePrice(ibm)
+        change = market.calculateChangeInSharePrice(ibm) # this calls (the mocked version of) get_price twice
         self.assertTrue(5.5 == change)
 
 if __name__ == '__main__':

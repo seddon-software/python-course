@@ -1,12 +1,25 @@
 '''
 Unit testing is the process of testing the small units of the program. This is done to make sure that each unit 
-of the program is designed and working properly. Tests are also very helpful when upgrading software; run the original tests
-to make sure enhancements do not introduce errors into the existing code.
+of the program is designed and working properly. Tests are also very helpful when upgrading software; run 
+the original tests to make sure enhancements do not introduce errors into the existing code.
 
-The following modules are provided by Python for this purpose:
+The following popular modules are provided by Python for this purpose:
             PyTest
             Unittest
             Nose2
-            DocTest
-            Testify
+
+Testing gives you the confidence that your code does what you expect it to do. Traditionally you write
+code and then you write your tests.  Agile methodolgy promotes Test Driven Development (TDD).  With TDD
+you write your tests before coding in an incremental fashion.
+
+The life cycle is as follows.  First you write a test, then you run it and it fails because you haven't
+written the corresponding code.  Then you write the implementation code and test again.  This time it 
+should pass or you need to make corrections before it passes. 
+
+New tests are introduced on this scheme.  Write test - FAIL - write implementation - PASS,  Repeat.
+In the Eclipse framework when tests fail, Eclipse draws a red bar across the screen.  When a test passes, 
+Eclipse draws a green bar.  With TDD you cycle between RED and GREEN as you develop your tests and code.
+Unfortunately, VSCode doesn't have this facility.  However pytest does color tests results in RED and GREEN,
+but doesn't draw the bar across the screen.
 '''
+

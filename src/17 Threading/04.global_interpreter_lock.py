@@ -43,7 +43,7 @@ instructions are atomic and hence thread safe.
 
 import dis
 
-dis.dis("x += 1")           # used to be thread unsafe, but now is thread safe
+dis.dis("x += 1")           # used to be thread unsafe, but now is thread safe (Python 3.10+)
 #  1           2 LOAD_NAME                0 (x)
 #              4 LOAD_CONST               0 (1)
 #              6 BINARY_OP               13 (+=)

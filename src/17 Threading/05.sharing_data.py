@@ -1,13 +1,16 @@
 '''
 Sharing Data
 ============
-As discussed previously, code using += is now thread safe.  However, if we look at a more complicated example we can create
-some code that is not thread safe.  
+As discussed previously, code using += is now thread safe.  However, if we look at a more complicated example we 
+can create some code that is not thread safe.  
 
-In this rather artificial example, we copy a global variable into a local variable, increment the local and finally store the 
-n between these operations we call a function that doesn't do anything, but this makes the code not thread safe.
+In this rather artificial example, we copy a global variable into a local variable, increment the local using +=
+and finally store back in the global.  In between these operations we call a function that doesn't do anything, 
+but this makes the code not thread safe.
 
 If we remove the call to the function (SKIP=True) then the code never goes wrong.
+
+Note: This code behaves differently in older versions of Python.
 '''
 
 import threading
