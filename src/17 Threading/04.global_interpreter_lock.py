@@ -29,8 +29,8 @@ In the code below we use the dis module to disassemble code for:
             sort([2,5,3,6])
 
 Note that the first instruction (x += 1) consists of several byte code instructions including only one mutable
-byte code instruction (BINARY_OP) and hence is thread safe.  In releases of Python < 3.10 this code expanded to several
-mutable byte code instructions and was not thread safe.  You can find several articles on the web that claim this is not thread
+byte code instruction (BINARY_OP) and hence is thread safe.  In releases of Python <= 3.10 this code expanded to several
+mutable byte code instructions and was not thread safe.  You can find several articles on the web that claim code is not thread
 safe, but these articles are now out of date.  In the next example in this chapter we will look at some code that does have 
 several mutable byte code instructions that is not thread safe. 
 
@@ -43,10 +43,10 @@ instructions are atomic and hence thread safe.
 
 import dis
 
-dis.dis("x += 1")           # used to be thread unsafe, but now is thread safe (Python 3.10+)
+dis.dis("x += 1")           # used to be thread unsafe, but now is thread safe (Python 3.11+)
 #  1           2 LOAD_NAME                0 (x)
 #              4 LOAD_CONST               0 (1)
-#              6 BINARY_OP               13 (+=)
+#              6 BINARY_OP               13 (+=)        # used to be INPLACE_ADD
 #             10 STORE_NAME               0 (x)
 #             12 LOAD_CONST               1 (None)
 #             14 RETURN_VALUE

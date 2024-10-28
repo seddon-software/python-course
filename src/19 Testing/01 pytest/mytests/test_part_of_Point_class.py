@@ -2,11 +2,14 @@
 The most important point about testing is the name of the test.  The test names should be insightful, and users 
 should understand the behavior and expectation of the test by just glancing at the name itself.
 
-Note that I've included some tests that are intended to fail.  This is just done to illustrate what
+You can use the decorator @pytest.mark.skip to skip tests (in this casre the buggy tests).
 
+Note that I've included some tests that are intended to fail.  This is just done to illustrate what failures look like.
 '''
 
 import pytest
+import sys
+sys.path.append("..")
 from src.Point import *
 
 # test fixtures are used to create objects with the same name as the fixture function

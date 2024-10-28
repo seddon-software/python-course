@@ -16,6 +16,7 @@ all 5 threads continue.
 
 from threading import Thread, Barrier
 import time
+import os; os.system("clear")
 
 b = Barrier(5, timeout=10)
 

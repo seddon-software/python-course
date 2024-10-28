@@ -2,12 +2,20 @@
 The most important point about testing is the name of the test.  The test names should be insightful, and users 
 should understand the behavior and expectation of the test by just glancing at the name itself.
 
-Note that I've included some tests that are intended to fail.  This is just done to illustrate what
+Note that I've included some tests that are intended to fail.  This is just done to illustrate what failures look like.
 
+It’s easy to create custom markers or to apply markers to whole test classes or modules. Those markers can be used by plugins
+and are commonly used to select tests on the command-line with the -m option.  The custom marks need to be defined in a config 
+file.  I've chosen to use:
+            pyproject.toml
+
+which defines
+            @pytest.mark.intended_to_fail
 '''
 
 import pytest
 from src.Point import *
+
 
 # test fixtures are used to create objects with the same name as the fixture function
 @pytest.fixture

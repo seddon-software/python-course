@@ -66,8 +66,8 @@ finished.
 import random
 import time
 import sys
-
 from threading import Thread
+import os; os.system("clear")
 
 def myfunc(name):
     for i in range (1, 50):

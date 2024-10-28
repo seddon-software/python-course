@@ -15,7 +15,7 @@ The consumers all wait on the "condition" variable:
 
 until the producer is ready to provide the data.  The producer notifies all the consumers that they can 
 proceed with:
-            dataAvailable.notifyAll()
+            dataAvailable.notify_all()
 '''
 
 import threading
@@ -23,6 +23,7 @@ from threading import Thread
 import random
 import time
 import sys
+import os; os.system("clear")
 
 
 class Producer:
@@ -31,7 +32,7 @@ class Producer:
         time.sleep(10)
         with dataAvailable:         # grab the lock
             print("Producer is notifying all consumers")
-            dataAvailable.notifyAll()
+            dataAvailable.notify_all()
 
 class Consumer:
     def __call__(self, name, dataAvailable):

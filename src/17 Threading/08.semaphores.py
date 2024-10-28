@@ -22,6 +22,7 @@ from threading import BoundedSemaphore
 import random
 import time
 import sys
+import os; os.system("clear")
 
 
 class MyClass:

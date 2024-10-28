@@ -23,6 +23,8 @@ from threading import Thread
 import random
 import time
 import sys
+import os; os.system("clear")
+
 
 
 # create a callable class

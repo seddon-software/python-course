@@ -10,14 +10,17 @@ but this makes the code not thread safe.
 
 If we remove the call to the function (SKIP=True) then the code never goes wrong.
 
-Note: This code behaves differently in older versions of Python.
+Note: This code behaves differently in older versions of Python.  In Python <=3.10 the code is always non thread 
+safe.  In Python 3.11+ the code is only thread safe if SKIP=True
 '''
 
 import threading
+import os; os.system("clear")
 
+print("*** This example uses Python 3.11+")
 N = 100*1000
 NUMBER_OF_THREADS = 10
-REPEATS = 20
+REPEATS = 5
 SKIP = False
 
 # this global counter is not protected by a lock

@@ -42,7 +42,7 @@ def main():
     polars_df = pl.from_pandas(lerwick_data)
     print(polars_df)    
     df = polars_df
-    # no index by default
+    # no index by default - add a numerical index
     df = df.with_row_index("id")
     print(df.head())       # first five rows
     print(df.tail())       # last five rows

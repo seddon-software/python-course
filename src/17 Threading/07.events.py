@@ -17,6 +17,7 @@ All waiting threads are released when any thread "sets" the event:
 from threading import Thread
 from threading import Event, Lock
 import time
+import os; os.system("clear")
 
 lock = Lock()
 
@@ -42,7 +43,7 @@ t1.start()
 t2.start()
 t3.start()
 
-with lock: print("main waiting for 10 seconds", flush=True)
+with lock: print("\nmain waiting for 10 seconds", flush=True)
 time.sleep(10)
 print("main clearing event flag")
 event.set()

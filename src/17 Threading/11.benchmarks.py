@@ -23,11 +23,12 @@ Conclusion: threads do not speed up cpu bound computations (but are fine for I/O
 multiple processes.
 '''
 
-import time, os
+import time
 from threading import Thread
 from multiprocessing import Process, Pool
 import numpy as np
 from itertools import chain
+import os; os.system("clear")
 
 ''' Calculate the sum of i**0.3 where i ranges from 0 to M
     Use multiple threads or processes to perform the calculation

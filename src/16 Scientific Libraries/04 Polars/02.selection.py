@@ -18,7 +18,8 @@ Note there are 3 distinct ways of interacting with dataframes:
 
 import os; os.system("clear")
 import pandas as pd
-import pylab as pl
+import polars as pl
+#import matplotlib.pyplot as plt
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', None)        # None means all data displayed
 pd.set_option('display.max_rows', None)
@@ -30,27 +31,24 @@ def inspect(item):
     print("-"*len(str(type(item))))  # print underscores
 
 def main(): 
-    df = pd.read_csv("data/sample.csv", 
-                     skipinitialspace=True, 
-                     index_col=0)
+    # seperator has to be a single character
+    df = pl.read_csv("data/polars_sample.txt", skip_rows=0, skip_rows_after_header=1, separator='\t')
+    try:
+        df = df.with_row_index("Name")
+    except Exception as e:
+        print(e)
     print(df)
 
-    # inspect some standard dataframe methods    
-    # the index
-    inspect(df.index)
-
-    # the column headings
-    inspect(df.columns)
+    # the schema
+    inspect(df.schema)
     
-    # the values of the dataset (Numpy arrays)
-    inspect(df.values)
-    inspect(df.values[0])
-    inspect(df.values[0, 0])
+    # # the values of the dataset (Numpy arrays)
+    # inspect(df.to_numpy())
+    # inspect(df.to_numpy()[0])
+    # inspect(df.to_numpy()[0, 0])
 
-    inspect(list(df.index))    # convert index to a list    
-    inspect(list(df.columns))  # convert columns to a list
     # extracting a single column can create a new dataframe or a series
-    inspect(df[['County']])    # [[list parameter]] => returns a dataFrame
+    inspect(df.select('County'))    # [[list parameter]] => returns a dataFrame
     inspect(df['County'])      # [scalar parameter] => returns a series
         
     # using .loc
