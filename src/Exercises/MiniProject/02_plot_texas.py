@@ -1,3 +1,4 @@
+import geopandas as gpd
 import pandas as pd
 import numpy as np
 import geopandas.datasets
@@ -15,8 +16,7 @@ ax.set_title("WIND Data Points in Texas")
 ax.set_facecolor("aqua")
 
 # read in WIND data and a low res map of the world
-WIND_df = pd.read_csv("wtk_site_metadata.csv")
-world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
+WIND_df = pd.read_csv("data/wtk_site_metadata.csv")
 
 # just keep 3 columns
 WIND_df = WIND_df[['longitude', 'latitude', 'State']]
@@ -28,13 +28,9 @@ Texas_df = WIND_df[WIND_df.State == 'Texas']
 Texas_gdf = geopandas.GeoDataFrame(
     Texas_df, geometry=geopandas.points_from_xy(Texas_df.longitude, Texas_df.latitude))
 
-# extract maps of USA, Mexico and Canada and plot
-usa = world[world.name == 'United States of America']
-mexico = world[world.name == 'Mexico']
-canada = world[world.name == 'Canada']
+# extract map of USA (from local file) and plot
+from usa_data import usa
 usa.plot(ax=ax, color='orange', edgecolor='black')
-mexico.plot(ax=ax, color='white', edgecolor='black')
-canada.plot(ax=ax, color='white', edgecolor='black')
 
 # plot points from GeoDataFrame
 Texas_gdf.plot(ax=ax, color='blue', markersize=0.01)

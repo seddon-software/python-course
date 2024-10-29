@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-6f05cb8c0416302c9deead88554dabf7"}, "mark": {"type": "bar"}, "encoding": {"x": {"field": "period", "type": "quantitative"}, "y": {"field": "tmin", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-6f05cb8c0416302c9deead88554dabf7": [{"period": 1852, "tmin": 5.127777777777777, "tmax": 13.194444444444438}, {"period": 1856, "tmin": 5.877083333333334, "tmax": 13.820833333333333}, {"period": 1860, "tmin": 5.955319148936171, "tmax": 13.389361702127657}, {"period": 1864, "tmin": 5.718750000000001, "tmax": 13.789583333333333}, {"period": 1868, "tmin": 5.872916666666666, "tmax": 14.174999999999999}, {"period": 1872, "tmin": 6.083333333333333, "tmax": 13.918750000000001}, {"period": 1876, "tmin": 5.841666666666665, "tmax": 13.17083333333334}, {"period": 1880, "tmin": 6.0375000000000005, "tmax": 13.535416666666668}, {"period": 1884, "tmin": 5.5125, "tmax": 13.291666666666666}, {"period": 1888, "tmin": 5.199999999999999, "tmax": 12.654166666666667}, {"period": 1892, "tmin": 5.402083333333334, "tmax": 13.539583333333335}, {"period": 1896, "tmin": 6.239583333333332, "tmax": 14.145833333333334}, {"period": 1900, "tmin": 5.972916666666666, "tmax": 13.456250000000002}, {"period": 1904, "tmin": 5.835416666666666, "tmax": 13.552083333333334}, {"period": 1908, "tmin": 6.083333333333332, "tmax": 13.641666666666667}, {"period": 1912, "tmin": 6.260416666666668, "tmax": 13.931249999999999}, {"period": 1916, "tmin": 5.566666666666666, "tmax": 13.12916666666667}, {"period": 1920, "tmin": 5.991666666666668, "tmax": 13.991666666666665}, {"period": 1924, "tmin": 6.056250000000002, "tmax": 13.647916666666672}, {"period": 1928, "tmin": 5.770833333333336, "tmax": 13.839583333333335}, {"period": 1932, "tmin": 6.208333333333335, "tmax": 14.281250000000002}, {"period": 1936, "tmin": 6.285416666666666, "tmax": 14.164583333333335}, {"period": 1940, "tmin": 5.760416666666667, "tmax": 13.904166666666667}, {"period": 1944, "tmin": 6.285416666666669, "tmax": 14.285416666666668}, {"period": 1948, "tmin": 6.435416666666666, "tmax": 14.379166666666668}, {"period": 1952, "tmin": 5.954166666666667, "tmax": 13.73958333333333}, {"period": 1956, "tmin": 6.354166666666665, "tmax": 14.06458333333333}, {"period": 1960, "tmin": 6.047916666666667, "tmax": 13.350000000000001}, {"period": 1964, "tmin": 6.385416666666668, "tmax": 13.556249999999999}, {"period": 1968, "tmin": 6.491666666666666, "tmax": 13.641666666666664}, {"period": 1972, "tmin": 6.402083333333334, "tmax": 13.88541666666667}, {"period": 1976, "tmin": 6.254166666666667, "tmax": 13.718749999999998}, {"period": 1980, "tmin": 6.6937500000000005, "tmax": 13.920833333333333}, {"period": 1984, "tmin": 6.137499999999999, "tmax": 13.360416666666666}, {"period": 1988, "tmin": 6.9333333333333345, "tmax": 14.539583333333331}, {"period": 1992, "tmin": 7.077083333333334, "tmax": 14.397916666666665}, {"period": 1996, "tmin": 7.072916666666667, "tmax": 14.739583333333334}, {"period": 2000, "tmin": 7.018750000000001, "tmax": 15.12708333333333}, {"period": 2004, "tmin": 7.462500000000001, "tmax": 15.333333333333336}, {"period": 2008, "tmin": 6.785416666666666, "tmax": 14.956249999999999}, {"period": 2012, "tmin": 7.097916666666667, "tmax": 14.960416666666667}, {"period": 2016, "tmin": 7.258333333333333, "tmax": 15.522916666666667}, {"period": 2020, "tmin": 7.073333333333332, "tmax": 15.326666666666666}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

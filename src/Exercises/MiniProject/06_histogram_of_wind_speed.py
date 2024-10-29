@@ -11,7 +11,7 @@ def plotBarChart(df):
     plt.show()
 
 # read in WIND data
-WIND_df = pd.read_csv("wtk_site_metadata.csv")
+WIND_df = pd.read_csv("data/wtk_site_metadata.csv")
 
 # remove entries where the state is unknown
 states = WIND_df[['State', 'wind_speed']][WIND_df['State'] != 'Unknown']

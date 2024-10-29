@@ -1,7 +1,7 @@
 import pandas as pd
 
 # read in the data
-df = pd.read_csv("wtk_site_metadata.csv")
+df = pd.read_csv("data/wtk_site_metadata.csv")
 
 # convert to a series, removing entries where the state is unknown
 series = df['State'][df['State'] != 'Unknown']

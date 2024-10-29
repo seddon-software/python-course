@@ -38,15 +38,10 @@ will be 48 rows with the same value of column (unless some data is missing).  Th
 
 import os
 import pandas as pd
-import pylab as pl
+import polars as pl
+import pyarrow          # needed to convert df to polars
+import matplotlib.pyplot as plt
 import numpy as np
-pd.set_option('display.precision', 1)
-pd.set_option('display.width', 100)
-pd.set_option('display.max_column', None)
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_seq_items', None)
-pd.set_option('display.max_colwidth', 500)
-pd.set_option('expand_frame_repr', True)
 
 def clearTerminal():
     os.system("clear")
@@ -60,7 +55,7 @@ def displayHeadAndTailOfInputFile(fileName):
 def main():
     displayHeadAndTailOfInputFile("data/oxford_2022.txt")
 
-    # set column names and read in data from file
+    # set column names and read in data from file using pandas (because of the complicated field seperator)
     column_names = ['year', 'month', 'tmax', 'tmin', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment']
     oxford_data = pd.read_csv("data/oxford_2022.txt", 
                               engine = 'python', 
@@ -70,58 +65,65 @@ def main():
                               skipinitialspace = True, 
                               sep = '[*# ]+')
 
-    # drop columns we are not using
-    oxford_data.drop(['air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'], axis = 1, inplace = True)
+    oxford_data = pl.from_pandas(oxford_data)
 
-    # look at some of the records now unused columns dropped
+    # drop columns we are not using (no inplace operations permitted)
+    oxford_data = oxford_data.drop(['air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'])
+
+    # look at some of the records now that unused columns dropped
     clearTerminal()
-    print(oxford_data.iloc[90:150])
+    print(oxford_data[90:150])
 
     # look at some of the records with the values missing (now NaN)
     clearTerminal()
-    print(oxford_data.iloc[92:98])
+    print(oxford_data[92:98])
 
     # drop rows with missing data
-    oxford_data.dropna(inplace=True)
+    oxford_data = oxford_data.drop_nulls()
 
     # look at the same records now missing data dropped
     clearTerminal()
-    print(oxford_data.iloc[92:98])
+    print(oxford_data[92:98])
 
     # create a new column from year and month columns
-    oxford_data['period'] = oxford_data.apply(
-        lambda row : (row['year']//4)*4, raw = False, 
-        axis = 1
-        )
+    #df.with_columns(w = pl.col("x") + pl.col("y"))
+    #df_calc = df.with_columns(    (pl.col("age") * 2).alias("double_age"))
+    oxford_data = oxford_data.with_columns( ((pl.col('year')//4)*4).alias('period'))
     
     # look at some of the records with the new column added
     clearTerminal()
-    print(oxford_data.iloc[100:150])
-
-    # we want "period" to be an int
-    oxford_data = oxford_data.astype({'period': int})
-
-    # look again at some of the records with the new column added
-    clearTerminal()
-    print(oxford_data.iloc[100:150])
+    print(oxford_data[100:150])
 
     # drop remaining columns we are not using (not necessary)
-    oxford_data.drop(['year', 'month'], axis = 1, inplace = True)
+    oxford_data = oxford_data.drop(['year', 'month'])
 
     # look at some of the cleaned up records
     clearTerminal()
-    print(oxford_data.iloc[100:150])
+    print(oxford_data[100:150])
 
     # group results into 4 year periods
-    # the groupby column (period) becomes the index
     clearTerminal()
-    summary = oxford_data.groupby(['period']).aggregate(np.mean)
+    summary = oxford_data.group_by('period') \
+                .agg([pl.col('tmin').mean().alias('tmin'), pl.col('tmax').mean().alias('tmax')]) \
+                .sort(by='period')
     print(summary)
 
+    import altair as alt
+    chart = alt.Chart(summary).mark_bar().encode(
+                               x = 'period',
+                               y = 'tmin')
+    
+    chart.save("z.html")
+    import webbrowser as wb
+    wb.open("./z.html")
+
+    # convert back to pandas for plotting (we should use altait, but its not working!!)
+    summary = summary.to_pandas()
+    
     # plot the data
     ax = summary.plot(figsize=(10, 6), 
                                title = 'Oxford : Average Min and Max Temperatures (over 4 year periods)', 
-                               # x defaults to index
+                               x = 'period',
                                y = ['tmin', 'tmax'], 
                                color = ['red', 'green'], 
                                kind = 'bar')
@@ -130,7 +132,7 @@ def main():
     ax.set_ylabel(f"{chr(0x2103)}")     # unicode ℃
     for item in [ax. title, ax.xaxis.label, ax.yaxis.label]:
         item.set_fontsize(20)
-    pl.show()
+    plt.show()
     pass
 
 

@@ -9,7 +9,7 @@ pd.set_option('display.max_columns', 500)
 
 
 def getGeoDataFrame():
-    df = pd.read_csv("wtk_site_metadata.csv")
+    df = pd.read_csv("data/wtk_site_metadata.csv")
     
     # convert to a series, removing enties where the state is unknown
     states = df['State'][df['State'] != 'Unknown']
@@ -19,7 +19,7 @@ def getGeoDataFrame():
     dfs_of_states = []
     for state in states:
         df_of_state = df[['latitude', 'longitude', 'State']][df['State']==state]
-        df_of_state = df_of_state.groupby(['State']).aggregate(np.mean)
+        df_of_state = df_of_state.groupby(['State']).aggregate("mean")
         df_of_state['State'] = state
         dfs_of_states.append(df_of_state)
     
@@ -42,20 +42,14 @@ def setupPlot():
     ax.set_facecolor("aqua")
     return ax
 
-def plotCountries(ax):
-
-    # extract maps of USA, Mexico and Canada and plot
-    world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
-    usa = world[world.name == 'United States of America']
-    mexico = world[world.name == 'Mexico']
-    canada = world[world.name == 'Canada']
+def plotUSA(ax):
+# extract map of USA (from local file) and plot
+    from usa_data import usa
     usa.plot(ax=ax, color='orange', edgecolor='black')
-    mexico.plot(ax=ax, color='white', edgecolor='black')
-    canada.plot(ax=ax, color='white', edgecolor='black')
 
 def plotWIND_data(ax, WIND_gdf):
     # plot a small marker for each state
-    WIND_gdf.plot(ax=ax, color='white', markersize=1.0)
+    WIND_gdf.plot(ax=ax, color='white', markersize=3.0)
     # annotate map with state names    
     WIND_gdf.apply(lambda row: ax.annotate(text=row.State, 
                                            xy=row.geometry.coords[0], 
@@ -69,17 +63,10 @@ def showPlot(ax):
     ax.set_aspect(2.0)
     plt.show()
 
-def main():
-    try:
-        world = geopandas.read_file("https://naciscdn.org/naturalearth/110m/physical/ne_110m_land.zip")
-    except Exception as e:
-        print(e)
-        
-    # Reproject to Mercator (after dropping Antartica)
-    world = world.drop(7)
+def main():        
     WIND_gdf = getGeoDataFrame()
     ax = setupPlot()
-    plotCountries(ax)
+    plotUSA(ax)
     plotWIND_data(ax, WIND_gdf)
     showPlot(ax)
 
