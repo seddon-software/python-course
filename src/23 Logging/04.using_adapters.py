@@ -14,12 +14,14 @@ stream.
 
 import logging
 import datetime
-import time
+import os, time
 import subprocess
 
+print("Using adaptors ...")
+input("continue?")
 LOG_FILENAME = 'logs/example.log'
 
-# delete log file
+# delete (previous) log file
 subprocess.call(f"rm {LOG_FILENAME}", shell=True)
 
 # setup logging with a format defined
@@ -43,8 +45,11 @@ adapter1.warning('A warning message')
 adapter2.info('An info message')
 adapter2.debug('A debug message')
 adapter2.warning('A warning message')
+subprocess.call(f"cat {LOG_FILENAME}", shell=True)
+
 
 # now change the extra info mid stream
+print("changing extra info ...")
 extraInfo1["user"] = 'tom'
 extraInfo1["ip"] = '192.1.1.63'
 extraInfo2["user"] = 'zoe'
@@ -57,4 +62,6 @@ adapter1.warning('A warning message')
 adapter2.critical('A critical message')
 
 # inspect log file
+time.sleep(5)
+os.system("clear")
 subprocess.call(f"cat {LOG_FILENAME}", shell=True)

@@ -9,6 +9,10 @@ When all the files have filled up, the rotation begins again.
 import glob
 import logging
 import logging.handlers
+import os; os.system("clear")
+
+print("\nCreate rotation log files")
+input("continue?")
 
 # backup log files will have ".1", ".2", etc post-pended to their name
 LOG_FILENAME = 'logs/rotation.out'
@@ -26,10 +30,12 @@ my_logger.addHandler(handler)
 for i in range(10000):
     my_logger.debug(f'This is a logging message #{i}')
 
-# See what files are created
+print("\nSee what files have been created")
+input("continue?")
 import subprocess
 subprocess.call("ls -l logs/rotation*", shell=True)
 
-# look at the first few lines of current logfile
-subprocess.call("head logs/rotation.out", shell=True)
+print("\nInspect the last few lines of current logfile")
+input("continue?")
+subprocess.call("tail logs/rotation.out", shell=True)
 
