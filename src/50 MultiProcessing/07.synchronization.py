@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Synchronizing Processes
 =======================
@@ -13,17 +14,19 @@ to enable the locking to operate.
 '''
 
 import multiprocessing as mp
-import time, os
-
+import time
+import random
 
 def fn(lock):
-    for n in range(50):
+    for n in range(10):
         if synchronize: lock.acquire()
         print(f"This is ", end="")
+        time.sleep(random.random())
         print(f"process ", end="")
+        time.sleep(random.random())
         print(f"{os.getpid()}")
+        time.sleep(random.random())
         if synchronize: lock.release()
-        time.sleep(0.005)
 
 if __name__ == '__main__': 
     ''' output will be garbled unless synchronize = True '''

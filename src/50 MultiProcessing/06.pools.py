@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Pools
 =====
@@ -43,12 +44,16 @@ def work(n):
     # some complicated calculation
     return (n/10)**(1/n**2) + (n/7)**(3/n**3)
 
-N = 20000000
+N = 10000000
 
 if __name__ == '__main__': 
-    print(f"Processes:   {PoolOfProcesses()}")
-    print(f"Threads:     {PoolOfThreads()}")
-    print(f"Single:      {SingleProcess()}")
+    print("Computing cpu intensive calculations")
+    print(f"{'Processes:':20}", end="", flush=True)
+    print(f"{PoolOfProcesses():10.2f}")
+    print(f"{'Threads:':20}", end="", flush=True)
+    print(f"{PoolOfThreads():10.2f}")
+    print(f"{'Single Process:':20}", end="", flush=True)
+    print(f"{SingleProcess():10.2f}")
 
     secs = timeit.timeit(setup="from __main__ import PoolOfProcesses", stmt="PoolOfProcesses()", number=NUMBER)
     print(f"Pool of Processes takes {secs:6.2f} secs")

@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Executors IO Intensive
 =======================
@@ -26,6 +27,7 @@ def processPools():
     with ProcessPoolExecutor(max_workers=6) as executor: compute(executor)
 
 if __name__ == '__main__': 
+    print("perform I/O intensive work")
     JOBS = 25
     REPEATS = 10
 

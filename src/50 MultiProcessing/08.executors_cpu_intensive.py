@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Executors CPU Intensive
 =======================
@@ -7,7 +8,7 @@ pools.  Which you use is a matter of taste (or speed!).
 As we have seen before, pools of processes should be faster the pools of threads because of the GIL when we are 
 performing cpu intensive calculations.  Thread pools work well for IO bound operations. 
 
-Note the executor sometimes spawns fewer processes tha tasks.'''
+Note the executor sometimes spawns fewer processes than tasks.'''
 
 from concurrent.futures import ProcessPoolExecutor
 from concurrent.futures import ThreadPoolExecutor
@@ -50,7 +51,9 @@ def threadPools(details):
     with ThreadPoolExecutor(max_workers=6) as executor: compute(executor, details, "THREADS")
 
 if __name__ == '__main__': 
-    N = 1000000
+    print("perform CPU intensive work")
+
+    N = 100000
     JOBS = 20 
     REPEATS = 10
 
