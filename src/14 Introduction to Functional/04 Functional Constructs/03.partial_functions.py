@@ -25,5 +25,5 @@ def f(v, w, x, y, z): return v + w + x + y + z
 f1 = ft.partial(f, 10, 20)  # f1 takes 3 more parameters
 print((f1(30, 40, 50)))
 
-f2 = ft.partial(f1, 30)
+f2 = ft.partial(f1, 60) # f2 takes 2 more parameters
 print((f2(40, 50)))

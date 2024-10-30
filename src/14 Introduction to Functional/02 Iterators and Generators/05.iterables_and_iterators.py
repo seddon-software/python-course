@@ -3,6 +3,8 @@ import os; os.system("clear")
 Iterables and Iterators
 =======================
 
+Iterables are containers that can store multiple values and are capable of returning values one by one.
+
 An iterator is an object of a class that has both of the methods:
             __iter__()
             __next__()

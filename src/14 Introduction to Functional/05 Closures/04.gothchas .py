@@ -11,11 +11,8 @@ This assignment forces the interpreter to treat the first i as a local variable 
 sets it to the current value of i.  This local variable hides the loop count "i" and Python remembers its
 initial value even when the loop count changes.
 
-Now the code behaves as expected and prints 0, 1, 2, 3.
+Now the code behaves as you might have expected and prints 0, 1, 2, 3.
 '''
-
-import os
-os.system("clear")
 
 from utils import *     # for displayClosures
 

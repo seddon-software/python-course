@@ -38,6 +38,7 @@ generators.append( quads() )
 # create a round robin scheduler with the list of generators
 while(True):
     for g in generators:
-        print(next(g))
+        print(next(g), end=", ")
         time.sleep(0.5)
+    print()
 

@@ -37,5 +37,5 @@ print( powers(quad, 15) )
 print( powers(quad, 17) )
 
 # raising to the seventh power will only be used once
-# so just use a lamda
+# so just provide a lambda
 print( powers(lambda x:x**7, 2))

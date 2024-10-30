@@ -3,9 +3,7 @@ import os; os.system("clear")
 Partial Functions
 =================
 
-One application of nested functions and closures is that it allows us to create partial functions.  This is
-encapsulated in the "functools" Python library:
-            from functools import partial
+One application of nested functions and closures is that it allows us to create partial functions.
 
 Here we define a function "f" with a nested function "g".  The nested function uses the closure of x in the 
 calculation of its return value.  Note how "f" returns "g".  "g" takes just 2 parameters, so we have created

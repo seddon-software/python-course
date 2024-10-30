@@ -19,8 +19,6 @@ they are called, the closure refers to the immutable object 3.  Hence the print 
             3, 3, 3, 3,
 '''
 
-import os
-os.system("clear")
 
 from utils import *     # for displayClosures
 
@@ -31,18 +29,15 @@ def main():
     # note that because i is immutable as we go round the loop, i points to different int objects
     # this in turn means that the closure for the name(symbol) "f" will change
     for i in range(4):
-        # notice how the closure cell on the name "f" changes as we step through the loop
-        # although we create 4 function objects in the loop, we only have one name "f" and hence
-        # a single closure cell.  Note the address of the closure cell doesn't change.
-        print(f"int object i is at {id(i):X}")
         def f():
-            print(i, end=", ")
-        displayClosures(f)
+            print(i, end=',')
         funcs.append(f)
-    # at the end of the loop the closure on "f" is set to latest function object and the closure
-    # on "i" is set to the latest int object (i=3)
-
-    # funcs now contains 4 function pointers, but there is only one closure for "f"
+        print("closures in funcs:")
+        [displayClosures(f) for f in funcs]
+        print()
+        # notice how the closure cells in funcs build up as we step through the loop
+        # each of the 4 function "f"s close on the symbol "i" not on its value
+        # at the end of the loop the value of "i" is 3, so all 4 function "f"s see this value
 
     for f in funcs:
         # the closure on "f" is now on the fourth integer object (i = 3)

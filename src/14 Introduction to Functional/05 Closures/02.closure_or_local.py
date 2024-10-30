@@ -17,11 +17,8 @@ closure and not a local variable.  Note that y3 is referenced in f() and therefo
 local symbol table of f() by the locals() built in.
 '''
 
-import os
-os.system("clear")
 
 from utils import *     # for displayClosures
-
 
 def main():
     x1 = ["mx1"]               # mutable
@@ -32,15 +29,15 @@ def main():
     print(f"main symbol table: {list(locals().keys())}")
 
     def f():
-        # note y1 and y2 are locals, not closures
-        # y3 is used as an r-value and is part of the closure
+        # note y1 and y2 are locals, not closures, because  str's are immutable and used as l-values
+        # y3 is used as an r-value and is therefore part of the closure
         print(f"f symbol table: {list(locals().keys())}")
-        displayClosures(f)
         x1[0] = "fx1"
         x2[0] = "fx2"
         y1 = "fy1"
         y2 = y3
-        displayClosures(f)
     f()
+    print(f"function f:0x{id(f):x}")
+    displayClosures(f)
 
 main()

@@ -20,6 +20,7 @@ while(True):
         for g in generators:
             print(next(g), end=", ")
             time.sleep(0.5)
+        print()
     except StopIteration as e:
         break
 print()
