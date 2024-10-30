@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
   An alternative way of looking at the SUBSTITUTE rule is to say a derived class object IS A kind of base 
   class object.

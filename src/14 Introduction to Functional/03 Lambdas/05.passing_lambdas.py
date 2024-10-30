@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Passing lambda as Parameters
 ============================

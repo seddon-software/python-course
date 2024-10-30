@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''  
   In Python, when we use inheritance, derived classes inherit all the methods and attributes from
   their base class.  A derived class declares it's base class in brackets:

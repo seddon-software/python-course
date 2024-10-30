@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Closure or Local
 ================

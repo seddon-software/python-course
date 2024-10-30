@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Create a class that represents a bank account.  Add methods to allow a customer to deposit() and withdraw() 
 money and provide a method getBalance().

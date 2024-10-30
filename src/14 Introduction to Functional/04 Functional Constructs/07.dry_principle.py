@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 In this example we take a complicated function and split it into simpler functions. While not strictly currying, it does show the use case for decomposing 
 a function that has several responsibilities into several smaller functions that have a single responsibilty (DRY principle - don't repeat yourself).  One 

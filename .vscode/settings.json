@@ -8,6 +8,7 @@
         "GTK_PATH": null,
         "GIO_MODULE_DIR": null,
     },
+    "code-runner.showExecutionMessage": false,
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": false,

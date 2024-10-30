@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 1. Create the BankAccount class with deposit, withdraw, display.  Create 3 sample objects and
 deposit, withdraw followed by display

@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 One of the problems with polymorphism in Python is that an object that is not in the inheritance hierarchy (Horse) can
 be passed to a polymorhic method provided it implements the same set of polymorphic methods even though it doesn't make

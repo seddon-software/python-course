@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
   In this example we see how to add a "display" function to a derived class which prints out all
   the attributes of the class including the attributes defined in the base class.

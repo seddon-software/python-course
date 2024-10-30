@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 In this example we have 3 simple functions, each taking a time parameter.  We combine them into a more complex function using a "chain" function to combine
 the curried single parameter functions.

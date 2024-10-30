@@ -1,4 +1,6 @@
+import os; os.system("clear")
 '''
+
 Decorators take a function pointer as a parameter; this is the function being decorated.  The decorator follows 
 a familiar pattern: define a nested function and then return a pointer to this function.  Normally the nested 
 function will call the original function (but it doesn't have to).

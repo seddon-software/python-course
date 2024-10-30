@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 The Bytecode Cache
 ==================
@@ -7,8 +8,8 @@ a .pyc extension.  This is the file you will sometimes find in the __pycache__ f
 compile source code ourselves; CPython will compile code automatically to refresh the cache.  Indeed, We are only
 compiling this code to show what gets put in the cache.
 '''
-import py_compile, os
 
+import py_compile
 py_compile.compile("myfile.py")
 
 # compiled files are placed in the cache
