@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 DataFrames
 ==========
@@ -22,9 +23,8 @@ At the end of the example we show how to iterate through each row of the datafra
 
 import pandas as pd
 pd.set_option('display.precision', 1)
-# pd.set_option('display.width', None)        # None means all data displayed
 pd.set_option('display.width', 80)
-pd.set_option('display.max_rows', None)
+pd.set_option('display.max_rows', None) # None means all data displayed
 
 
 def main(): 
@@ -42,10 +42,5 @@ def main():
     print(df.tail())       # last five rows
     print(df.sample(5))    # random sample of rows
     print(f"shape of dataframe: {df.shape}")        # number of rows/columns in a tuple
-    print(df.describe())   # calculates measures of central tendency
-    df.info()              # memory footprint and datatypes
 
-    # iterate through the rows of the dataframe
-    for index, row in df.iterrows():
-        print(index, row)
 main()
