@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 We conclude the section with a very brief look at alarms used in asyncio (wait for a period and then 
 interrupt).  Note that these alarms include a timeout. 
@@ -10,7 +11,7 @@ async def say_after(delay, timeout):
     print(f"waiting for {delay} secs, with timeout of {timeout} secs")
     for _ in range(delay):
         await clock()
-    print()
+    print("hello")
 
 async def clock():
     await asyncio.sleep(1)

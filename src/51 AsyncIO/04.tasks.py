@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Coroutines run serially by default; they need to be wrapped as a task before they can be run in parallel.  
 Needless to say, this default behaviour is unesirable; we want to run the coroutines concurrently.

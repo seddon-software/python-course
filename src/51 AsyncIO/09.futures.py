@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 With asynchronous programming you are never sure when a calculation has completed.  You can use a futures 
 object to wait until a result is available.  Futures effectively contain all the synchronization code 

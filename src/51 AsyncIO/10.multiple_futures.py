@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 We can run multiple async tasks, each defined with a future object.  In this example we run a coroutine that calls a recursive
 "fib" routine.  Each "fib" populates its own future with its Fibonacci number.

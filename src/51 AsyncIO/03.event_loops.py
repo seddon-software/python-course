@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 The asyncio module in which these new style coroutines are defined differs from the more traditional threading 
 or multiprocess approach to concurrency in that it utilizes an event loop to handle the scheduling of 

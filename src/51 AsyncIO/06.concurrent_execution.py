@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Here is a simple example that illustrates the concurrent execution of coroutines; even though it is a CPU intensive example.  
 We will look at IO examples in due course.

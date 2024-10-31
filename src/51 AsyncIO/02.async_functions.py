@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 The asyncio module uses new style coroutines.  These are defined as a function prepended by the async keyword.
 Coroutines are a type of generator and like generators you need to call them to create the actual coroutine.
