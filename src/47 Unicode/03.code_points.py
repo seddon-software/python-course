@@ -1,8 +1,9 @@
+import os; os.system("clear")
 '''
-The latest Unicode standard is 14.0.0 (September 2021):
-            https://www.unicode.org/versions/Unicode14.0.0/
+The latest Unicode standard is 14.0.0 (10 September 2024):
+            https://www.unicode.org/versions/Unicode16.0.0/
 
-This defines 144697 different characters, encompassing alphabets for many languages and various symbols.  Each 
+This defines 154,998 different characters, encompassing alphabets for many languages and various symbols.  Each 
 character is assigned a unique number or code point although this number is not necessarily the one used in 
 programs.  Instead various encodings are used, such as UTF-8, UTF-16 and UCS-2. 
 

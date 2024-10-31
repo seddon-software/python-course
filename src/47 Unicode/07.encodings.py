@@ -1,8 +1,9 @@
+import os; os.system("clear")
 '''
 Encodings
 =========
 Unicode supports a number of different encodings.  In this example we compare encodings of the string "résumé".
-Note that not all Unicode code points can be represented in some encodings and in particular, the Japanese encoding 
+Note that not all Unicode code points can be represented in some encodings and in for example, the Japanese encoding 
 "shift_jis" can't represent "résumé".
 '''
 

@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Unicode Properties
 ==================
@@ -9,7 +10,7 @@ import unicodedata
 
 # create a string from unicode code points
 u = chr(65) + chr(233) + chr(0x0bf2) + chr(3972) + chr(6000) + chr(13231) + chr(0xf29) + chr(0x1F4A9)
-print(u)
+print(u)        # Aé௲྄ᝰ㎯༩💩
 
 print(f"{'index':8s} {'code point':12s} {'category':10s}{' ':6s}{'name':>10s}") 
 

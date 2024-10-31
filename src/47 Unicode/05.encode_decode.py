@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Encode Decode
 =============
@@ -23,7 +24,7 @@ s1 = "ABCDEF"       # UTF8 (default) string
 print(s1)
 
 b1 = s1.encode('utf-8') # convert to bytes and display in hex
-print(b1.hex()) 
+print(f"{b1.hex()}") 
 
 s2 = b1.decode('utf-8') # convert back to UTF8 string
 print(s2)
