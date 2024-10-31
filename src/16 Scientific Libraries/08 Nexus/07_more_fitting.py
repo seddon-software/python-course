@@ -1,7 +1,8 @@
 '''
-python -m pip install lmfit
-
+In this example we try to find peaks in data using lmfit:
+            python -m pip install lmfit
 '''
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd

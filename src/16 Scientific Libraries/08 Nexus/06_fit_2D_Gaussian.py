@@ -1,3 +1,7 @@
+'''
+This example analyses a 2 dimensional gaussian stored in a TIF file.  We use unicode variables throughout.
+'''
+
 import scipy.optimize as opt
 import numpy as np
 from numpy import sin, cos, exp

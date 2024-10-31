@@ -1,8 +1,11 @@
+'''
+Here we look at a 3 dimensional plot of data contained in a Nexus file
+'''
+
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from scipy.signal import savgol_filter
 
 # open Nexus file
 f = h5py.File("data/i22-4996.nxs", "r")

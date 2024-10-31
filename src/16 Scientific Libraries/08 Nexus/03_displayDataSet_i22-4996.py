@@ -1,3 +1,8 @@
+'''
+Here we plot data from a Nexus file and then apply a smoothing filter: savgol
+            https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html
+'''
+
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt
