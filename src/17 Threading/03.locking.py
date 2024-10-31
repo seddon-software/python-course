@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Locking
 =======
@@ -22,7 +23,6 @@ from threading import Thread, Lock
 import random
 import time
 import sys
-import os; os.system("clear")
 
 # create a callable class
 class MyClass:

@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Semaphores
 ==========
@@ -15,27 +16,34 @@ blocked until another thread releases the semaphore and increments the count by 
 
 This continues until all the threads have acquired and released the semaphore.  Thus this bounded semaphore 
 behaves as a set of 3 locks.
+
+Note the locking in printMessage; the output gets garbled if you don't use the lock.
 '''
 
-from threading import Thread
-from threading import BoundedSemaphore
+from threading import Thread, BoundedSemaphore
+import multiprocessing as mp
 import random
 import time
 import sys
-import os; os.system("clear")
 
+def printMessage(message):
+    global lock
+    lock.acquire()
+    print(message)
+    lock.release()
 
 class MyClass:
     def __call__(self, name):
         global semaphore
+
         semaphore.acquire()
-        print((name + " claimed semaphore"));
+        printMessage(f"{name} claimed semaphore")
         time.sleep(5)
-        print(("\t" + name + " released semaphore"));
+        printMessage(f"\t{name} released semaphore")
         semaphore.release()
 
 
-
+lock = mp.Lock()
 semaphore = BoundedSemaphore(3)
 
 m1 = MyClass()

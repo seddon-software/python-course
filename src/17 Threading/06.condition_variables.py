@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Condition Variables
 ===================
@@ -23,7 +24,6 @@ from threading import Thread
 import random
 import time
 import sys
-import os; os.system("clear")
 
 
 class Producer:

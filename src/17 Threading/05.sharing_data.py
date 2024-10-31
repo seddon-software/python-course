@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Sharing Data
 ============
@@ -15,7 +16,6 @@ safe.  In Python 3.11+ the code is only thread safe if SKIP=True
 '''
 
 import threading
-import os; os.system("clear")
 
 print("*** This example uses Python 3.11+")
 N = 100*1000

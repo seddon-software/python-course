@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Events
 ======
@@ -17,7 +18,6 @@ All waiting threads are released when any thread "sets" the event:
 from threading import Thread
 from threading import Event, Lock
 import time
-import os; os.system("clear")
 
 lock = Lock()
 

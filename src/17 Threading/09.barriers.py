@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Barriers
 ========
@@ -15,30 +16,38 @@ all 5 threads continue.
 '''
 
 from threading import Thread, Barrier
+import multiprocessing as mp
 import time
-import os; os.system("clear")
 
+
+def printMessage(message):
+    global lock
+    lock.acquire()
+    print(message)
+    lock.release()
+
+lock = mp.Lock()
 b = Barrier(5, timeout=10)
 
 class Server:
     def __init__(self):
-        print("server initializing ...")
+        printMessage("server initializing ...")
         self.thread = Thread(target=self)
         self.thread.start()
 
     def __call__(self):
         time.sleep(5)
         b.wait()
-        print("server ready to accept connections")
+        printMessage("server ready to accept connections")
         
     def connect(self, client):
-        print(f"{client.name} has connected")
+        printMessage(f"{client.name} has connected")
         
 class Client:
     def __init__(self, name, server):
         self.name = name
         self.server = server
-        print(f"{self.name} waiting to connect")
+        printMessage(f"{self.name} waiting to connect")
         self.thread = Thread(target=self)
         self.thread.start()
     
