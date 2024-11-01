@@ -10,21 +10,17 @@ Virtual Course Timings:
      4.00 -  5.00
 
 If you are on a Diamond machine, setup vscode with:
-    module load vscode/1.42.1
+    module load vscode
     
-Note: later versions of vscode may not work (you need the following libraries):
-    GLIBCXX version 3.4.21 or later
-    GLIBC version 2.17 or later
-
     
 To clone this repository:
     cd 
 	git clone https://github.com/seddon-software/python-course.git
     cd python-course
     ls
-    module load python/3.7          # or later
-    module load vscode/1.42.1       # or later
-    code .
+    module load python
+    module load vscode
+    code .          # note the dot (important)
 
 If you've downloaded the examples already and you want to get updates:
     git pull
@@ -57,10 +53,7 @@ Ctrl-Shift C        open external terminal window
 Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
 Ctrl -              zoom out
-
-I've set up (on my machine)
-    Ctrl# to display the debug console
-    Ctrl' to display the terminal window
+Ctrl'               display the terminal window
 
 vscode bug fixes:
 ================
