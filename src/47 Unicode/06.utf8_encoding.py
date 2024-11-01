@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 UTF-8 Encoding
 ==============

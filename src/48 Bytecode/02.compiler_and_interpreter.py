@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 CPython is both a Compiler and Interpreter
 ==========================================

@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Asyncio is designed to solve I/O network performance, not CPU bound operations (which is where multiprocessing 
 should be used).  Asyncio is designed around the concept of ‘cooperative multitasking’, so you have to yield 

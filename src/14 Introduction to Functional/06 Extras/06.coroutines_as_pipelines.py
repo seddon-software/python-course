@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 You can combine generators in a kind of pipeline where each generator operates on input data and
 then passes the data to the next generator in line.  Recal that you must call a generator function

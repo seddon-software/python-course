@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 In a asyncio application all the code runs in a single thread.  As we have seen this allows coroutines
 to run concurrently, but it does not provide any performance gains for CPU intensive applications (use 

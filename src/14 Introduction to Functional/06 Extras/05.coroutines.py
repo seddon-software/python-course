@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Originally generators could only produce output, but PEP 342 (Python 2.5) enhanced generators such that they
 can now also consume input.  When yield is used on the right hand side of an = it is an input yield; if there 

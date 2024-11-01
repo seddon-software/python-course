@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Executors IO Intensive
 =======================

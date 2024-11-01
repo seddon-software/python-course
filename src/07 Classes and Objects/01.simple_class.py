@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 This example shows a typical design of a class.  Classes are quite complicated and this example merits a full
 explanation.  Therefore I've given full details in the accompanying Jupyter Notebook (see the python-notebooks 

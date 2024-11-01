@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 
 Decorators take a function pointer as a parameter; this is the function being decorated.  The decorator follows 

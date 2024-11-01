@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Callable Classes as Callbacks
 =============================

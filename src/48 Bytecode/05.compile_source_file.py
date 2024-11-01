@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 The Bytecode Cache
 ==================
@@ -9,7 +8,7 @@ compile source code ourselves; CPython will compile code automatically to refres
 compiling this code to show what gets put in the cache.
 '''
 
-import py_compile
+import os, py_compile
 py_compile.compile("myfile.py")
 
 # compiled files are placed in the cache

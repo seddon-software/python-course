@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 The latest Unicode standard is 14.0.0 (10 September 2024):
             https://www.unicode.org/versions/Unicode16.0.0/

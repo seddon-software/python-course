@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Coroutines were introduced as long ago as Python 2.5.  Coroutines were essentially generators that had additonal
 capabilities: the yield statement could be used on the right hand side of an expression to allow data to be
