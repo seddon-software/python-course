@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Adding up a Column
 ==================

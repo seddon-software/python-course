@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Plot 3 Unclassified Irises
 ==========================

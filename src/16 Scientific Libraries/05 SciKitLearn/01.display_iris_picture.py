@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Display Iris Picture
 ====================

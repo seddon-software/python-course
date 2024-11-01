@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 This example modifies 3 cells from spreadsheet produced by the previous example:
         ws['A2'].fill = PatternFill(start_color="000000", fill_type = "solid")

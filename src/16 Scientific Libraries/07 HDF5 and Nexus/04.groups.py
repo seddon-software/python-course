@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 With HDF5 data can be arranged in groups and sub-groups.  These are very much like directories in the filesystem.
 The idea is that large datafiles can be split into groups and then individual groups loaded into memory without

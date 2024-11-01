@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Read and Write Excel
 ====================

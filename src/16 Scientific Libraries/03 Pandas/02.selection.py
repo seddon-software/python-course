@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Common Pandas Selection Operations
 ==================================

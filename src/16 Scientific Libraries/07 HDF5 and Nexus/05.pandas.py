@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 You can store Pandas dataframes in HDF5 files.  In this example we read two separate text files (from the Pandas chapter)
 into memory as dataframes.  The dataframes are then written to the same HDF5 file:

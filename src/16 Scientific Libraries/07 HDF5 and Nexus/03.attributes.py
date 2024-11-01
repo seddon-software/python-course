@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 One of the important features of HDF5 is the ability to attach attributes to datasets.  At Diamond these 
 attributes are generated automatically during experiments.

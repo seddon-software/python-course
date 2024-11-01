@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 Here we write a coroutine that reads in values and writes them to a range of cells in a spreadsheet.
 Note that the coroutine is 'old' style in that it uses yield on the right hand side of

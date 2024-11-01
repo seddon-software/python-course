@@ -1,1 +1,1 @@
-../../16 Scientific Libraries/05 SciKitImage/02.rice.py
+../../16 Scientific Libraries/04 SciKitImage/02.rice.py

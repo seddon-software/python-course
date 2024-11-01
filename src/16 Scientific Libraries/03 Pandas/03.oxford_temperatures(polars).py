@@ -1,4 +1,3 @@
-import os; os.system("clear")
 '''
 This is the same example as earlier, except we are using Polars to do the computations
 '''
