@@ -1,5 +1,11 @@
+import os; os.system("clear")
 '''
-This is another example of playing around with coloured cells to create pretty paterns in a spreadsheet.
+This example modifies 3 cells from spreadsheet produced by the previous example:
+        ws['A2'].fill = PatternFill(start_color="000000", fill_type = "solid")
+        ws['B1'].fill = PatternFill(start_color="00FF00", fill_type = "solid")
+        ws['C2'].fill = PatternFill(start_color="0000FF", fill_type = "solid")
+
+This is another example of playing around with coloured cells to create pretty patterns in a spreadsheet.
 Note that the size of each cell is set with:
             ws.column_dimensions[letter].width = 4
             ws.row_dimensions[row].height = 21.0
@@ -29,10 +35,9 @@ for row in range(1, 1000):
 
 # ws.column_dimensions['A':'Z'].width = 4.0     # 0.98 cm
 # ws.row_dimensions[1:8].height = 21.6        # 1.06 cm
-ws['A2'].fill = PatternFill(start_color="FF0000", fill_type = "solid")
+ws['A2'].fill = PatternFill(start_color="000000", fill_type = "solid")
 ws['B1'].fill = PatternFill(start_color="00FF00", fill_type = "solid")
 ws['C2'].fill = PatternFill(start_color="0000FF", fill_type = "solid")
 wb.save(fileName)
 
-cmd = f"libreoffice {fileName}"
-os.system(cmd)
+os.system(f"libreoffice {fileName}")

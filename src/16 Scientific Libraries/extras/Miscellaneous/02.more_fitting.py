@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 In this example we try to find peaks in data using lmfit:
             python -m pip install lmfit

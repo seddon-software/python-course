@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 In this example we extract attributes from a Diamond Nexus file.  Note you can use the Dawn app to see the same information.
 '''
@@ -12,4 +13,8 @@ for group in f:
     for subgroup in f[group]:
         print(f[f"/{group}/{subgroup}"])
 
-os.system("module load dawn; dawn")
+import subprocess
+try:
+    subprocess.run("module load dawn; dawn")
+except:
+    print("you must be on a Diamond machine to run 'dawn'")

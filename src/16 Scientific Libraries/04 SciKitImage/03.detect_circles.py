@@ -1,3 +1,4 @@
+imprt os; os.system("clear")
 '''
 Detect Circles
 ==============

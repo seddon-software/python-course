@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 You can store Pandas dataframes in HDF5 files.  In this example we read two separate text files (from the Pandas chapter)
 into memory as dataframes.  The dataframes are then written to the same HDF5 file:
@@ -32,7 +33,10 @@ def read_met_data(fileName):
     return df
 
 oxford_df = read_met_data(OXFORD_DATA)
-oxford_df.to_hdf(HDF5_FILE, key='oxford', mode='w') 
+try:
+    oxford_df.to_hdf(HDF5_FILE, key='oxford', mode='w') 
+except Exception as e:
+    print(e)
 lerwick_df = read_met_data(LERWICK_DATA)
 lerwick_df.to_hdf(HDF5_FILE, key='lerwick', mode='a') 
 

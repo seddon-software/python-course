@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 OpenPyXl is built on top of Numpy and Pandas.
 

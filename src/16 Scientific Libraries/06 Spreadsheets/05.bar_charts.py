@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Bar Charts
 ==========
@@ -50,5 +51,4 @@ ws.add_chart(chart, "B10")
 fileName = 'data/barCharts.xlsx' 
 wb.save(fileName)
 
-cmd = f"libreoffice {fileName}"
-os.system(cmd)
+os.system(f"libreoffice {fileName}")

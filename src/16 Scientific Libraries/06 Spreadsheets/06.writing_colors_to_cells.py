@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Writing Colors to Cells
 =======================
@@ -39,5 +40,4 @@ for row in range(1, 100):
 
 wb.save(fileName)
 
-cmd = f"libreoffice {fileName}"
-os.system(cmd)
+os.system(f"libreoffice {fileName}")

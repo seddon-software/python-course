@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 In this example we take a Nexus file and smooth the data using a Savgol filter.
 Note the use of Unicode variable names when setting up the smoothed plot.

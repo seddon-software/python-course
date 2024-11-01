@@ -1,5 +1,7 @@
+import os; os.system("clear")
 '''
-In this example we create a calandar and copy it to a spreadsheet.  Note the use of a coroutine to step through cells a row at a time
+In this example we create a calandar and copy it to a spreadsheet.  Note the use of a coroutine to step through cells a row at a time.
+The code is quite tricky, but if you understand how coroutines work you should be able to follow it.
 '''
 
 import calendar, os

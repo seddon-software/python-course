@@ -1,9 +1,8 @@
+import os; os.system("clear")
 '''
 Charts
 ======
-
-Unfortunately "set_categories()" doesn't work in LibreOffice.  Instead you have to manually add the axis; double
-click the chart (menus change) and select insert axis. 
+2D and 3D charts
 '''
 
 import os
@@ -45,7 +44,7 @@ for row in rows:
 chart = AreaChart()
 chart.title = "Area Chart"
 chart.style = 13
-chart.x_axis.title = 'Test'     # note: not aligned properly with LibreOffice
+chart.x_axis.title = 'Test'
 chart.y_axis.title = 'Percentage'
 
 # data needs to start on row=1 to include titles
@@ -53,21 +52,20 @@ categories = Reference(ws, min_col=1, max_col=1, min_row=2, max_row=7)
 data = Reference(ws, min_col=2, max_col=2, min_row=1, max_row=7)
 chart.add_data(data, titles_from_data=True)
 
-# this doesn't work with LibreOffice (see intro)
+# 2D Chart
 chart.set_categories(categories)
 addTitle("C9", "E10", "Area Chart")
 ws.add_chart(chart, "C12")
 
 # 3D Area Chart
 chart = AreaChart3D()
-cats = Reference(ws, min_col=1, min_row=1, max_row=7)
+categories = Reference(ws, min_col=1, min_row=1, max_row=7)
 data = Reference(ws, min_col=2, max_col=4, min_row=1, max_row=7)
 chart.add_data(data, titles_from_data=True)
-chart.set_categories(cats)
+chart.set_categories(categories)
 addTitle("L9", "N10", "3D Area Chart")
 ws.add_chart(chart, "L12")
 
-
+# save chart and open spreadsheet
 wb.save(fileName)
-cmd = f"libreoffice {fileName}"
-os.system(cmd)
+os.system(f"libreoffice {fileName}")

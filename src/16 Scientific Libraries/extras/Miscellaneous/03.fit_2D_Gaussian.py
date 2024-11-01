@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 This example analyses a 2 dimensional gaussian stored in a TIF file.  We use unicode variables throughout.
 '''

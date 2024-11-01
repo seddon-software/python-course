@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 Here we look at a 3 dimensional plot of data contained in a Nexus file
 '''

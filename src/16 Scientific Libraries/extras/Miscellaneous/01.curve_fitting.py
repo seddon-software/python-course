@@ -1,5 +1,6 @@
+import os; os.system("clear")
 '''
-Before we take a look at Nexus files we introduce a curve fitting example
+This is a curve fitting example, not related to Nexus
 '''
 
 import h5py

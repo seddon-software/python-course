@@ -1,3 +1,4 @@
+import os; os.system("clear")
 '''
 This example uses a real image; the image is monochrome rather than colour, which means the RGB values 
 are the same for each pixel (0 to 255), with 0 as black through to 255 as white.
