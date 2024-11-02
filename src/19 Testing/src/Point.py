@@ -1,10 +1,14 @@
+class TooFarException(Exception): pass
+
 class Point:
     def __init__(self, x0, y0):
         self.x = x0
         self.y = y0
 
     def get_distance(self):
-        return (self.x ** 2 + self.y **2) **0.5
+        distance = (self.x ** 2 + self.y **2) **0.5
+        if distance > 10: raise TooFarException()
+        return distance
 
     def moveBy(self, dx, dy):
         self.x += dx
@@ -23,3 +27,4 @@ class Point:
         self.y += dy
     
     
+

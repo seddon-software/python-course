@@ -89,6 +89,6 @@ def exceptionTests():
 if __name__ == '__main__':
     standardSuit = standardTests()
     exceptionSuit = exceptionTests()
-    unittest.TextTestRunner(verbosity=2).run(standardSuit)
-    unittest.TextTestRunner(verbosity=2).run(exceptionSuit)
+    unittest.TextTestRunner(verbosity=0).run(standardSuit)
+    unittest.TextTestRunner(verbosity=0).run(exceptionSuit)
 

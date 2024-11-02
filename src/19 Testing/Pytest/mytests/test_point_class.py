@@ -13,6 +13,8 @@ which defines
             @pytest.mark.intended_to_fail
 '''
 
+import sys
+sys.path.append("..")
 import pytest
 from src.Point import *
 
