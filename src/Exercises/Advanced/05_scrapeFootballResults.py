@@ -24,8 +24,9 @@ West Bromwich Albion 0–1  1–0  4–0  3–0  2–2  0–2  1–0  2–3  0�
 West Ham United      1–2  0–0  1–0  0–1  1–3  1–2  3–0  2–0  3–1  2–1  1–1  1–0  2–0  1–3  1–1  1–0  3–1  0–1  1–1           
 '''
 
-import mechanize
+import mechanicalsoup
 from bs4 import BeautifulSoup
+import requests
 
 def findAllRowsInResultsTable(soup):
 	table = soup.find("table", {"class":"wikitable plainrowheaders"})
@@ -34,10 +35,10 @@ def findAllRowsInResultsTable(soup):
 	return trs
 
 def getSoup(url):
-	br = mechanize.Browser()
-	br.open(url)
-	data = br.response().read()
-	soup = BeautifulSoup(data, "lxml")
+	response = requests.get(url)
+	html = response.content
+	soup = BeautifulSoup(html, 'html.parser')
+
 	return soup
 
 # def extractTeam(text):
@@ -51,7 +52,7 @@ scores = [ ]
 soup = getSoup(url)
 trs = findAllRowsInResultsTable(soup)
 for tr in trs:
-	row =  tr.find_all(text=True)
+	row =  tr.find_all(string=True)
 	entry = [str(col) for col in list(row) if str(col) != "\n"]
 	team = entry.pop(0)
 	teams.append( team )

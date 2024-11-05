@@ -5,9 +5,8 @@ import numpy as np
 
 
 
-fig = plt.figure()
-fig.canvas.set_window_title("Planetary Orbits")
-ax = fig.gca(projection="3d")
+fig = plt.figure(num="Planetary Orbits")
+ax = fig.add_subplot(projection='3d')
 ax.set_title("Satellite Tracing Orbiting Earth")
 
 elevation = 75
@@ -68,8 +67,8 @@ v0 = np.array([0.1,0.2,0.1])
 p = Particle("earth", x0, v0)
 
 def init():
-    earth.set_data(0, 0)
-    earth.set_3d_properties(0)
+    earth.set_data([0], [0])
+    earth.set_3d_properties([0])
     return earth
 
 def animate(frameNo):

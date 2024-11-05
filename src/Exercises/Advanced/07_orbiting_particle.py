@@ -62,7 +62,7 @@ for _ in range(60000):
     p.next(0.1)
 
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection='3d')
 ax.plot(X, Y, Z)
 ax.scatter([0], [0], [0], s=100.0, c='red', marker='o')
 

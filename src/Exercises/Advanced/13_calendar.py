@@ -5,6 +5,7 @@ from openpyxl.styles import Alignment
 from openpyxl.utils import get_column_letter,column_index_from_string
 import datetime
 import calendar
+import os
 
 wb = Workbook()
 ws = wb.active
@@ -56,4 +57,6 @@ while dmy < dmy_end:
     ws.cell(row=row, column=col).font = dayStyle
     dmy = nextDate(dmy)
 
-wb.save('data/calendar.xlsx')
+fileName = 'data/calendar.xlsx'
+wb.save(fileName)
+os.system(f"libreoffice {fileName}")

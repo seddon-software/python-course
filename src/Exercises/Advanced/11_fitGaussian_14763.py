@@ -18,8 +18,8 @@ def main():
     print(data)
     print(data.keys())
     
-    plt.gcf().canvas.set_window_title(fileName)
-    ax = plt.gca()
+    fig = plt.figure(num=fileName)
+    ax = fig.add_subplot()
     ax.set_title("gaussian fitting")
     x = data['gonx'][250:-401]
     y = data['i_pin'][250:-400]
