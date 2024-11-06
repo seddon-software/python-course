@@ -12,9 +12,9 @@ def printWithPrecision(width, precision):
         print(f"{x:{width}.{precision}f}")
     return printIt
 
-print10dot3 = printWithPrecision(15, 6)
-print8dot2 = printWithPrecision(8, 1)
-print7dot1 = printWithPrecision(7, 9)
+print10dot3 = printWithPrecision(10, 3)
+print8dot2 = printWithPrecision(8, 2)
+print7dot1 = printWithPrecision(7, 1)
 
 x = 1234.56789
 y = 9876.54321

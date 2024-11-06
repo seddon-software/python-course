@@ -44,5 +44,5 @@ def getDate():
 print(f"date: {getDate()}")
 boldUsDate = bold(us(getDate))
 boldUkDate = bold(getDate)
-print(f"bold-date: {boldUsDate()}")
+print(f"bold-date: {boldUkDate()}")
 print(f"bold-us-date: {boldUsDate()}")
