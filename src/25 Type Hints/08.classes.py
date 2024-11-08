@@ -8,17 +8,19 @@ Here is a valid program with a user defined class.  The main point of interest i
 2. Do not anotate "self"
 
 Note too, that although @staticmethod is not required for static methods in Python3, mypy reports an error
-if is missing.
+if is missing for class methods not taking any parameters (but note __add__ has parameters and mypy doesn't 
+report an error).
 '''
 
 ############################################################
 # 1) run the program
 ############################################################
+from __future__ import annotations      # require for forward reference (Point)
 
 class Point:
     count: int = 0
 
-    def __init__(self, x0:int, y0:int) -> None:
+    def __init__(self:Point, x0:int=0, y0:int=0) -> None:
         Point.count += 1
         self.x = x0
         self.y = y0
@@ -27,13 +29,19 @@ class Point:
     def getCount()->int:
         return Point.count
 
-    def moveBy(self, dx:int, dy:int) -> None:
+    def moveBy(self:Point, dx:int, dy:int) -> None:
         self.x += dx
         self.y += dy
 
+    def __add__(lhs:Point, rhs:Point) ->Point:
+        result = Point()
+        result.x = lhs.x + rhs.x
+        result.y = lhs.y + rhs.y
+        return result
+            
 p1 = Point(5, 9)
 p2 = Point(4, 8)
-p3 = Point(3, 7)
+p3 = p1 + p2
 
 print(Point.getCount())
 

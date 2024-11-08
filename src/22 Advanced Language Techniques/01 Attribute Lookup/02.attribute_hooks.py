@@ -36,37 +36,45 @@ class MyClass:
     def __str__(self):
         return str(self.__dict__)
 
+##############################################################
 # create an object
 obj = MyClass()
 
-print("set an attribute via dict")
+print("\nset an attribute via dot notation")
+input("continue?")
+print(">>> obj.x = 99")
+obj.x = 99
+
+print("\nset an attribute via dict")
+input("continue?")
 print(">>> obj.__dict__['x'] = 88")
 obj.__dict__['x'] = 88
 
+print("\nread an attribute via dot notation")
+input("continue?")
+print(">>> obj.x")
+obj.x
+
 print("\nread an attribute via dict")
+input("continue?")
 print(">>> obj.__dict__['x']")
 obj.__dict__['x']
 
+print("\ntry to access undefined attribute via dot notation")
+input("continue?")
+print(">>> obj.unknown")
+try:
+    obj.unknown
+except KeyError as e:
+    print(f"KeyError: {e}")
+
 print("\ntry to access undefined attribute via dict")
+input("continue?")
 print(">>> obj.__dict__['unknown']")
 try:
     obj.__dict__['unknown']
 except KeyError as e:
     print(f"KeyError: {e}")
 
-print("\nset an attribute via dot notation")
-print(">>> obj.x = 99")
-obj.x = 99
-
-print("\nread an attribute via dot notation")
-print(">>> obj.x")
-obj.x
-
-print("\ntry to access undefined attribute via dot notation")
-print(">>> obj.unknown")
-try:
-    obj.unknown
-except KeyError as e:
-    print(f"KeyError: {e}")
 
 

@@ -23,43 +23,39 @@ The rule for l-value object lookup:
 '''
 
 class A:
-    x = "class attribute of A"
-    y = "class attribute of A"
-    z = "class attribute of A"
+    x = "class dict of A"
+    y = "class dict of A"
+    z = "class dict of A"
     def __init__(self):
-        self.x = "object attribute of class A"
-        self.y = "object attribute of class A"
-        self.z = "object attribute of class A"
+        self.x = "dict of A object"
+        self.y = "dict of A object"
+        self.z = "dict of A object"
 
 class B(A):
-    x = "class attribute of B"
-    y = "class attribute of B"
+    x = "class dict of B"
+    y = "class dict of B"
     def __init__(self):
         A.__init__(self)
-        self.x = "object attribute of class B"
-        self.y = "object attribute of class B"
+        self.x = "dict of B object"
+        self.y = "dict of B object"
 
 class C(B):
-    x = "class attribute of C"
+    x = "class dict of C"
     def __init__(self):
         B.__init__(self)
-        self.x = "object attribute of class C"
+        self.x = "dict of C object"
 
-print("dotted class lookup traverses inheritance hierarchy")
-print(f"C.x found: {C.x}")    
-print(f"C.y found: {C.y}")    
-print(f"C.z found: {C.z}")
+print("class attribute lookup traverses the inheritance hierarchy")
+print(f"class attribute C.x found in: {C.x}")    
+print(f"class attribute C.y found in: {C.y}")    
+print(f"class attribute C.z found in: {C.z}")
 print()
 
-print("dotted object lookup traverses inheritance hierarchy")
+print("object attribute lookup also traverses inheritance hierarchy")
 o = C()
-print(o.x)
-print(o.y)
-print(o.z)
+print(f"o.x found in {o.x}")
+print(f"o.y found in {o.y}")
+print(f"o.z found in {o.z}")
 print()
 
-print("direct dictionary lookup works the same way")
-print(o.__dict__['x'])
-print(o.__dict__['y'])
-print(o.__dict__['z'])
     

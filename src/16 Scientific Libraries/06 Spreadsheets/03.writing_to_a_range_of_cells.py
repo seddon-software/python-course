@@ -5,14 +5,14 @@ an assignment.  Such coroutine must be started by passing in None as the first '
 '''
 
 import os
-import openpyxl
+import openpyxl as xl
 
 def coroutine(worksheet, range):
     ''' 
     This coroutine reads in a value (through yield)
     and writes it to the next cell in a given cell range
     '''
-    rows = openpyxl.utils.cell.rows_from_range(range)
+    rows = xl.utils.cell.rows_from_range(range)
     for row in rows:
         # get id of each cell ("A1", "A2" etc)
         for id in row:
@@ -22,16 +22,19 @@ def coroutine(worksheet, range):
 
 # define workbook
 fileName = 'data/writingToRangeOfCells.xlsx'
-wb = openpyxl.Workbook()
+wb = xl.Workbook()
 ws = wb.active
 ws.title = "writing to range of cells"
 
-# create iterator for range of clls
-iterator = coroutine(ws, "A1:K20")
+# create iterator for range of cells
+cells = "A1:K20"
+iterator = coroutine(ws, cells)
+cellRange = xl.worksheet.cell_range.CellRange(cells)
 iterator.send(None)     # to start coroutine
 
 # write to all cells in range
-for n in range(500):
+numberOfCells = cellRange.size['rows'] * cellRange.size['columns'] 
+for n in range(numberOfCells):
     try:
         iterator.send(n)
     except StopIteration as e:
