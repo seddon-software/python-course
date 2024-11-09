@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/example_package_diamond_light_source/__init__.py
+src/example_package_diamond_light_source/example.py
+src/example_package_diamond_light_source.egg-info/PKG-INFO
+src/example_package_diamond_light_source.egg-info/SOURCES.txt
+src/example_package_diamond_light_source.egg-info/dependency_links.txt
+src/example_package_diamond_light_source.egg-info/top_level.txt
