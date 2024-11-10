@@ -1,25 +1,32 @@
 '''
-packaging_tutorial/
-├── LICENSE
-├── pyproject.toml
-├── README.md
-├── src/
-│   └── example_package_YOUR_USERNAME_HERE/
-│       ├── __init__.py
-│       └── example.py
-└── tests/
+This example is taken from:
+    https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+The package structure should be:
+    packaging_tutorial/
+    ├── LICENSE
+    ├── pyproject.toml
+    ├── README.md
+    ├── src/
+    │   └── example_package_YOUR_USERNAME_HERE/
+    │       ├── __init__.py
+    │       └── example.py
+    └── tests/
 '''
 
 
-import os; os.system("clear")
-import clean
-
 from pathlib import Path
+import os, webbrowser
 
+
+
+# remove old package
+topDir = "packaging_tutorial"
+os.system(f"rm -r {topDir}")
+
+# set up package
 print("create package files")
 input("continue? ")
-
-topDir = "packaging_tutorial"
 os.system(f"mkdir -p {topDir}")
 os.chdir(f"{topDir}")
 top = Path(os.getcwd())
@@ -58,11 +65,29 @@ if yesno == "yes":
 
 
 '''
-To securely upload your project, you’ll need a PyPI API token. 
-Create one at https://test.pypi.org/manage/account/#api-tokens, setting the “Scope” to “Entire account”. 
+To securely upload your project, you’ll need a PyPI API token.  You'll need a TOTP application - I've used
+Authenticator:
+    sudo apt install gnome-authenticator
+
+Create an PyPI token at https://test.pypi.org/manage/account/#api-tokens, setting the “Scope” to “Entire account”. 
 Don’t close the page until you have copied and saved the token — you won’t see that token again.
 '''
 yesno = input("do you need a PyPI API token (yes/no)? ")
 if yesno == "yes":
-    import webbrowser
     webbrowser.open("https://test.pypi.org/manage/account/#api-tokens")
+
+
+yesno = input("do you want to upload current package to TestPyPI (yes/no)? ")
+if yesno == "yes":
+    os.system("python -m twine upload --repository testpypi dist/*")
+
+input("visit TestPyPI - continue?")
+webbrowser.open("https://test.pypi.org/project/example_package_diamond_light_source")
+
+yesno = input("uninstall previously installed test package (yes/no)? ")
+if yesno == "yes":
+    os.system("pip uninstall example-package-diamond-light-source")
+
+input("install our test package - continue? ")
+os.system("pip install -i https://test.pypi.org/simple/ example-package-diamond-light-source")
+
