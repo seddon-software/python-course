@@ -64,6 +64,8 @@ results = []
 for test_size in np.arange(0.1, 1.0, 0.1):
     results.append(predict(10, test_size))
 
+plt.gcf().canvas.manager.set_window_title("plot the testing accuracy ...")
+plt.title("... as we change ratio of \ntraining data and prediction data sets")
 plt.plot(np.arange(0.1, 1.0, 0.1), results)
 plt.xlabel('Value of test_size (K=10)')
 plt.ylabel('Testing Accuracy')

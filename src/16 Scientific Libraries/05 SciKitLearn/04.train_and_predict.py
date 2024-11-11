@@ -59,7 +59,8 @@ def predict(estimator, message, data, species):
     print(message, estimator.predict([iris1, iris2, iris3])) # estimate
 
 # predict with different estimators and parameters
+print("Try different algorithms to predict the species of the 3 irises")
 predict(KNeighborsClassifier(n_neighbors=1), "KNeighbors(K=1):", data, species)
 predict(KNeighborsClassifier(n_neighbors=3), "KNeighbors(K=3):", data, species)
 predict(KNeighborsClassifier(n_neighbors=5), "KNeighbors(K=5):", data, species)
-predict(LogisticRegression(solver='lbfgs', multi_class='auto', max_iter=150), "LogisticRegression:", data, species)
+predict(LogisticRegression(solver='lbfgs', max_iter=150), "LogisticRegression:", data, species)
