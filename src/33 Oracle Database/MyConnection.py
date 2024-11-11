@@ -9,7 +9,7 @@ def ConnectToOracle():
 				        password="oracle", 
 				        dsn="xe")
     except cx_Oracle.DatabaseError as e:
-        print(e[0].context)
+        print(e)
         raise
     return connection
 
