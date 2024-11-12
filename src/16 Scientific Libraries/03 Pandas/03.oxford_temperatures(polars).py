@@ -35,7 +35,7 @@ def main():
                 .agg([pl.col('tmin').mean().alias('tmin'), pl.col('tmax').mean().alias('tmax')]) \
                 .sort(by='period')
 
-    # convert back to pandas for plotting (we should use altair, but can't figure out how to do a dual plot)
+    # convert back to pandas for plotting
     summary = summary.to_pandas()
     
     # plot the data

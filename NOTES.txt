@@ -79,6 +79,10 @@ jupyter notebook &
 jupyter lab &
 
 
+Git: To Reuse Credentials
+=========================
+git config --global credential.helper store
+
 To Log into Windows
 ===================
 user: clrc\<fed-id>
