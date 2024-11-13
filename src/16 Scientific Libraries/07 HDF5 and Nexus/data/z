@@ -1,0 +1,7 @@
+  508  hdump MoKedge_1_15.nxs 
+  509  h5dump MoKedge_1_15.nxs 
+  510  h5dump MoKedge_1_15.nxs | more
+  511  h5dump --help
+  512  h5dump MoKedge_1_15.nxs | more
+  513  h5dump --attribute file_name MoKedge_1_15.nxs | more
+  514  h > z
