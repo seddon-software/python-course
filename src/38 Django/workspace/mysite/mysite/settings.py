@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tuott##=3lr6c%-nmrn4!f9)#^8t)#1%a@qm++^tm6bcz6=5!$'
+SECRET_KEY = 'django-insecure-+x(*a!9=)i3iidks(e5887oeq_rrl$&x-#n)ing^*%opdc$5fd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'tennis.apps.TennisConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

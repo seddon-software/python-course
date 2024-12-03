@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SimpleConfig(AppConfig):
+class MultipleViewsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'simple'
+    name = 'multiple_views'
