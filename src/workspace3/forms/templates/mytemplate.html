@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mystyles.css') }}">
+</head>
+
+<h1>Results</h1>
+
+<table>
+    <tr><td>First Name</td>  <td>{{ first_name }}</td></tr>
+    <tr><td>Last Name</td>   <td>{{ last_name }}</td></tr>
+    <tr><td>City</td>        <td>{{ city }}</td></tr>
+    <tr><td>Country</td>     <td>{{ country }}</td></tr>
+    <tr><td>Roll Number</td> <td>{{ roll_number }}</td></tr>
+</table>

@@ -6,15 +6,14 @@ point is in reality and internet facing buffer inside the kernel capable of rece
 server then issues a 'listen' call which converts the raw socket into a listening socket.  Next the server performs 
 an 'accept' call.  This is a blocking call and will not return until a client connects.
 
-The client is then started and also creates a raw 'socket'.  The client then issues a 'connect' call.  This converts 
+The client is then started; it also creates a raw 'socket'.  The client then issues a 'connect' call.  This converts 
 the client socket into a data transfer socket, automatically binds to a kernel buffer on the client machine and sends
 a connect message to the server.
 
-The server then returns from the blocking 'accept' call and creates a second socket for transfering data between the server
-and the client.  The listening socket is retained to allow further clients to connect.  The server can now either
-send and receive data with the client or accept further connections.  To allow the server to both it is normal to 
-create a new server thread at this point to communicate with the first client.  The original thread continues to
-wait for further client connections.
+The server then returns from the blocking 'accept' call and creates a second socket for transfering data between the 
+server and the client.  The listening socket is retained to allow further clients to connect.  The server can now 
+send and receive data with the client and accept further connections; the server create a new thread at this point 
+to communicate with the client whilst the original thread continues to wait for further client connections.
 
 Data transfer between server and client proceeds using 'send' and 'recv' calls.  Note that all data sent across
 the network has to be converted to bytes for transmission.  You then need to decode the bytes at the receiving
@@ -50,8 +49,39 @@ end for interpretation.  It is common to use UTF-8 as the encoding.
             ├─────────┤
             │  close  │
             └─────────┘
+
+Note that we have used send and recv to send and receive data, but there are several similar functons you can use
+to achieve the same ends. 
 '''
 
+'''
+The only difference between send() and write(2) is the presence of flags.  With a zero flags argument, 
+send() is equivalent to write.  
+
+Also, the following call
+           send(sockfd, buf, len, flags);
+is equivalent to
+           sendto(sockfd, buf, len, flags, NULL, 0);
+'''
+
+'''
+ssize_t recv(int sockfd, void buf[.len], size_t len, int flags);
+ssize_t recvfrom(int sockfd, void buf[restrict .len], size_t len, int flags, struct sockaddr* src_addr, socklen_t* addrlen);
+ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags);
+
+
+The recv(), recvfrom(), and recvmsg() calls are used to receive
+messages from a socket.  They may be used to receive data on both
+connectionless and connection-oriented sockets.
+
+    The only difference between recv() and read(2) is the presence of
+    flags.  With a zero flags argument, recv() is generally
+    equivalent to read(2) (but see NOTES).  Also, the following call
+
+    recv(sockfd, buf, len, flags);
+is equivalent to
+    recvfrom(sockfd, buf, len, flags, NULL, NULL);
+'''
 
 import socket, sys
 from threading import Thread
@@ -81,11 +111,11 @@ while True:
     # block until we accept a client connection and then create a second socket
     newsocket, remoteIPandPORT = listenSocket.accept()
     print("SERVER: opened a new connection:", remoteIPandPORT)
-    sys.stdout.flush()    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd == -1) {
-        perror("socket failed")
-        exit(1);
-    }
+    sys.stdout.flush()    
+    sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0);
+    if (sockfd == -1):
+        print("socket failed")
+        exit(1)
     
     # create a thread to communicate with client leaving original thread to accept further connections
     clientThread = Thread(target=communicateWithClient, args=(newsocket, messageNo))

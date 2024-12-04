@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mystyles.css') }}">
+</head>
+<body>
+<form action = "/forms/printResults/" method = "post">
+    {% csrf_token %}
+    {{form }}
+<input type="submit" value=Submit>
+</form>
+</body>

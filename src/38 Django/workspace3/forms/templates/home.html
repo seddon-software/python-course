@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+form   {color: blue;}
+tr     {background-color: red;}
+</style>
+</head>
+<body>
+<form action = "/forms/printResults/" method = "post">
+    {% csrf_token %}
+    {{form }}
+<input type="submit" value=Submit>
+</form>
+</body>
