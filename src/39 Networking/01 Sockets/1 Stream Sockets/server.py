@@ -83,9 +83,10 @@ is equivalent to
     recvfrom(sockfd, buf, len, flags, NULL, NULL);
 '''
 
-import socket, sys
+#import socket, sys
+import sys
 from threading import Thread
-
+from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 PORT = 7002
 
 def communicateWithClient(newsocket, messageNo):
@@ -100,8 +101,8 @@ def communicateWithClient(newsocket, messageNo):
     print(f"closing {newsocket}")
     newsocket.close()
 
-listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+listenSocket = socket(AF_INET, SOCK_STREAM)
+listenSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 listenSocket.bind(('', PORT))
 listenSocket.listen(5)    # set up backlog buffer
 messageNo = 1
@@ -112,7 +113,7 @@ while True:
     newsocket, remoteIPandPORT = listenSocket.accept()
     print("SERVER: opened a new connection:", remoteIPandPORT)
     sys.stdout.flush()    
-    sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0);
+    sockfd = socket(AF_INET, SOCK_STREAM, 0)
     if (sockfd == -1):
         print("socket failed")
         exit(1)

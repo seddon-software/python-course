@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> - FlaskApp</title>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mystyles.css') }}"    
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">FlaskApp</a>
+        <a href="#">Create</a>
+        <a href="#">About</a>
+    </nav>
+    <hr>
+    <h1 class="title">Students</h1>
+    <div class="content">
+        {% for student in students %}
+            <div class="student">
+                <p><b>#{{ student.id }}</b></p>
+                <b>
+                    <p class="name">{{ student.firstname }} {{ student.lastname }}</p>
+                </b>
+                <p>{{ student.email }}</p>
+                <p>{{ student.age }} years old.</p>
+                <p>Joined: {{ student.created_at }}</p>
+                <div class="bio">
+                    <h4>Bio</h4>
+                    <p>{{ student.bio }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
