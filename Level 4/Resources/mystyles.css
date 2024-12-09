@@ -1,0 +1,46 @@
+/* cornsilk peachpuff aliceblue */
+/* this effects the code cell */
+.cm-content {
+ background-color: aliceblue`;
+}
+
+
+/* this is for markdown cells */
+.jp-RenderedHTMLCommon { background-color: peachpuff; },
+
+/* this effects outputs */
+pre { background-color: peachpuff;}
+
+.jp-RenderedText{ background-color:cornsilk  ; },
+.jp-RenderedMarkdown{ background-color:cornsilk  ; },
+.jp-MarkdownOutput { background-color: purple; }, 
+.jp-OutputArea-output{ background-color: purple; },  
+.jp-OutputArea-child{ background-color: purple; },  
+
+/* .jp-InputArea { background-color: green; }, */
+/* .jp-editor-selected-background { background-color: green; }, */
+/* .jp-RenderedHTMLCommon { background-color: green; }, */
+/* .selected { background-color: red; } */
+
+
+/* these might be useful */
+.jp-Editor,
+.jp-InputArea-editor,
+.jp-mod-has-primary-selection
+.cm-editor {
+}
+
+/* not used
+.jp-CodeMirrorEditor { 
+    caret-color: red;
+    color: blue;
+    background: red;
+    ::-moz-selection { /* Code for Firefox */
+        color: red;
+        background-color: red;
+    },
+}
+*/
+
+/* this effects lots of panels */
+/* .lm-Widget{ background-color: green ;}, */
