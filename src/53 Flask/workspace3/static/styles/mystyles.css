@@ -1,0 +1,8 @@
+.title {
+    margin: 5px;
+}
+
+body {background-color: powderblue;}
+table, th, td {
+  border: 1px solid;
+}

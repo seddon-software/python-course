@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <h1>Add Match {{ id }}</h1>
+{% endblock %}
+
+{% block contents %}
+    <form method="post">
+        <p>
+            <label for="homeTeam">Home Team</label>
+            <input id="h" type="text" name="homeTeam" placeholder="home team"/>
+        </p>
+        <p>
+            <label for="homeScore">Home Score</label>
+            <input type="text" name="homeScore" placeholder="home score"/>
+        </p>
+        <p>
+            <label for="awayTeam">Away Team</label>
+            <input type="text" name="awayTeam" placeholder="away team"/>
+        </p>
+        <p>
+            <label for="awayScore">Away Score</label>
+            <input type="text" name="awayScore" placeholder="away score"/>
+        </p>
+        <p>
+            <button id="submit" type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}

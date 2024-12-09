@@ -9,7 +9,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] =        'sqlite:///' + os.path.join(basedir, 'database.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
@@ -34,15 +34,25 @@ def index():
     matches = Match.query.all()
     return render_template('index.html', matches=matches)
 
-# ...
-
 @app.route('/<int:match_id>/')
-def theMatch(match_id):
+def singleMatch(match_id):
     match = Match.query.get_or_404(match_id)
-    return render_template('match.html', match=match)
-# ...
+    return render_template('singleMatch.html', match=match, id=match_id)
 
-@app.route('/<int:match_id>/')
-def theMatch(match_id):
-    match = Match.query.get_or_404(match_id)
-    return render_template('match.html', match=match, id=match_id)
+@app.route('/create/', methods=('GET', 'POST'))
+@app.route('/create/', methods=('GET', 'POST'))
+def create():
+    if request.method == 'POST':
+        homeTeam = request.form['homeTeam']
+        awayTeam = request.form['awayTeam']
+        homeScore = request.form['homeScore']
+        awayScore = request.form['awayScore']
+
+        match = Match()
+        match.play(homeTeam, homeScore, awayTeam, awayScore)
+        db.session.add(match)
+        db.session.commit()
+
+        return redirect(url_for('index'))
+
+    return render_template('create.html')

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+RESULTS
+{% endblock %}
+{% block contents %}
+    <table>
+    {% for match in matches %}
+        <tr><td>{{ match }}</td></tr>
+    {% endfor %}
+    </table>
+    <a href="http://localhost:8000/create">create</a>
+{% endblock %}
