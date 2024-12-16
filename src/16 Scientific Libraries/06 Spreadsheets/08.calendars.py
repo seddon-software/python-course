@@ -25,9 +25,9 @@ def coroutine(worksheet, range):
     return
 
 def setSizesOfCells(ws):
-    for col in range(1, 50):
+    for col in range(2, 50):
         letter = openpyxl.cell.cell.Cell(ws, row=3, column=col).column_letter
-        ws.column_dimensions[letter].width = 12  # approx 12*7 pixels
+        ws.column_dimensions[letter].width = 24  # approx 12*7 pixels
     for col in range(2, 9):
         letter = openpyxl.cell.cell.Cell(ws, row=3, column=col).column_letter
         ws.column_dimensions[letter].width = 4  # approx 4*7 pixels
