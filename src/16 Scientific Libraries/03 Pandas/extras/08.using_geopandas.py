@@ -1,23 +1,25 @@
 import pandas as pd
 import geopandas
 import matplotlib.pyplot as plt
+import geodatasets
+import os, subprocess
+import subprocess
 
-df = pd.DataFrame(
-    {'City': ['Buenos Aires', 'Brasilia', 'Santiago', 'Bogota', 'Caracas'],
-     'Country': ['Argentina', 'Brazil', 'Chile', 'Colombia', 'Venezuela'],
-     'Latitude': [-34.58, -15.78, -33.45, 4.60, 10.48],
-     'Longitude': [-58.66, -47.91, -70.66, -74.08, -66.86]})
+response = subprocess.run("ls 110m_physical/*.shp", shell=True, capture_output=True, universal_newlines=True)
+output = response.stdout
+shpFiles = output.splitlines()
+for shp in shpFiles:
+    print(shp)
+    z = geopandas.read_file(shp)
+    ax = z.plot(color='white', edgecolor='black')
+    plt.show()
+    input("continue?")
+'''
+shapefile_path = "110m_physical/ne_110m_land.shp"
+land = geopandas.read_file(shapefile_path)
 
-gdf = geopandas.GeoDataFrame(
-    df, geometry=geopandas.points_from_xy(df.Longitude, df.Latitude))
+ax = land.plot(color='white', edgecolor='black')
 
-world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
-
-# We restrict to South America.
-ax = world[world.continent == 'South America'].plot(
-    color='white', edgecolor='black')
-
-# We can now plot our ``GeoDataFrame``.
-gdf.plot(ax=ax, color='red')
 
 plt.show()
+'''
