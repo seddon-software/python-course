@@ -23,7 +23,7 @@ def enhanceImage(image, threshold):
     # apply filter to every pixel of image
     image[ image <= threshold ] = 0
     image[ image  > threshold ] = 255
-    
+
 def load_image( infilename ) :
     img = Image.open( infilename )
     data = np.asarray( img, dtype="int32" )
@@ -35,7 +35,6 @@ print("Shape of raw image: {}".format(rice.shape))
 
 # algorithms work with monochrome images
 rice = rice[:,:,0]
-#print(rice)
 print("Shape of red image: {}".format(rice.shape))
 plt.figure("monchrome image")
 plt.imshow(rice, interpolation="none", cmap="gray")

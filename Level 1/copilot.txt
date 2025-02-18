@@ -1,0 +1,7 @@
+Create a plot of the cosine integral function
+Create an excel spreadsheet containing a calenda
+Print the 7 times table
+Write a program that prints a large X on the terminal
+Write a program that prints a large X on the terminal using Box Drawing characters 
+Read the file /usr/share/dict/words and plot a histogram of the occurrence of each size
+Write a program to scrape the share price of IBM
