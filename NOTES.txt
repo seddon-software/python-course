@@ -83,6 +83,11 @@ Git: To Reuse Credentials
 =========================
 git config --global credential.helper store
 
+Git: Discard local changes and fetch 
+====================================
+git add .
+git fetch --all && git reset --hard origin/main
+
 To Log into Windows
 ===================
 user: clrc\<fed-id>
