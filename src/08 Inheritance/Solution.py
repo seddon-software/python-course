@@ -55,3 +55,4 @@ if __name__ == "__main__":
     checking.display_balance()
     checking.withdraw(600)
     checking.withdraw(200)
+    

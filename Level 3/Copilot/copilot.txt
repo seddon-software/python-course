@@ -1,0 +1,6 @@
+association with Car and Driver; provide a commentary
+composition with House and Room; provide a commentary
+aggregation with Team and Player; provide a commentary
+delegation with Solicitor and Secretary; provide a commentary
+multiple inheritance with Car and Tax; provide a commentary
+
