@@ -46,7 +46,6 @@ call(f"python -m pip install --force-reinstall {wheelFile}")
 call(f"python --version")
 
 import site
-sitePackages = site.getsitepackages()[0]
 sitePackages = site.USER_SITE
 printMessage(f"copy shared object to site packages: {sitePackages}")
 sharedObject = glob.glob("build/*.so")[0]
