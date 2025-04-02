@@ -13,41 +13,24 @@ def printMessage(m):
 
 def call(cmd):
     print(cmd)
-    subprocess.call(cmd.split())
+    subprocess.call(cmd, shell=True)
 
 
 call ("clear")    
-# remove old build folders
-printMessage("remove old build folders")
-call("rm -rf build")
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")
-call("python -m pip uninstall --yes functions")
+call("python -m pip uninstall --yes cythonRoots")
 
-# build wheel
-printMessage("build wheel")
-call("python -m pip wheel -e .")
-
-# install wheel
-printMessage("install wheel")
-wheelFile = glob.glob("*.whl")[0]
-call(f"python -m pip install --force-reinstall {wheelFile}")
+call("python -m pip install .")
 
 # test
 printMessage("test Cython code")
-import functions
-functions.say_hello()
-functions.say_goodbye()
-print((functions.fibonacci(100000)))
-print((functions.sumOfSquares(2, 4)))
+import cythonRoots
+print((cythonRoots.sumOfRoots(20)))
 
 # clean up
 printMessage("clean up")
-# call("rm -rf dist")
 call("rm -rf build")
-call(f"rm {wheelFile}")
-eggFolder = glob.glob("*.egg-info")[0]
-call(f"rm -rf {eggFolder}")
+call("rm -rf functions.egg-info")
 call("tree .")
-

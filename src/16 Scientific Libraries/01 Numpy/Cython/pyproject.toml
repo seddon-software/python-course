@@ -1,8 +1,12 @@
 [build-system]
-requires = ["setuptools>=42", "cmake>=3.18", "ninja", "pybind11"]
+requires = ["setuptools>=74.1", "cython"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+ext-modules = [
+  {name = "cythonRoots", sources = ["cythonRoots.pyx"]} 
+]
 [project]
-name = "functions"
+name = "cythonRoots"
 version = "1.0.0"
 requires-python = ">=3.8"

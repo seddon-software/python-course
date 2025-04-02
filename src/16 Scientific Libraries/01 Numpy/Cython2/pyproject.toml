@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools>=42", "cmake>=3.18", "ninja", "pybind11"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "functions"
+version = "1.0.0"
+requires-python = ">=3.8"
