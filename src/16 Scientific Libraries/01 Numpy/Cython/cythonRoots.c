@@ -6,7 +6,7 @@
         "depends": [],
         "name": "cythonRoots",
         "sources": [
-            "/home/chris/workspace/python-course/src/16 Scientific Libraries/01 Numpy/Cython2/cythonRoots.pyx"
+            "cythonRoots.pyx"
         ]
     },
     "module_name": "cythonRoots"
