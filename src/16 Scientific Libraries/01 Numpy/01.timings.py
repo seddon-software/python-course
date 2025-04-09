@@ -106,9 +106,9 @@ t6 = ParallelNumba.timeit(number=count)
 t7 = Numba.timeit(number=count)
 t8 = ForLoopWithNumba.timeit(number=count)
 
-print("{:20s}{:>8s}{:>8s}".format("code", "time", "t2/time"))
+print("{:20s}{:>8s}{:>8s}".format("code", "time", "t1/time"))
 print("{:20s}{:>8s}{:>8s}".format("====", "====", "======="))
-print("{:20s}{:8.3f}{:8.3f}".format("For Loop"           ,  t1, t1/t1))
+print("{:20s}{:8.3f}{:8.3f}".format("For Loop (t1)"           ,  t1, t1/t1))
 print("{:20s}{:8.3f}{:8.3f}".format("List Comprehension:",  t2, t1/t2))
 print("{:20s}{:8.3f}{:8.3f}".format("Numpy:"             ,  t3, t1/t3))
 if not EXCLUDE_C_EXAMPLE: 

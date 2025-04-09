@@ -37,12 +37,18 @@ call("python setup.py build_ext --inplace")
 # test
 printMessage("test cythonRoots")
 import cythonRoots
+print(f"compute: {f'{MODULE}.sumOfRoots(50)'}")
 print(f"result: {cythonRoots.sumOfRoots(50)}")
 
 # clean up
 printMessage("clean up")
-call("rm -rf build")
+call(f"rm {MODULE}.c")
 call("tree .")
+
+print("spec of module")
+print("==============")
+print(cythonRoots.__spec__)
+
 
 
 
