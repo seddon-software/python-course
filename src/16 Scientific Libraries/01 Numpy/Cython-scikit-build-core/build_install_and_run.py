@@ -1,4 +1,5 @@
 import os
+os.system("export TERM=~/tmp")
 os.system("pipx run build")
 os.system("pip install .")
 
