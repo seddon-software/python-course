@@ -1,7 +1,7 @@
 import os
 os.system("export TERM=~/tmp")
-os.system("pipx run build")
-os.system("pip install .")
+os.system("python -m pipx run build")
+os.system("python -m Spip install .")
 
 import cythonRoots as roots
 print(roots.sumOfRoots(10))
