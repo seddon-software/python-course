@@ -4,6 +4,9 @@ Run this script from the command line (difficult to read output in VSCode)
 
 import os, sys, subprocess, time, glob
 
+if_build_failed = """if the build fails because of 'failed to map segment from shared object'
+you need to run: 
+\texport TERM=~/tmp"""
 N = 0
 MODULE = "cythonRoots"
 
@@ -18,14 +21,16 @@ def printMessage(m):
 def call(cmd):
     print(cmd)
     time.sleep(N)
-    subprocess.call(cmd.split())
+    result = subprocess.run(cmd.split())
+    try:
+        result.check_returncode()
+    except Exception as e:
+        print(e)
+        print(if_build_failed)
 
 
 call ("clear")    
 
-message = """if the build fails because of 'failed to map segment from shared object'
-you need to run: 
-\texport TERM=~/tmp"""
 printMessage(message)
 printMessage("build with pipx")
 call("python -m pipx run build")
