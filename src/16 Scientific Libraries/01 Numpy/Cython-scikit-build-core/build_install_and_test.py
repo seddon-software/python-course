@@ -31,7 +31,6 @@ def call(cmd):
 
 call ("clear")    
 
-printMessage(message)
 printMessage("build with pipx")
 call("python -m pipx run build")
 
