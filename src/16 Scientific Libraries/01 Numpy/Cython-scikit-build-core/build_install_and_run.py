@@ -6,7 +6,7 @@ os.system("python -m Spip install .")
 import cythonRoots as roots
 print(roots.sumOfRoots(10))
 
-os.system("pip show cythonRoots")
+os.system("python -m pip show cythonRoots")
 print("spec of module")
 print("==============")
 print(roots.__spec__)
