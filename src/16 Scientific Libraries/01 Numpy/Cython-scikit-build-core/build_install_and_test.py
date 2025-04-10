@@ -6,7 +6,7 @@ import os, sys, subprocess, time, glob
 
 if_build_failed = """if the build fails because of 'failed to map segment from shared object'
 you need to run: 
-\texport TERM=~/tmp"""
+\texport TEMP=~/tmp"""
 N = 0
 MODULE = "cythonRoots"
 
