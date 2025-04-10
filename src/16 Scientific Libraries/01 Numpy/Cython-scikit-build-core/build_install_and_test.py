@@ -27,7 +27,7 @@ def call(cmd):
     except Exception as e:
         print(e)
         print(if_build_failed)
-
+        sys.exit(1)
 
 call ("clear")    
 
