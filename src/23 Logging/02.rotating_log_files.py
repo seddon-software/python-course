@@ -6,7 +6,7 @@ fills up (<20000 bytes) we move on to the next log file.  The backup count defin
 When all the files have filled up, the rotation begins again.
 '''
 
-import glob
+import glob         # for wildcards
 import logging
 import logging.handlers
 import os; os.system("clear")
@@ -23,7 +23,6 @@ my_logger.setLevel(logging.DEBUG)
 
 # Add the log message handler to the logger
 handler = logging.handlers.RotatingFileHandler(filename=LOG_FILENAME, maxBytes=20000, backupCount=5)
-
 my_logger.addHandler(handler)
 
 # Log some messages

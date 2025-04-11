@@ -24,19 +24,18 @@ class BankAccount:
         else:
             toAccount.balance += value
 
-
     def __init__(self, name, openingBalance, overdraftLimit=-1000):
         self.name = name
         self.balance = openingBalance
         self.overdraftLimit = overdraftLimit
         BankAccount.accounts[name] = self
 
+    def isOverdrawn(self):
+        return self.balance < self.overdraftLimit
+    
     def deposit(self, value):
         if value < 0: raise InvalidAmount()
         self.balance += value
-
-    def isOverdrawn(self):
-        return self.balance < self.overdraftLimit
 
     def withdraw(self, value):
         balance = self.balance          # take a snapshot in case we need to roll back
