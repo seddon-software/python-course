@@ -57,7 +57,7 @@ class Point(object):
         self.x = self.x + dx     # attribute access does trigger descriptor
         self.y = self.y + dy
 
-# trace all getters and setters    
+# trace all getters and setters
 p1 = Point(15, 25)
 p1.x = 20                   # uses descriptor protocol
 p1.__dict__['x'] = 19       # this accesses the object dictionary directly
