@@ -6,12 +6,12 @@ can create some code that is not thread safe.
 
 In this rather artificial example, we copy a global variable into a local variable, increment the local using +=
 and finally store back in the global.  In between these operations we call a function that doesn't do anything, 
-but this makes the code not thread safe.
+but this stops the code being thread safe.
 
 If we remove the call to the function (SKIP=True) then the code never goes wrong.
 
-Note: This code behaves differently in older versions of Python.  In Python <=3.10 the code is always non thread 
-safe.  In Python 3.11+ the code is only thread safe if SKIP=True
+Note: This code behaves differently in older versions of Python.  In Python <=3.10 the code is never "thread safe".  
+In Python 3.11+ the code is only thread safe if SKIP=True
 '''
 
 import threading
@@ -62,3 +62,4 @@ for _ in range(REPEATS): repeat()
 print("\n*** skipping call to dummy ***\n")
 SKIP = True
 for _ in range(REPEATS): repeat()
+

@@ -15,7 +15,7 @@ Lock Optional in CPython."  To accomplish this, CPython’s developers will add 
 to CPython, so that one can compile a version of CPython with or without the GIL. Eventually, the no-GIL build will 
 become the default.
 
-In the current version of CPython, the GIL is released every few (<10) msec, but never during a byte code instruction.
+In the current version of CPython, the GIL is released every few (5) msec, but never during a byte code instruction.
 Thus operations consisting of a single byte code instruction are atomic and hence thread safe.
 
 A thread may release the GIL voluntarily to allow another thread to run.  A thread only needs to hold the GIL 
