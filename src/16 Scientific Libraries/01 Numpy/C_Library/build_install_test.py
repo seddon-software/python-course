@@ -8,8 +8,8 @@ def execute(message, cmd):
     os.system(cmd)
     print()
 
-execute(message="build extension module with pipx", cmd="pipx run build")
-execute(message="install extension module with pip", cmd="pip install --force-reinstall .")
+execute(message="build extension module with pipx", cmd="python -m pipx run build")
+execute(message="install extension module with pip", cmd="python -m pip install --force-reinstall .")
 
 execute(message="test", cmd="")
 import roots as r
