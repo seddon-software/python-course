@@ -11,16 +11,28 @@ N = 0
 MODULE = "cythonRoots"
 
 def printMessage(m):
-    time.sleep(N)
     print()
     print(m)
     print("-" *  len(m))
     print()
     input("?")
 
-def call(cmd):
-    print(cmd)
-    time.sleep(N)
+# def call(cmd):
+#     print(cmd)
+#     time.sleep(N)
+#     result = subprocess.run(cmd.split())
+#     try:
+#         result.check_returncode()
+#     except Exception as e:
+#         print(e)
+#         print(if_build_failed)
+#         sys.exit(1)
+
+def execute(message, cmd):
+    time.sleep(1)
+    os.system("clear")
+    input(message)
+    print("="*len(message))
     result = subprocess.run(cmd.split())
     try:
         result.check_returncode()
@@ -28,25 +40,21 @@ def call(cmd):
         print(e)
         print(if_build_failed)
         sys.exit(1)
+#    os.system(cmd)
+    print()
 
-call ("clear")    
-
-printMessage("build with pipx")
-call("python -m pipx run build")
-
-printMessage("install with pip")
-os.system("python -m pip install .")
+execute(message="build with pipx", cmd="python -m pipx run build")
+execute(message="install with pip", cmd="python -m pip install .")
 
 printMessage(f"test module: {MODULE}")
-
 import cythonRoots as roots
 print(f"result = {roots.sumOfRoots(10)}")
 
-printMessage("pip show")
-call("python -m pip show cythonRoots")
+execute(message="pip show", cmd="python -m pip show cythonRoots")
 printMessage("spec of module")
 print(roots.__spec__)
 
-printMessage("clean up")
-call("rm -rf dist")
-call("tree .")
+# clean up
+execute(message="clean up", cmd="rm -r dist")
+execute(message="tree", cmd="tree .")
+
