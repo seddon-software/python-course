@@ -17,4 +17,4 @@ print(r.sumOfRoots(10))
 print()
 
 # clean up
-execute(message="clean up", cmd="rm -r dist;rm -r build; tree .")
+execute(message="clean up", cmd="rm -r dist; tree .")

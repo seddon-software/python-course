@@ -17,17 +17,6 @@ def printMessage(m):
     print()
     input("?")
 
-# def call(cmd):
-#     print(cmd)
-#     time.sleep(N)
-#     result = subprocess.run(cmd.split())
-#     try:
-#         result.check_returncode()
-#     except Exception as e:
-#         print(e)
-#         print(if_build_failed)
-#         sys.exit(1)
-
 def execute(message, cmd):
     time.sleep(1)
     os.system("clear")
@@ -40,7 +29,6 @@ def execute(message, cmd):
         print(e)
         print(if_build_failed)
         sys.exit(1)
-#    os.system(cmd)
     print()
 
 execute(message="build with pipx", cmd="python -m pipx run build")
