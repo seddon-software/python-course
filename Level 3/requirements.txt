@@ -1,6 +1,9 @@
 # Key packages used as part of the Level 3 course
 # This should also serve as a handy illustration of different ways in which
 # Python packages can be installed via 'pip'
+#
+# pip install -r requirements.txt
+
 aiohttp
 altair
 h5py
