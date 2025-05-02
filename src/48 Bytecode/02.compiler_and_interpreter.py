@@ -2,23 +2,23 @@
 CPython is both a Compiler and Interpreter
 ==========================================
 
-CPython is both a compiler and interpreter.  The compiler translates source code into bytecode and the 
+CPython is both a compiler and interpreter.  The compiler translates source code into bytecode and the
 interpreter executes the code.  Each operating system has a different interpreter that understands native
 code for that system.  Most of the work in running a Python program is done by the interpreter.  The compiler
 stage is relatively simple.
 
 Here we have a function that adds x and y.  Note that the bytecode produced by the compiler works for both
-integers and strings.  All the work is done by the BINARY_ADD opcode.  However, what we can't easily see is 
-how BINARY_ADD works in the interpreter.  It turns out that BINARY handles the two cases very differently.  
-But to see that, we would need to look at the C code inside CPython.  
+integers and strings.  All the work is done by the BINARY_ADD opcode.  However, what we can't easily see is
+how BINARY_ADD works in the interpreter.  It turns out that BINARY handles the two cases very differently.
+But to see that, we would need to look at the C code inside CPython.
 
-The CPython interpreter is open source and you can read through it on GitHub. The implementation of the bytecode 
-interpreter is in the file Python/ceval.c.  In the Python 3.6.4 release the bytecode instructions are handled by 
-a switch statement beginning on line 1266.  The bytecode for BINARY_ADD begins on line 1475 and is reproduced 
+The CPython interpreter is open source and you can read through it on GitHub. The implementation of the bytecode
+interpreter is in the file Python/ceval.c.  In the Python 3.6.4 release the bytecode instructions are handled by
+a switch statement beginning on line 1266.  The bytecode for BINARY_ADD begins on line 1475 and is reproduced
 below (https://github.com/python/cpython/blob/d48ecebad5ac78a1783e09b0d32c211d9754edf4/Python/ceval.c)
 
-We reproduce it here to illustrate how the two cases are handled in the interpreter.  Don't worry about the 
-details, just observe that PyNumber is used for numbers and PyUnicode for strings.  Note how the unicode and 
+We reproduce it here to illustrate how the two cases are handled in the interpreter.  Don't worry about the
+details, just observe that PyNumber is used for numbers and PyUnicode for strings.  Note how the unicode and
 number parts are handled very differently.
 
         TARGET(BINARY_ADD) {
@@ -62,10 +62,7 @@ dis.dis(add)
 '''
   6           0 LOAD_FAST                0 (x)
               2 LOAD_FAST                1 (y)
-              4 BINARY_ADD          
-              6 RETURN_VALUE 
+              4 BINARY_ADD
+              6 RETURN_VALUE
 '''
 # note: BINARY_ADD is interpreted differently for str and int
-
-
-
