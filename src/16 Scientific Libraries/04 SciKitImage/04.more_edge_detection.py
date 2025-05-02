@@ -30,7 +30,7 @@ def doit(image, sigma, threshold, spread, dt):
 
 def set_title(title):
     figure = plt.gcf()
-    figure.canvas.set_window_title(title)
+    figure.canvas.manager.set_window_title(title)
 
 def load_image(infilename):
     img = Image.open(infilename)
