@@ -18,7 +18,7 @@ Print out the conversions in tabular form every few degrees beween freezing and 
 ╱       ╲
 
 Ask the user how big the X should be and restrict the size to 13 lines maximum.  Make sure the user enters 
-an odd number of lines (because of he crossover in the middle).  Handle all errors using exception handling 
+an odd number of lines (because of the crossover in the middle).  Handle all errors using exception handling 
 and use functions throughout.
 
 You can find all the Box Drawing characters at:

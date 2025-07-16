@@ -1,6 +1,6 @@
-Create a plot of the cosine integral function
-Create an excel spreadsheet containing a calenda
 Print the 7 times table
+Create a plot of the cosine integral function
+Create an excel spreadsheet containing a calendar for 2026 and open it with libreoffice
 Write a program that prints a large X on the terminal
 Write a program that prints a large X on the terminal using Box Drawing characters 
 Read the file /usr/share/dict/words and plot a histogram of the occurrence of each size
