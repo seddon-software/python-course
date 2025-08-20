@@ -1,6 +1,7 @@
 '''
-As an alternative to explicit futures, you can run multiple tasks with implicit futures.  In this case use use "asyncio.gather"
-to obtain results; asyncio.gather automatically waits for all tasks to complete.
+As an alternative to explicit futures, you can run multiple tasks with implicit futures.  
+In this case use use "asyncio.gather" to obtain results; asyncio.gather automatically waits for 
+all tasks to complete.
 '''
 
 import asyncio
@@ -17,7 +18,7 @@ async def main(n):
     tasks = [asyncio.create_task(myCoroutine(i)) for i in range(n)]
     
     # ayncio.gather waits until all results are available before returning
-    responses = await asyncio.gather(*tasks)
+    responses = await asyncio.gather(*tasks)    # gather takes a sequence  of tasks (not a list), hence we use *
     for r in responses:
         print(f"fib({r['index']}) = {r['result']}")
 

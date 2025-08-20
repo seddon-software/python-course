@@ -27,15 +27,12 @@ async def printDots():
     await asyncio.sleep(0.01)
     
 async def main(n):
+    future = asyncio.Future()
     await asyncio.create_task(myCoroutine(future, n))
 
-    # wrap a coroutine in a future
+    # retreive result from the future
     print(f"fib({n}) = {future.result()}")
 
 # Start event loop and run until completed
-loop = asyncio.get_event_loop()
-future = asyncio.Future()
-try:
-    loop.run_until_complete(main(n=9))
-finally:
-    loop.close()
+if __name__ == '__main__':
+    asyncio.run(main(9))
