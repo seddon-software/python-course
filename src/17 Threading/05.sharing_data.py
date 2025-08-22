@@ -16,50 +16,51 @@ In Python 3.11+ the code is only thread safe if SKIP=True
 
 import threading
 
-print("*** This example uses Python 3.11+")
-N = 100*1000
-NUMBER_OF_THREADS = 10
-REPEATS = 5
-SKIP = False
+# print("*** This example uses Python 3.11+")
+N = 250*1000
+NUMBER_OF_THREADS = 2
 
-# this global counter is not protected by a lock
-counter = 0
+# this global counter IS NOT protected by a lock
+counter1 = 0
+# this global counter IS protected by a lock
+counter2 = 0
 
-def dummy():
-    pass
+def inc(counter):
+    counter += 1
+    dummy()
+    return counter
+
+def dummy(): pass
+def progress(i):
+    if i % (N/100) == 0: 
+        v = (100*i)//N
+        print(f"{v}%")
 
 def increaseCounters(lock):
-    global counter
-    for _ in range(N):
-        n = counter
-        if not SKIP: dummy()
-        n += 1
-        if not SKIP: dummy()
-        counter = n
+    global counter1, counter2
+    for i in range(N):
+        counter1 = inc(counter1)
+        lock.acquire()
+        counter2 = inc(counter2)
+        lock.release()
+        # progress(i)
 
+lock = threading.Lock()
 
-def create_and_start_threads(threads, lock):
+def create_and_start_threads():
+    listOfThreads = []
     for _ in range(NUMBER_OF_THREADS):
         thread = threading.Thread(target=increaseCounters, args=(lock,))
-        threads.append(thread)
         thread.start()
+        listOfThreads.append(thread)
+    return listOfThreads
 
-def repeat():
-    global counter
-    counter = 0
-    threads = []
-    lock = threading.Lock()
-    create_and_start_threads(threads, lock)
-    for thread in threads:
-        thread.join()
 
-    print(f"actual value of counter:  {counter:8}")
+threads = create_and_start_threads()
+[thread.join() for thread in threads]
+    
+print(f"expected value of counters:{N * NUMBER_OF_THREADS:8}")
+print(f"actual value of counter1:  {counter1}")
+print(f"actual value of counter2:  {counter2}")
 
-print(f"expected value of counter:{N * NUMBER_OF_THREADS:8}")
-for _ in range(REPEATS): repeat()
-
-# try by skipping call to delay()
-print("\n*** skipping call to dummy ***\n")
-SKIP = True
-for _ in range(REPEATS): repeat()
 
