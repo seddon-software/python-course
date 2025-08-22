@@ -1,17 +1,12 @@
 '''
 Sharing Data
 ============
-As discussed previously, code using += is now thread safe.  However, if we look at a more complicated example we 
-can create some code that is not thread safe.  
 
-In this rather artificial example, we copy a global variable into a local variable, increment the local using +=
-and finally store back in the global.  In between these operations we call a function that doesn't do anything, 
-but this stops the code being thread safe.
+In this example we increment the two global counters using multiple threads.  Only one of the counters is
+protected by a lock.  Note how the unprotected counter gets corrupted when you run the code.
 
-If we remove the call to the function (SKIP=True) then the code never goes wrong.
-
-Note: This code behaves differently in older versions of Python.  In Python <=3.10 the code is never "thread safe".  
-In Python 3.11+ the code is only thread safe if SKIP=True
+Note: You might have to run the code several times to see the data corruption.  Use the script provided:
+    run_sharing_data
 '''
 
 import threading
@@ -27,14 +22,8 @@ counter2 = 0
 
 def inc(counter):
     counter += 1
-    dummy()
     return counter
 
-def dummy(): pass
-def progress(i):
-    if i % (N/100) == 0: 
-        v = (100*i)//N
-        print(f"{v}%")
 
 def increaseCounters(lock):
     global counter1, counter2
@@ -43,11 +32,10 @@ def increaseCounters(lock):
         lock.acquire()
         counter2 = inc(counter2)
         lock.release()
-        # progress(i)
 
-lock = threading.Lock()
 
 def create_and_start_threads():
+    lock = threading.Lock()
     listOfThreads = []
     for _ in range(NUMBER_OF_THREADS):
         thread = threading.Thread(target=increaseCounters, args=(lock,))
