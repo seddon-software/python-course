@@ -6,14 +6,14 @@ In this example we increment the two global counters using multiple threads.  On
 protected by a lock.  Note how the unprotected counter gets corrupted when you run the code.
 
 Note: You might have to run the code several times to see the data corruption.  Use the script provided:
-    run_sharing_data
+    ./run_sharing_data_A
 '''
 
+print("This example uses CPython - any version")
 import threading
 
-# print("*** This example uses Python 3.11+")
-N = 250*1000
-NUMBER_OF_THREADS = 2
+N = 100*1000
+NUMBER_OF_THREADS = 3
 
 # this global counter IS NOT protected by a lock
 counter1 = 0

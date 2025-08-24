@@ -10,4 +10,4 @@ as shown below.  Note that the context switch will only occur after the current 
 import sys
 
 # determine context switch interval 
-print(f"{sys.getswitchinterval()} msec")
+print(f"{sys.getswitchinterval()*1000:.0f} msec")

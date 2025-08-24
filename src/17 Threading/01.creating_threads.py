@@ -57,10 +57,13 @@ In this example the main thread creates 3 other (worker) threads which all execu
 Each of these threads terminate when they complete this function.  I've added some random delays to emphasize 
 the parallel nature of this program.
 
-The "join()" methods are executed by the main thread to waits for each worker thread to complete in turn, 
-ensuring the main thread finishes last.  When the main thread completes it calls a terminate process function 
-silently; without the "join()" calls the whole program will end abruptly before the worker threads have 
-finished.
+The "join()" methods are executed by the main thread to wait for each worker thread to complete in turn, 
+ensuring the main thread finishes last.  If you don't use "join()" and the main thread finishes, then 
+the other threads run to completion.  Alternatively you can mark threads as daemons and they will terminate
+prematurely when the main thread exits.
+
+To set the thread as a daemon thread use:
+    thread.daemon = True
 '''
 
 import random

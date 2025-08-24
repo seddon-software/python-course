@@ -1,12 +1,12 @@
 # to list interpreters: pyenv versions
-# to change interpreter: pyenv global 3.10.15
+# to change interpreter: pyenv local 3.10.15
 #
 
 clear
 for n in {1..10}
 do
     python --version
-    python 05.sharing_data.py
+    python 05B.sharing_data.py
     sleep 2 
     clear
 done
