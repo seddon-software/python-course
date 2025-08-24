@@ -28,6 +28,11 @@ In the code below we use the dis module to disassemble code for:
             x += 1
             sort([2,5,3,6])
 
+========================================================================================================
+
+x += 1
+======
+
 The instruction (x += 1) should always be unsafe because after the byte code instruction to increment x, 
 BINARY_OP (+=) there is a further byte code instruction to store x, STORE_NAME.  If the GIL gets released 
 between these byte code instructions then another thread could corrupt the value of x.
@@ -35,12 +40,44 @@ between these byte code instructions then another thread could corrupt the value
 However, although this was always the case with Python <= 3.9, I've noticed that this doesn't seem to happen
 anymore on Python 3.10+ and I'm not sure why.  I can see that one change is that python now uses BINARY_OP
 rather than INPLACE_ADD, but this shouldn't change anything.  I've tested this with multiple thread running 
-for over 3 hours, but can't get it to go wrong.  Furthermore, you can find several articles on the web that claim such code is not thread safe, 
-but these articles are now out of date and don't go wrong anymore (they failed in Python 3.9).
+for over 3 hours, but can't get it to go wrong.  Furthermore, you can find several articles on the web that claim 
+such code is not thread safe, but these articles are now out of date and don't go wrong anymore (they failed 
+in Python 3.9).
 
-On further investigation I've found this behaviour only affects CPython.  If I use any version of PyPy then += 
-is not thread safe (see the following examples).  Future changes to Python or using a different interpreter 
-(like PyPy) might cause += to fail, so you should still use a mutex just in case.
+On further investigation I've found this behaviour is probably a result of a change that happened with Python 3.11.
+This version introduced the "Specializing Adaptive Interpreter".
+
+The “specializing adaptive interpreter” is a standout feature introduced in Python 3.11 and refined in Python 3.12, 
+Unlike Python 3.10’s traditional execution model, this fundamentally changes how Python code is executed. Unlike 
+Python 3.10’s traditional execution model, which relies on static code paths, the adaptive interpreter dynamically 
+adjusts to the behaviour of your code as it runs.  This means it optimizes frequently used operations, adapting on-the-fly to boost performance without requiring any 
+changes to your code.  
+
+How the Adaptive Interpreter Works
+==================================
+    Type Specialization: 
+        The interpreter can specialize the bytecode for specific types that it encounters frequently, which allows 
+        for faster execution.
+    
+    Hot Spot Detection: 
+        It identifies "hot spots" in the code—sections that are executed frequently—and optimizes them by compiling 
+        them into machine code.
+    
+    Dynamic Optimization: 
+        As the program runs, the interpreter adapts to the changing types and execution patterns, allowing it to 
+        optimize performance dynamically.
+
+If we use += in a big loop, I believe that the adaptive intepreter doesn't check if it is time to release the GIL 
+between the BINARY_OP and STORE_NAME byte code instructions, because of Hot Spot detection or Dynamic Optimization 
+- effectively making += thread safe.
+
+Future changes to Python or using a different interpreter (like PyPy) might cause += to fail, so you should still 
+use a mutex just in case.
+
+========================================================================================================
+
+sort([2,5,3,6]
+==============
 
 Surprisingly, although the second instruction (sort([2,5,3,6])) is quite complicated, it is thread safe.  This is 
 because the byte code instructions are all immutable except the call to sort (which can't be interrupted), so the 

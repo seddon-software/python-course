@@ -5,6 +5,9 @@ Sharing Data
 In this example we increment the two global counters using multiple threads.  Only one of the counters is
 protected by a lock.  Note how the unprotected counter gets corrupted when you run the code.
 
+I avoided using the += inline because of the adaptive interpreter (which seems to make such code thread safe).
+By putting += in a seperate function the lack of thread safety shows up.
+
 Note: You might have to run the code several times to see the data corruption.  Use the script provided:
     ./run_sharing_data_A
 '''

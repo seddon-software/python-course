@@ -34,3 +34,6 @@ thread2.join()
 # Print the final value of the counter
 print(f"Final counter value:    {counter}")
 print(f"Expected counter value: {2 * COUNT}")
+
+import dis
+dis.dis(increment_counter, adaptive=True)
