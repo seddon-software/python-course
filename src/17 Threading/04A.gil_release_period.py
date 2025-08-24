@@ -11,3 +11,7 @@ import sys
 
 # determine context switch interval 
 print(f"{sys.getswitchinterval()*1000:.0f} msec")
+
+# change it
+sys.setswitchinterval(0.00025)
+print(f"{sys.getswitchinterval()*1000:0.2f} msec")
