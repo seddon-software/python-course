@@ -13,12 +13,10 @@ how BINARY_ADD works in the interpreter.  It turns out that BINARY handles the t
 But to see that, we would need to look at the C code inside CPython.
 
 The CPython interpreter is open source and you can read through it on GitHub. The implementation of the bytecode
-interpreter is in the file Python/ceval.c.  In the Python 3.6.4 release the bytecode instructions are handled by
-a switch statement beginning on line 1266.  The bytecode for BINARY_ADD begins on line 1475 and is reproduced
-below (https://github.com/python/cpython/blob/d48ecebad5ac78a1783e09b0d32c211d9754edf4/Python/ceval.c)
+interpreter is in the file Python/ceval.c.  
 
-We reproduce it here to illustrate how the two cases are handled in the interpreter.  Don't worry about the
-details, just observe that PyNumber is used for numbers and PyUnicode for strings.  Note how the unicode and
+We reproduce part of it here to illustrate how the two cases are handled in the interpreter.  Don't worry about 
+the details, just observe that PyNumber is used for numbers and PyUnicode for strings.  Note how the unicode and
 number parts are handled very differently.
 
         TARGET(BINARY_ADD) {
