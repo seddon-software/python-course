@@ -9,34 +9,34 @@ from threading import BoundedSemaphore
 import random
 import time
 
+def main():
+    THREADS = 25
+    semaphore = BoundedSemaphore(3)
 
-THREADS = 25
+    class MyClass:
+        def __init__(self, id):
+            self.id = chr(65+id)
 
-class MyClass:
-    def __init__(self, id):
-        self.id = chr(65+id)
+        def __call__(self):
+            semaphore.acquire()
+            for i in range (1, 50):
+                print(self.id, end="")
+                time.sleep(random.random() * 0.1)
+            semaphore.release()
+            return self.id
 
-    def __call__(self):
-        global semaphore
-        semaphore.acquire()
-        for i in range (1, 50):
-            print(self.id, end="")
-            time.sleep(random.random() * 0.1)
-        semaphore.release()
-        return self.id
 
-#lock = mp.Lock()
-semaphore = BoundedSemaphore(3)
+    callbacks = [MyClass(n) for n in range(THREADS)]
 
-callbacks = [MyClass(n) for n in range(THREADS)]
+    with ThreadPoolExecutor() as executor:
+        results = [executor.submit(c) for c in callbacks]
 
-with ThreadPoolExecutor() as executor:
-    results = [executor.submit(c) for c in callbacks]
+    print("\nresults from futures:")
 
-print("\nresults from futures:")
+    for result in results:
+        print(result.result(), end=",")
 
-for result in results:
-    print(result.result(), end=",")
+    print("\nEnd of main")
 
-print("\nEnd of main")
-
+if __name__ == '__main__': 
+    main()
