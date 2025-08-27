@@ -34,6 +34,10 @@ for key in mylist:
     print(f"{key:<6s}{salary[key]:6}")
 print()
 
+# don't do this (why?)
+sortedlList = list(salary.keys()).sort()
+print(sortedlList)
+
 # use sorted to sort dictionary in a different order (by value)
 def comparator(key):
     return salary[key]      # this will be used as the sort value
