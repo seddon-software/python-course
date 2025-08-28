@@ -27,7 +27,7 @@ class SmallProblem(Exception): pass
 def main():
     try:
         part1()
-        part2(150)
+        part2(15)      # use the parameter to control the type of exception
         part3()
         part4()
     except BigProblem as e:

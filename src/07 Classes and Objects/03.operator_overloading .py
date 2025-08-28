@@ -39,25 +39,24 @@ class Time:
         self.min = min
 
     # rhs must be an int or Time
-    def __add__(self, rhs):
+    def __add__(lhs, rhs):
         if isinstance(rhs, int): rhs = Time(0, rhs)
         if not isinstance(rhs, Time): raise Exception("Incorrect input type")
 
-        hrs = self.hrs + rhs.hrs
-        min = self.min + rhs.min
+        hrs = lhs.hrs + rhs.hrs
+        min = lhs.min + rhs.min
         if min >= 60:
             hrs = hrs + 1
             min = min - 60
         return Time(hrs, min)
     
     # called if Time is on the rhs
-    def __radd__(self, lhs):
-        return self + lhs
+    def __radd__(rhs, other):
+        return rhs.__add__(other)
     
     # called for +=
-    def __iadd__(self, other):
-        self = self + other     # self now points to a different object (the one returned from __add__)
-        return self             # note this is required (see description above)
+    def __iadd__(lhs, other):
+        return lhs + other             # new value of lhs - note this is required (see description above)
     
     # used by print
     def __str__(self):
@@ -76,15 +75,19 @@ print(t3)
 t3 = 27 + t1        # t1.__radd__(27)
 print(t3)
 
-t1 += t3            # t1 = t1.__iadd__(t3)
+t1 = Time(5,30)
+t2 = Time(1,45)
+t1 += t2            # t1 = t1.__iadd__(t2)
 print(t1)
 
+t1 = Time(5,30)
 t1 += 33            # t1 = t1.__iadd__(33)
 print(t1)
 
+# try with illegal types (Time, str)
 try:
-    t3 = t1 + "two mins"
-    print(t3)
+    t2 = t1 + "two mins"
+    print(t2)
 except Exception as e:
     print(e)    
 
