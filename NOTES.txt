@@ -43,6 +43,8 @@ Launch VS Code Quick Open (Ctrl+P), paste the following command(s), and press en
     C++:        ext install ms-vscode.cpptools
     Jupyter:    ext install ms-toolsai.jupyter-renderers
 
+Alternatively use the script CODE.sh in this folder
+
 
 vscode key bindings
 ===================
@@ -52,7 +54,7 @@ Ctrl-b              toggle sidebar
 Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
 Ctrl -              zoom out
-Ctrl'               display the terminal window
+Ctrl '              display the terminal window
 
 
 Module Load Commands
@@ -65,7 +67,7 @@ VSCode
 ======
 If you want to stop VScode echoing the current command when you debug switch off terminal echo:
             stty -echo
-To reverse this setting:
+To reverse, use this setting:
             stty echo
 
 Eclipse
