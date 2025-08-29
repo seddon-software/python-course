@@ -3,7 +3,7 @@ Relative Imports
 ================
 In this example we have the following directory structure:
 
-mylib2
+packages
 └── app
     ├── __init__.py
     ├── sub1
@@ -17,7 +17,7 @@ Note: Since Python 3.3, __init__.py is no longer required to define directories 
       Python packages.
 
 Our package is "app" and this must be on the PYTHONPATH, so we need to:
-            sys.path.append("mylib2")
+            sys.path.append("packages")
 
 Now we can import module1 in the normal way:
             import app.sub1.module1 as m1
@@ -41,13 +41,13 @@ This is similar to Unix relative paths:
     ....    is like ../../../
 '''
 
-import sys
-sys.path.append("mylib2")
-import os
-os.system("tree mylib2 -I __pycache__")
+import sys, os
+sys.path.append("packages")
 
-print(f"This is module: {__name__}")
-print(f"in package: {__package__}")
+os.system("tree packages -I __pycache__")
+
+# do a normal import, but module1 does a relative import of module2
 import app.sub1.module1 as m1
+m1.f1()     # this eventually calls a function in module2
 
 

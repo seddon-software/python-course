@@ -12,7 +12,7 @@
             "stopOnEntry": true,
             "justMyCode": true,
             "comment2": {"justMyCode": false},
-            "preLaunchTask": "Clear terminal"
+            "preLaunchTask": "Clear"
         }
     ]
 }

@@ -55,7 +55,8 @@ Ctrl-Shift E        toggle explorer
 Ctrl-Shift +        zoom in
 Ctrl -              zoom out
 Ctrl '              display the terminal window
-
+Ctrl+Alt+r          move panel right
+Ctrl+Alt+b          move pabel bottom
 
 Module Load Commands
 ====================

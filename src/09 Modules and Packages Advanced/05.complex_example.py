@@ -20,8 +20,6 @@ Note the packages all reside in MoreComplexExample/mylib.  For Python to locate 
 folder to the PYTHONPATH.  This can be achieved with:
 
             sys.path.append("MoreComplexExample/mylib")
-
-
 '''
 
 import sys

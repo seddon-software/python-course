@@ -33,8 +33,9 @@
             }
         },
         {
-            "label": "Clear terminal",
-            "command": "clear"
+            "label": "Clear",
+            "command": "clear;stty -echo;clear",
+            "isShellCommand": true,
         },
         {
             "label": "clear",
