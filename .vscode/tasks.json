@@ -33,15 +33,6 @@
             }
         },
         {
-            "label": "Clear",
-            "command": "clear;stty -echo;clear",
-            "isShellCommand": true,
-        },
-        {
-            "label": "clear",
-            "command": "pwd"
-        },
-        {
             "label": "make clean",
             "type": "shell",
             "options": {

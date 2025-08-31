@@ -3,16 +3,13 @@
     "configurations": [    
         {
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "cwd": "${fileDirname}",
             "program": "${file}",
             "console": "integratedTerminal",
-            "comment1": {"console": "internalConsole"},
             "stopOnEntry": true,
             "justMyCode": true,
-            "comment2": {"justMyCode": false},
-            "preLaunchTask": "Clear"
         }
     ]
 }

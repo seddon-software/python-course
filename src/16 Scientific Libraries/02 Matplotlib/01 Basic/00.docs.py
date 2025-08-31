@@ -5,7 +5,7 @@ you will need to modify the JSON in .vscode/launch.json to look like:
             ...
             "stopOnEntry": true,
             "justMyCode": false,
-            "preLaunchTask": "Clear terminal"
+            ...
         }
 '''
 
