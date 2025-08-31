@@ -26,7 +26,8 @@ result = None
 def timeDictionaryAccess(N):
     global d, statements, result   # make these variables visible to timeit via globals()
     d = setupDictionary(N)
-    if N == 10: print(d)     # get an idea of what the dictionary looks like
+    if N == 10:
+        print(f"dictionary looks like: {d}") 
 
     statements = []
     randomKeys = []

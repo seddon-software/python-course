@@ -15,11 +15,11 @@ Note that you can omit parts of a slice:
 
 # slicing lists
 colors = ["red", "blue", "green", "white", "black"] 
-print(colors[2])        # actually the third item
+print(colors[2])        # the third item
 print(colors[-1])       # counting backwards (the last item)
 print(colors[1:3])      # items 1 and 2
 print(colors[1:])       # items 1 to last
-print(colors[-3:-1])    # items third to last to last, but excluding last 
+print(colors[-3:-1])    # items -3 and -2 
 print(colors[4:1:-1])   # items 4, 3 and 2, working backwards
 colors[2:4] = ("purple", "cyan") # change items 2 and 3
 print(colors[0:])       # items 0 to end
@@ -32,7 +32,7 @@ slice = slice(4,10,2)
 def useSlice(s):
     print(type(slice))
     print(slice)
-    array = list(range(20))
-    print(array[s])
+    array = list(range(20)) # create a test array
+    print(array[s])         # slice it
     
 useSlice(slice)

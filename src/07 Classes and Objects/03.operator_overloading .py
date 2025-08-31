@@ -66,22 +66,22 @@ class Time:
 t1 = Time(5,30)
 t2 = Time(3,30)
 
-t3 = t1 + t2        # t3 = t1.__add__(t2)
+t3 = t1 + t2        # t3 = Time.__add__(t1, t2)
 print(t3)
 
-t3 = t1 + 42        # t3 = t1.__add__(42)
+t3 = t1 + 42        # t3 = Time.__add__(t1, 42)
 print(t3)
 
-t3 = 27 + t1        # t1.__radd__(27)
+t3 = 27 + t1        # t3 = Time.__radd__(27, t1)
 print(t3)
 
 t1 = Time(5,30)
 t2 = Time(1,45)
-t1 += t2            # t1 = t1.__iadd__(t2)
+t1 += t2            # t1 = Time.__iadd__(t1, t2)
 print(t1)
 
 t1 = Time(5,30)
-t1 += 33            # t1 = t1.__iadd__(33)
+t1 += 33            # t1 = Time.__iadd__(t1, 33)
 print(t1)
 
 # try with illegal types (Time, str)

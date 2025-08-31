@@ -28,14 +28,3 @@ sparseList[3496] = ('Orange', 'Purple', 'Yellow')
 print(f"sparseList[672] = {sparseList[672]}")
 print(f"size of sparse list = {sys.getsizeof(sparseList)} bytes")
 
-# the sparse dictionary doesn't have an index of 2845
-try:
-    print(f"hash[2845] = {hash[2845]}")
-except KeyError as e:
-    print("Key error with hash: " + str(e))
-
-# the sparse array does have an index of 2845
-try:
-    print(f"sparseList[2845] = {sparseList[2845]}")
-except KeyError as e:
-    print("Key error: " + str(e))

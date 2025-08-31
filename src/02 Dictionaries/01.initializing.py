@@ -8,7 +8,7 @@ mutable or immutable.  Dictionaries are often called hash tables or associative 
 Note that Python keeps track of the insertion order with a hidden backing array.
 '''
 
-# normal way to initialize a dictionary
+# initialize a dictionary
 salary = {
  		  "john":  34000, 
           "sara":  27000,

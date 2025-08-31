@@ -42,8 +42,8 @@ for value in sorted(sequence3):
     print(value, end=', ')
 print()
 
-# using range
+# using range in a loop
 for x in range(1, 5):
-    print(x, end=', ')
+    print(f"{x}, ", end="")
 print()
 
