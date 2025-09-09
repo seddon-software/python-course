@@ -1,3 +1,7 @@
+'''
+This file is used by the mini project as an imported module
+'''
+
 import geopandas as gpd 
 
 path = "data/tl_2023_us_state.shp"
