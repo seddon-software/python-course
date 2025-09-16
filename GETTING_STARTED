@@ -9,11 +9,6 @@ module load vscode
 code .          # note the dot (important)
 
 
-Problem with Firefox??
-======================
-firefox -p
-
-
 Microsoft Python Plugin
 =======================
 # you will need to ensure the Microsoft Python extension is installed.  
@@ -24,6 +19,11 @@ or search for it with:
     @id:ms-python.python
 # alternatively look at recommendations:
     @recommended
+
+Problem with Firefox??
+======================
+firefox -p
+
 
 Jupyter
 =======
