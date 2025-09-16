@@ -16,7 +16,11 @@ firefox -p
 
 Microsoft Python Plugin
 =======================
-# you will need to ensure the Microsoft Python extension is installed.  Search for it with:
+# you will need to ensure the Microsoft Python extension is installed.  
+code --install-extension ms-python.python
+code --install-extension ms-python.debugpy
+
+or search for it with:
     @id:ms-python.python
 # alternatively look at recommendations:
     @recommended
