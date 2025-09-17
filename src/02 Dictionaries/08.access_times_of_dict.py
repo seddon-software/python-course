@@ -33,7 +33,7 @@ def timeDictionaryAccess(N):
     randomKeys = []
     for n in range(N):
         # pick a random key
-        randomKey = f"key{randint(0, N)}"
+        randomKey = f"key{randint(0, N-1)}"
         # and build a list of lookups based on random keys 
         statements.append(f"v = d['{randomKey}']")    # statement to access a random key
 
