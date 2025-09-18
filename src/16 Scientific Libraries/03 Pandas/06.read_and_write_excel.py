@@ -33,3 +33,5 @@ def main():
 
 main()
 
+import os
+os.system("libreoffice --calc data/lerwick.xlsx &")
