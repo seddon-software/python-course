@@ -17,15 +17,17 @@ see:
 import numpy as np
 import matplotlib.pyplot as plt
 
-np.set_printoptions(precision=2, suppress=True)
+np.set_printoptions(precision=2, suppress=True, formatter={'float_kind': lambda x: f"{x:0.2f}"})
 
-import numpy as np
-s = np.random.exponential(1, 1000)
-print(f"{s}")
+# draw samples from an exponential distribution.
+samples = np.random.exponential(1, 1000)
+
+print(f"min value = {min(samples):0.3f}")
+print(f"max value = {max(samples):0.3f}")
 import matplotlib.pyplot as plt
-bin_values, bin_edges, patches = plt.hist(s, 25)
-print(f"{bin_values}")
-print(f"{bin_edges}")
-for rectangle in patches:
-    print(rectangle)
+plt.hist(samples, bins=30, edgecolor='black')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Histogram of Exponential Distribution Samples')
 plt.show()
+

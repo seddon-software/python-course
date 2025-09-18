@@ -6,8 +6,8 @@ Running Matplotlib code in a worker thread is not a good idea.  MatPlotLib creat
 thread, so all GUI events should be scheduled in this thread.  Furthermore, child artists must be created in the 
 same thread as their parent.  In this case 'ax' is a child of 'plt', so both must be created in the main thread.
 
-If you must use a worker thread, as operations on 'ax' are not thread safe, use locks to ensure thread safety.
-You encounter similar problems if you combine MatPlotLib with the asyncio package.
+If you must use a worker thread, since operations on 'ax' are not thread safe, use locks to ensure thread safety.
+You will encounter similar problems if you combine MatPlotLib with the asyncio package.
 '''
 
 from threading import Thread, Lock
