@@ -6,19 +6,11 @@ git clone https://github.com/seddon-software/python-course.git
 cd python-course
 module load python
 module load vscode
+code --install-extension ms-python.python
+code --install-extension ms-python.debugpy
 code .          # note the dot (important)
 
 
-Microsoft Python Plugin
-=======================
-# you will need to ensure the Microsoft Python extension is installed.  
-code --install-extension ms-python.python
-code --install-extension ms-python.debugpy
-
-or search for it with:
-    @id:ms-python.python
-# alternatively look at recommendations:
-    @recommended
 
 Problem with Firefox??
 ======================
@@ -35,6 +27,7 @@ python -m pip install jupyterlab --user
 source ~/.bashrc
 jupyter lab
 # jupyter lab now supports debugging (python 3.9+)
+
 
 Git
 ===
