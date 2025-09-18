@@ -18,10 +18,10 @@ fig2 = plt.figure("fig.2")
 fig1 = plt.figure("fig.1")
 print(f"type of Figure: {type(fig1)}")
 
-# add_subplot(nrows, ncols, index, **kwargs)
 for fig in [fig1, fig2, fig3]:
     fig.set_tight_layout(True)
     for n in range(1, 5):
+               # add_subplot(nrows, ncols, index, **kwargs)
         ax = fig.add_subplot(2, 2, n, title=f"axes-{n}")
         ax.set_facecolor(colors[n-1])
 
