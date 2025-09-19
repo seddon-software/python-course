@@ -34,7 +34,7 @@ X,Y = np.meshgrid(X, Y)
 Z = X*Y + 10
 
 # rstride and cstride define width of bands of color
-ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, rstride=STRIDE, cstride=STRIDE, alpha=0.8)
+ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, rstride=STRIDE, cstride=STRIDE, alpha=0.5)
 
 # also show a contour map
 cset = ax.contourf(X, Y, Z, zdir='z', offset=5, cmap=cm.coolwarm)  # @UndefinedVariable

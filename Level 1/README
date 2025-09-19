@@ -6,7 +6,9 @@ git clone https://github.com/seddon-software/python-course.git
 cd python-course
 module load python
 module load vscode
-code --no-sandbox .          # note the dot
+code --install-extension ms-python.python
+code --install-extension ms-python.debugpy
+code .          # note the dot (important)
 
 
 Problem with Firefox??
