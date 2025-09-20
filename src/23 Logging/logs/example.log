@@ -1,10 +1,10 @@
-INFO     2024-10-30 12:26:08,373                               Group: GROUP-1 IP: 192.1.1.52      User: sheila   An info message
-DEBUG    2024-10-30 12:26:08,374                               Group: GROUP-1 IP: 192.1.1.52      User: sheila   A debug message
-WARNING  2024-10-30 12:26:08,374                               Group: GROUP-1 IP: 192.1.1.52      User: sheila   A warning message
-INFO     2024-10-30 12:26:08,374                               Group: GROUP-2 IP: 192.2.1.103     User: jon      An info message
-DEBUG    2024-10-30 12:26:08,374                               Group: GROUP-2 IP: 192.2.1.103     User: jon      A debug message
-WARNING  2024-10-30 12:26:08,374                               Group: GROUP-2 IP: 192.2.1.103     User: jon      A warning message
-INFO     2024-10-30 12:26:08,382                               Group: GROUP-1 IP: 192.1.1.63      User: tom      **** changed extra info ****
-INFO     2024-10-30 12:26:08,382                               Group: GROUP-2 IP: 192.2.1.154     User: zoe      **** changed extra info ****
-WARNING  2024-10-30 12:26:08,383                               Group: GROUP-1 IP: 192.1.1.63      User: tom      A warning message
-CRITICAL 2024-10-30 12:26:08,383                               Group: GROUP-2 IP: 192.2.1.154     User: zoe      A critical message
+INFO     2025-09-20 21:39:41,274    An info message                Group: GROUP-1  IP: 192.1.1.52   User: sheila 
+DEBUG    2025-09-20 21:39:41,274    A debug message                Group: GROUP-1  IP: 192.1.1.52   User: sheila 
+WARNING  2025-09-20 21:39:41,274    A warning message              Group: GROUP-1  IP: 192.1.1.52   User: sheila 
+INFO     2025-09-20 21:39:41,274    An info message                Group: GROUP-2  IP: 192.2.1.103  User: jon 
+DEBUG    2025-09-20 21:39:41,274    A debug message                Group: GROUP-2  IP: 192.2.1.103  User: jon 
+WARNING  2025-09-20 21:39:41,274    A warning message              Group: GROUP-2  IP: 192.2.1.103  User: jon 
+INFO     2025-09-20 21:39:41,277    **** changed extra info ****   Group: GROUP-1  IP: 192.1.1.63   User: tom 
+INFO     2025-09-20 21:39:41,277    **** changed extra info ****   Group: GROUP-2  IP: 192.2.1.154  User: zoe 
+WARNING  2025-09-20 21:39:41,277    A warning message              Group: GROUP-1  IP: 192.1.1.63   User: tom 
+CRITICAL 2025-09-20 21:39:41,277    A critical message             Group: GROUP-2  IP: 192.2.1.154  User: zoe 

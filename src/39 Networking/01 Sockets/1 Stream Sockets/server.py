@@ -30,10 +30,10 @@ end for interpretation.  It is common to use UTF-8 as the encoding.
             ├─────────┤ 
             │ accept  │< 
             ├─────────┤ . 
-                |        .           ┌─────────┐ 
-                |         .          │ socket  │ 
-                |          .         ├─────────┤ 
-                |           . -------│ connect │ 
+                |        .         ┌─────────┐ 
+                |         .        │ socket  │ 
+                |          .       ├─────────┤ 
+                |           . -----│ connect │ 
             (new thread)           ├─────────┤ 
                 |                 /│ send    │ 
                 |                / ├─────────┤ 
@@ -42,8 +42,8 @@ end for interpretation.  It is common to use UTF-8 as the encoding.
             ├─────────┤              
             │  send   │.               
             ├─────────┤ .                
-                |        .          ├─────────┤ 
-                |         . ------->│  recv   │ 
+                |        .         ├─────────┤ 
+                |         . ------>│  recv   │ 
                 |                  ├─────────┤ 
                 |                  │  close  │ 
                 |                  └─────────┘ 
