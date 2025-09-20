@@ -1,6 +1,6 @@
 '''
-Dictionary Comprehension
-========================
+Comprehensions
+==============
 
 The full set of comprehensions is:
     list comprehension
@@ -14,11 +14,8 @@ with the following syntax
     set         { fn(item) for item in sequence }
     generator   ( fn(item) for item in sequence )
 
-Here we investigate creating a dict comprehension.  These are often used to transform an existing dict, either
-modifying entries or filtering unwanted entries (or both).  
 '''
 
-cubes = {f"cube_of_{x}": x**3 for x in range(10)}
-print(cubes)
+pass
 
 
