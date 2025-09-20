@@ -21,6 +21,6 @@ def square(x,y):
 dis.dis(square)
 
 # now look at hex
-print("\nprint the bytecode in hex:")
+print("\nbytecode in hex:")
 bytecode = [hex(x) for x in square.__code__.co_code]
 print(", ".join(bytecode))

@@ -1,4 +1,5 @@
 '''
+
 Stream Socket Server
 ====================
 When we start up the server it first creates a raw 'socket' and then 'binds' the socket to an end point.  The end 
@@ -20,41 +21,41 @@ the network has to be converted to bytes for transmission.  You then need to dec
 end for interpretation.  It is common to use UTF-8 as the encoding.
 
               SERVER                CLIENT
-            ┌─────────┐
-            │ socket  │
-            ├─────────┤
-            │  bind   │
-            ├─────────┤
-            │ listen  │
-            ├─────────┤
-            │ accept  │<
-            ├─────────┤ \
-                |       \          ┌─────────┐
-                |        \         │ socket  │
-                |         \        ├─────────┤
-                |          \-------│ connect │
-            (new thread)           ├─────────┤
-                |                 /│ send    │
-                |                / ├─────────┤
-            ├─────────┤         /
-            │  recv   │<-------/  
-            ├─────────┤             
-            │  send   │\            
-            ├─────────┤ \             
-                |        \         ├─────────┤
-                |         \------->│  recv   │
-                |                  ├─────────┤
-                |                  │  close  │
-                |                  └─────────┘
-            ├─────────┤
-            │  close  │
-            └─────────┘
+            ┌─────────┐ 
+            │ socket  │ 
+            ├─────────┤ 
+            │  bind   │ 
+            ├─────────┤ 
+            │ listen  │ 
+            ├─────────┤ 
+            │ accept  │< 
+            ├─────────┤ . 
+                |        .           ┌─────────┐ 
+                |         .          │ socket  │ 
+                |          .         ├─────────┤ 
+                |           . -------│ connect │ 
+            (new thread)           ├─────────┤ 
+                |                 /│ send    │ 
+                |                / ├─────────┤ 
+            ├─────────┤         /  
+            │  recv   │<-------/    
+            ├─────────┤              
+            │  send   │.               
+            ├─────────┤ .                
+                |        .          ├─────────┤ 
+                |         . ------->│  recv   │ 
+                |                  ├─────────┤ 
+                |                  │  close  │ 
+                |                  └─────────┘ 
+            ├─────────┤ 
+            │  close  │ 
+            └─────────┘ 
 
 Note that we have used send and recv to send and receive data, but there are several similar functons you can use
 to achieve the same ends. 
-'''
 
-'''
+
+
 The only difference between send() and write(2) is the presence of flags.  With a zero flags argument, 
 send() is equivalent to write.  
 
@@ -62,9 +63,9 @@ Also, the following call
            send(sockfd, buf, len, flags);
 is equivalent to
            sendto(sockfd, buf, len, flags, NULL, 0);
-'''
 
-'''
+
+
 ssize_t recv(int sockfd, void buf[.len], size_t len, int flags);
 ssize_t recvfrom(int sockfd, void buf[restrict .len], size_t len, int flags, struct sockaddr* src_addr, socklen_t* addrlen);
 ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags);
@@ -122,3 +123,4 @@ while True:
     clientThread = Thread(target=communicateWithClient, args=(newsocket, messageNo))
     messageNo = messageNo + 1
     clientThread.start()
+

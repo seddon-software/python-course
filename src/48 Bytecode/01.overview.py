@@ -10,4 +10,4 @@ There are several other alternative implementations to CPython.  Take a look at 
 '''
 
 import webbrowser
-webbrowser.open("https://hackr.io/blog/python-interpreters")
+webbrowser.open("https://codefinity.com/blog/Choosing-the-Best-Python-Compiler%3A-A-Comprehensive-Guide")

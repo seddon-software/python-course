@@ -46,7 +46,7 @@ If you are interested in bytecode, check out:
 import dis
 
 # the compiler generates bytecode for this function
-# and the interpreter works out what to do with each opcode
+# and the interpreter works out what to do with each bytecode instruction
 def add(x, y):
     return x + y
 
@@ -56,13 +56,19 @@ print( add(5, 7) )
 # look at the disassembled bytecode
 dis.dis(add)
 
-# the disassembler generates the following (Python 3.11)
+# the disassembler generates the following (Python 3.10)
 '''
-              0 RESUME                   0
-
+              0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_ADD
+              6 RETURN_VALUE
+'''
+# note: BINARY_ADD is interpreted differently for str and int
+# the disassembler generates the following (Python 3.12)
+'''
               2 LOAD_FAST                0 (x)
               4 LOAD_FAST                1 (y)
               6 BINARY_OP                0 (+)
              10 RETURN_VALUE
 '''
-# note: BINARY_OP(+) is interpreted differently for str and int
+# note: BINARY_OP has replaced several BINARY opcodes

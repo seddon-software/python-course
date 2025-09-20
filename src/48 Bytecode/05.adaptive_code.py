@@ -17,6 +17,8 @@ The specialist tool will run the script with python, then analyse the bytecode t
 were specialised. It will then open a web browser with the output (look for code highlighted in green).
 '''
 
+# N.B. THIS WON'T WORK AT DIAMOND
 # run the specialist tool from the command line
 import os
+os.system("python --version")
 os.system("specialist add.py")

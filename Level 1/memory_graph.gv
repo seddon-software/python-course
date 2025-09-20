@@ -1,0 +1,46 @@
+digraph memory_graph {
+	node [shape=plaintext]
+	node128296457420112 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="5" CELLPADDING="0" BGCOLOR="cornsilk2" PORT="table">
+    <TR><TD BORDER="1" STYLE="ROUNDED"> start </TD><TD BORDER="1"> 1 </TD></TR>
+    <TR><TD BORDER="1" STYLE="ROUNDED"> stop </TD><TD BORDER="1"> 2 </TD></TR>
+    <TR><TD BORDER="1" STYLE="ROUNDED"> step </TD><TD BORDER="1"> 1 </TD></TR>
+</TABLE>
+> xlabel=range]
+	node128296512372928 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="5" CELLPADDING="0" BGCOLOR="orange" PORT="table">
+    <TR><TD BORDER="0"><font color="#505050">0</font></TD><TD BORDER="1"> 3 </TD></TR>
+    <TR><TD BORDER="0"><font color="#505050">1</font></TD><TD BORDER="1"> 4 </TD></TR>
+</TABLE>
+> xlabel=tuple]
+	node128296512569856 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="5" CELLPADDING="0" BGCOLOR="orchid1" PORT="table">
+    <TR><TD BORDER="1"> 5 </TD></TR>
+    <TR><TD BORDER="1"> 6 </TD></TR>
+</TABLE>
+> xlabel=set]
+	node128296512346048 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="5" CELLPADDING="0" BGCOLOR="#60a5ff" PORT="table">
+    <TR><TD BORDER="1" STYLE="ROUNDED"> 7 </TD><TD BORDER="1"> seven </TD></TR>
+    <TR><TD BORDER="1" STYLE="ROUNDED"> 8 </TD><TD BORDER="1"> eight </TD></TR>
+</TABLE>
+> xlabel=dict]
+	node128296457420224 [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="5" CELLPADDING="0" BGCOLOR="seagreen1" PORT="table">
+    <TR><TD BORDER="1" STYLE="ROUNDED"> x </TD><TD BORDER="1"> 9 </TD></TR>
+    <TR><TD BORDER="1" STYLE="ROUNDED"> y </TD><TD BORDER="1"> 10 </TD></TR>
+</TABLE>
+> xlabel=My_Class]
+	node128296457515776 [label=<
+<TABLE BORDER="3" CELLBORDER="1" CELLSPACING="5" CELLPADDING="0" BGCOLOR="lightcoral" PORT="table">
+    <TR><TD BORDER="0"><font color="#505050">0</font></TD><TD BORDER="0"><font color="#505050">1</font></TD><TD BORDER="0"><font color="#505050">2</font></TD><TD BORDER="0"><font color="#505050">3</font></TD><TD BORDER="0"><font color="#505050">4</font></TD></TR>
+    <TR><TD BORDER="1" PORT="ref0"> </TD><TD BORDER="1" PORT="ref1"> </TD><TD BORDER="1" PORT="ref2"> </TD><TD BORDER="1" PORT="ref3"> </TD><TD BORDER="1" PORT="ref4"> </TD></TR>
+</TABLE>
+> xlabel=list]
+	node128296457515776:ref0 -> node128296457420112:table [style=solid]
+	node128296457515776:ref1 -> node128296512372928:table [style=solid]
+	node128296457515776:ref2 -> node128296512569856:table [style=solid]
+	node128296457515776:ref3 -> node128296512346048:table [style=solid]
+	node128296457515776:ref4 -> node128296457420224:table [style=solid]
+subgraph { rank=same; node128296457420112 -> node128296512372928 -> node128296512569856 -> node128296512346048 -> node128296457420224[weight=10, style=invis]; }
+}
