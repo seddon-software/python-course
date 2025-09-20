@@ -6,7 +6,7 @@ Closures are over variable names, not values.  What this means in this example i
 f() there is a closure over the name "f".  In other words a single closure is associated with the symbol "f"
 and this is shared by all four functions f().
 
-As you step through this code you will see that the name "f" has a single colusre cell with a reference to i.
+As you step through this code you will see that the name "f" has a single closure cell with a reference to i.
 Inside the for loop this cell changes each time f() is redefined.  At the end of the loop the closure 
 contains a reference to the last integer i defined by the for loop.
 

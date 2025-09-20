@@ -6,7 +6,7 @@ The problems with the closure in the previous example can be overcome by making 
 variable.  All you need to do is to pass "i" as a parameter to the function "f":
         def f(i=i):
 
-This assignment forces the interpreter to treat the first i as a local variable (its used as an l-value) and 
+This assignment forces the interpreter to treat the first i as a local variable (it's used as an l-value) and 
 sets it to the current value of i.  This local variable hides the loop count "i" and Python remembers its
 initial value even when the loop count changes.
 
