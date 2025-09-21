@@ -14,8 +14,9 @@ The return value of the "f" is "func()".  The brackets mean the lamda will be ca
 this return.
 '''
 
-# this lambda can take a lambda as a parameter for func
-f = lambda x, func: func(x)     # calls func as part of the return
+# this lambda takes a function pointer and an input parameter for the function pointer ...
+# ... and then invokes the function
+f = lambda x, func: func(x)     # calls func in the return
 
 # invoke the lambda
 print(f(10, lambda x:x**2))     # will call lambda x:x**2 with x = 10 
