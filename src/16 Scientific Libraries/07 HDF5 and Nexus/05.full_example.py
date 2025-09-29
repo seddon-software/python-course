@@ -39,11 +39,16 @@ diode = [1193, 4474, 53220, 274310, 515430, 827880,
          316460, 56677, 1000, 1000]
 
 with h5py.File(f'{FILENAME}', 'w') as f:
+    # group "/"
     f.attrs['default'] = 'entry'
+
+    # group "/entry"
     nxentry = f.create_group('entry')
-    nxentry.attrs["NX_class"] = 'NXentry'
+    nxentry.attrs["NX_class"] = 'NXentry'           # attributes
     nxentry.attrs['default'] = 'data'
-    nxdata = nxentry.create_group('data')
+
+    # group "/entry/data"
+    nxdata = nxentry.create_group('data')           # group
     nxdata.attrs["NX_class"] = 'NXdata'
     nxdata.attrs['signal'] = 'counts'
     nxdata.attrs['axes'] = 'two_theta'
@@ -51,6 +56,8 @@ with h5py.File(f'{FILENAME}', 'w') as f:
     tth = nxdata.create_dataset('two_theta', data=angle)
     tth.attrs['units'] = 'degrees'
     tth.attrs['long_name'] = 'two_theta (degrees)'
+
+    # group "/entry/counts"
     counts = nxdata.create_dataset('counts', data=diode)
     counts.attrs['units'] = 'counts'
     counts.attrs['long_name'] = 'photodiode counts'
