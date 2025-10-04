@@ -1,6 +1,6 @@
 import sys
 sys.path.append("..")
-from src.mycode import * 
+from src.powers import * 
 
 
 import pytest 

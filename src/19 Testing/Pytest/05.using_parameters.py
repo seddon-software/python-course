@@ -5,7 +5,7 @@ run tests that use multiple test values:
 
 import os
 
-os.system("pytest mytests/test_power_functions_with_mutiple_values.py")
+os.system("pytest mytests/test_powers_with_mutiple_values.py")
 
 # verbose version
-os.system("pytest mytests/test_power_functions_with_mutiple_values.py -v")
+os.system("pytest mytests/test_powers_with_mutiple_values.py -v")
