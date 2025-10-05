@@ -24,7 +24,7 @@ def average1(nums: list[int]) -> float:
 # alternative version using a type alias
 
 IntArray = list[int] # Python < 3.12
-# type IntArray = List[int] # Python >= 3.12
+# type IntArray = list[int] # Python >= 3.12
 def average2(nums: IntArray) -> float:
     total = sum(nums)
     count = len(nums)

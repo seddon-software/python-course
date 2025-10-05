@@ -1,7 +1,19 @@
 '''
 It is important to be able to check that code can raise an exception under certain conditions.
-In this example we create a fixture of a distantPoint.  When we call the "distance" method, the method
-should throw a TooFarException.
+The "Point" class has a distance() method:
+    def get_distance(self):
+        distance = (self.x ** 2 + self.y **2) **0.5
+        if distance > 10: raise TooFarException()
+        return distance
+
+In this example we create a fixture of a distantPoint:
+        self.distantPoint = Point(16, 4)
+
+When we call the "get_distance()" method it should throw a TooFarException.  
+If we use the fixture of a normal point:
+        self.point = Point(3, 4)
+
+and check that get_distance() throws an exception (it doesn't) then the test intentionally fails.
 '''
 
 import sys
@@ -28,6 +40,26 @@ class testPoint(unittest.TestCase):
         self.point = Point(3, 4)
         self.distantPoint = Point(16, 4)
 
+    # these next two test show alternative ways of testing that exceptions are raised correctly
+    def test_ExceptionRaisedWhen_get_distance_IsCalledFor_distantPoint(self):
+        '''distantPoint.get_distance() should raise a TooFarException'''
+        print()
+        self.assertRaises(TooFarException, self.distantPoint.get_distance)
+
+    def test_ExceptionRaisedWhen_get_distance_IsCalledInWithClauseFor_distantPoint(self):
+        '''using a with clause to show distantPoint.get_distance() should raise a TooFarException'''
+        print()
+        with self.assertRaises(TooFarException) as ctx:
+            self.distantPoint.get_distance()
+
+    # this test will intentionally fail since point is too close to the origin
+    def test_ExceptionRaisedWhen_get_distance_IsCalledFor_point(self):
+        '''this test will intentionally fail since point is close to the origin'''
+        print()
+        with self.assertRaises(TooFarException) as ctx:
+            self.point.get_distance()
+
+    # tests that don't throw exceptions
     def testWeCanDisplayCoordinatesOfFixture(self):
         """display test"""
         self.assertEqual("3,4", self.point.display())
@@ -50,25 +82,6 @@ class testPoint(unittest.TestCase):
         """distance test using buggy method"""
         self.assertTrue(5.1 == self.point.get_distance())
 
-    # these next two test show alternative ways of testing that exceptions are raised correctly
-    def test_ExceptionRaisedWhen_get_distance_IsCalledFor_distantPoint(self):
-        '''distantPoint.get_distance() should raise a TooFarException'''
-        print()
-        self.assertRaises(TooFarException, self.distantPoint.get_distance)
-
-    def test_ExceptionRaisedWhen_get_distance_IsCalledInWithClauseFor_distantPoint(self):
-        '''using a with clause to show distantPoint.get_distance() should raise a TooFarException'''
-        print()
-        with self.assertRaises(TooFarException) as ctx:
-            self.distantPoint.get_distance()
-
-    # this test will intentionally fail since point is close to the origin
-        
-    def test_ExceptionRaisedWhen_get_distance_IsCalledFor_point(self):
-        '''this test will intentionally fail since point is close to the origin'''
-        print()
-        with self.assertRaises(TooFarException) as ctx:
-            self.point.get_distance()
 
 def standardTests():
     suite = unittest.TestSuite()

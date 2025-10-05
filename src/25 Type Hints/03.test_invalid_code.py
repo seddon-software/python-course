@@ -13,7 +13,7 @@ We run this example first and then do a static analysis with mypy.
 ############################################################
 def concat(x:str, y:str, z:str) -> str:
     result = x + y + z
-    print(result)
+    return result
 
 concat(5, 7, 9)
 

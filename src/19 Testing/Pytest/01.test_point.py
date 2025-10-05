@@ -31,6 +31,3 @@ os.system("cat mytests/test_Point.py")
 os.system("clear")
 os.system("pytest mytests/test_Point.py")
 
-# clean up "pyc" files
-os.system("find .. -name '*.pyc' -exec rm {} \;")
-
