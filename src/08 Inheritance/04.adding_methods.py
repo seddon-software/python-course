@@ -53,7 +53,7 @@ class ColoredPoint(Point):
         self.color = color
 
     def changeColor(self, newColor):
-        self.color = newColor;
+        self.color = newColor
 
     def __str__(self):
         return f"{Point.__str__(self)}, Color: {self.color}"
@@ -62,15 +62,15 @@ def main():
     point = Point(53, 18)
     print(point)
 
-    snap = Snap(13, 27);
+    snap = Snap(13, 27)
     print(snap)
 
-    snap.moveBy(29, 17);
+    snap.moveBy(29, 17)
     print(snap)
 
     colored = ColoredPoint(15, 18, "red")
     print(colored)
-    colored.changeColor("blue");
+    colored.changeColor("blue")
     print(colored)
 
 main()

@@ -57,7 +57,7 @@ class Van(Vehicle): # inherits 3 methods from Vehicle, plus one it defines itsel
 # code reuse:  this function can be used by any class derived from Vehicle
 def refuelAnyVehicle(vehicle):
     # note this will call the refuel method in the appropriate derived class
-    vehicle.refuel();
+    vehicle.refuel()
 
 def main():
     bus = Bus()
@@ -76,14 +76,14 @@ def main():
     van.stop()
 
     # now use the SUBSTITUTION RULE to refuel all 3 vehicles
-    refuelAnyVehicle(bus);
-    refuelAnyVehicle(car);
-    refuelAnyVehicle(van);
+    refuelAnyVehicle(bus)
+    refuelAnyVehicle(car)
+    refuelAnyVehicle(van)
 
     # note the following is possible, but doesn't make sense, because the Vehicle class is abstract:
     vehicle = Vehicle()
-    vehicle.start();
-    vehicle.refuel();
-    vehicle.stop();
+    vehicle.start()
+    vehicle.refuel()
+    vehicle.stop()
 
 main()
