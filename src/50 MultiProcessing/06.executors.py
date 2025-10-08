@@ -21,6 +21,7 @@ def main():
     def task(lo, hi):
         total = 0
         for n in range(lo, hi+1):
+            sleep(0.5)
             total += n
         return total
 
@@ -33,9 +34,9 @@ def main():
         future4 = executor.submit(task,31, 40)
         future5 = executor.submit(task,41, 50)
 
-    # use the executor
-    result = future1.result() + future2.result() + future3.result() + future4.result() + future5.result()
-    print(f"sum of numbers 1 to 50 = {result}")
+        # use the executor
+        result = future1.result() + future2.result() + future3.result() + future4.result() + future5.result()
+        print(f"sum of numbers 1 to 50 = {result}")
 
     # use sum
     print(f"sum of numbers 1 to 50 = {sum(range(1, 51))}")
