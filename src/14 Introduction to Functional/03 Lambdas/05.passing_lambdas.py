@@ -10,7 +10,7 @@ Here, "func" is passed as a lambda inside "f".  When "f" is called as in:
 
 "func" is pointing at lambda x:x**2.
 
-The return value of the "f" is "func()".  The brackets mean the lamda will be called immediately as part of 
+The return value of the "f" is "func()".  The brackets mean the lambda will be called immediately as part of 
 this return.
 '''
 
