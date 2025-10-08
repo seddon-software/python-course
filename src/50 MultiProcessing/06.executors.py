@@ -4,8 +4,8 @@ Executor
 
 The Executor class has three methods to control the thread pool:
 
-    submit()   - dispatch a function to be executed and return a Future object. The submit() method takes a 
-                 function and executes it asynchronously.
+    submit()   - dispatch a function to be executed and return a Future object. 
+                 The submit() method takes a function and executes it asynchronously.
     map()      - execute a function asynchronously for each element in an iterable.
     shutdown() - shut down the executor.
 
