@@ -1,6 +1,6 @@
 '''
 You can combine generators in a kind of pipeline where each generator operates on input data and
-then passes the data to the next generator in line.  Recal that you must call a generator function
+then passes the data to the next generator in line.  Recall that you must call a generator function
 to create the generator and step through to the first "yield" before it is operational.  In this example 
 we use a decorator to perform these tasks'''
 
