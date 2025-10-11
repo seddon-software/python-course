@@ -51,7 +51,7 @@ async def publisher(queue, numberOfConsumers):
                         temperature = None    # no more data
                     await queue.put(temperature)
                     if not temperature: break
-                    if count == 0: break
+                    if count == 0: break        # all subscribers have exited
     await asyncio.gather(*(generate_data() for _ in range(numberOfConsumers)))
 
 ###################### Subscriber #############################
