@@ -6,7 +6,7 @@ import numpy as np
 
 SLEEP = 1
 logging.getLogger('werkzeug').setLevel(logging.ERROR)
-temperatures = list(np.arange(18.0, 25.0, 0.1))
+temperatures = list(np.arange(18.0, 30.0, 0.1))
 
 app = Flask(__name__)
 if __name__ == "__main__":
