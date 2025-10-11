@@ -15,13 +15,16 @@ defined as the id of the subscriber plus 19.0C (chosen somewhat artificially).
 import os, time
 import asyncio, aiohttp
 
-os.system("fuser -k 8000/tcp")  # kill previous incarnations
-os.system("flask --app server run --host localhost --port 8000 &")
-time.sleep(2)                   # wait for the server to start
+def startFlaskServer():
+    os.system("fuser -k 8000/tcp")  # kill previous incarnations
+    os.system("flask --app server run --host localhost --port 8000 &")
+    time.sleep(2)                   # wait for the server to start
 
+startFlaskServer()
 NUMBER_OF_SUBSCRIBERS = 10
 count = NUMBER_OF_SUBSCRIBERS
 
+# main fires off a publisher and several subscribers that communicate via an async queue
 async def main():
     async def start():
         async with aiohttp.ClientSession() as session:
@@ -34,6 +37,7 @@ async def main():
 
     )
 
+###################### Publisher #############################
 async def publisher(queue, numberOfConsumers):
     async def generate_data():
         url = "http://localhost:8000/getTemperature"
@@ -48,10 +52,9 @@ async def publisher(queue, numberOfConsumers):
                     await queue.put(temperature)
                     if not temperature: break
                     if count == 0: break
-
-
     await asyncio.gather(*(generate_data() for _ in range(numberOfConsumers)))
-    
+
+###################### Subscriber #############################
 async def subscriber(id, queue):
     global count
     maxTemperature = 19.0 + id
