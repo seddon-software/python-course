@@ -45,9 +45,9 @@ m4 = MyClass()
 
 # give each thread the same lock (try experimenting using the other locks)
 t1 = Thread(target = m1, args = ("1", lock1))
-t2 = Thread(target = m2, args = ("2", lock1))
-t3 = Thread(target = m3, args = ("3", lock1))
-t4 = Thread(target = m4, args = ("4", lock1))
+t2 = Thread(target = m2, args = ("2", lock2))
+t3 = Thread(target = m3, args = ("3", lock3))
+t4 = Thread(target = m4, args = ("4", lock4))
 
 # create the worker threads
 t1.start()

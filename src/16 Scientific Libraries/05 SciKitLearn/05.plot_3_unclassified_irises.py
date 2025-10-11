@@ -58,4 +58,3 @@ scatter(222, 0, 1, 3)
 scatter(223, 0, 2, 3)
 scatter(224, 1, 2, 3)
 plt.show()
-pass

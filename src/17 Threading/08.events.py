@@ -47,11 +47,3 @@ time.sleep(10)
 print("main clearing event flag")
 event.set()
 
-t1.join()
-t2.join()
-t3.join()
-
-print("\nEnd of main")
-
-
-1

@@ -14,7 +14,7 @@ to enable the locking to operate.
 
 import multiprocessing as mp
 import time
-import random
+import random, os
 
 def fn(lock):
     for n in range(10):
@@ -29,7 +29,7 @@ def fn(lock):
 
 if __name__ == '__main__': 
     ''' output will be garbled unless synchronize = True '''
-    synchronize = False
+    synchronize = True
 
     processes = []
     lock = mp.Lock()

@@ -60,11 +60,5 @@ def main():
     client2 = Client("client2", server)
     client3 = Client("client3", server)
     client4 = Client("client4", server)
-    
-    server.thread.join()
-    client1.thread.join()
-    client2.thread.join()
-    client3.thread.join()
-    client4.thread.join()
-    
+        
 main()
