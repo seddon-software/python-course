@@ -20,10 +20,8 @@ async def Point(x0, y0, name):
                 self['x'] += cmd[1]
                 self['y'] += cmd[2]
                 yield None
-                await asyncio.sleep(0)
             case 'display':
                 yield f"{self['name']} is at [{self['x']}, {self['y']}]"
-                await asyncio.sleep(0)
 
 async def main():
     p1 = Point(100, 200, "point-p1")
