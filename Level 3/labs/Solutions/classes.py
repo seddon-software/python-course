@@ -20,11 +20,23 @@ class BankAccount:
     def getDetails(self):
         return self.name, self.balance
     
+    def getBalance(self):
+        return self.balance
+    
 BankAccount("hubert", 25000)
 BankAccount("hilda",  33000)
 BankAccount("susan",  17500)
 BankAccount("sheena", 41000)
+BankAccount("fiona", 37000)
+BankAccount("stanley", 38000)
+BankAccount("peter", 21000)
 
+print("\nUnsorted list of accounts")
 for account in BankAccount.list_of_accounts:
+    print(account.getDetails())
+
+print("\nSorted list of accounts")
+sortedList = sorted(BankAccount.list_of_accounts, key=BankAccount.getBalance)
+for account in sortedList:
     print(account.getDetails())
 
