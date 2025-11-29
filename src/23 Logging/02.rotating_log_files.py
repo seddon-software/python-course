@@ -3,7 +3,7 @@ Rotating Log Files
 ==================
 In real applications you will want to write to real files.  Here we choose rotating log files.  When a log file
 fills up (<20000 bytes) we move on to the next log file.  The backup count defines how many backup files are used.
-When all the files have filled up, the rotation begins again.
+When all the files have filled up, the rotation starts again.
 '''
 
 import glob         # for wildcards

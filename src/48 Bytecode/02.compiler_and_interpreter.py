@@ -71,4 +71,4 @@ dis.dis(add)
               6 BINARY_OP                0 (+)
              10 RETURN_VALUE
 '''
-# note: BINARY_OP has replaced several BINARY opcodes
+# note: BINARY_OP has replaced several older BINARY opcodes

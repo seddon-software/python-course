@@ -30,7 +30,7 @@ subprocess.call(f"rm {LOG_FILENAME}", shell=True)
 
 logging.basicConfig(filename=LOG_FILENAME,
                     level=logging.DEBUG,
-                    format='''%(levelname)-8s %(asctime)-26s %(message)-30s Group: %(name)-8s IP: %(ip)-12s User: %(user)-2s ''')
+                    format='''%(levelname)-8s %(asctime)-26s %(message)-45s Group: %(name)-8s IP: %(ip)-12s User: %(user)-2s ''')
 
 # define dicts for extra fields (ip, user)
 extraInfo1 = {"ip": '192.1.1.52', "user": 'sheila'}
@@ -58,9 +58,9 @@ extraInfo2["user"] = 'zoe'
 extraInfo2["ip"] = '192.2.1.154'
 
 # and log some more messages
-adapter1.info('**** changed extra info ****')
-adapter2.info('**** changed extra info ****')
+adapter1.info('**** changed extra info in GROUP-1 ****')
 adapter1.warning('A warning message')
+adapter2.info('**** changed extra info in GROUP-2 ****')
 adapter2.critical('A critical message')
 
 # inspect log file

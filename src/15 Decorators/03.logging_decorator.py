@@ -28,6 +28,7 @@ import sys
 #     returns logit(square)(4)
 #         returns square(4)
 #             returns 16
+
 # define parameterized decorator
 def log(level):
     def logit(fn):
@@ -42,11 +43,11 @@ def log(level):
         return enhance
     return logit
 
-@log(logging.WARNING)
+@log(logging.DEBUG)
 def square(x): 
     return x * x
 
-@log(logging.DEBUG)
+@log(logging.WARNING)
 def cube(x):
     return x * x * x
 
@@ -56,9 +57,9 @@ def quad(x):
     
 # main program
 # as no logfile specified, use the console
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 # logging.basicConfig(level=logging.INFO)
-# logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.WARNING)
 # logging.basicConfig(level=logging.ERROR)
 # logging.basicConfig(level=logging.CRITICAL)
 
