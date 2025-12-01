@@ -1,69 +1,52 @@
 '''
-Decorators with Attributes
-==========================
-
-You can have all sorts of decorators.  In this exmple we look at decorators with method attributes.
-This time we have two functions
-            circle() 
-            square()
-
-that are decorated with method instances of MyClass (@red.div and @blue.span).
-
-Now a call to circle() gets translated to:
-            red.div(cicle)()
-
-and red.div is a simple decorator that returns "inner()":
-            MyClass.inner() with closure on self.color = "red" and fn = circle
-and hence executes
-            print(f'<div class="{self.color}">{fn()}</div>')
-which translates to:
-            print(f'<div class="red">circle()</div>')
-and prints
-            <div class="red">circle()</div>
 '''
 
+import sys, io, os
+from openpyxl import Workbook
 
-class MyClass(object):
-    def __init__(self, color):
-        self.color = color
+def spreadsheet(fn):
+    def inner(fileName, column):
+        # switch stdout
+        output = io.StringIO()
+        sys.stdout = output
 
-    def div(self, fn):
-        def inner():
-            print(f'<div class="{self.color}">{fn()}</div>')
-        return inner
+        # open workbook
+        wb = Workbook()
+        ws = wb.active
+        ws.title = f"{fileName}"
 
-    def span(self, fn):
-        def inner():
-            print(f'<span class="{self.color}">{fn()}</span>')
-        return inner
+        # call decorated function
+        fn()
 
-import os
+        # extract output and write to spreadshhet in seleted column
+        captured_output = output.getvalue().split("\n")
+        for n, text in enumerate(captured_output):
+            ws[f'{column}{n+1}'] = text
+        wb.save(fileName)
 
-def system(fn):
-    def inner(cmd):
-        os.system(fn(cmd))
+        # look at spreadsheet
+        cmd = f"libreoffice {fileName}"
+        os.system(cmd)
+
+        # reset stdout
+        sys.stdout = sys.__stdout__
     return inner
 
-@system
-def f(cmd):
-    return f"{cmd}"
 
-f("ls")
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-red = MyClass("red")
-blue = MyClass("blue")
+@spreadsheet
+def daysOfTheWeek():
+    for day in days:
+        print(day)
 
-@red.div
-def circle():
-    return "This is a circle"
-
-@blue.span
-def square():
-    return "This is a square"
+@spreadsheet
+def monthsOfTheYear():
+    for month in months:
+        print(month)
 
 
-
-circle()    # red.div(circle)()
-square()    # blue.span(square)()
-
+daysOfTheWeek("f1.xlsx", "B")
+monthsOfTheYear("f2.xlsx", "D")
 
