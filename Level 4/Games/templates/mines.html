@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 17 January 2018 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 
+<link rel="stylesheet" href="jquery-ui-1.12.1.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.12.1.js"></script>
+ -->
+ 
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.12.1.js"></script>
+<script src="jquery_cookie.js"></script>
+<script src="jquery.mobile.custom.js"></script>
+<script src="jquery/jquery.ui.touch-punch.min.js"></script>
+
+
+<style type="text/css">
+    body {
+        margin-left: 2vw;
+        overscroll-behavior: none;
+    }
+    div.ui-page.ui-page-theme-a.ui-page-active {
+        padding-left: 2vw;
+        background-color: aquamarine;
+    }    
+    h1 {
+        font-size: 14pt;
+    }
+    div#box {
+        border-width: 10px;
+        border-style: groove;
+        border-color: grey;
+        filter: drop-shadow(1px 1px 5px #808080);    
+        overscroll-behavior: contain;
+    }
+    .square {
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    .internal {
+        height: 100%;
+        width: 100%;
+        font-size: 150%;    
+        line-height: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: white;
+        background-color: rgb(255, 218, 0);
+        filter: drop-shadow(1px 1px 5px #808080);
+        overscroll-behavior: contain;
+    }
+    #help, #mode, #hits, #minesDetected, #remainingMines, #cellsSelected {
+        padding-top: 0vw;
+        margin-top: 1vw;
+        margin-left: 1vw;
+        font-size: 80%;
+        float: left;
+    }
+    #help {
+        position: fixed;
+        top: 20%;
+        left: 20%;
+        -webkit-transform: translate(-10%, -10%);
+        transform: translate(-10%, -10%);
+    }
+    div.newLine {
+        clear: both;    
+    }
+</style>
+<script>
+    
+</script>
+</head>
+<body>
+<script>
+    function addHelp() {
+        $("#box").append("<div id='help'>Start by clicking on of the green cells; these are safe cells. " +
+            "As you move the mouse, cells will be revealed, but try to avoid hitting mines.  " +
+            "The numbers represent the number of mines in adjacent squares.  Hit any key to disable hovering so that you can " +
+            "safely move to another part of the grid.  Hit any key again to re-enable hovering.  If you are using a tablet just tap somewhere else.<br/>  " +
+            "<div style='color:red'>IMPORTANT: </div>" +
+            "Mines will be detected and go green if all of their adjacent cells are either selected or are mines.  You " +
+            "can use this fact to determine the location of other hidden mines or safe cells." +
+            "<div style='color:red'>click to dismiss this popup</div></div>");
+        $("#help").css("background", "white");
+        $("#help").click(function() {
+            $(this).css("visibility", "hidden");
+        })
+    }
+
+    var android = navigator.appVersion.indexOf("Android") !== -1;
+    if(android) {
+        var ROWS = 10;
+        var COLS = 20;
+        var MINES = 50;
+    } else {
+        var ROWS = 20;
+        var COLS = 40;
+        var MINES = 200;        
+    }
+    var minesHit = 0;
+    var minesDetected = 0;
+    var minesLeft = MINES;
+    var cellsLeft = ROWS * COLS;
+    var mode = 0;
+    var PERCENTAGE_SCREEN_USED = 94;
+    var touchMoveInProgress = false;
+    var colors = [
+        "rgb(255, 240, 240)",
+        "rgb(255, 190, 190)",
+        "rgb(255, 170, 170)",
+        "rgb(255, 150, 150)",
+        "rgb(255, 120, 120)",
+        "rgb(255,  90,  90)",
+        "rgb(255,  60,  60)",
+        "rgb(255,  30,  30)",
+        "rgb(255,   0,   0)",
+            ];
+    
+    function setupHoverHandlers() {   
+        // set up "hover" handlers for each cell
+        $(".internal").hover(hovering, function(){});   
+    }
+
+    function setupTapHandlers() {   
+        // set up "hover" handlers for each cell
+        $(".internal").bind("touchstart", function() { touchMoveInProgress = true; });   
+        $(".internal").bind("touchend", function() { touchMoveInProgress = false; });   
+        $(".internal").bind("touchmove", hovering);
+    }
+
+    function toggleHovering() {
+        if (mode % 2 === 0) {
+            $(".internal").unbind("mouseenter mouseleave");       
+            $("#mode").html("MOVE mode").css("color", "red");
+            $("#box").css('cursor', 'cell');
+        } else {
+            $(".internal").hover(hovering, function(){});   
+            $("#mode").html("HOVER mode").css("color", "red");
+            $("#box").css('cursor', 'pointer');
+        }
+        mode += 1;
+    }
+
+
+    function findCellUnderTapMove(event) {
+        var myLocation = event.originalEvent.changedTouches[0];
+        return document.elementFromPoint(myLocation.clientX, myLocation.clientY);
+    }
+
+    function hovering(e) {
+        var _this = this;
+        if(touchMoveInProgress) {
+            _this = findCellUnderTapMove(e);
+        }
+        // ignore this cell if already selected
+        if($(_this).data("id").selected === 1) return;
+        
+        // check if we have selected a mine or a safe cell
+        if($(_this).data("id").mine === 1) {
+            hitMine(_this);
+        } else {
+            // safe cell, work out how many mines are adjacent to this cell and add text and color appropriately
+            var count = howManyMinesNearby(_this);
+            $(_this).text(count);
+            var color = "rgb(0, 218, " + colors[count] + ")";
+            $(_this).css("background-color", color);
+        };
+        // record that this cell (safe or mine) has been selected
+        $(_this).data("id").selected = 1;
+        cellsLeft -= 1;
+        
+        // see if any mine surrounded
+        checkMines();
+            
+        // update selected cells and remaining mine counts
+        $("#minesDetected").text("Mines detected: " + minesDetected);
+        $("#remainingMines").text("Mines left: " + minesLeft);
+        $("#cellsSelected").text("Cells remaining: " + cellsLeft);
+    }
+
+    function getId(row, col) {
+        return row * COLS + col;        
+    }
+    
+    function addMinesToGrid(n) {
+        var count = MINES;
+            while (count > 0) {
+                var index = Math.floor(Math.random() * ROWS * COLS);
+                var selector = "#cell" + index;
+                if ($(selector).data("id").mine === 0) {
+                $(selector).data("id").mine = 1;
+                //$(selector).text("M");
+                    count -= 1;
+                }
+            }
+    }
+
+    function getNeighborsAsIds(selector) {
+        var neighbors = [];
+        var row = $(selector).data("id").row;
+        var col = $(selector).data("id").col;
+        var id = getId(row, col);
+    
+        function getCellType() {
+            if (row === 0 && col === 0) return "top-left-corner";
+            if (row === 0 && col === COLS-1) return "top-right-corner";
+            if (row === ROWS-1 && col === 0) return "bottom-left-corner";
+            if (row === ROWS-1 && col === COLS-1) return "bottom-right-corner";
+            if (row === 0) return "top-edge";
+            if (row === ROWS-1) return "bottom-edge";
+            if (col === 0) return "left-edge";
+            if (col === COLS-1) return "right-edge";
+            return "middle";
+        }
+    
+        function convertOffsetsToCellIds() {
+            $.each(offsets, function() {
+                neighbors.push(id + this);
+            })                       
+        }
+        
+        function computeOffsets() {
+            if (cellType === "top-left-corner") offsets = [1, COLS, COLS+1];
+            if (cellType === "top-right-corner") offsets = [-1, COLS, COLS-1];
+            if (cellType === "bottom-left-corner") offsets = [-COLS, -COLS+1, 1];
+            if (cellType === "bottom-right-corner") offsets = [-COLS-1, -COLS, -1];
+            if (cellType === "top-edge") offsets = [-1, 1, COLS-1, COLS, COLS+1];
+            if (cellType === "bottom-edge") offsets = [-1, 1, -COLS-1, -COLS, -COLS+1];
+            if (cellType === "left-edge") offsets = [-COLS, -COLS+1, 1, COLS, COLS+1];
+            if (cellType === "right-edge") offsets = [-COLS, -COLS-1, -1, COLS, COLS-1];
+            if (cellType === "middle") offsets = [-COLS-1, -COLS, -COLS+1, -1, 1, COLS-1, COLS, COLS+1];
+            return offsets;
+        }
+        
+        var cellType = getCellType();
+        var offsets = computeOffsets();
+        convertOffsetsToCellIds();
+        return neighbors;
+    }
+
+    function checkMines() {
+        // select all the mines
+        var selector = ".internal:data('id')";
+        var mines = $(selector).filter(function() {
+            return $(this).data("id").mine === 1;
+        });
+
+        // check if mine is surrounded by selected cells or other mines
+        $.each(mines, function() {
+            // look at each neighbor in turn add count mines and selected cells
+            var count = 0;
+            var neighbors = getNeighborsAsIds(this);
+            $.each(neighbors, function() {
+                var selector = "#cell" + this;
+                if ($(selector).data("id").mine === 1)
+                    count += 1;
+                else if ($(selector).data("id").selected === 1)
+                    count += 1;
+            });
+            // check if every adject cell is accounted for
+            var adjacentCells = neighbors.length; 
+            if (count === adjacentCells) {
+                if($(this).data("id").exploded === 0) {
+                    $(this).css({background:'radial-gradient(circle at center, white 0, green 100%)'});
+                    if($(this).data("id").selected === 0) {
+                        minesDetected += 1;
+                        minesLeft -= 1;
+                        cellsLeft -= 1;
+                        $(this).data("id").selected = 1;
+                    }
+                }
+            }
+        });
+    }
+    
+    function howManyMinesNearby(selector) {
+        var row = $(selector).data("id").row;
+        var col = $(selector).data("id").col;
+        var id = getId(row, col);
+        var count = 0;
+        var neighborsAsIds = getNeighborsAsIds(selector);
+
+        $.each(neighborsAsIds, function() {
+            selector = "#cell" + this;
+            count += $(selector).data("id").mine;
+        });
+        return count;
+    }
+    
+    function hitMine(selector) {
+        minesHit += 1;
+        $("#hits").text("You have hit " + minesHit + " mine(s)!");
+        $(selector).data("id").exploded = 1;
+        $(selector).css({background:'radial-gradient(circle at center, green 0, red 100%)'});
+        minesLeft -= 1;             
+    }
+
+    function revealVerySafeCells() {
+        function isAMine(selector) {
+            return ($(selector).data("id").mine == 1)
+        }
+        
+        function pickARandomSquare() {
+            var index = Math.floor(Math.random() * ROWS * COLS);
+            var selector = "#cell" + index;
+            return selector;
+        }
+        
+        function revealOneSafeCell() {
+            var selector = pickARandomSquare();
+            while ((howManyMinesNearby(selector) > 0) || isAMine(selector)) {
+                selector = pickARandomSquare();
+            }
+            return selector;
+        }
+        
+        for (var i = 0; i < 3; i++) {
+            var selector = revealOneSafeCell();
+            $(selector).css("background-color", "green");
+            $(selector).click(function() {
+                $(selector).unbind("click");  // remove click handler after first cell selected
+                setupHoverHandlers();
+                setupTapHandlers();
+                toggleHovering();
+                $("#help").text("");
+            });
+        }
+    }
+    
+    function addCopyright() {
+        var html = "<div id=copyright>© Chris Seddon, 17 January 2018</div>";
+        $("#dummy").append($(html).clone()).css("float", "none");
+        $("#copyright").css("color", "black")
+                       .css("clear", "both")
+                       .css("font-size", "8pt")
+                       .css("width", "50vw");
+    }
+
+    function setupGrid() {
+        var boxWidth = PERCENTAGE_SCREEN_USED;
+        var boxHeight =  boxWidth / 2;
+        var squareSize = boxWidth / COLS;
+ 
+        var divBoxRule = "div#box { height: " + boxHeight + "vw; width: " + boxWidth + "vw; }";
+        var squareRule = ".square { height: " + squareSize + "vw; width: " + squareSize + "vw; } "
+        var sheet = window.document.styleSheets[0];
+        sheet.insertRule(divBoxRule, sheet.cssRules.length);
+        sheet.insertRule(squareRule, sheet.cssRules.length);
+    }
+    
+    function fillOutTheGrid() {
+        setupGrid();
+        var newLine = "<div class='newLine'></div>";
+        for(var row = 0; row < ROWS; row++) {
+            for(var col = 0; col < COLS; col++) {
+                var id = row * COLS + col;
+                var selector = "cell" + id;
+                var childDiv = "<div class='square'><div class='internal' id='" + selector + "'>" + "</div></div>";
+                $("#box").append($(childDiv).clone());
+                // add attributes to each "class=internal" div
+                $("#" + selector).data( "id", 
+                    { 
+                     row:      row, 
+                     col:      col,
+                     mine:     0,
+                     selected: 0,
+                     exploded: 0
+                    });
+            }
+            $("#box").append($(newLine).clone());
+            $("#box").append($(newLine).clone());
+        }
+    }
+
+    function addUserStatistics() {    
+        $("#box").append("<div id='mode'></div>");
+        $("#box").append("<div id='cellsSelected'></div>");
+        $("#box").append("<div id='remainingMines'></div>");
+        $("#box").append("<div id='minesDetected'></div>");
+        $("#box").append("<div id='hits'></div>");
+    }
+    
+    function changeMousePointerToAHand() {
+        $("#box").css('cursor', 'pointer');
+    }
+
+    function setUpTheModeAndStatistics() {
+        $("body").keypress(toggleHovering);
+        toggleHovering();
+        $("#mode").html("Click on a green cell to start").css("color", "red");        
+    }
+    
+    $(document).ready(function() {
+        changeMousePointerToAHand();
+	    fillOutTheGrid();
+	    addUserStatistics();
+        addMinesToGrid(MINES);
+        addHelp();
+        revealVerySafeCells();
+        setUpTheModeAndStatistics();
+        addCopyright();
+    });
+
+</script>
+    <h1>MINES</h1>
+    <div id="box"></div>
+    <div id="dummy"></div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+To maximize the terminal window you must choose Align Panel = Center
+The extension to maximize the code window is: Auto Hide
+The key binding to show the terminal is ctrl`
+To switch off echo: stty -echo

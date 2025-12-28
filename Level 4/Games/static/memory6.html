@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 17 January 2018 -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name='viewport' 
+     content='width=device-width, height=device-height, user-scalable=no,
+              initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <meta http-equiv="Cache-Control" content="max-age=31536000">
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script src="jquery_cookie.js"></script>
+<script src="jquery.mobile.custom.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+<script src="clock.js"></script>
+<script>
+var debug = false;
+</script>
+<style type="text/css">
+
+body {
+    overflow:hidden;
+    overscroll-behavior: none;
+}
+
+div.ui-page.ui-page-theme-a.ui-page-active {
+    padding-left: 2vw;
+    background-color: black;
+}
+
+
+img {
+    filter: drop-shadow(-5px -5px 5px #303030);
+}
+
+#cards {
+    display:inline-block;
+}
+
+button {
+    width: 8vw;
+    height: 3vw;
+    float: left;
+    filter: drop-shadow(-5px -5px 5px #000);
+}
+
+button, #name {
+    background-color: #4CAF50;
+}
+
+#results {
+    top: 18vh;
+    left: 20vw;
+    width: auto;
+    position: absolute;
+    background-color: ivory;
+    border-style: ridge;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: center;
+    visibility: hidden;
+}
+
+</style>
+<script>
+
+var cardSelector;
+var WIDTH = 7.3;
+var HEIGHT = 16;
+var firstCard = undefined;
+var secondCard = undefined;
+var oldFirstCard = undefined;
+var matches = 0;
+var resultsVisible = true;
+
+var cards = [
+    [2, "2_of_clubs.svg"],
+    [2, "2_of_diamonds.svg"],
+    [2, "2_of_hearts.svg"],
+    [2, "2_of_spades.svg"],
+    [3, "3_of_clubs.svg"],
+    [3, "3_of_diamonds.svg"],
+    [3, "3_of_hearts.svg"],
+    [3, "3_of_spades.svg"],
+    [4, "4_of_clubs.svg"],
+    [4, "4_of_diamonds.svg"],
+    [4, "4_of_hearts.svg"],
+    [4, "4_of_spades.svg"],
+    [5, "5_of_clubs.svg"],
+    [5, "5_of_diamonds.svg"],
+    [5, "5_of_hearts.svg"],
+    [5, "5_of_spades.svg"],
+    [6, "6_of_clubs.svg"],
+    [6, "6_of_diamonds.svg"],
+    [6, "6_of_hearts.svg"],
+    [6, "6_of_spades.svg"],
+    [7, "7_of_clubs.svg"],
+    [7, "7_of_diamonds.svg"],
+    [7, "7_of_hearts.svg"],
+    [7, "7_of_spades.svg"],
+    [8, "8_of_clubs.svg"],
+    [8, "8_of_diamonds.svg"],
+    [8, "8_of_hearts.svg"],
+    [8, "8_of_spades.svg"],
+    [9, "9_of_clubs.svg"],
+    [9, "9_of_diamonds.svg"],
+    [9, "9_of_hearts.svg"],
+    [9, "9_of_spades.svg"],
+    [10, "10_of_clubs.svg"],
+    [10, "10_of_diamonds.svg"],
+    [10, "10_of_hearts.svg"],
+    [10, "10_of_spades.svg"],
+    [11, "jack_of_clubs.svg"],
+    [11, "jack_of_diamonds.svg"],
+    [11, "jack_of_hearts.svg"],
+    [11, "jack_of_spades.svg"],
+    [12, "queen_of_clubs.svg"],
+    [12, "queen_of_diamonds.svg"],
+    [12, "queen_of_hearts.svg"],
+    [12, "queen_of_spades.svg"],
+    [13, "king_of_clubs.svg"],
+    [13, "king_of_diamonds.svg"],
+    [13, "king_of_hearts.svg"],
+    [13, "king_of_spades.svg"],
+    [14, "ace_of_clubs.svg"],
+    [14, "ace_of_diamonds.svg"],
+    [14, "ace_of_hearts.svg"],
+    [14, "ace_of_spades.svg"]];
+
+
+var card1 = undefined;
+var card2 = undefined;
+var matches = 0;
+var misses = 0;
+
+$(document).ready(function() {
+    $("body").css('cursor', 'pointer');        
+    cardSelector = $("#cards");
+    shuffle(cards);
+    clickHandler();
+    setupDOM();
+    positionFurniture();
+    addClickHandlers();
+    useCookiesToSetNameField();
+    loadCardImages();
+});
+
+function addClickHandlers() {
+    $("#pause").mousedown(pauseClock);
+    $("#getResults").mousedown(toggleResults);
+}
+
+function addCopyright() {
+    $("#copyright").css("color", "black")
+                   .css("bottom", "0px")
+                   .css("position", "fixed")
+                   .css("width", "50vw");
+}
+    
+function clearPage() {
+    $("#cards").children().remove();
+    $("#results").children().remove();
+}
+
+function clickHandler() {
+    $("#cards").mousedown(function(e) {
+        e.stopPropagation();
+        if(timer === undefined) {
+            hideResults();
+            timer = startClock(pausedTime);
+        }
+        var image = $(e.target);
+        if(!isFaceDown(image)) return;
+        
+        if(card1 === undefined) {
+            card1 = image;
+            turnCard(card1);
+        } else {
+            card2 = image;
+            turnCard(card2);
+            if(isMatch(card1, card2))
+                match(card1, card2);
+            else
+                noMatch(card1, card2);
+            card1 = undefined;
+        }
+    });    
+}
+
+function endGame() {
+    resultsVisible = true;
+    getResults(getName(), duration);
+    stopClock();
+    clearPage();
+    shuffle(cards);
+    setupDOM();
+    card1 = undefined;
+    misses = 0;
+}
+
+function getAspectRatio() {
+    var width=167.0869141;
+    var height=242.6669922;
+    return width / height;
+}
+
+function getCSS(row, col) {
+    var WIDTH;
+    var HEIGHT;
+    var UNITS;
+    var widthDivisions = 13.5;
+    var heightDivisions = 4.5;
+    var aspectRatio = getAspectRatio();
+    var possibleCardWidth = $(window).width() / widthDivisions;
+    var possibleCardHeight = $(window).height() / heightDivisions;
+    if(possibleCardHeight * aspectRatio > possibleCardWidth) {
+        WIDTH = 100/widthDivisions;
+        HEIGHT = WIDTH / aspectRatio;
+        UNITS = "vw";
+    } else {
+        HEIGHT = 100/heightDivisions;
+        WIDTH = HEIGHT * aspectRatio;
+        UNITS = "vh";
+    }
+    var css = {};
+    css["left"] = `${1+col*WIDTH}${UNITS}`;
+    css["top"] = `${(row+0.3)*HEIGHT}${UNITS}`;
+    css["position"] = "absolute";
+    css["width"] = `${WIDTH}${UNITS}`;
+    css["height"] = `${HEIGHT}${UNITS}`;
+    return css;
+}
+
+function getName() {
+    var name = $("#name").val();
+    if(name === "") name = "-";
+    return name;
+}
+
+function getRank(image) {
+    var card = $(image).attr("card");
+    card = card.split(',')[0];
+    return parseInt(card);
+}
+
+function getResults(name, duration) {
+    // send duration of game to server and get back top results
+    // if duration is zero, just return results
+    if(debug) name = "debug";
+    $.ajax(
+        {
+            url: '/games/MemoryServer',
+            type: 'GET',
+            contentType:'application/json',
+            data: {time:duration, name:name},
+            dataType:'json',
+            success: function(data) {
+                resultsFromServer = data;
+                updateResults(name, data);
+                if(resultsVisible) 
+                    showResults();
+                else
+                    hideResults();
+            }
+        });        
+}
+
+function hideResults() {
+    $("#results").css("visibility", "hidden");
+}
+
+function isFaceDown(image) {
+    var src = $(image).attr("src");
+    return src === "images/cards/back2.svg";
+}
+
+function isMatch(card1, card2) {
+    return getRank(card1) === getRank(card2);    
+}
+
+function loadCardImages() { 
+    for(var i = 0; i < 52; i++) {
+        var html = "<div><img style='width: 100%; height: auto;' src='images/cards/" + cards[i][1] + "'/></div>";
+        var card = $(html).clone();
+        $("#hide").append(card);
+    }
+    $("#hide").css("visibility", "hidden");
+}
+
+function match(card1, card2) {
+    matches++;
+    if(matches === 26) endGame();
+    setTimeout(function() {
+      requestAnimationFrame(function() {
+          card1.attr("src", "images/cards/back1.svg");
+          card2.attr("src", "images/cards/back1.svg");        
+      });
+    }, 60);
+}
+
+function noMatch(card1, card2) {
+    recordMisses();
+    setTimeout(function(){
+        requestAnimationFrame(function() {
+            $(card1).attr("src", "images/cards/back2.svg");
+            $(card2).attr("src", "images/cards/back2.svg");
+        });
+    }, 60);
+}
+
+function positionFurniture() {
+    function getCSS(color, left, radius) {
+        if(radius === undefined) radius = 1;
+        var css = {};
+        css["color"] = color;
+        css["left"] = `${left}vw`;
+        css["bottom"] = "5vh";
+        css["position"] = "fixed";
+        css["height"] = "6vh";
+        css["width"] = "10vw";
+        css["border-radius"] = `${radius}vw`;
+
+        return css;
+    }
+    
+    $("#pause").css(getCSS("black", 0));
+    $("#getResults").css(getCSS("black", 12));
+    $("#results").css("z-index", 1000);
+    $("#name").css(getCSS("black", 24, 0));
+    $("#name").css("font-size", "16pt");
+    $("#name").css("width", "15vw");
+    $("#name").css("height", "3vw");
+    $("#misses").css(getCSS("yellow", 48));
+    $("#clock").css(getCSS("red", 75));
+    $("#clock").css('font-size', "18pt");
+    $("#copyright").css("color", "white")
+                   .css("bottom", "0px")
+                   .css("position", "fixed")
+                   .css("width", "50vw");
+}
+
+function recordMisses() {
+    misses++;
+    $("#misses").text(misses);
+}
+
+function setupDOM() {
+    for(var row = 0; row < 4; row++) {
+        for(col = 0; col < 13; col++) {
+            var i = row * 13 + col;
+            var name = cards[i][1];
+            var html = `<img style='width: ${WIDTH}vw; height: auto;' src='images/cards/back2.svg' card='${cards[i]}'/>`;
+            var card = $(html).clone();
+            var css = getCSS(row, col);
+            card.css(css);
+            $("#cards").append(card);
+        }
+    }
+}
+
+function showResults() {
+    $("#results").css("visibility", "visible");  
+}
+
+function shuffle(array) {
+    var counter = array.length;
+    // while there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        var index = Math.floor(Math.random() * counter);
+        counter--;
+        // swap the last element with it
+        var temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return array;
+}
+
+function toggleResults() {
+    var name = useCookiesToSetNameField();
+    getResults(name, 0);
+    var visibility = $("#results").css("visibility");
+    if(visibility === "visible")
+        resultsVisible = false;
+    else
+        resultsVisible = true;
+}
+
+function turnCard(image) {
+    var attribute = $(image).attr("card");
+    var card = attribute.split(',')[1];
+    var src = `images/cards/${card}`;
+    $(image).attr("src", src);
+}
+
+function updateResults(name, data) {
+    var message = `<b>Top 10 results for<br><span style='color:red;'>${name}</b></span><br>`;
+    for(i = 0; i < data.length; i++) {
+        // results come back in 2 fields: duration, date
+        // field 2 has a '*' if its the latest result
+        var result = data[i].split(/[ ]+/, 2);
+        var t = parseInt(result[0]);
+        var date = result[1];
+        var latest = result[1].indexOf('*') > -1;  // does it have a '*''
+        var minutes = "" + Math.floor(t/60);
+        var seconds = t % 60;
+        seconds = seconds < 10 ? "0"+seconds : seconds;
+        var time =  minutes + ":" + seconds;
+        var index = i + 1;
+        if (latest) {
+            date = date.slice(0, -1);    // slice off the '*'
+            message += "<span style='color:red;'>" + index + ":  " + time + "    " + date + "</span><br/>";                 
+        } else {
+            message += index + ":  " + time + "    " + date + "<br/>";
+        }
+    }
+    $("#results").html(message);
+}
+
+function useCookiesToSetNameField() {
+    $("#name").change(function() {
+        $.cookie("name", $(this).val());
+    });
+    var cookieValue = $.cookie("name");
+    $("#name").val(cookieValue);
+    return cookieValue;
+}
+</script>
+
+</head>
+<body>
+    <div id='cards'></div>
+    <div id='results'></div>
+    <button id="pause" type="button">Pause</button>
+    <button id="getResults" type="button">Toggle Results</button>
+    <div id='clock'>0:00</div>
+    <div id='hide'></div>    
+    <input id="name" type="text" name="name" value="">
+    <div id='misses'>0</div>
+    <div id="copyright">© Chris Seddon, 17 January 2018</div>
+</body>
+</html>
+

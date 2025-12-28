@@ -1,0 +1,13 @@
+<style>
+body {background-color: powderblue;}
+table, th, td {
+  border: 1px solid;
+}
+</style>
+
+<h1>Results</h1>
+<table>
+{% for match in matches %}
+    <tr><td>{{ match }}</td></tr>
+{% endfor %}
+</table>

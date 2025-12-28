@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [    
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${fileDirname}",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "stopOnEntry": true,
+            "justMyCode": true,
+        }
+    ]
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 17 January 2018 -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name='viewport' 
+     content='width=device-width, height=device-height, user-scalable=no,
+              initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script src="jquery_cookie.js"></script>
+<script src="jquery.mobile.custom.js"></script>
+<script>
+var debug = false;
+</script>
+<style type="text/css">
+
+body {
+    overflow:hidden;
+}
+
+div.ui-page.ui-page-theme-a.ui-page-active {
+    padding-left: 2vw;
+}
+
+div {
+    width: 7.3vw;
+    float: left;
+    clear: none;
+}
+
+h1 {
+    position:relative;
+    z-index:0;
+    font-size: 32pt;
+}
+
+.layer-0 {
+    position: relative;
+    width: auto;
+    z-index: 0;
+}
+
+.newline {
+    clear: both;
+}
+
+#main {
+    width: 100%;
+    clear: both;
+}
+#name {
+    font-size: 16pt;
+    z-index: 0;
+}
+
+button {
+    width: 8vw;
+    height: 3vw;
+    float: left;
+    filter: drop-shadow(-5px -5px 5px #000);    
+}
+
+button, #name {
+    background-color: #4CAF50;
+}
+
+#clock {
+    top: 0vh;
+    width: 10vw;
+    right: 10vw;
+    position: relative;
+    font-size: 18pt;
+    float: right;
+}
+
+#results {
+    top: 18vh;
+    left: 20vw;
+    width: auto;
+    position: absolute;
+    background-color: ivory;
+    border-style: ridge;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: center;
+    visibility: hidden;
+}
+
+img {
+    /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
+    /* -webkit-filter: drop-shadow( -5px -5px 5px #000 ); */
+    filter: drop-shadow(-5px -5px 5px #000);
+}
+</style>
+<script>
+
+var android = navigator.appVersion.indexOf("Android") !== -1;
+
+var style = document.createElement('style');
+style.appendChild(document.createTextNode(""));
+document.head.appendChild(style);
+
+var cards = [
+    [2, "2_of_clubs.svg"],
+    [2, "2_of_diamonds.svg"],
+    [2, "2_of_hearts.svg"],
+    [2, "2_of_spades.svg"],
+    [3, "3_of_clubs.svg"],
+    [3, "3_of_diamonds.svg"],
+    [3, "3_of_hearts.svg"],
+    [3, "3_of_spades.svg"],
+    [4, "4_of_clubs.svg"],
+    [4, "4_of_diamonds.svg"],
+    [4, "4_of_hearts.svg"],
+    [4, "4_of_spades.svg"],
+    [5, "5_of_clubs.svg"],
+    [5, "5_of_diamonds.svg"],
+    [5, "5_of_hearts.svg"],
+    [5, "5_of_spades.svg"],
+    [6, "6_of_clubs.svg"],
+    [6, "6_of_diamonds.svg"],
+    [6, "6_of_hearts.svg"],
+    [6, "6_of_spades.svg"],
+    [7, "7_of_clubs.svg"],
+    [7, "7_of_diamonds.svg"],
+    [7, "7_of_hearts.svg"],
+    [7, "7_of_spades.svg"],
+    [8, "8_of_clubs.svg"],
+    [8, "8_of_diamonds.svg"],
+    [8, "8_of_hearts.svg"],
+    [8, "8_of_spades.svg"],
+    [9, "9_of_clubs.svg"],
+    [9, "9_of_diamonds.svg"],
+    [9, "9_of_hearts.svg"],
+    [9, "9_of_spades.svg"],
+    [10, "10_of_clubs.svg"],
+    [10, "10_of_diamonds.svg"],
+    [10, "10_of_hearts.svg"],
+    [10, "10_of_spades.svg"],
+    [11, "jack_of_clubs.svg"],
+    [11, "jack_of_diamonds.svg"],
+    [11, "jack_of_hearts.svg"],
+    [11, "jack_of_spades.svg"],
+    [12, "queen_of_clubs.svg"],
+    [12, "queen_of_diamonds.svg"],
+    [12, "queen_of_hearts.svg"],
+    [12, "queen_of_spades.svg"],
+    [13, "king_of_clubs.svg"],
+    [13, "king_of_diamonds.svg"],
+    [13, "king_of_hearts.svg"],
+    [13, "king_of_spades.svg"],
+    [14, "ace_of_clubs.svg"],
+    [14, "ace_of_diamonds.svg"],
+    [14, "ace_of_hearts.svg"],
+    [14, "ace_of_spades.svg"]];
+
+    function shuffle(array) {
+        let counter = array.length;
+        // while there are elements in the array
+        while (counter > 0) {
+            // Pick a random index
+            let index = Math.floor(Math.random() * counter);
+            counter--;
+            // swap the last element with it
+            let temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
+        return array;
+    }
+
+    function startClock(offset) {
+        var start = new Date().valueOf() - 1000 * offset;
+        clock = setInterval(function() {        
+            var now = new Date().valueOf();
+            duration = Math.round((now - start)/1000);
+            var minutes = Math.floor(duration/60)
+            var seconds = duration % 60;
+            seconds = seconds < 10 ? "0" + seconds : seconds
+            message = minutes + ":" + seconds;
+            $("#clock").text(message);
+        }, 1000);
+        return clock;
+    }
+    
+    var firstCard = undefined;
+    var secondCard = undefined;
+    var matches = 0;
+    var timer = undefined;
+    var duration = undefined;
+    
+    function clearPage() {
+        $(".layer-0").children().remove();
+    }
+
+    function clearResults() {
+        $("#results").css("visibility", "hidden");  
+    }
+    
+    function showResults() {
+        $("#results").css("visibility", "visible");  
+    }
+    
+    function setupPage() {
+        duration = 0;
+        shuffle(cards);
+        var newLine = $("<div class='newline'></div>");
+        
+        // I've set this up with multiple layers, but I'm only using one layer at present
+        for(var layer = 0; layer < 1; layer++) {
+            if(layer !== 0) {
+                /* add a rule for this layer */
+                var rule = ".layer-"+ layer + " {position:absolute; width:auto; top:" + layer + "%; z-index:" + layer + ";}"
+                style.sheet.insertRule(rule);
+                  
+                /* add a div for this layer */
+                html = $("<div class='layer-" + layer + "'/>")
+                $("div#main").append(html.clone());
+            }
+            for(var row = 0; row < 4; row++) {
+                /* define a selector for this layer's div */
+                var selector = "div.layer-" + layer; 
+                for(col = 0; col < 13; col++) {
+                    /* add divs and images for the row */
+                    var part1 = "<div><img style='width: 100%; height: auto;' src='images/cards/";
+                    var part2 = "'/></div>";
+                    var back = layer%2 == 0 ? "back2.svg" : "back1.svg";
+                    var theHtml = $(part1 + back + part2);
+                    var childDiv = theHtml.clone();
+                    $(selector).append(childDiv);
+                    /* add attributes */
+                    var index = row * 13 + col;
+                    childDiv.data("id", 
+                        { 
+                            layer:layer, 
+                            row:row, 
+                            col:col, 
+                            state:"hidden", 
+                            pip:cards[index][0], 
+                            card:cards[index][1] 
+                        });
+                }
+                $(selector).append(newLine.clone())
+            }
+        }
+    }
+
+    function process(selector) {
+        if(timer === undefined) timer = startClock(duration);
+        
+        // extract properties for the card selected
+        var layer = $(selector).data("id").layer;    
+        var row = $(selector).data("id").row;
+        var col = $(selector).data("id").col;
+        var state = $(selector).data("id").state;
+        var pip = $(selector).data("id").pip;
+        var card = $(selector).data("id").card;
+    
+        switch(state) {
+            case "hidden":
+                // show the card in all cases
+                $(selector).data("id").state = "visible";
+                $(selector).children().attr("src", "images/cards/" + card);   
+                
+                if (firstCard === undefined) {
+                    // started new game
+                    // only one card selected so far
+                    firstCard = selector;
+                    clearResults();
+                } else if (secondCard === undefined) {
+                    secondCard = selector;
+                    if($(firstCard).data("id").pip === $(secondCard).data("id").pip) {
+                        $(firstCard).data("id").state = "deleted";
+                        $(secondCard).data("id").state = "deleted";
+                        pair1 = firstCard;
+                        pair2 = secondCard;
+                        firstCard = undefined;
+                        secondCard = undefined;
+                        // found a pair, so hide cards
+                        setTimeout(function() {                    
+                            $(pair1).children().attr("src", "images/cards/back1.svg");             
+                            $(pair2).children().attr("src", "images/cards/back1.svg");             
+                            matches += 2;
+                            if(matches === cards.length) endGame();
+                            if(debug) endGame();
+                        }, 1);
+                    }
+                } else {
+                    // two cards don't match, so hide them both and start again
+                    if($(firstCard).data("id").state !== "deleted") {  
+                        var back = layer%2 == 0 ? "back2.svg" : "back1.svg";
+                        $(firstCard).children().attr("src", "images/cards/" + back);             
+                        $(secondCard).children().attr("src", "images/cards/" + back);             
+                        $(firstCard).data("id").state = "hidden";
+                        $(secondCard).data("id").state = "hidden";
+                        firstCard = selector;
+                        secondCard = undefined;
+                    }
+                }
+                break;
+            // ignore clicks on visible and deleted cards
+            case "visible":
+            case "deleted":
+                break;
+        }
+    }
+
+    function addClickHandlers() {
+        $("#pause").click(pauseClock);
+        $("#start").click(clearResults);
+        $("div div div").unbind("click").click(function(e) {
+            process(this);
+            e.stopPropagation();
+        });
+    }
+    
+    function addTapHandlers() {
+        $("#pause").on("tap", pauseClock);
+        $("#start").on("tap", clearResults);
+        
+        $("div div div").on("tap", function(e) {
+            console.log($(this).data("id").card);
+            process(this);
+            e.stopPropagation();
+        });
+    }
+        
+    function stopClock() {
+        clearInterval(timer);
+        timer = undefined;
+        matches = 0;
+    }
+    
+    function pauseClock() {
+        clearInterval(timer);
+        timer = undefined;    
+    }
+    
+    function updateResults(data) {
+        var message = "<b>Top 10 results:</b><br>";
+        for(i = 0; i < data.length; i++) {
+            // results come back in 2 fields: duration, date
+            // field 2 has a '*' if its the latest result
+            var result = data[i].split(/[ ]+/, 2);
+            var t = parseInt(result[0]);
+            var date = result[1];
+            var latest = result[1].indexOf('*') > -1;  // does it have a '*''
+            var minutes = "" + Math.floor(t/60);
+            var seconds = t % 60;
+            seconds = seconds < 10 ? "0"+seconds : seconds;
+            var time =  minutes + ":" + seconds;
+            var index = i + 1;
+            if (latest) {
+                date = date.slice(0, -1);    // slice off the '*'
+                message += "<span style='color:red;'>" + index + ":  " + time + "    " + date + "</span><br/>";                 
+            } else {
+                message += index + ":  " + time + "    " + date + "<br/>";
+            }
+        }
+        $("#results").html(message);
+        showResults();
+    }
+
+    function endGame() {
+        var name = $("#name").val();
+        if(name === "") name = "-";
+        
+        // send duration of game to server and get back top results
+        $.ajax(
+            {
+                url: '/games/MemoryServer',
+                type: 'GET',
+                contentType:'application/json',
+                data: {time:duration, name:name},
+                dataType:'json',
+                success: function(data) {
+                    updateResults(data);
+                }
+            });
+        clearPage();
+        setupPage();
+        if(android)
+            addTapHandlers();
+        else
+            addClickHandlers();
+        stopClock();
+    }
+
+    function loadCardImages() { 
+        for(var i = 0; i < 52; i++) {
+            var html2 = "<div><img src='images/cards/2_of_clubs.svg'></div>";
+            var html = "<div><img style='width: 100%; height: auto;' src='images/cards/" + cards[i][1] + "'/></div>";
+            var card = $(html).clone();
+            $("#hide").append(card);
+        }
+        $("#hide").css("visibility", "hidden");
+    }
+
+    function useCookiesToSetNameField() {
+        $("#name").change(function() {
+            $.cookie("name", $(this).val());
+        });
+        var cookieValue = $.cookie("name");
+        $("#name").val(cookieValue);        
+    }
+
+function addCopyright() {
+    $("#copyright").css("color", "black")
+                   .css("bottom", "0px")
+                   .css("position", "fixed")
+                   .css("width", "50vw");
+}
+
+$(document).ready(function() {
+    useCookiesToSetNameField();
+    $("body").css( 'cursor', 'pointer' );        
+    $("#clock").css('color', 'red');
+    $("#clock").text("0:00");
+    setupPage();
+    if(android)
+        addTapHandlers();
+    else
+        addClickHandlers();
+    loadCardImages();
+    addCopyright();
+});
+</script>
+</head>
+<body>
+    <h1>MEMORY</h1>
+    <div id='main'>
+    <div class='layer-0'></div>
+    </div>
+    <div id='results'></div>
+    <button id="pause" type="button">Pause</button>
+    <button id="start" type="button">Clear</button>
+    <div id='clock'></div>
+    <div id='hide'></div>    
+    <input id="name" type="text" name="name" value="">
+    <div id="copyright">© Chris Seddon, 17 January 2018</div>
+</body>
+</html>
+

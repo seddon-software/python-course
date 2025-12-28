@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 25 January 2018 -->
+<html>
+<!-- 
+Bugs:
+ -->
+<head>
+  <meta charset="utf-8" />
+  <meta name='viewport' 
+     content='width=device-width, height=device-height, user-scalable=no,
+              initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="jquery-ui-1.12.1.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.12.1.js"></script>
+<script src="jquery.mobile.custom.js"></script>
+<script src="jquery_cookie.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+<script src="stack.js"></script>
+
+<script>
+    function doDrop(div) {
+        if(dropped) return;  // prevent multiple drops
+
+        // dragStack is global
+        function doTransferCards(cards) {
+            transferCards(cards, dropStack, dragStack, "table");
+            autoBank();
+        }
+        var stackIndex = $(div).data("card-info").stackIndex;
+        dropStack = stacks[stackIndex];
+        var deferred = dropStack.stackWillAccept(dragStack);
+        $.when(deferred).then(doTransferCards);
+        dropped = true;
+    }
+
+    function doDrag(div) {
+        var stackIndex = $(div).data("card-info").stackIndex;
+        dragStack = stacks[stackIndex];
+        dropped = false;
+    }
+
+    function makeDroppable(div) {
+        div.droppable(
+        { 
+            drop:   function() { doDrop(this); },
+            tolerance: "touch"
+        });
+    }
+
+    function makeDraggable(div) {
+        div.draggable(
+        { 
+            start:  function() { doDrag(this); },
+            stop:   function() { redraw(); check(); }
+        });
+    }
+
+    function check() {
+        for(var i = 0; i < BANK_STACKS; i++) {
+            var stack = Stack.find("bank", i);
+            for(var k = 1; k < stack.length(); k++) {
+                if(stack[k] <= stack[k-1]) throw("Bank stack out of order");
+            }
+        }    
+    }
+    
+    function enablePackClickHandlerOnTopCard() {
+        var packStack = Stack.find("pack", 0);
+        if(packStack.isEmpty()) return;
+        var top = packStack.getTop();
+        var div = DOM[top];
+        div.click(packStack, packClickHandler);
+    }
+
+    function resetPack() {
+        var packStack = Stack.find("pack", 0);
+        // remove all click handlers
+        // and turn all cards face down
+        for(var i = 0; i < packStack.length(); i++) {
+            var card = packStack.cards[i];
+            var div = DOM[card];
+            $(div).off("click");
+            if(!cardIsFaceDown(card)) flip(card);
+        }
+    }
+
+    function packClickHandler() {
+        console.log("packClickHandler called ...")
+        var packStack = Stack.find("pack", 0);
+        // don't deal if pack empty
+        if(packStack.length() === 0) return;
+        
+        // disable click handler on top before dealing
+        var packTop = packStack.getTop();
+        var div = DOM[packTop];
+        $(div).off("click");
+              
+        // deal one card to each table stack
+        for(var i = 0; i < TABLE_STACKS; i++) {
+            var tableStack = Stack.find("table", i);
+            var cards = [packStack.getTop()];
+            var undo = false;
+            tableStack.transfer(packStack, cards, undo, "deal");
+        }
+        resetPack();
+        setupDragAndDrop();
+        enablePackClickHandlerOnTopCard();
+        autoBank();
+    }
+  
+    function setupBank() {    
+        var firstBank = Stack.find("bank", 0);
+        for(var i = 0; i < BANK_STACKS; i++) {
+            var stack = stacks[firstBank.index + i];
+        }        
+    }
+       
+    function setupPack(numberOfCardsToDeal) {
+        var pack = Stack.find("pack", 0);
+        for(var i = 0; i < numberOfCardsToDeal; i++) {
+            var card = cards.pop();
+            pack.push(card);
+            flip(card);
+        }
+        pack.addClickHandler();
+    }
+    
+    function setupTable(numberOfCardsToDeal, numberToFlip) {
+        for(var i = 0; i < numberOfCardsToDeal; i++) {
+            var stack = Stack.find("table", i%TABLE_STACKS);
+            var card = cards.pop();
+            if(i < numberToFlip) flip(card);
+            stack.push(card);           
+        }
+    }
+    
+    function createStacks(type) {
+        var stop;
+        if(type === "bank") stop = BANK_STACKS;
+        if(type === "table") stop = TABLE_STACKS;
+        if(type === "pack") stop = PACK_STACKS;
+    
+        for(var id = 0; id < stop; id++) {
+            var index = stacks.length;
+            var stack = new Stack(id, index, type);
+            stacks.push(stack);
+        }
+    }
+
+    function getCSS(div, cardNo) {
+        function getPackCSS(cardPosition) {
+            // cardPosition = -1 for blank card
+            var block = cardPosition === -1 ? 0 : Math.floor(cardPosition/TABLE_STACKS);
+            var css = {};
+            css["position"] = "absolute";
+            css["width"] = `${WIDTH}vw`;
+            css["left"] = `${(WIDTH+LEFT_SEPARATION)*(BANK_STACKS+1)-block}vw`;
+            css["top"] = `${TOP_OFFSET}vw`;
+            css["z-index"] = `${cardPosition}`;
+            return css;
+        }
+        
+        function getTableCSS(tableId, cardPosition) {
+            function getFactor() { // gets smaller as stack gets larger
+                var stack = Stack.find("table", tableId);
+                var size = stack.length();
+                var factor = 1.0;
+                if(size > 13) factor = 0.8;
+                if(size > 18) factor = 0.6;
+                if(size > 23) factor = 0.4;
+                if(size > 28) factor = 0.3;
+                return factor;
+            }
+            // cardPosition = -1 for blank card
+            var zIndex = cardPosition === -1 ? 0 : cardPosition + 1; 
+            var top = cardPosition === -1 ? 0 : cardPosition;
+            var css = {};
+            css["position"] = "absolute";
+            css["width"] = `${WIDTH}vw`;
+            css["left"] = `${(WIDTH+LEFT_SEPARATION)*tableId}vw`;
+            css["top"] = `${TOP_SEPARATION * top * getFactor() + TOP_SEPARATION * 7 + TOP_OFFSET}vw`;
+            css["z-index"] = `${zIndex}`;
+            return css;
+        }
+    
+        function getBankCSS(bankId, cardNo) {
+            var css = {};
+            css["position"] = "absolute";
+            css["width"] = `${WIDTH}vw`;
+            css["left"] = `${(WIDTH+LEFT_SEPARATION)*(bankId)}vw`;
+            css["top"] = `${TOP_OFFSET}vw`;
+            css["z-index"] = `${pip(cardNo)}`;
+            return css;
+        }
+    
+        var css = {};
+        var stackIndex = div.data("card-info").stackIndex;
+        var stack = stacks[stackIndex];
+        if(stack.type === "pack") {
+            var cardPosition = stack.findCard(div);
+            css = getPackCSS(cardPosition);    
+        } 
+        if(stack.type === "table") {
+            var cardPosition = stack.findCard(div);
+            css = getTableCSS(stack.id, cardPosition);
+        }
+        if(stack.type === "bank") {
+            css = getBankCSS(stack.id, cardNo);
+        }
+        return css;        
+    }
+    
+    function redraw() {
+        // to be called initially and then after drag 
+        for(var i = 0; i < 2*52; i++) {
+            var div = DOM[i];
+            var css = getCSS(div, i);
+            div.css(css);
+        }
+    }
+
+    function setupBlanks() {
+        // tables
+        for(var i = 0; i < TABLE_STACKS; i++) {
+            var stack = Stack.find("table", i);
+            var div = $(getBlank()).clone();
+            div.data("card-info", 
+                    { 
+                        stackIndex: stack.index,
+                    });
+            $("#cards").append(div);
+            var css = getCSS(div);
+            div.css(css);
+            makeDroppable(div);
+        }
+        
+        // banks
+        for(var i = 0; i < BANK_STACKS; i++) {
+            var stack = Stack.find("bank", i);
+            var div = $(getBlank()).clone();
+            div.data("card-info", 
+                    { 
+                        stackIndex: stack.index,
+                    });
+
+            $("#cards").append(div);
+            var css = getCSS(div);
+            div.css(css);
+            makeDroppable(div);
+        }
+        // pack
+        var stack = Stack.find("pack", 0);
+        var div = $(getBlank()).clone();
+        div.data("card-info", 
+                { 
+                    stackIndex: stack.index,
+                });
+        $("#cards").append(div);
+        var css = getCSS(div);
+        div.css(css);        
+    }
+    
+    function positionFurniture() {
+        function getCSS(color, left) {
+            var css = {};
+            css["color"] = color;
+            css["left"] = `${left}vw`;
+            css["bottom"] = "5vh";
+            css["position"] = "fixed";
+            css["width"] = "10vw";
+            css["border-radius"] = "1vw";
+            return css;
+        }
+        $("#undo").css(getCSS("black", 0));
+        $("#undo-10-moves").css(getCSS("black", 15));
+        $("#undo-1-empty-stack").css(getCSS("black", 30));
+        $("#undo-2-empty-stacks").css(getCSS("black", 45));
+        $("#restart").css(getCSS("black", 60));
+        $("#clock").css(getCSS("red", 75));
+        $("#copyright").css("color", "white")
+                  .css("bottom", "0px")
+                  .css("position", "fixed")
+                  .css("width", "50vw");
+    }
+
+
+    function startClock() {
+        var start = new Date().valueOf();
+        timer = setInterval(function() {        
+            var now = new Date().valueOf();
+            duration = Math.round((now - start)/1000);
+            var minutes = Math.floor(duration/60)
+            var seconds = duration % 60;
+            seconds = seconds < 10 ? "0" + seconds : seconds
+            message = minutes + ":" + seconds;
+            $("#clock").text(message);
+            if(Stack.howManyEmptyStacks() === TABLE_STACKS)
+                clearInterval(timer);
+        }, 1000);
+        return clock;
+    }
+    
+    function addCopyright() {
+        $("#copyright").css("color", "black")
+                       .css("bottom", "0px")
+                       .css("position", "fixed")
+                       .css("width", "50vw");
+    }
+
+    function shuffleDoublePack() {
+        function debugShuffle() {
+            // 103, 102, 101, 100 are on table to begin width
+            // 0, 1, 2, ... from pack
+            cards[28] = 5;
+            cards[27] = 15;
+            cards[26] = 12;
+            cards[5] = 28;
+            cards[15] = 27;
+            cards[12] = 26;
+//            cards[1] = 93;
+//            cards[2] = 94;
+        }
+        function shuffle(array) {
+            var counter = array.length;
+            // while there are elements in the array
+            while (counter > 0) {
+                // Pick a random index
+                var index = Math.floor(Math.random() * counter);
+                counter--;
+                // swap the last element with it
+                var temp = array[counter];
+                array[counter] = array[index];
+                array[index] = temp;
+            }
+            return array;
+        }
+        var numberOfCards = 52 * 2;
+        cards = Array.apply(null, {length: numberOfCards}).map(Number.call, Number);
+        if(debug)
+            debugShuffle(cards);
+        else
+            shuffle(cards);
+    }
+    
+    function flip(n) {
+        var div = DOM[n];
+        var g = $(div).find("g");
+        var rect = $(div).find("rect");
+        var rects = rect.get();
+        var visibility = g.attr("visibility");
+        if(visibility === "visible") {
+            $(rects[0]).attr("visibility", "hidden");
+            $(rects[1]).attr("visibility", "visible");
+            g.attr("visibility", "hidden");
+        } else {
+            $(rects[0]).attr("visibility", "visible");
+            $(rects[1]).attr("visibility", "hidden");
+            g.attr("visibility", "visible");
+        }
+    }
+
+    function getNewCard(cardNo) {
+        var pip = cardNo%13;
+        var color = Math.floor(cardNo/13) % 4;
+        var div = $(getCard(pip, color));
+        div = div.clone();
+        return div;
+    }
+    
+    function setupDOM() {
+        // add 2 packs
+        for(var i = 0; i < 2*52; i++) {
+            div = getNewCard(i)
+            $("#cards").append(div);
+            DOM.push(div);
+        }
+    }
+        
+    function addToJournal(type, cards, fromStack, toStack) {
+        var entry = { 
+                      type:  type, 
+                      cards: cards,
+                      from:  fromStack.index,
+                      to:    toStack.index
+                    };
+        journal.push(entry);
+
+    }
+
+    function getBlank() {
+        var svg = `<div><svg visibility='visible' style='width: 100%;'
+                             viewBox='0 0 100 150'>
+                   <rect visibility='visible' x='0' y='0' width='100' height='150' 
+                         rx='10' ry='15' style='stroke:#660000; fill: white'/>
+                   </svg></div>`;
+        return svg;
+    }
+    
+    function getCard(pip, color) {
+        var colors = ['cornflowerblue', 'blanchedalmond', 'hotpink', 'mediumaquamarine']
+        var pips = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        var svg = `<div><svg visibility='visible' style='width: 100%;'
+                        viewBox='0 0 100 150'>
+                        <rect visibility='visible' x='0' y='0' width='100' height='150' 
+                              rx='10' ry='15'
+                              style='stroke:#660000; fill: ${colors[color]}'/>
+                        <rect visibility='hidden' x='0' y='0' width='100' height='150' 
+                              rx='10' ry='15'
+                              style='stroke:#660000; fill:yellow'}'/>
+                       <g visibility='visible'>
+                       <ellipse cx='50' cy='75' rx='40' ry='50'
+                             style='stroke:#99ffff; fill:#aaccee'/>
+                       <text x='50' y='15' style='text-anchor:middle' alignment-baseline='bottom'>${pips[pip]}</text>
+                       <text x='50' y='75' style='stroke:#aaaa00; fill:black; text-anchor:middle; font-size:4vw' alignment-baseline='middle'>${pips[pip]}</text>
+                       </g>
+                       </svg></div>`;
+        return svg;
+    }
+
+    function pip(cardNo) {
+        // Ace(0, 13, 26, ...) -> 1
+        // Two(1, 14, 27, ...) -> 2
+        // ...
+        // King(12, 25, 38, ...) -> 13
+        return cardNo % 13 + 1;
+    }
+    
+    function pips(array) {
+        var result = [];
+        for(var i = 0; i < array.length; i++) {
+            result.push(pip(array[i]));
+        }
+        return result;
+    }
+
+    function setupDragAndDrop() {
+        for(var i = 0; i < stacks.length; i++) {
+            var stack = stacks[i];
+            stack.resetDragAndDrop();
+        }    
+    }
+
+    function cardIsFaceDown(cardNo) {
+        var div = DOM[cardNo];
+        var rects = $(div).find("rect");
+        var rect0 = rects.get()[0];
+        var visibility = $(rect0).css("visibility");
+        return visibility === "hidden";
+    }
+    
+    function transferCards(cards, dropStack, dragStack) {
+        if(cards.length !== 0) {
+            var undo = false;
+            dropStack.transfer(dragStack, cards, undo, "table");
+        }        
+    }
+    
+    function autoBank() {
+        var lowestPip = 14;
+        for(var i = 0; i < BANK_STACKS; i++) {
+            var stack = Stack.find("bank", i);
+            if(!stack.isEmpty()) {
+                var topPip = pip(stack.getTop());
+                if(topPip < lowestPip) lowestPip = topPip;
+            } else {
+                lowestPip = 0;
+            }
+        }
+        
+        // determine possible drop stacks
+        var possibleDropStacks = [];
+        var dropStack;
+        for(var i = 0; i < BANK_STACKS; i++) {
+            var stack = Stack.find("bank", i);
+            if(stack.isEmpty()) {
+                possibleDropStacks.push(stack);
+            } else {
+                if(pip(stack.getTop()) === lowestPip) {
+                    possibleDropStacks.push(stack);
+                }
+            }
+        }
+        if(possibleDropStacks.length === 0) return;
+        
+        // determine drag stack
+        var dragStack;
+        var dragPip = lowestPip + 1;
+        for(var i = 0; i < TABLE_STACKS; i++) {
+            var stack = Stack.find("table", i);
+            for(var k = 0; k < possibleDropStacks.length; k++) {
+                dropStack = possibleDropStacks[k];
+                if(!stack.isEmpty()) {
+                    if(dropStack.isEmpty()) {
+                        if(pip(stack.getTop()) === 1) {
+                            dragStack = stack;
+                            break;
+                        }
+                    } else {
+                        if(stack.getTop()%52 - dropStack.getTop()%52 === 1) {
+                            dragStack = stack;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(dragStack !== undefined) break;
+        }
+
+        if(dragStack === undefined) return; // break out of recursion
+        
+        // autobank a single card
+        var cards = [dragStack.getTop()];
+        var undo = false;
+        dropStack.transfer(dragStack, cards, undo, "table");
+        
+        // recurse
+        autoBank();
+    }
+
+    function j() {
+        console.log(journal);    
+    }
+    
+    function dump(n) {
+        var stack = stacks[n];
+        var s = "";
+        for(var i = 0; i < stack.length(); i++) {
+            s = s + "" + stack.cards[i]%52 + ",";
+        }
+        var message = stack.type + ":" + stack.id + "   " + s;
+        console.log(message);
+        return message;
+    }
+
+    function setupUndo() {
+        function doTable(entry) {
+            var fromStack = stacks[entry.from];
+            var toStack = stacks[entry.to]
+            var cards = entry.cards;
+            // reverse the transfer
+            var undo = true;
+            fromStack.transfer(toStack, cards, undo);
+        }
+        function doDeal(entry) {
+            doTable(entry);
+            var pack = Stack.find("pack", 0);
+            var table0 = Stack.find("table", 0);
+            if(pack.length() % TABLE_STACKS === 0) {
+                resetPack();
+                pack.addClickHandler();
+                var div = table0.getTop();
+                $(div).off("click");
+            } else {
+                undo();
+            }
+        }
+        function doFlip(entry) {
+            flip(entry.cards[0]);
+            undo();            
+        }
+        function undo() {
+            if(journal.length === 0) return false;  // journal empty
+            var entry = journal.pop();
+            if(entry.type === "flip") doFlip(entry);
+            if(entry.type === "deal") doDeal(entry);
+            if(entry.type === "table") doTable(entry);
+            return true;
+        }
+
+        $("#undo").click(undo);
+        $("#undo-10-moves").click(function() {
+            for(var i = 0; i < 10; i++) undo();
+        });
+        $("#undo-1-empty-stack").click(function() {
+            while(undo()) {
+                if(Stack.howManyEmptyStacks() === 1) break;
+            }
+        });
+        $("#undo-2-empty-stacks").click(function() {
+            while(undo()) {
+                if(Stack.howManyEmptyStacks() === 2) break;
+            }
+        });
+        $("#restart").click(function() {
+            while(undo()) {}
+        });
+    }
+
+</script>
+</head>
+<body>
+    <div id='cards'></div>
+    <button id='undo' type="button">Undo</button>
+    <button id='undo-10-moves' type="button">Undo 10</button>
+    <button id='undo-1-empty-stack' type="button">Undo to 1 empty stack</button>
+    <button id='undo-2-empty-stacks' type="button">Undo to 2 empty stacks</button>
+    <button id='restart' type="button">restart</button>
+    <div id='clock'></div>
+    <div id="copyright">SPIDER © Chris Seddon, 25 January 2018</div>
+</body>
+<script>
+var WIDTH = 7;
+var TOP_SEPARATION = 2;
+var LEFT_SEPARATION = 2;
+var TOP_OFFSET = 2;
+
+var d = dump;
+var debug = false;
+var TABLE_STACKS = 10;
+var BANK_STACKS = 8;
+var PACK_STACKS = 1;
+var stacks = [];
+var journal = [];
+var DOM = [];
+var blanks = [];
+var cards = [];
+var dragStack;
+var dropped = false;
+
+$(document).ready(function() {
+    setupDOM();
+    createStacks("table");
+    createStacks("bank");
+    createStacks("pack");
+    setupBlanks();
+    positionFurniture();
+    shuffleDoublePack();    
+    if(debug) {
+        setupTable(4, 0);
+        setupPack(100);
+    } else {
+        setupTable(44, 34);
+        setupPack(60);
+    }
+    redraw();
+    setupDragAndDrop();
+    setupUndo();
+    autoBank();
+    startClock();
+});
+</script>
+<style type="text/css">
+
+
+div.ui-page.ui-page-theme-a.ui-page-active {
+    padding-left: 2vw;
+    background-color: black;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    visibility: hidden;
+}
+
+.ui-pagecontainer {
+    border: 0;
+    padding: 0;
+}
+
+
+div.ui-dialog {
+    background-color: #118844 !important;
+}
+
+body {
+    overflow: hidden;
+    /* disable pull to refresh */
+    overflow-y: hidden;
+    overscroll-behavior-y: contain;
+}
+div#cards {
+    position: relative;
+}
+ui-draggable {
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
+}
+ui-draggable-disabled {
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+}
+ui-droppable {
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
+}
+</style>
+</html>

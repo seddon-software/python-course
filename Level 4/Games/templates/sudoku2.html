@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 24 June 2019 -->
+<!-- 
+    Easy
+        ----6-3-7   2718----4   643--2-15    ----28-7- --6-59---   5384-16--    --791----   --428-7--   8-2-----6
+        ---236--9   3-1---2-8   5----9-7-   -578--42-   --64-3-5-   ---5-298-   84591---2   -2---87-1   -1--2-89-
+    Medium
+        -6--1----   7--5-8---   2-------3   1----684-   ----3-29-   ----871--   --4---5--   --629--7-   --2---3--
+        6----71--   7--142--5   49---67--   ----5-8--   -59------   ----64--2   --3--89--   ---4-----   1------6-
+    Hard    
+        -975-----   5----7-63    1--2--5--    -----2---    85-6---1-    --14--2--    ----7----    4-8---3--    -----8-5-
+        ----4----   ---------   16-82-9--   5-9-----8   ------1--   ----936-4   -1--3--7-   -2-5---4-   75------1
+        ---------   9----17-8   ----9--5-   8-5---14-   -----2--3   -42---6--   -7-86-5--   ---1-3---   1--9-----
+        -4---26--   --23----9   -93------   --5----94   -18------   7--5-3---   --1--73-5   ---2---7-   -----81--
+        
+    Evil
+        1----4-2-    --2-----6   ----8-15-   9---2-6--   --67-89--   --7-1---4   -98-5----   4-----5--   -5-2----7
+        --659-4-3   -----3---   -9--7---6   73-----2-   -1-----9-   -5-----47   9---6--8-   ---3-----   1-2-845--
+ -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name='viewport' 
+     content='width=device-width, height=device-height, user-scalable=no,
+              initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<!-- 
+<link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+ -->
+<link rel="stylesheet" href="jquery-ui-1.12.1.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.12.1.js"></script>
+
+
+<script>
+    function addCopyright() {
+        $("#copyright").css("color", "black")
+                       .css("bottom", "0px")
+                       .css("position", "fixed")
+                       .css("width", "50vw");
+    }
+
+    function fillOutTheGrid() {
+        function setupGrid() {
+            var boxWidth = PERCENTAGE_SCREEN_USED;
+            var boxHeight =  boxWidth;
+            var squareSize = boxWidth / COLS;
+     
+            var divBoxRule = "div#box { height: " + boxHeight + "vw; width: " + boxWidth + "vw; }";
+            var squareRule = ".square { height: " + squareSize + "vw; width: " + squareSize + "vw; } "
+            var sheet = window.document.styleSheets[0];
+            sheet.insertRule(divBoxRule, sheet.cssRules.length);
+            sheet.insertRule(squareRule, sheet.cssRules.length);
+        }
+        setupGrid();
+
+        for(let row = 0; row < ROWS; row++) {
+            for(let col = 0; col < COLS; col++) {
+
+                function appendSquares() {                
+                    var id = row * COLS + col;
+                    var selector = `cell${id}`;
+                    var squareDiv = $(`<div class='square'></div>`)
+                    var childDiv = $(`<div class='internal' id='${selector}'></div>`);
+                    childDiv.css(
+                        {"border-color" : borderColor.join(" "),
+                         "border-style" : borderStyle.join(" "), 
+                         "border-width" : borderWidth.join(" "),
+                         "display"      : "block",
+                         "background-color" : backgroundColor,
+                         "font-size"        : SMALL_FONT
+                         });
+                    childDiv.text(`${n+1}`);
+                    squareDiv.append(childDiv);
+                    $("#box").append(squareDiv);
+                    return selector;
+                }
+                
+                function addAttributes() {
+                    let r = Math.floor(row/3);
+                    let c = Math.floor(col/3);
+                    let rr = Math.floor(row/9);
+                    let cc = Math.floor(col/9);
+
+                    // add attributes to each "class=internal" div
+                    $(`#${selector}`).data( "info", 
+                        {
+                         cell:     r * 9 + c,
+                         row:      r,
+                         col:      c,
+                         square:   rr * 3 + cc,
+                         key:      (r*3+1 === row) && (c*3+1 === col) ? true : false, 
+                         solved:   false
+                        });
+                }
+                function handleSpecialCells() {    
+                    if(col % 3 == 0) {
+                        borderColor[3] = "red";
+                        borderStyle[3] = "dashed";
+                        borderWidth[3] = "2px";
+                    }
+                    if(col % 9 == 0) {
+                        borderColor[3] = "black";
+                        borderStyle[3] = "solid";
+                        borderWidth[3] = "3px";
+                    }
+                    if(row % 3 == 0) {
+                        borderColor[0] = "red";
+                        borderStyle[0] = "dashed";
+                        borderWidth[0] = "2px";
+                    }
+                    if(row % 9 == 0) {
+                        borderColor[0] = "black";
+                        borderStyle[0] = "solid";
+                        borderWidth[0] = "3px";
+                    }
+                }
+                
+                let n = (col % 3) + 3*(row % 3);
+                let borderColor = ["white", "white", "white", "white"];
+                let borderStyle = ["hidden", "hidden", "hidden", "hidden"];
+                let borderWidth = ["1px", "1px", "1px", "1px"];
+                let backgroundColor = 'rgb(255, 218, 0)';
+
+                handleSpecialCells();
+                selector = appendSquares();
+                addAttributes();
+                addKeyPressHandler(`#${selector}`);
+                addClickHandler(`#${selector}`, `${n+1}`);
+            }
+        }
+    }
+
+    function addKeyPressHandler(selector) {
+        $(selector).attr("tabindex", -1);
+        $('[tabindex]').focus(function()
+                {
+                    $(this).css('outline', 'none');
+                });
+        $(selector).bind("keypress", processKeyPress);
+    }
+    
+    function processKeyPress(event) {
+        function clearSurroundingCells(selector) {
+            data = $(selector).data("info");
+            var cellNumber = $(selector).data("info").cell;
+            var squareNumber = $(selector).data("info").square;
+            var rowNumber = $(selector).data("info").row;
+            var colNumber = $(selector).data("info").col;
+            
+            
+            function operateOnAllCellsInInnerSquare() {
+                let cellsInSquare = $(cellSelectors).filter(function() {
+                    return $(this).data("info").cell === cellNumber;
+                });
+                $.each(cellsInSquare, function(index) {
+                    $(this).text("");
+                    $(this).css({"background-color" : `${currentColor}`});
+                    const CENTER_CELL = 4;
+                    if(index === CENTER_CELL) {
+                        $(this).data("info").solved = true;
+                        $(this).text(number);
+                        $(this).css({"font-size" : LARGE_FONT});
+                    }
+                });
+            }
+            function operateOnAllCellsInCurrentRow() {
+                let cellsInRow = $(cellSelectors).filter(function() {
+                    return $(this).data("info").row === rowNumber;
+                });
+                $.each(cellsInRow, function(index) {
+                    if($(this).text() === number) $(this).text("");
+                });
+            }
+            function operateOnAllCellsInCurrentCol() {
+                let cellsInCol = $(cellSelectors).filter(function() {
+                    return $(this).data("info").col === colNumber;
+                });
+                $.each(cellsInCol, function(index) {
+                    if($(this).text() === number) $(this).text("");
+                });
+            }
+            function operateOnAllCellsInOuterSquare() {
+                let cellsInOuterSquare = $(cellSelectors).filter(function() {
+                    return $(this).data("info").square === squareNumber;
+                });
+                $.each(cellsInOuterSquare, function(index) {
+                    if($(this).text() === number) $(this).text("");
+                });
+            }
+            let number = String.fromCharCode(event.keyCode);
+            operateOnAllCellsInCurrentRow();
+            operateOnAllCellsInCurrentCol();
+            operateOnAllCellsInOuterSquare();
+            operateOnAllCellsInInnerSquare();
+        }
+        areBookmarksDirty = true;
+        let selector = event.target;
+        clearSurroundingCells(selector);
+        saveState();
+    }
+    
+    function addClickHandler(selector, text) {
+        $(selector).click(function() {
+            if($(selector).text() === "") {
+                $(selector).text(text);
+                $(selector).css({"font-size" : SMALL_FONT});
+            } else {
+                $(selector).text("");
+            }
+        });
+    }
+
+    function addBookmarkHandler() {
+        $("#bookmark").click(function() {
+            bookmarks.push(states.length);
+        });
+    }
+    
+    function popBookmarks() {
+        if(bookmarks.length > 1) 
+            return bookmarks.pop();
+        else
+            return bookmarks[0];
+    }
+
+    function simulateKeypress(entry, isUndo) {
+        let id = entry[0];
+        let character = entry[1]; 
+        $(`#${id}`).trigger({type: 'keypress', which: 13, keyCode: character.charCodeAt(0)});
+        $(currentFocus).triggerHandler("focus");
+        if(isUndo)
+            // trigger pushes a state, but it shouldn't during undo
+            if(states.length > 1) states.pop();
+        else
+            saveState();
+    }
+
+    function undo() {
+        if(states.length > 1) {
+            clearTheGrid();
+            fillOutTheGrid();
+            setFocus();
+            states.pop();
+            restoreState();
+        }
+    }
+    
+    function addUndoHandler() {
+        $("#undo").click(undo);        
+    }
+    
+    function restoreState() {
+        let state = states.slice(-1)[0];    // get last element in states array
+        $.each(getAllKeyCells(), function(index) {
+            let text = state[index];
+            if(text !== ".") { 
+                let entry = [this.id, text];
+                simulateKeypress(entry, true);
+            }
+        });
+    }
+    
+    function addRevertHandler() {
+        $("#revert").click(function() {            
+            $('body').css({"cursor":"wait"});
+            $('button').css({"cursor":"wait"}); 
+            
+            // cursor needs time to change
+            setTimeout(function() {    
+                if(bookmarks.length < 1) return;
+                let bookmark = bookmarks.pop();
+                if(states.length <= bookmark) 
+                    if(bookmarks.length > 0) bookmark = bookmarks.pop();
+                
+                while (states.length > bookmark) {
+                    undo();
+                }
+                bookmarks.push(bookmark);
+                $('body').css({"cursor":"default"});
+                $('button').css({"cursor":"default"}); 
+            }, 2000); 
+        });
+    }
+    
+    function clearTheGrid() {
+        $("#box").empty();
+    }
+    
+    function setFocus() {
+        $('.internal').mouseover(function() {
+            $(this).focus();
+            currentFocus = this;
+        });
+    }
+
+    function setupGrid() {
+        $("#populate").click(function() {
+            let response = prompt("Enter grid:");
+            response = response.replace(/[ ]+/g, '');
+            for (let i = 0; i < 9; i++) { 
+                let row = 3*i + 1;
+                for (let j = 0; j < 9; j++) {
+                    let col = 3*j + 1;
+                    let id = `cell${row*27 + col}`;
+                    let character = response[9*i+j];
+                    if (character !== '-') simulateKeypress([id, character], false);
+                }
+            }
+        });
+    }
+    
+    function neighbouringCells(row, col) {
+        let neighbours = $(cellSelectors).filter(function() {
+            let data = $(this).data("info")
+            return (data.row === row) && (data.col === col);
+        });
+        $.each(neighbours, function(index) {
+            $(this).css({"background-color":"red"});
+        });        
+    }
+    
+    function keyCell(row, col) {
+        let cell = $(cellSelectors).filter(function() {
+            return $(this).data("info").key;
+        });
+        $.each(cell, function(index) {
+            data = $(this).data("info");
+            if(data.row === row && data.col === col) {
+                $(this).css({"background-color":"red"});
+                return this;
+            }
+        });
+    }
+
+    function getAllKeyCells() {
+        let cells = $(cellSelectors).filter(function() {
+            return $(this).data("info").key;
+        });
+        return cells;
+    }
+    
+    function keyCellsInRow(row) {
+        for(let col = 0; col < 9; col++) {
+            $(keyCell(row, col)).css({"background-color":"red"});
+        }
+    }
+
+    function keyCellsInCol(col) {
+        for(let row = 0; row < 9; row++) {
+            $(keyCell(row, col)).css({"background-color":"red"});
+        }
+    }
+    
+    function cellsInSquare(row, col) {
+        let cells = $(cellSelectors).filter(function() {
+            data = $(this).data("info");
+            return data.row === row && data.col === col;
+        });
+        $.each(cells, function(index) {
+            data = $(this).data("info");
+            $(this).css({"background-color":"red"});
+        });        
+    }
+
+    function saveState() {
+        state = [];
+        $.each(getAllKeyCells(), function(index) {
+            data = $(this).data("info");
+            if(data.solved)
+                state.push($(this).text())
+            else
+                state.push(".")
+        });
+        states.push(state);
+    }
+    
+    function setupColors() {
+        $('#white').css({'background-color':'white'});    
+        $('#red').css({'background-color':'red'});    
+        $('#color-1').css({'background-color':'rgb(  0, 200, 200)'});    
+        $('#color-2').css({'background-color':'rgb( 50, 175, 175)'});    
+        $('#color-3').css({'background-color':'rgb(100, 150, 150)'});    
+        $('#color-4').css({'background-color':'rgb(150, 125, 125)'});
+        
+        $('.colors').click(function() {
+            currentColor = $(this).css("background-color");
+        });
+    }
+    
+    const PERCENTAGE_SCREEN_USED = 45;
+//    const PERCENTAGE_SCREEN_USED = 75;
+    const ROWS = 27;
+    const COLS = 27;
+    const SMALL_FONT = "100%";
+    const LARGE_FONT = "200%";
+    const cellSelectors = ".internal:data('info')";
+    var bookmarks = [];
+    var states = [];
+    var areBookmarksDirty = false;
+    var currentFocus;
+    var currentColor = "white";
+    
+    $(document).ready(function() {
+        addBookmarkHandler();
+        addRevertHandler();
+        addUndoHandler();
+        fillOutTheGrid();
+        setFocus();
+        setupGrid();
+        setupColors();
+    });
+
+</script>
+<style type="text/css">
+
+    body {
+        margin-left: 2vw;
+        overscroll-behavior: none;
+    }
+    div.ui-page.ui-page-theme-a.ui-page-active {
+        padding-left: 2vw;
+        background-color: aquamarine;
+    }    
+    h1 {
+        font-size: 14pt;
+    }
+    div#box {
+        border-width: 10px;
+        border-style: groove;
+        border-color: grey;
+        filter: drop-shadow(1px 1px 5px #808080);    
+        overscroll-behavior: contain;
+    }
+    .square {
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    .internal {
+        height: 100%;
+        width: 100%;
+        line-height: 100%;
+        display: block;
+        text-align: center;
+        background-color: rgb(255, 218, 0);
+        filter: drop-shadow(1px 1px 5px #808080);
+        overscroll-behavior: contain;
+    }
+    #notes {
+        float: left;
+        border: 3px solid #73AD21;
+        position: absolute;
+        right: 5vw;
+        top: 20vh;
+        width: 30vw;
+        height: 30vh;
+        font-size: inherit;
+    }
+    
+</style>
+</head>
+<body>
+    <h1>SUDOKU</h1>
+    <button id="bookmark" type="button">bookmark</button>
+    <button id="revert" type="button">back to bookmark</button>
+    <button id="undo" type="button">undo</button>
+    <button id="populate" type="button">populate</button>
+    
+    <button class="colors" id="white" type="button">white</button>
+    <button class="colors" id="red" type="button">red</button>
+    <button class="colors" id="color-1" type="button">color 1</button>
+    <button class="colors" id="color-2" type="button">color 2</button>
+    <button class="colors" id="color-3" type="button">color 3</button>
+    <button class="colors" id="color-4" type="button">color 4</button>
+    <div>
+        <div id="box"></div>
+        <textarea id="notes"></textarea>
+    </div>
+    
+    
+    <div id="copyright">SUDOKU © Chris Seddon, 24 June 2019</div>
+</body>
+
+</html>

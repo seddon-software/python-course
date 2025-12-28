@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 17 January 2018 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+<style type="text/css">
+    body {
+        margin-left: 5vw;
+    }
+    h1 {
+        font-size: 14pt;
+    }
+    #words {
+        position: absolute;
+        z-index: 1;
+    }
+    #box {
+        position: absolute;
+        z-index: 0;
+        border-width: 10px;
+        border-style: groove;
+        border-color: grey;
+        filter: drop-shadow(1px 1px 5px #808080);    
+    }
+    .square {
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    .internal {
+        height: 100%;
+        width: 100%;
+        line-height: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: white;
+        filter: drop-shadow(1px 1px 5px #808080);    
+    }
+    #help, #mode, #hits, #minesDetected, #remainingMines, #cellsSelected {
+        padding-top: 0vw;
+        margin-top: 1vw;
+        margin-left: 1vw;
+        font-size: 16pt;
+        float: left;
+    }
+    div.newLine {
+        clear: both;    
+    }
+</style>
+<script>
+    
+</script>
+</head>
+<body>
+<script>
+    var ROWS = 80;
+    var COLS = 160;
+    var scale = 0.5;
+    var refreshRate = 1000;     // don't make this too small
+    var accelerationFactor = 500;
+    var startingHeight = 0.5;
+    var moveIncrement = 0.2;
+    var fontSize = 20;
+    var sky = "rgb(255, 218, 0)";
+    var black = "rgb(0, 0, 0)";
+    var noOfWords = 7;
+    var wordColWidth = 5;
+    var destroyRowHeight = 3;
+    var wordsArray = [];
+    var activeColumns = [];
+    var textTypedSoFar = "";
+    var noOfWordTyped = -1;
+    var endOfGame = false;
+    var inputs = [];
+    var iterations = 0;
+    
+    function getWordFromServer() {
+        $.ajax({
+            url: '/Mahjong/WordsServer',
+            type: 'GET',
+            contentType:'application/text',
+            data: {time:"get"},
+            dataType:'text',
+            success: function( data ) {
+                inputs.push(data);
+           }
+        });
+    }
+    
+    function addHelp() {
+        $("#box").append("<div id='help'></div>");
+    }
+
+    function getSelector(row, col) {
+        var id = row * COLS + col;        
+        var selector = "#cell" + id;
+        return selector;
+    }
+    
+    function setGridSpacing() {
+    	    var boxHeight = COLS * scale;
+    	    var boxWidth = ROWS * scale;
+        $("#box").css("height", "" + boxWidth + "vw");
+        $("#box").css("width", "" + boxHeight + "vw");
+        $(".internal").css("background-color", sky);
+        $(".square").css("height", "" + scale + "vw");
+        $(".square").css("width", "" + scale + "vw");
+    }
+
+    function dropAWord(word, col, wordNo) {
+    	    function findTallestBuilding() {
+            var tallestCol = col-wordColWidth;
+            var tallestRow = ROWS;
+            for (c = col-wordColWidth; c <= col+wordColWidth; c++) {
+                var r = ROWS;
+                do {
+                    r -= 1;
+                    var selector = getSelector(r, c);
+                } while ($(selector).css("background-color") === black);
+                if (r < tallestRow) {
+                    tallestRow = r;
+                    tallestCol = c;
+                }
+            }
+            var selector = getSelector(tallestRow, tallestCol);
+            return { "row": tallestRow, "col": tallestCol };
+        }
+        
+        function moveWordDownGrid() {
+            	var top = startingHeight;
+            var timer = setInterval(function() {
+                function destroyPartOfSkyline() {
+                    for (c = col-wordColWidth; c <= col+wordColWidth; c++) {
+                        var r = row-1;
+                        var selector;
+                        do {
+                            r += 1;
+                            selector = getSelector(r, c);
+                        } while($(selector).css("background-color") === sky);
+
+                        for (var i = 0; i < destroyRowHeight; i++) {
+                            selector = getSelector(r+i, c);
+                            $(selector).css("background-color", sky);
+                        }
+                    }
+                }
+    
+                if(endOfGame) {
+                    clearInterval(timer);
+                    $(wordSelector).text("");
+                }
+                top += moveIncrement;
+                $(wordSelector).css("top", "" + top + "vw");
+                var row = Math.floor(top / scale);
+                var selector = getSelector(row, tallest.col);
+                var skylineColor = $(selector).css("background-color");
+                
+                // if word typed in time
+                if (checkIfWordTyped(wordNo)) {
+                	    $(wordSelector).text("");
+                	    $(wordSelector).css("top", "" + startingHeight + "vw");
+                    wordsArray[wordNo] = undefined;
+                    clearInterval(timer);
+                }
+                
+                // if word not typed in time
+                if (skylineColor === black) {
+                    $(wordSelector).css("color", "red");
+                    $(wordSelector).css("top", "" + startingHeight + "vw");
+                    destroyPartOfSkyline();
+                    wordsArray[wordNo] = undefined;
+                    clearInterval(timer);
+                	    $(wordSelector).text("");
+                	    $(wordSelector).css("color", "black");
+                }
+                if (row >= ROWS - 1) {
+                    	endOfGame = true;
+                }
+            }, refreshRate);
+        }
+
+        var wordSelector = "#word" + wordNo; 
+        var tallest = findTallestBuilding();
+        $(wordSelector).html(word);
+        var padding = col * scale;
+        $(wordSelector).css("padding-left", "" + padding + "vw");
+        moveWordDownGrid();
+    }
+        
+    function checkIfWordTyped(wordNo) {
+        if (wordNo === noOfWordTyped) {
+            noOfWordTyped = -1;  // meaning no current word has been matched
+        	    return true;
+        } else 
+        	    return false;
+    }
+    
+    function buildSkyline() {
+    	    /*
+    	        1. skyline is black
+    	        2. the bottom (BOTTOM_OF_SKYLINE) cells are all part of the skyline
+    	        3. the next TOP_OF_SKYLINE cells above that may be part of the skyline (see displayWithProbability())
+    	        4. the cells above that are not part of the skyline
+    	    */
+        function displayWithProbability(n) {
+            var m = Math.floor(Math.random() * 100);
+            return n > m;
+        }
+        function isCellBelowFilledIn() {
+            var selector = getSelector(row+1, col);
+            return $(selector).data("id").skyline == 1;
+        }
+        function makeCellPartOfSkyline() {
+            $(selector).css("background-color", "black");
+            $(selector).data("id").skyline = 1;                 
+        }
+        var BOTTOM_OF_SKYLINE = 10;
+        var TOP_OF_SKYLINE = 20;
+        var PROBABILITY = 80;
+        for (var row = ROWS-1; row >= ROWS-BOTTOM_OF_SKYLINE-TOP_OF_SKYLINE; row--) {
+            for (var col = 0; col < COLS; col++) {
+                var selector = getSelector(row, col);
+                if(row > ROWS-BOTTOM_OF_SKYLINE-TOP_OF_SKYLINE && row < ROWS-BOTTOM_OF_SKYLINE) {
+                    if(isCellBelowFilledIn()) {
+                        if(displayWithProbability(PROBABILITY)) makeCellPartOfSkyline();
+                    }
+                }
+                if(row == ROWS-BOTTOM_OF_SKYLINE) {
+                    if(displayWithProbability(PROBABILITY)) makeCellPartOfSkyline();
+                }
+                if(row > ROWS-BOTTOM_OF_SKYLINE && row < ROWS) makeCellPartOfSkyline();
+            }
+        }
+    }
+
+    function fillOutGrid() {
+        var newLine = "<div class='newLine'></div>";
+        for(var row = 0; row < ROWS; row++) {
+            for(var col = 0; col < COLS; col++) {
+                var id = row * COLS + col;
+                var selector = "cell" + id;
+                var childDiv = "<div class='square'><div class='internal' id='" + selector + "'>" + "</div></div>";
+                $("#box").append($(childDiv).clone());
+                // add attributes to each "class=internal" div
+                $("#" + selector).data( "id", 
+                    { 
+                        skyline:0
+                    });
+            }
+            $("#box").append($(newLine).clone());
+            $("#box").append($(newLine).clone());
+        }
+        setGridSpacing();
+    }
+
+    function setupWordElements() {
+    	    for (var wordNo = 0; wordNo < noOfWords; wordNo++) {
+    	    	    var wordId = "word" + wordNo;
+    	        var wordSelector = "#" + wordId;
+    	        var html = "<div id='" + wordId + "'></div>";
+            $("#words").append(html);
+            var offset = (3 - wordColWidth) * scale; 
+            $(wordSelector).css("position", "absolute");
+            $(wordSelector).css("left", "" + offset + "vw");
+            $(wordSelector).css("z-index", "2");
+            $(wordSelector).css("font-size", "" + fontSize + "pt");
+    	    }
+    }
+    
+    function setupKeypressHandler() {
+        function updateTextTypedSoFar() {
+        	    var backspaceKeyCode = 8;
+            if (event.keyCode === backspaceKeyCode) {
+                textTypedSoFar = textTypedSoFar.slice(0, -1);     // chop off last character
+            } else if(event.key !== ("Shift" || "Control")) {
+                textTypedSoFar += event.key;
+            }
+        }
+
+        $("body").keyup(textTypedSoFar, function(event) {
+            function colorMatchedPartOfWord(word) {
+                	s = word;
+                do {
+                    var part1 = textTypedSoFar.slice(-s.length);
+                    if (part1 == s) {
+                    	    var part2 = word.substring(part1.length);
+                        var html = "<span style='color:red'>" + part1 + "</span>" + part2;
+                        $(wordSelector).html(html);
+                        break;
+                    }
+                    s = s.slice(0, -1); // chop off last character                    
+                    if (s === "") $(wordSelector).html(word);     // no match
+                } while (s !== "");
+            }
+            
+            updateTextTypedSoFar();
+            
+            for (var i = 0; i < noOfWords; i++) {
+            	    var word = wordsArray[i];
+            	    if (word !== undefined) {
+                    var wordSelector = "#word" + i;
+                    colorMatchedPartOfWord(word);
+                    if(textTypedSoFar.indexOf(word) !== -1) {
+                        textTypedSoFar = "";
+                        noOfWordTyped = i;
+                    }                	
+                }
+            }
+        });
+    }
+
+    function generateUniqueColumn(wordNo) {
+        function isBadColumn(col) {
+        	    var result = false;
+        	    for (var wordNo = 0; wordNo < noOfWords; wordNo++) {
+                if (Math.abs(activeColumns[wordNo] - col) <= 2 * wordColWidth) result = true;
+        	    }
+        	    return result;
+        }
+        
+        do {       
+	   	    col = Math.floor(Math.random() * (COLS - 2 * wordColWidth)) + wordColWidth;
+        } while(isBadColumn(col));
+        activeColumns[wordNo] = col;
+
+        return col;
+    }
+    
+    function getNextWord() {
+        getWordFromServer();
+        var word = inputs.pop();
+        return word;
+    }
+    
+    function speedUpDescent() {
+        // limit the moveIncrement to 1 cell or it will jump parts of the syline
+        iterations++;
+        moveIncrement = 0.1 + iterations/accelerationFactor; 
+        if (moveIncrement >= 1.0 * scale) moveIncrement = 1.0 * scale;
+    }
+    
+    $(document).ready(function() {
+        // change mouse pointer to a hand
+        $("#box").css( 'cursor', 'pointer' );        
+        getWordFromServer();
+        fillOutGrid();
+        setupWordElements();
+        addHelp();
+        buildSkyline();
+        setupKeypressHandler();
+        for (var wordNo = 0; wordNo < noOfWords; wordNo++) {
+            wordsArray.push(undefined);
+            activeColumns.push(0);
+        }
+
+        var timer = setInterval(function() {
+        	    speedUpDescent();
+        	    var wordNo = Math.floor(Math.random() * noOfWords);
+            var word = wordsArray[wordNo];
+            if (word === undefined) {
+                var col = generateUniqueColumn(wordNo);
+                word = getNextWord();
+                wordsArray[wordNo] = word;
+                dropAWord(word, col, wordNo);
+            }
+            if (endOfGame) {
+            	    clearInterval(timer);
+            	    $("#help").html("<span id='endGame'>End of game!</span>Press refresh to play again");
+                $("#endGame").css("color", "red");
+            }
+            if(textTypedSoFar === "") {
+                for (var wordNo = 0; wordNo < noOfWords; wordNo++) {
+                    var selector = "#word" + wordNo;
+                    $(selector).html(wordsArray[wordNo]);   
+                }
+            }
+        }, refreshRate / 2);      //noOfWords);
+    });
+
+</script>
+    <h1>WORDS</h1>
+    <div id="box"></div>
+    <div id="words"></div>
+</body>
+</html>

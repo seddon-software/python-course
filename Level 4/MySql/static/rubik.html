@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- © Chris Seddon, 17 January 2018 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="jquery-ui-1.12.1.css">
+<script type="text/javascript" src="jquery-3.2.1.js"></script>
+<style type="text/css">
+    body {
+        margin: 10vh;
+        background-color: honeydew;
+    }
+    table {
+        font-size: 2.5vh;    
+    }
+    img {
+        width: 100%; 
+        height: auto;
+        /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
+        /* -webkit-filter: drop-shadow( -5px -5px 5px #000 ); */
+        filter: drop-shadow(-5px -5px 5px #000);
+    }
+    input {
+    }
+    .newLine {
+        clear: both;
+    }
+    div.X, div.box, div.top, div.bottom, div.left, div.right {
+        width: 12vh;
+        height: 12vh;
+        border-style: solid;
+        border-color: white;
+        border-width: 1px;
+        color: green;
+        line-height: 12vh;
+        float: left;
+    }
+    div {
+        float: left;
+        font-size: 5vh;
+        text-align: center;
+    }
+    div.X {
+        border-style: solid;
+        border-color: black;
+        float: left;
+        color: black;
+        line-height: 10vh;
+        filter: drop-shadow(-2px -2px 2px #000);
+    }
+    div.box {
+        background-color: honeydew;
+    }
+    div.A {
+        color: white;
+        background-color: rgb(0,0,255);
+    }
+    div.B {
+        color: black;
+        background-color: rgb(255,0,0);
+    }
+    div.C {
+        color: black;
+        background-color: rgb(0,255,0);
+    }
+    div.D {
+        color: black;
+        background-color: rgb(255,255,0);
+    }
+    
+</style>
+<script>
+    var timeout = false;
+    
+    function mixThingsUp() {
+        function randomize() {
+		    	for(i = 0; i < 20; i++) {
+		    	    var n = Math.floor(Math.random() * 16);
+		    	    var fn = Math.floor(n/4);
+		    	    var index = n % 4 + 1;
+		    	    switch(fn) {
+					case 0:	up(index);    break;
+					case 1: down(index);  break;
+					case 2: left(index);  break;
+					case 3: right(index); break;
+		    	    }
+		    	}
+        }
+        randomize();
+    }
+    
+    function swapNodes(a, b) {
+	    var aparent = a.parentNode;
+	    var asibling = a.nextSibling === b ? a : a.nextSibling;
+	    b.parentNode.insertBefore(a, b);
+	    aparent.insertBefore(b, asibling);
+	}
+
+    function up(index) {
+	    var selector = ".X:nth-of-type(4n+" + index + ")";
+	    var first = $(selector).get(0);
+	    var second = $(selector).get(1);
+	    var third = $(selector).get(2);
+	    var fourth = $(selector).get(3);
+	    swapNodes(fourth, third);
+	    swapNodes(third, second);
+	    swapNodes(second, first);
+	}
+    function down(index) {
+        var selector = ".X:nth-of-type(4n+" + index + ")";
+        var first = $(selector).get(0);
+        var second = $(selector).get(1);
+        var third = $(selector).get(2);
+        var fourth = $(selector).get(3);
+        swapNodes(first, second);
+        swapNodes(second, third);
+        swapNodes(third, fourth);
+    }
+    function left(j_object) {
+        if (typeof j_object === 'number') {
+        	j_object += 4;
+            j_object = $("#" + j_object)
+        }
+        var first = $(j_object).parent().prev().children().first();
+        var last = $(j_object).parent().prev().children().last();
+        $(first).insertAfter($(last));
+    }
+    function right(j_object) {
+        if (typeof j_object === 'number') {
+    		j_object = $("#" + j_object)
+    	}
+        var first = $(j_object).parent().next().children().first();
+        var last = $(j_object).parent().next().children().last();
+        $(last).insertBefore($(first));
+    }
+</script>
+</head>
+<body>
+<script>
+	function click() {
+	    $(".left").click(
+	            function() { right(this); }
+	        );
+	    $(".right").click(
+	            function() { left(this); }
+	        );
+	    $(".top").click(
+	            function() {
+	                var index = $(this).index(".top") + 1;
+	                down(index);
+	            }                
+	        );
+	    $(".bottom").click(
+	            function() {
+	                var index = $(this).index(".bottom") + 1;
+	                up(index);
+	            }
+	        );      
+	}
+
+    function addCopyright() {
+        var html = "<div id=copyright>© Chris Seddon, 17 January 2018</div>";
+        $("#dummy").append($(html).clone()).css("float", "none");
+        $("#copyright").css("color", "black")
+                       .css("clear", "both")
+                       .css("width", "50vw")
+                       .css("font-size", "50%");
+    }
+
+	$(document).ready(function() {
+		click();
+        mixThingsUp();
+        addCopyright();
+	});
+
+</script>
+    <div class="box"></div>
+    <div class="box"><img class="top" src="images/arrow-down.svg"/></div>
+    <div class="box"><img class="top" src="images/arrow-down.svg"/></div>
+    <div class="box"><img class="top" src="images/arrow-down.svg"/></div>
+    <div class="box"><img class="top" src="images/arrow-down.svg"/></div>
+    <div class="box"></div>
+
+    <div class="box newLine"><img class="left" id="1" src="images/arrow-left.svg"/></div>
+    <div>
+        <div class="A X">1</div>
+        <div class="A X">2</div>
+        <div class="B X">3</div>
+        <div class="B X">4</div>
+    </div>
+    <div class="box"><img class="right" id="5" src="images/arrow-right.svg"/></div>
+    <div class="box newLine"><img class="left" id="2"  src="images/arrow-left.svg"/></div>
+    <div>
+        <div class="A X">5</div>
+        <div class="A X">6</div>
+        <div class="B X">7</div>
+        <div class="B X">8</div>
+    </div>
+    <div class="box"><img class="right" id="6" src="images/arrow-right.svg"/></div>
+    <div class="box newLine"><img class="left" id="3" src="images/arrow-left.svg"/></div>
+    <div>
+        <div class="C X">9</div>
+        <div class="C X">10</div>
+        <div class="D X">11</div>
+        <div class="D X">12</div>
+    </div>
+    <div class="box"><img class="right" id="7" src="images/arrow-right.svg"/></div>
+    <div class="box newLine"><img class="left" id="4" src="images/arrow-left.svg"/></div>
+    <div>
+        <div class="C X">13</div>
+        <div class="C X">14</div>
+        <div class="D X">15</div>
+        <div class="D X">16</div>
+    </div>
+    <div class="box"><img class="right" id="8" src="images/arrow-right.svg"/></div>
+
+    <div class="box newLine"></div>
+    <div class="box"><img class="bottom" src="images/arrow-up.svg"/></div>
+    <div class="box"><img class="bottom" src="images/arrow-up.svg"/></div>
+    <div class="box"><img class="bottom" src="images/arrow-up.svg"/></div>
+    <div class="box"><img class="bottom" src="images/arrow-up.svg"/></div>
+    <div class="box"></div>
+
+    <div id="dummy"></div>
+</body>
+</html>
