@@ -1,7 +1,7 @@
 1. Login with:
     sudo mysql -u root -p
 
-2. Check security policy for passwords
+2. Check security policy for passwords:
     SHOW VARIABLES LIKE 'validate_password%';
 
 3. Change security policy for passwords:

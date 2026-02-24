@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- © Chris Seddon, 17 January 2018 -->
- <!-- in templates -->
+ <!-- Server converted to use flask and sqlite3 in December 2025 -->
 <html>
 <head>
   <meta charset="utf-8" />
@@ -400,17 +400,16 @@ function updateResults(name, data) {
     for(i = 0; i < data.length; i++) {
         // results come back in 2 fields: duration, date
         // field 2 has a '*' if its the latest result
-        var result = data[i].split(/[ ]+/, 2);
+        var result = data[i].split(/[ ]+/, 3);
         var t = parseInt(result[0]);
         var date = result[1];
-        var latest = result[1].indexOf('*') > -1;  // does it have a '*''
+        var latest = result[2].indexOf('*') > -1;  // does it have a '*''
         var minutes = "" + Math.floor(t/60);
         var seconds = t % 60;
         seconds = seconds < 10 ? "0"+seconds : seconds;
         var time =  minutes + ":" + seconds;
         var index = i + 1;
         if (latest) {
-            date = date.slice(0, -1);    // slice off the '*'
             message += "<span style='color:red;'>" + index + ":  " + time + "    " + date + "</span><br/>";                 
         } else {
             message += index + ":  " + time + "    " + date + "<br/>";

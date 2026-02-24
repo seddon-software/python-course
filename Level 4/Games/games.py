@@ -1,23 +1,27 @@
 '''
+This is the Memory game.  This is the server (written using Flask).
+
 To run the client use:
     http://localhost:5000/memory6
 
-The database holds records in table 'results' that look like:
+Results are stored in MySql server.
 
-    +-------+------+---------------------+------+--------+
-    | id    | time | date                | name | latest |
-    +-------+------+---------------------+------+--------+
-    | 41565 |   51 | 2021-12-28 20:40:08 | -    |        |
-    | 42099 |   52 | 2022-01-17 17:54:58 | -    |        |
-    | 36859 |   52 | 2021-03-25 18:28:32 | -    |        |
-    | 42096 |   52 | 2022-01-17 17:51:07 | -    |        |
-    | 44852 |   53 | 2022-12-05 16:28:15 | -    |        |
-    | 52680 |   53 | 2025-12-15 16:44:43 | -    |        |
-    | 39373 |   54 | 2021-10-19 17:48:14 | -    |        |
-    | 26191 |   54 | 2020-04-08 17:58:54 | -    |        |
-    | 24153 |   54 | 2020-02-11 17:16:43 | -    |        |
-    | 43740 |   54 | 2022-05-11 16:55:59 | -    |        |
-    +-------+------+---------------------+------+--------+
+The database 'games' holds records in table 'results' that look like:
+
+    +------+---------------------+------+--------+
+    | time | date                | name | latest |
+    +------+---------------------+------+--------+
+    |   51 | 2021-12-28 20:40:08 | -    |        |
+    |   52 | 2022-01-17 17:54:58 | -    |        |
+    |   52 | 2021-03-25 18:28:32 | -    |        |
+    |   52 | 2022-01-17 17:51:07 | -    |        |
+    |   53 | 2022-12-05 16:28:15 | -    |        |
+    |   53 | 2025-12-15 16:44:43 | -    |        |
+    |   54 | 2021-10-19 17:48:14 | -    |        |
+    |   54 | 2020-04-08 17:58:54 | -    |        |
+    |   54 | 2020-02-11 17:16:43 | -    |        |
+    |   54 | 2022-05-11 16:55:59 | -    |    *   |
+    +------+---------------------+------+--------+
 
 these need to be returned to the client in the form:
 
@@ -32,26 +36,48 @@ these need to be returned to the client in the form:
         "54 2020-04-08 17:58:54", 
         "54 2020-02-11 17:16:43",
         "54 2022-05-11 16:55:59"]
+
+As you can see by inspection of 'connectToMySql()' we login to MySql server with account=games.
 '''
+
+debug = True
 
 from flask import Flask
 from flask import render_template, send_file, request, jsonify, logging
-import mysql.connector
+#import mysql.connector
+import sqlite3
 from datetime import datetime
 from urllib.parse import parse_qs
 import logging
 
-def connectToMySql():
-    connection = mysql.connector.connect(
-        user='games', 
-        password='xhlesley1A',
-        host='localhost',
-        database='games'
-    )
+def connectToDatabase():
+    connection = sqlite3.connect("games.db")
     return connection
 
+def createTable():
+    connection = sqlite3.connect("games.db")
+    cursor = connection.cursor()
+    try:
+        cursor.execute("CREATE TABLE results(time, date, name, latest)")
+    except Exception as e:
+        if debug: print(e)
+
+createTable()       # does nothing if games.db exists
+
+def test1():
+    connection = sqlite3.connect("games.db")
+    cursor = connection.cursor()
+    res = cursor.execute("SELECT * FROM results")
+    print(res.fetchone())
+    connection = sqlite3.connect("games.db-")
+    cursor = connection.cursor()
+    res = cursor.execute("SELECT * FROM results")
+    print(res.fetchone())
+
+test1()
+
 def clearLatestResultFlag(name):
-    connection = connectToMySql()
+    connection = connectToDatabase()
     cursor = connection.cursor()
     sql = f"UPDATE results SET latest = ' ' WHERE name = '{name}'"
     cursor.execute(sql)
@@ -59,7 +85,7 @@ def clearLatestResultFlag(name):
     connection.close()
 
 def updateDatabaseWithLatestResult(time, name):
-    connection = connectToMySql()
+    connection = connectToDatabase()
     try:
         clearLatestResultFlag(name)
     except Exception as e:
@@ -77,8 +103,15 @@ def updateDatabaseWithLatestResult(time, name):
     connection.commit()
     connection.close()
 
+def displayTable():
+    connection = connectToDatabase()
+    cursor = connection.cursor()
+    sql = f"SELECT time, date, latest FROM results;"
+    cursor.execute(sql)
+    results = cursor.fetchall() # returns a list of 10 tuples
+
 def getTopTenResultsFromDatabase(name):
-    connection = connectToMySql()
+    connection = connectToDatabase()
     cursor = connection.cursor()
     sql = f"SELECT time, date, latest FROM results WHERE name = '{name}' ORDER BY time ASC, date DESC LIMIT 10;"
     cursor.execute(sql)
@@ -88,11 +121,12 @@ def getTopTenResultsFromDatabase(name):
 
     for result in results:
         time = result[0]
-        date = result[1].strftime("%Y-%m-%d")
+        date = result[1]   #.strftime("%Y-%m-%d")
         latest = result[2]
-        if latest == "*": date = date + "*"     # browser will highlight this record in red
-
-        topTenResults.append(f"{time} {date} {latest}")
+        if latest == "*": 
+            date = date + "*"     # browser will highlight this record in red
+        topTenResults.append(f"{time} {date}")
+    displayTable()
     return topTenResults
 
 app = Flask(__name__)
@@ -137,4 +171,4 @@ def results():
     
 # run the application
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True, port=5001)

@@ -40,5 +40,7 @@
         "codeOutput": true
     },
     "workbench.startupEditor": "none",
-    "workbench.editor.sharedViewState": true
+    "workbench.editor.sharedViewState": true,
+    "python-envs.defaultEnvManager": "ms-python.python:pyenv",
+    "python-envs.pythonProjects": []
 }

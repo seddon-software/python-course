@@ -53,18 +53,19 @@ dt = 0.01
 def init():
     ax.plot([0], [0], [0], 'ro')
 
-def animate(i):
+def animate(frame):
+    i = frame
     t = np.arange(i*dt, i*dt+3, dt)
     x = 2*t**3+1
     y = 2*t**2
     z = t
-    # there is no set_data for 3D, so you have to do it this way
-    line.set_data(x, y)
-    line.set_3d_properties(z)
+    line.set_data_3d(x,y,z)
+    ax.view_init(elev=30, azim=i%360, roll=15)      # change azimuth to make things more interesting
+
     return line        # the artist to be updated
 
 # create animation object
-# note anim keeps a reference to the FuncAnimation object
+# note animinmationObject keeps a reference to the FuncAnimation object
 # without which the animation dies premeturely
 animinmationObject = animation.FuncAnimation(fig, animate, init_func=init, frames=650, interval=50)
 

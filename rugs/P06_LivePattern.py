@@ -8,6 +8,7 @@ import pyttsx3
 from datetime import date
 import time
 from pyttsx3.voice import Voice
+from pyttsx3 import speak
 
 # already done lines 1-66, restarted on line 67
 
@@ -107,8 +108,7 @@ for lineNumber in range(start, ROWS+1):
 
         for c in line[batch:batch+BATCH]:
             color = codes[c]
-            engine.say(color)
-        engine.runAndWait()
+            speak(color)
 
         displayAverageStichTime()
 estimateEndDate()
