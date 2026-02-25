@@ -1,13 +1,20 @@
+radius = 300            # change this
+arc = 225               # change this
+
+#############################################################
 import tkinter as tk
 import numpy as np
 from numpy import pi as π
 from functools import partial
 
 scale = .02
-w = 600
 margin = 10
-radius = w/2
-arc = 225
+w = 2 * radius
+
+slot1 = 0.3*w
+slot2 = 0.45*w
+slot3 = 0.6*w
+slot4 = 0.8*w
 
 baseRadiusText = (0.75*w-margin, 0.50*w+2*margin)
 wx = (w+radius*np.cos(arc*π/180))/2
@@ -15,13 +22,18 @@ wy = (w-radius*np.sin(arc*π/180))/2
 radiusText = (wx, wy)
 
 arcText = np.array((w/2+2*margin, w/2-margin))
-answerText = (0.7*w, w-margin)
+areaText = (slot2, w-0.5*margin)
+perimeterText = (slot4, w-0.5*margin)
 
 def main():
-    def printAnswer(arc):
+    def printArea(arc):
         area = π * (radius*scale)**2 * arc / 360
         print(area)
-        canvas.create_text(*answerText, text=f"{area:.2f}")
+        canvas.create_text(*areaText, text=f"{area:.2f}")
+    def printPerimeter(arc):
+        perimeter = 2 * radius*scale + π * radius*scale * arc / 360
+        print(perimeter)
+        canvas.create_text(*perimeterText, text=f"{perimeter:.2f}")
     root = tk.Tk()
     root.title("arcs of circle")
     root.geometry(f"{w+2*margin}x{w+2*margin}")
@@ -36,9 +48,12 @@ def main():
     canvas.create_text(baseRadiusText, text=f"{radius*scale}")
     canvas.create_text(radiusText, text=f"{radius*scale}")
     canvas.create_text(*arcText, text=f"{arc}")
-    fn = partial(printAnswer, arc)
-    button = tk.Button(canvas, text="Answer", command=fn)
-    button.place(x=0.3*w, y=w-2*margin)
+    pfn1 = partial(printArea, arc)
+    button = tk.Button(canvas, text="Area", command=pfn1)
+    button.place(x=slot1, y=w-2*margin)
+    pfn2 = partial(printPerimeter, arc)
+    button = tk.Button(canvas, text="Perimeter", command=pfn2)
+    button.place(x=slot3, y=w-2*margin)
     canvas.pack()
 
     root.mainloop()

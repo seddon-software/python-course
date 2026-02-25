@@ -1,12 +1,16 @@
+height = 3.1
+width = 7.4
+
+########################################
 import tkinter as tk
 import numpy as np
 from functools import partial
 
 scale = .02
+height = height/scale
+width = width/scale
 w = 600
 margin = 10
-height = 300
-width = 400
 xLeft = 100
 yTop = 100
 xRight = xLeft + width
@@ -14,10 +18,18 @@ yBottom = yTop + height
 sideText = (xLeft - margin, (yTop + yBottom)/2)
 baseText = ((xLeft + xRight)/2, yBottom+margin)
 
+slot1 = 0.3*w
+slot2 = 0.45*w
+slot3 = 0.6*w
+slot4 = 0.8*w
+
 def main():
-    def printAnswer(height, width):
+    def printArea(height, width):
         area = height * width
-        canvas.create_text(0.7*w, w-margin, text=f"{area:.2f}")
+        canvas.create_text(slot2, w-0.5*margin, text=f"{area:.2f}")
+    def printPerimeter(height, width):
+        perimeter = 2*(height + width)
+        canvas.create_text(slot4, w-0.5*margin, text=f"{perimeter:.2f}")
     
     root = tk.Tk()
     root.title("rectangles")
@@ -34,9 +46,12 @@ def main():
     canvas.create_polygon(*points, fill='yellow')
     canvas.create_text(*sideText, text=f"{height*scale}")
     canvas.create_text(*baseText, text=f"{width*scale}")
-    fn = partial(printAnswer, height*scale, width*scale)
-    button = tk.Button(canvas, text="Answer", command=fn)
-    button.place(x=0.3*w, y=w-2*margin)
+    pfn1 = partial(printArea, height*scale, width*scale)
+    button = tk.Button(canvas, text="Area", command=pfn1)
+    button.place(x=slot1, y=w-2*margin)
+    pfn2 = partial(printPerimeter, height*scale, width*scale)
+    button = tk.Button(canvas, text="Perimeter", command=pfn2)
+    button.place(x=slot3, y=w-2*margin)
     canvas.pack()
 
     root.mainloop()

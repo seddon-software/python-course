@@ -1,25 +1,31 @@
+height = 6.5
+width = 8.5
+
+####################################################
 import tkinter as tk
 import numpy as np
 from functools import partial
 
 scale = .02
+height = height/scale
+width = width/scale
 w = 600
+slot1 = 0.3*w
+slot2 = 0.45*w
 margin = 10
+topY = 100
+baseY = topY + height
 topX = 400
 baseX1 = 100
-baseX2 = 500
-topY = 100
-baseY = 400
-height = (baseY - topY)*scale
-width = (baseX2 - baseX1)*scale
+baseX2 = baseX1 + width
 middleText = (topX, baseX1 + width/2)
 baseText = ((baseX2 + baseX1)/2, baseY+margin)
 
 def main():
-    def printAnswer(height, width):
-        area = height * width / 2
-        canvas.create_text(0.7*w, w-margin, text=f"{area:.2f}")
-    
+    def printArea(height, width):
+        area = height * width * scale**2 / 2
+        canvas.create_text(slot2, w-0.5*margin, text=f"{area:.2f}")
+
     root = tk.Tk()
     root.title("triangles")
     root.geometry(f"{w+2*margin}x{w+2*margin}")
@@ -33,11 +39,11 @@ def main():
     )
     canvas.create_polygon(*points, fill='cyan')
     canvas.create_line(topX, topY, topX, baseY, dash=(10,10))
-    canvas.create_text(*middleText, text=f"{height}")
-    canvas.create_text(*baseText, text=f"{width}")
-    fn = partial(printAnswer, height, width)
-    button = tk.Button(canvas, text="Answer", command=fn)
-    button.place(x=0.3*w, y=w-2*margin)
+    canvas.create_text(*middleText, text=f"{height*scale}")
+    canvas.create_text(*baseText, text=f"{width*scale}")
+    pfn1 = partial(printArea, height, width)
+    button = tk.Button(canvas, text="Area", command=pfn1)
+    button.place(x=slot1, y=w-2*margin)
     canvas.pack()
 
     root.mainloop()
