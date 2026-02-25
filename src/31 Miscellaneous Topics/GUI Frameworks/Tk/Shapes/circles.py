@@ -1,4 +1,4 @@
-radius = 300            # change this
+radius = 6.0            # change this
 arc = 225               # change this
 
 #############################################################
@@ -8,8 +8,9 @@ from numpy import pi as π
 from functools import partial
 
 scale = .02
+radius = radius/scale
 margin = 10
-w = 2 * radius
+w = int(2 * radius)
 
 slot1 = 0.3*w
 slot2 = 0.45*w
