@@ -1,5 +1,5 @@
-radius = 6.0            # change this
-arc = 225               # change this
+radius = 3.7           # change this
+arc = 90               # change this
 
 #############################################################
 import tkinter as tk
@@ -12,11 +12,11 @@ radius = radius/scale
 margin = 10
 w = int(2 * radius)
 
-slot1 = 0.3*w
+slot1 = 0.2*w
 slot2 = 0.45*w
-slot3 = 0.6*w
-slot4 = 0.8*w
-
+slot3 = 0.55*w
+slot4 = 0.9*w
+π = 3.14
 baseRadiusText = (0.75*w-margin, 0.50*w+2*margin)
 wx = (w+radius*np.cos(arc*π/180))/2
 wy = (w-radius*np.sin(arc*π/180))/2
@@ -30,11 +30,11 @@ def main():
     def printArea(arc):
         area = π * (radius*scale)**2 * arc / 360
         print(area)
-        canvas.create_text(*areaText, text=f"{area:.2f}")
+        canvas.create_text(*areaText, text=f"{area:.3f}")
     def printPerimeter(arc):
-        perimeter = 2 * radius*scale + π * radius*scale * arc / 360
+        perimeter = 2 * radius*scale + 2 * π * radius*scale * arc / 360
         print(perimeter)
-        canvas.create_text(*perimeterText, text=f"{perimeter:.2f}")
+        canvas.create_text(*perimeterText, text=f"{perimeter:.3f}")
     root = tk.Tk()
     root.title("arcs of circle")
     root.geometry(f"{w+2*margin}x{w+2*margin}")

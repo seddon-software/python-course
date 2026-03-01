@@ -1,5 +1,5 @@
-height = 6.5
-width = 8.5
+height = 5.2
+width = 8.3
 
 ####################################################
 import tkinter as tk

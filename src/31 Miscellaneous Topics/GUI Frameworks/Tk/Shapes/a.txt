@@ -1,0 +1,5 @@
+Show with a 3D cylinder along with its net
+Show with a solid 3D elongated box along with its net
+Show with a solid pyramid along with its net
+Show with a solid 3D prism along with its unfolded net with corresponding colors.  Make sure the net is connected
+show how to add 2/3 and 3/8 in stages.  Reveal one stage at a time. Use a button to move between stages.  Always show old stages

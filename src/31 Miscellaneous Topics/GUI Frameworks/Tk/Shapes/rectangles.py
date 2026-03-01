@@ -1,5 +1,5 @@
-height = 3.1
-width = 7.4
+height = 6.8
+width = 3.5
 
 ########################################
 import tkinter as tk
@@ -44,8 +44,8 @@ def main():
         (xRight, yTop)
     )
     canvas.create_polygon(*points, fill='yellow')
-    canvas.create_text(*sideText, text=f"{height*scale}")
-    canvas.create_text(*baseText, text=f"{width*scale}")
+    canvas.create_text(*sideText, text=f"{height*scale:.1f}")
+    canvas.create_text(*baseText, text=f"{width*scale:.1f}")
     pfn1 = partial(printArea, height*scale, width*scale)
     button = tk.Button(canvas, text="Area", command=pfn1)
     button.place(x=slot1, y=w-2*margin)
