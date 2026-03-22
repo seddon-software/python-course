@@ -44,12 +44,12 @@ for xs in np.arange(MIN, MAX):
 
 def plotHeights(y):
     for x in range(MIN, MAX):
-        ax.plot([x,x],[y,y],[0,x*y])
+        ax.plot([x,x],[y,y],[0,x*y],"r", linestyle="solid")
 
 for y in range(MIN, MAX):
     breakpoint()
     plotHeights(y)
 
 plt.ioff()
+breakpoint()
 plt.show()
-pass

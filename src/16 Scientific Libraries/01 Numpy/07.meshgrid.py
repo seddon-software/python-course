@@ -14,12 +14,14 @@ to convert them into 2 dimensional arrays before plotting.  The meshgrid() funct
 After projection the X array contains the x values for every point in the z=0 plane that we are plotting.  The 
 same goes for the Y array.
 
-To give you an idea of what meshgrid() does, these would be the X and Y arrays if we used
+To give you an idea of what meshgrid() does, consider these one dimensional X and Y arrays (each of 10 points):
             X = np.arange(0, 0.1, 0.01)
             Y = np.arange(0, 0.1, 0.01)
+
+By using:
             X, Y = np.meshgrid(X, Y)
 
-where the grid would be 10 x 10 points.
+meshgrid converts both the one dimensional arrays to two dimensional arrays (10 x 10):
 
 X = [[0.   0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09]
     [0.   0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09]
@@ -45,9 +47,9 @@ Y = [[0.   0.   0.   0.   0.   0.   0.   0.   0.   0.  ]
 
 In our example we are actually working with a much larger grid (1000 x 1000).  The Z array in this example is calculated in the normal 
 way (element by element) using the function:
-            y * cos(x)
+            Y * cos(X)
 
-Finally we use a color map to make the plot attractive. 
+Finally we use a color map (terrain) to make the plot attractive. 
 
 Note:
 1. This example is repeated in the MatPlotLib chapter

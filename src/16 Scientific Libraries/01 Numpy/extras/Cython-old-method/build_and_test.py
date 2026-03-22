@@ -18,13 +18,14 @@ def printMessage(m):
 def call(cmd):
     print(cmd)
     time.sleep(N)
-    subprocess.call(cmd.split())
-
+    subprocess.call(cmd, shell=True)
 
 call ("clear")    
 # remove old build folders
-printMessage("remove old build folders")
+printMessage("remove old build folders and shared objects")
 call("rm -rf build")
+call("rm *.so")
+call("tree .")
 
 # uninstall previous version
 printMessage("uninstall previous version of extension module (if it exists)")
@@ -38,16 +39,13 @@ call("python setup.py build_ext --inplace")
 printMessage("test cythonRoots")
 import cythonRoots
 print(f"compute: {f'{MODULE}.sumOfRoots(50)'}")
-print(f"result: {cythonRoots.sumOfRoots(50)}")
+print(f"result: {cythonRoots.sumOfRoots(50):.4f}")
 
 # clean up
 printMessage("clean up")
 call(f"rm {MODULE}.c")
+call("rm -rf build")
 call("tree .")
-
-print("spec of module")
-print("==============")
-print(cythonRoots.__spec__)
 
 
 

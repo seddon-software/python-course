@@ -21,7 +21,7 @@ contains different dimensionality data. Since the data is unchanged, the new dim
 number of data points as the original array. Thus in the example below, we start with a 1 dimensional array 
 with 24 elements and reshape it to a 3 dimensional array with 2 * 3 * 4 = 24 elements. 
 
-At he end of the example, we take a look at properties stored in the view.
+At the end of the example, we take a look at properties stored in the view.
 '''
 
 import numpy as np
