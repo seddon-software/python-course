@@ -19,59 +19,85 @@ import skimage.measure as measure
 import skimage.morphology as morphology
 import scipy.ndimage as nd
 
+def main():
+    rice, shape = loadImage()
+    rice = convertImageToMonochrome(rice)
+    convertToBlackOrWhite(rice)
+    rice = removeSmallObjects(rice)
+    rice = fillHoles(rice)
+    printNumpyArray(rice, shape)
+    countRiceGrains(rice)
+
 def enhanceImage(image, threshold):
-    # apply filter to every pixel of image
-    image[ image <= threshold ] = 0
-    image[ image  > threshold ] = 255
+    # apply filter to every pixel of image making them either black or white
+    image[ image <= threshold ] = 0         # black
+    image[ image  > threshold ] = 255       # white
 
-def load_image( infilename ) :
-    img = Image.open( infilename )
-    data = np.asarray( img, dtype="int32" )
-    return data
+def loadImage():
+    image = Image.open("images/rice.jpg")
+    rice = np.asarray(image, dtype="int32" )
+    print("Shape of raw image: {}".format(rice.shape))
+    return rice, rice.shape
 
-np.set_printoptions(linewidth=200, threshold=np.inf)
-rice = load_image("images/rice.jpg")
-print("Shape of raw image: {}".format(rice.shape))
+def convertImageToMonochrome(rice):
+    # algorithms work with monochrome images
+    rice = rice[:,:,0]
+    print("Shape of red image: {}".format(rice.shape))
+    plt.figure("monchrome image")
+    plt.imshow(rice, interpolation="none", cmap="gray")
+    plt.show()
+    return rice
 
-# algorithms work with monochrome images
-rice = rice[:,:,0]
-print("Shape of red image: {}".format(rice.shape))
-plt.figure("monchrome image")
-plt.imshow(rice, interpolation="none", cmap="gray")
-plt.show()
+def convertToBlackOrWhite(rice):
+    enhanceImage(rice, 120) # 120 selected by trial and error
+    plt.figure("enhanced image")
+    plt.imshow(rice, interpolation="none", cmap="gray")
+    plt.show()
 
-enhanceImage(rice, 120) # 120 selected by trial and error
-plt.figure("enhanced image")
-plt.imshow(rice, interpolation="none", cmap="gray")
-plt.show()
+def removeSmallObjects(rice):
+    # remove small objects (they must be labelled)
+    plt.figure("removed small objects")
+    labelled = measure.label(rice)
+    labelled = morphology.remove_small_objects(labelled)    
+    return labelled
 
-# remove small objects (they must be labelled)
-plt.figure("removed small objects")
-labelled = measure.label(rice)
-labelled = morphology.remove_small_objects(labelled)
+def removeLabelling(rice):
+    # remove the labelling using enhanceImage() by changing
+    #   values >= 1 to 1
+    #   values == 0 to 0
+    rice = np.copy(rice)
+    enhanceImage(rice, 1)
+    plt.imshow(rice, interpolation="none", cmap="gray")
+    plt.show()
+    return rice
 
-# remove the labelling because leads to a misleading display
-# use the enhanceImage function (all objects have value >= 1, non objects = 0)
-rice = np.copy(labelled)
-enhanceImage(rice, 1)
-plt.imshow(rice, interpolation="none", cmap="gray")
-plt.show()
+def fillHoles(rice):        
+    # labels must be removed
+    rice = removeLabelling(rice)
+    plt.figure("fill holes")
+    rice = nd.binary_fill_holes(rice).astype(int)
+    plt.imshow(rice, interpolation="none", cmap="gray")
+    plt.show()
+    # put the labels back
+    rice = measure.label(rice)
+    return rice
 
-plt.figure("close objects and fill holes")
-rice = nd.binary_fill_holes(rice).astype(int)
-plt.imshow(rice, interpolation="none", cmap="gray")
-plt.show()
+def countRiceGrains(rice):
+    props = measure.regionprops(rice)
+    plt.figure(f"counted {len(props)} objects")
+    for item in props:
+        y = item.centroid[0]
+        x = item.centroid[1]
+        message = str(item.label)
+        plt.text(x, y, message, color="white")
+    plt.imshow(rice, interpolation = "none", cmap = "jet")
+    plt.show()
 
-# look at object properties
-rice = measure.label(rice)
-print(rice[0:160,0:60])
-props = measure.regionprops(rice)
-plt.figure(f"labelling {len(props)} objects")
-for item in props:
-    y = item.centroid[0]
-    x = item.centroid[1]
-    message = str(item.label)
-    plt.text(x, y, message, color="white")
-plt.imshow(rice, interpolation = "none", cmap = "jet")
-plt.show()
+def printNumpyArray(rice, shape):
+    np.set_printoptions(linewidth=200, threshold=np.inf)
+    rows = shape[0]
+    cols = 60       # to fit on screen
+    print(rice[0:rows,0:cols])
+
+main()
 
