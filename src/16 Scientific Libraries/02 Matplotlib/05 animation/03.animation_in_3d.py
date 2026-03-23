@@ -3,7 +3,7 @@ Animation of a Shape in 3D
 ==========================
 
 MatPlotLib supports animation using the function:
-            ani = FuncAnimation(fig, update_plot, frames=frames, fargs=(data,sc), interval=100)
+            ani = FuncAnimation(fig, func=update_plot, frames=frames, fargs=(data,sc,ax), interval=100)
 
 This does not provide sophisticated animation as in games, but is intended to add a timing element to plotting.
 The key part of this call is the second parameter:
@@ -11,9 +11,15 @@ The key part of this call is the second parameter:
 
 which specifies a function pointer; the function will be called repeatedly during the animation.  The update will 
 be performed every 100 msec and frames will indicate the number of frame in the animation.  When update_plot
-is called, the frame number will be passed as a monotonically increasing number, starting at 1.  If you look at
-the function def statement:
-            def update_plot(frame, data, sc):
+is called, the frame number will be passed as a monotonically increasing number, starting at 1.  
+
+It is often easier to use partial functions when the update function takes additional parameters:
+            from functools import partial
+            pfn = partial(update_plot, data, sc, ax)
+            ani = FuncAnimation(fig, func=pfn, frames=frames, interval=100)
+
+The update function can then be written as (frame must be the last parameter):
+            def update_plot(data, sc, ax, frame):
 
 you will notice two more parameters are passed to update_plot.  These parameters were specified in the "fargs"
 tuple of FuncAnimation.  In this example we calculate all our animation data prior to calling FuncAnimation, 
@@ -48,10 +54,11 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib.animation import FuncAnimation
 from math import sqrt
+from functools import partial
 
-def update_plot(frame, data, sc, ax):
+def update_plot(data, sc, ax, frame):
     sc._offsets3d = data[frame]
-    ax.view_init(elev=30, azim=frame%360, roll=15)      # change azimuth to make things more interesting
+    ax.view_init(elev=30, azim=frame%720, roll=frame%720)      # change azimuth to make things more interesting
     return sc
 
 def main():
@@ -84,7 +91,8 @@ def main():
     ix, iy, iz = data[0]
     sc = ax.scatter(ix, iy, iz, s=100.0, c='red', marker='d')
 
-    ani = FuncAnimation(fig, update_plot, frames=frames, fargs=(data,sc, ax), interval=100)
+    pfn = partial(update_plot, data, sc, ax)
+    ani = FuncAnimation(fig, func=pfn, frames=frames, interval=100)
     plt.show()
 
 main()
