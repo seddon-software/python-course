@@ -1,6 +1,6 @@
 '''
-Subprocess Call
-===============
+Subprocess run
+==============
 The subprocess package is similar to the multiprocessing package in that it allows communication between
 processes.  With the subprocess package communication is always between a parent and its child process.
 
@@ -13,10 +13,10 @@ import subprocess
 
 print("using call")
 print("==========")
-subprocess.call(["ls", "-a", "-l"])
+subprocess.run(["ls", "-a", "-l"])
 print("\n\nusing call with split")
 print("=====================")
 # or use split
-subprocess.call("ls -a -l".split())
+subprocess.run("ls -a -l".split())
 
 

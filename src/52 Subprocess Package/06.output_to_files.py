@@ -18,3 +18,6 @@ with open('out.txt','w') as outFile:
 
 os.system("cat out.txt")
 os.system("cat err.txt")
+
+# clean up
+os.system("rm *.txt")
