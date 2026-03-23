@@ -6,7 +6,7 @@ MatplotLib allows us to create several diiferent types of plot.  In this example
 complete with error bars.
 
 see:
-    https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html?highlight=matplotlib%20pyplot%20bar#matplotlib.pyplot.bar
+    https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html
 '''
 
 import numpy as np
@@ -20,7 +20,7 @@ X = [0, 1, 2, 3, 4]
 barWidth = 0.75
 
 # matplotlib.pyplot.bar(x, height, width=0.8, bottom=None, *, align='center', data=None, **kwargs)[source]
-p1 = plt.bar(X, Bottoms, barWidth, yerr=errorBarsBottoms)                 # returns all the artists
+p1 = plt.bar(X, Bottoms, barWidth, yerr=errorBarsBottoms)    # returns all the artists
 p2 = plt.bar(X, Tops, barWidth, bottom=Bottoms, yerr=errorBarsTops)
 
 plt.xlabel('X Axis')

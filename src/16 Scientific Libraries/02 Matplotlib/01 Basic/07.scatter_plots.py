@@ -2,7 +2,10 @@
 Scatter Plots
 =============
 
-Scatter plots are very similar to ordinary plots in that dots are draw at each xy point.
+Scatter plots draw glyphs at each xy point.
+
+see:
+    https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.scatter.html
 '''
 
 import numpy as np

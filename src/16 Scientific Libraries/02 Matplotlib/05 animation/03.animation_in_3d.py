@@ -49,8 +49,9 @@ from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib.animation import FuncAnimation
 from math import sqrt
 
-def update_plot(frame, data, sc):
+def update_plot(frame, data, sc, ax):
     sc._offsets3d = data[frame]
+    ax.view_init(elev=30, azim=frame%360, roll=15)      # change azimuth to make things more interesting
     return sc
 
 def main():
@@ -83,9 +84,8 @@ def main():
     ix, iy, iz = data[0]
     sc = ax.scatter(ix, iy, iz, s=100.0, c='red', marker='d')
 
-    ani = FuncAnimation(fig, update_plot, frames=frames, fargs=(data,sc), interval=100)
+    ani = FuncAnimation(fig, update_plot, frames=frames, fargs=(data,sc, ax), interval=100)
     plt.show()
-
 
 main()
     

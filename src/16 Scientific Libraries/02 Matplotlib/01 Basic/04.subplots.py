@@ -1,12 +1,17 @@
 '''
-Sub Plots
-=========
+Subplots
+========
 
 You can plot more than one set of axes on a figure.  Here we create a grid of 2x3 axes and add some sample data 
-to each set of axes.
+to each set of axes.  This time we are using:
+            fig, axes = plt.subplots(row, columns, sharey=True)
+rather than subplot() singular.
+
 Note the use of: 
             plt.tight_layout()
 to avoid overlapping axes
+
+https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.subplots.html
 '''
 
 import numpy as np
@@ -20,7 +25,7 @@ greenTriangles = "g^"
 # create a group of axes arranged in a grid of rows and columns
 row = 2
 columns = 3
-fig, axes = plt.subplots(row, columns, sharey=True)
+fig, axes = plt.subplots(row, columns, sharey=True)     # y axis is shared
 
 axes[0][0].plot(t, t,    redDashes)
 axes[0][1].plot(t, t**2, blueSquares)  
