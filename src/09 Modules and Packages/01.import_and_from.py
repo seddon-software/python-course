@@ -1,6 +1,4 @@
 '''
-NOTE: diagrams can be found in resources folder
-
 A module is a single Python file that contains a library of functions an/or classes.  
 A package is a set of Python files that contains a library.
 

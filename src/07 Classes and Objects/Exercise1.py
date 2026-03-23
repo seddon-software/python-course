@@ -26,32 +26,7 @@ The expected output from your program is:
 '''
 
 class Book:
-    listOfBooks = []
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
-        Book.listOfBooks.append(self)
-    
-    def __str__(self):
-        return f"{self.title} by {self.author}"
-
-    def getAllTitles():
-        print("\nTitles")
-        print("======")
-        for book in Book.listOfBooks:
-            print(book.title)
-    
-    def findAuthor(title):
-        heading = f"Finding author of {title}"
-        underline = "="*len(heading)
-        print(f"\n{heading}")
-        print(underline)
-
-        for book in Book.listOfBooks:
-            if book.title == title:
-                print(book)
-                return
-        print("Book not found")
+    pass
 
 book1 = Book("The Silent Echo", "Emily Thompson")
 book2 = Book("Whispers in the Wind", "Jared Walker")
