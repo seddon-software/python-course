@@ -4,6 +4,9 @@ Sub Plots
 
 You can plot more than one set of axes on a figure.  Here we create a grid of 2x3 axes and add some sample data 
 to each set of axes.
+Note the use of: 
+            plt.tight_layout()
+to avoid overlapping axes
 '''
 
 import numpy as np

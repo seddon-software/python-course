@@ -1,5 +1,5 @@
 '''
-Fire up Jupyter notebook and look at the topics of types and mutability.
+Fire up Jupyter notebook
 '''
 
 import os

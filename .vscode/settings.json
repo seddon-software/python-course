@@ -1,5 +1,6 @@
 {
     "files.exclude": {
+        "**/.*": true,
         "**/.git": true,
         "**/__pycache__": true,
         "**/.*test_cache": true
@@ -16,22 +17,6 @@
     "git.ignoreLimitWarning": true,
     "workbench.sideBar.location": "right",
     "debug.terminal.clearBeforeReusing": true,
-    "python.analysis.extraPaths": [
-        "./src/09 Modules and Packages/More Complex Example/mylib",
-        "./src/09 Modules and Packages/mylib2"
-    ],
-    "openInExternalApp.openMapper": [
-        {
-            "extensionName": "pptx",
-            "apps": [
-                {
-                    "title": "powerpoint",
-                    "openCommand": "/usr/bin/libreoffice"
-                }
-            ]
-        }
-    ],
-    "cmake.ignoreCMakeListsMissing": true,
     "notebook.find.filters": {
         
         "markupSource": true,
@@ -41,5 +26,4 @@
     },
     "workbench.startupEditor": "none",
     "workbench.editor.sharedViewState": true,
-    "python-envs.defaultEnvManager": "ms-python.python:pyenv"
 }
