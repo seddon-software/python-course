@@ -83,6 +83,3 @@ pfn = partial(update_plot, ax, sc2, sc3)
 ani = FuncAnimation(fig, func=pfn, frames=1000, interval=100)
 plt.show()
 
-
-
-        
