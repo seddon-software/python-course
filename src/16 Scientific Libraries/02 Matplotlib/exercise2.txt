@@ -1,0 +1,3 @@
+Take the solution from the first exercise and make into a simulation using:
+	FuncAnimation(...)
+

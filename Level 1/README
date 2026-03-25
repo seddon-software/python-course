@@ -11,6 +11,20 @@ code --install-extension ms-python.debugpy
 code .          # note the dot (important)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Problem with Firefox??
 ======================
 firefox -p
