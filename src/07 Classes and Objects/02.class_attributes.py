@@ -32,7 +32,7 @@ class Point:
         self.y += dy
     
     def display(self):
-        print("Point {} is at ({},{})".format(self.name, self.x, self.y))
+        print(f"Point {self.name} is at ({self.x},{self.y})")
 
 print("No of objects:", Point.getCount())
 # create objects
