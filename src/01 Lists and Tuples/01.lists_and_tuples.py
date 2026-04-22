@@ -14,7 +14,7 @@ Note that tuples wth a single item have to be defined with a comma to avoid conf
 emptyList = []
 emptyTuple = ()
 oneEntryTuple = (99,)           # note the comma
-mixedTuple = [1, "mixed", 2, 'list']    # you can mix types
+mixedList = [1, "mixed", 2, 'list']    # you can mix types
 twoDimensionalList = [[10,1],[20,21],[30,31,32,33]]       # ragged array
 mixed = [[10,11], (20,21), [30,31],[40,41], [50,51]]      # see Slide1.jpg
 # access elements of 2D list
