@@ -9,7 +9,7 @@ os.system("chmod 777 $HOME/tmp")
 # Create a copy of the current environment
 env = os.environ.copy()
 # Add a new environment variable
-env["TEMP"] = "$HOME/tmp"
+env["TEMP"] = os.path.expandvars("$HOME/tmp")
 
 if_build_failed = """if the build fails because of 'failed to map segment from shared object'
 you need to run: 
@@ -25,11 +25,11 @@ def printMessage(m):
     input("?")
 
 def execute(message, cmd):
-    time.sleep(1)
+    time.sleep(5)
     os.system("clear")
     input(message)
     print("="*len(message))
-    result = subprocess.run(cmd.split(), env=env)
+    result = subprocess.run(cmd.split(), env=env, shell=True)
     try:
         result.check_returncode()
     except Exception as e:
@@ -38,7 +38,10 @@ def execute(message, cmd):
         sys.exit(1)
     print()
 
-execute(message="install pipx", cmd="python -m pip install pipx")
+try:
+    import pipx
+except:
+    execute(message="install pipx", cmd="python -m pip install pipx")
 execute(message="build with pipx", cmd="python -m pipx run build")
 execute(message="install with pip", cmd="python -m pip install .")
 

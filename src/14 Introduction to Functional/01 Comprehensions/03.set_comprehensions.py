@@ -10,5 +10,6 @@ Note that sets have all duplicates removed, so this set will be all possible sum
 
 '''
 s = { x + y for x in range(10) for y in range(10) }     # 0, 1, 2 ... 18
-print(s)
+ss = list(s)
+print(ss[3])
 
