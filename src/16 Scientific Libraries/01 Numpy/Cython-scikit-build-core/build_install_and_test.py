@@ -31,6 +31,7 @@ def execute(message, cmd):
         sys.exit(1)
     print()
 
+execute(message="install pipx", cmd="python -m pip install pipx")
 execute(message="build with pipx", cmd="python -m pipx run build")
 execute(message="install with pip", cmd="python -m pip install .")
 
