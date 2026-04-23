@@ -6,7 +6,11 @@ import os, sys, subprocess, time, glob
 
 os.system("mkdir -p $HOME/tmp")
 os.system("chmod 777 $HOME/tmp")
-os.environ["TEMP"] = "$HOME/tmp"
+# Create a copy of the current environment
+env = os.environ.copy()
+# Add a new environment variable
+env["TEMP"] = "$HOME/tmp"
+
 if_build_failed = """if the build fails because of 'failed to map segment from shared object'
 you need to run: 
 \texport TEMP=~/tmp"""
@@ -25,10 +29,6 @@ def execute(message, cmd):
     os.system("clear")
     input(message)
     print("="*len(message))
-    # Create a copy of the current environment
-    env = os.environ.copy()
-    # Add a new environment variable
-    env["TEMP"] = "$HOME/tmp"
     result = subprocess.run(cmd.split(), env=env)
     try:
         result.check_returncode()
