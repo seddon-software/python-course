@@ -25,7 +25,11 @@ def execute(message, cmd):
     os.system("clear")
     input(message)
     print("="*len(message))
-    result = subprocess.run(cmd.split())
+    # Create a copy of the current environment
+    env = os.environ.copy()
+    # Add a new environment variable
+    env["TEMP"] = "$HOME/tmp"
+    result = subprocess.run(cmd.split(), env=env)
     try:
         result.check_returncode()
     except Exception as e:
