@@ -6,7 +6,7 @@ import os, sys, subprocess, time, glob
 
 os.system("mkdir -p $HOME/tmp")
 os.system("chmod 777 $HOME/tmp")
-os.system("export TEMP=$HOME/tmp")
+os.environ["TEMP"] = "$HOME/tmp"
 if_build_failed = """if the build fails because of 'failed to map segment from shared object'
 you need to run: 
 \texport TEMP=~/tmp"""
