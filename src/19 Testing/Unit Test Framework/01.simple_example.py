@@ -25,30 +25,7 @@ sys.path.append("../src")
 
 from Point import *
 import unittest
-import unittest
-
-# ANSI colors
-GREEN = "\033[92m"
-RED = "\033[91m"
-RESET = "\033[0m"
-
-class ColorResult(unittest.TextTestResult):
-
-    def addSuccess(self, test):
-        #super().addSuccess(test)
-        print(f"{GREEN}PASS{RESET} {test}")
-
-    def addFailure(self, test, err):
-        #super().addFailure(test, err)
-        print(f"{RED}FAIL{RESET} {test}")
-
-    def addError(self, test, err):
-        #super().addError(test, err)
-        print(f"{RED}ERROR{RESET} {test}")
-
-class ColorRunner(unittest.TextTestRunner):
-    resultclass = ColorResult
-
+from green_red import *
 
 class testPoint(unittest.TestCase):
     """
