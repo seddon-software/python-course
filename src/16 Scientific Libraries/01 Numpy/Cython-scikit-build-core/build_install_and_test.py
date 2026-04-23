@@ -24,12 +24,12 @@ def printMessage(m):
     print()
     input("?")
 
-def execute(message, cmd):
+def execute(message, cmd, shell=False):
     time.sleep(5)
     os.system("clear")
     input(message)
     print("="*len(message))
-    result = subprocess.run(cmd.split(), env=env, shell=True)
+    result = subprocess.run(cmd.split(), env=env, shell=shell)
     try:
         result.check_returncode()
     except Exception as e:
@@ -41,7 +41,7 @@ def execute(message, cmd):
 try:
     import pipx
 except:
-    execute(message="install pipx", cmd="python -m pip install pipx")
+    execute(message="install pipx", cmd="python -m pip install pipx", shell=True)
 execute(message="build with pipx", cmd="python -m pipx run build")
 execute(message="install with pip", cmd="python -m pip install .")
 
