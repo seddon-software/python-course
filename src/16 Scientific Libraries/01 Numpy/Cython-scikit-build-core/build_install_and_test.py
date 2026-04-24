@@ -27,9 +27,13 @@ def printMessage(m):
 def execute(message, cmd, shell=False):
     time.sleep(5)
     os.system("clear")
-    input(message)
+    print(message)
     print("="*len(message))
-    result = subprocess.run(cmd.split(), env=env, shell=shell)
+    input('?')
+    if shell:
+        result = subprocess.run(f"{cmd}", env=env, shell=shell)
+    else:
+        result = subprocess.run(cmd.split(), env=env, shell=shell)
     try:
         result.check_returncode()
     except Exception as e:
