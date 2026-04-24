@@ -4,17 +4,25 @@ Run this script from the command line (difficult to read output in VSCode)
 
 import os, sys, subprocess, time, glob
 
-os.system("mkdir -p $HOME/tmp")
-os.system("chmod 777 $HOME/tmp")
-# Create a copy of the current environment
-env = os.environ.copy()
-# Add a new environment variable
-env["TEMP"] = os.path.expandvars("$HOME/tmp")
+def setupTempDirectory():
+    tempDirectory = os.path.expandvars("$HOME/tmp")
+    if os.path.isdir(tempDirectory):
+        return      # nothing to do
 
-if_build_failed = """if the build fails because of 'failed to map segment from shared object'
-you need to run: 
-\texport TEMP=~/tmp"""
-N = 0
+    os.system("clear")
+    print(f"setting up TEMP directory: {tempDirectory}")
+    time.sleep(5)
+    # make sure the permissions are ok
+    os.system(f"mkdir -p {tempDirectory}")
+    os.system(f"chmod 777 {tempDirectory}")
+    # create a copy of the current environment
+    env = os.environ.copy()
+    # add a new environment variable
+    env["TEMP"] = tempDirectory
+    return env
+
+env = setupTempDirectory()
+
 MODULE = "cythonRoots"
 
 def printMessage(m):
@@ -38,7 +46,6 @@ def execute(message, cmd, shell=False):
         result.check_returncode()
     except Exception as e:
         print(e)
-        print(if_build_failed)
         sys.exit(1)
     print()
 

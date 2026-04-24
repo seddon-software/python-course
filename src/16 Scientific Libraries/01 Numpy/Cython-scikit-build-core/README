@@ -1,4 +1,3 @@
-Cython project built with scikit-build-core
+Cython project built with scikit-build-core and pipx
 Make sure you are using the correct pip and pipx
-You will probably need to set the TEMP environment variable:
-    export TEMP=~/tmp
+
