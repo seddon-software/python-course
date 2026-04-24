@@ -11,8 +11,8 @@ to the parent.
 
 import subprocess
 
-print("using call")
-print("==========")
+print("using run")
+print("=========")
 subprocess.run(["ls", "-a", "-l"])
 print("\n\nusing call with split")
 print("=====================")
