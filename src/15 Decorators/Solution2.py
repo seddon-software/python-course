@@ -3,19 +3,26 @@ Timer decorator
 ===============
 
 Write a "timer" decorator that calculates the time a function takes to execute.  THe decorator should be parametrised with a count.
-Call the decorated function "count" times and print the average execution time.  Take a look at the logging decorator to give you 
-an idea of what to do.
+Call the decorated function "count" times and print the average execution time.
 
-The function being decorated may have arbitary parameters (possibly named), so you will need to use the pattern: fn(*args, **kwargs).  
+The function being decorated may have arbitary parameters (possibly named), so you will need to use: fn(*args, **kwargs).  
 I've given you some functions for you to decorate so you can test your decorator.
 '''
 
 import time
 
-# define your decorator here
-# def timer(count):
+def timer(count):
+    def decorator(func):
+        def enhance(*args, **kwargs):
+            start = time.time()
+            for n in range(count):
+                result = func(*args, **kwargs)
+            end = time.time()
+            print(f"{func.__name__}{args}: takes {(end - start)/count:.4f}s")
+            return result
+        return enhance
+    return decorator
 
-# test material below:
 @timer(10)
 def roots(n, power):
     '''finds the sum of the square roots of the first 'n' integers'''
@@ -23,6 +30,9 @@ def roots(n, power):
     for i in range(n):
         result += i ** power
     return result
+
+print( f"{roots(10_000_000, 0.5):.4f}" )
+print( f"{roots(n=10_000_000, power=0.5):.4f}" )
 
 @timer(100)
 def fib(n):
@@ -33,11 +43,4 @@ def fib(n):
         a, b = b, a + b
     return a
 
-# call the decorator with positional parameters
-print( f"{roots(10_000_000, 0.5):.4f}" )
-
-# call the decorator with named parameters
-print( f"{roots(n=10_000_000, power=0.5):.4f}" )
-
-# try a different function
 print(fib(30))

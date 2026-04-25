@@ -50,7 +50,7 @@ def YourSolution():
           return n**4
 
 
-     # create an array of x points without using np.linspace
+     # create a Python array of x points without using numpy(np.linspace)
 
      # use (uncomment) the same matplotlib code
      # ax = plt.subplot()      # create single figure with one axis
