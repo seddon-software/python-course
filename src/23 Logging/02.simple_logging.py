@@ -3,7 +3,7 @@ The logging module is very flexible and allows many different texchniques.  Here
 '''
 import logging
 
-LOG_FILENAME = "simple_logging.log"
+LOG_FILENAME = "logs/simple_logging.log"
 logging.basicConfig(
     filename= f"{LOG_FILENAME}",
     level=logging.INFO,
