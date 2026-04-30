@@ -1,0 +1,3 @@
+import webbrowser as wb
+
+wb.open("https://matplotlib.org/stable/gallery/index.html")
