@@ -99,7 +99,7 @@ filled = nd.binary_fill_holes(data).astype(int)
 plt.imshow(filled, interpolation = "none", cmap = "jet")
 plt.show()
 
-labels = measure.label(filled)
+labels = measure.label(filled)          # labels can be uint8 (256), int32 (2**32), int64 (2**64)
 print(labels)
 props = measure.regionprops(labels)
 set_title("label objects: {} objects found".format(len(props)))
