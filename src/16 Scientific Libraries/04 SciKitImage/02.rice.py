@@ -18,11 +18,12 @@ import PIL.Image as Image
 import skimage.measure as measure
 import skimage.morphology as morphology
 import scipy.ndimage as nd
+threshold = 124         #  # 124 selected by trial and error (maximize no of rice grains)
 
 def main():
     rice, shape = loadImage()
     rice = convertImageToMonochrome(rice)
-    convertToBlackOrWhite(rice)
+    convertToBlackOrWhite(rice, threshold)
     rice = removeSmallObjects(rice)
     rice = fillHoles(rice)
     printNumpyArray(rice, shape)
@@ -48,8 +49,8 @@ def convertImageToMonochrome(rice):
     plt.show()
     return rice
 
-def convertToBlackOrWhite(rice):
-    enhanceImage(rice, 120) # 120 selected by trial and error
+def convertToBlackOrWhite(rice, threshold):
+    enhanceImage(rice, threshold)
     plt.figure("enhanced image")
     plt.imshow(rice, interpolation="none", cmap="gray")
     plt.show()
