@@ -8,7 +8,7 @@ Note that not all Unicode code points can be represented in some encodings and i
 
 def encodeString(string, encoding):
     bytes = string.encode(encoding)
-    print(f"{encoding}: {bytes}")
+    print(f"{encoding:16s}: {bytes}")
 
 # see what set of bytes are produced using different encodings
 encodeString("résumé", "utf-8")

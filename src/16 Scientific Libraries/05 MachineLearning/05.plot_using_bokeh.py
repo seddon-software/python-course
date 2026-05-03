@@ -12,7 +12,7 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.transform import factor_cmap, factor_mark
 from bokeh.io import output_notebook
 
-output_file("bokeh.html")
+output_file("data/bokeh.html")
 iris_df = pd.read_csv("data/iris.csv")
 flowers = iris_df
 SPECIES = ['setosa', 'versicolor', 'virginica']

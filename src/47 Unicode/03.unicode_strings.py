@@ -9,5 +9,6 @@ import unicodedata
 
 # create a string from unicode code points
 u = chr(0x1F5A4) + chr(0x221B) + chr(0x2230)  # black heart, cube root and triple integral
+u = f"{chr(0x1F5A4)}  {chr(0x221B)}  {chr(0x2230)}"  # black heart, cube root and triple integral
 print(u)
 
