@@ -5,11 +5,15 @@ an event occurs using a callback (delivered via an async queue).  Typically all 
 subscribers register with the publisher so that it can callback to each subscriber.
 
 The publisher gets a set of temperatures from an application server across the internet.  We 
-simulate the server application with a Flask server running on the localhost, port 8000.
+simulate the server application with a local Flask server running on the localhost, port 8000.
 
-The publisher sends temperatures to the subscribers using the async queue.  Each subscriber 
-announces when the temperature goes above a "max_temperature".  This "max_temperature" is
-defined as the id of the subscriber plus 19.0C (chosen somewhat artificially).
+1. The flask server is in a separate file: server.py
+   The server creates the temperatures used by the publisher.  Inspection of the server code
+   will show temperatures start at 19C and increase to 30C in steps of 0.1C every second.
+
+2. The publisher sends temperatures to the subscribers using the async queue.  Each subscriber 
+   announces when the temperature goes above a "max_temperature".  This "max_temperature" is
+   defined as the id of the subscriber plus 19.0C (chosen somewhat artificially). 
 '''
 
 import os, time

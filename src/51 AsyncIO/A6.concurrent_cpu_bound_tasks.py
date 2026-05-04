@@ -1,5 +1,7 @@
 '''
-Here is a simple example that illustrates the concurrent execution of coroutines; even though it is a CPU intensive example.  
+Here is a simple example that illustrates the concurrent execution of coroutines; even though it is a CPU 
+intensive example.  This shows the asyncio code to replicate our first example in this section.
+
 We will look at IO examples in due course.
 '''
 

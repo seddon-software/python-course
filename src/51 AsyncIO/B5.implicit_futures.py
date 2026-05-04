@@ -19,7 +19,8 @@ async def main(n):
     
     # ayncio.gather waits until all results are available before returning
     responses = await asyncio.gather(*tasks)    # gather takes a sequence  of tasks (not a list), hence we use *
-    for r in responses:
-        print(f"fib({r['index']}) = {r['result']}")
+    for response in responses:
+        print(f"fib({response['index']}) = {response['result']}")
 
 asyncio.run(main(n=15))
+
