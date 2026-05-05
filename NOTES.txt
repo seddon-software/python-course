@@ -4,7 +4,7 @@
 
 Face to Face Course Timings:
 ===========================
-     9.00 - 4:30
+     9.15 - 4:45
 
 Virtual Course Timings:
 ======================
@@ -16,7 +16,7 @@ Virtual Course Timings:
     
 To set up Python, VSCode and clone this repository:
     cd 
-	git clone https://github.com/seddon-software/python-course.git
+    git clone https://github.com/seddon-software/python-course.git
     cd python-course
     ls
     module load python
