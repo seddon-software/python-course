@@ -1,6 +1,6 @@
 '''
-We can run multiple async tasks, each defined with a future object.  In this example we run a coroutine that calls a recursive
-"fib" routine.  Each "fib" populates its own future with its Fibonacci number.
+We can run multiple async tasks, each defined with a future object.  In this example we run a coroutine that calls 
+a recursive "fib" routine.  Each coroutine populates its future with its Fibonacci number.
 '''
 
 import asyncio
