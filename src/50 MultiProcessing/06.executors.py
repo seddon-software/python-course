@@ -25,7 +25,6 @@ def main():
             total += n
         return total
 
-
     # use a context manager (with statement) so that the executor shuts down properly
     with ThreadPoolExecutor() as executor:
         future1 = executor.submit(task, 1, 10)
@@ -36,10 +35,10 @@ def main():
 
         # use the executor
         result = future1.result() + future2.result() + future3.result() + future4.result() + future5.result()
-        print(f"sum of numbers 1 to 50 = {result}")
+        print(f"executor: sum of numbers 1 to 50 = {result}")
 
     # use sum
-    print(f"sum of numbers 1 to 50 = {sum(range(1, 51))}")
+    print(f"built-in sum: sum of numbers 1 to 50 = {sum(range(1, 51))}")
 
 if __name__ == '__main__': 
     main()

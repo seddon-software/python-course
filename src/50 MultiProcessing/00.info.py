@@ -6,6 +6,8 @@ you can achieve this by utilising any of the following modules:
     multiprocessing.Process
     multiprocessing.Pool
     concurrent.futures.ProcessPoolExecutor
+
+Alternatively, it is possible to use multiple cpus using Numba or Cython.
 '''
 
 pass
