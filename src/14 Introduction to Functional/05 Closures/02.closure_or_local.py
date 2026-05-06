@@ -17,7 +17,7 @@ local symbol table of f() by the locals() built in.
 '''
 
 
-from utils import *     # for displayClosures
+from utils import displayClosures
 
 def main():
     x1 = ["mx1"]               # mutable

@@ -13,17 +13,17 @@ initial value even when the loop count changes.
 Now the code behaves as you might have expected and prints 0, 1, 2, 3.
 '''
 
-from utils import *     # for displayClosures
+from utils import displayClosures
 
 ############################################################
 # 
 def main():
     funcs = []
     for i in range(4):
-        def f(i=i):             # this creates a local variable i (initialised with the current loop count)
-                                # note: default values like "i" are not added to the closure cell because they can't be used again)
-            print(locals())
-            print(i)            # this i refers to a local and not to a closure
+        def f(i=i):     # this creates a local variable i (initialised with the current loop count)
+                        # note: default values like "i" are not added to the closure cell because they can't be reused)
+            print(f"locals: {locals()}")
+            print(f"i = {i}")            # this i refers to a local and not to a closure
         displayClosures(f)
         funcs.append(f)
 

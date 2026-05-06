@@ -20,7 +20,7 @@ In part 3 we use the nonlocal keyword which allows the inner function to modify 
 creating a local variable in inner.
 '''
 
-from utils import *     # for displayClosures
+from utils import displayClosures
 
 
 ############################################################
@@ -73,7 +73,6 @@ def part3():
 
     f = outer()
     f()         # NO exception raised
-
 
 part1()
 part2()

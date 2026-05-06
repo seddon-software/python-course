@@ -19,19 +19,18 @@ they are called, the closure refers to the immutable object 3.  Hence the print 
 '''
 
 
-from utils import *     # for displayClosures
+from utils import displayClosures
 
 ############################################################
 # Closures are over variable names, not values
 def main():
     funcs = []
     # note that because i is immutable as we go round the loop, i points to different int objects
-    # this in turn means that the closure for the name(symbol) "f" will change
+    # this in turn means that the closures for "f" will change as we loop.
     for i in range(4):
         def f():
             print(i, end=',')
         funcs.append(f)
-        print("closures in funcs:")
         [displayClosures(f) for f in funcs]
         print()
         # notice how the closure cells in funcs build up as we step through the loop

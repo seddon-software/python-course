@@ -13,27 +13,22 @@ exception.
 Thus the code fails.
 '''
 
-
 def f(x):
     y = x * x       # defines a local variable y
     print("locals for f(): ", locals())       
     def inner():
-        print("locals for inner(): ", locals())        
+        print(f"locals for inner(): {locals()}")        
         try:
             z = y * 2   # the RHS of this expression refers to the local y which is undefined at present
                         # and not a closure on the outer y 
         except UnboundLocalError as e:
             print(e)
         y = 99       # attempts to define a new local variable y (immutable l-value)
-        print("locals for inner(): ", locals())        
+        print(f"locals for inner(): {locals()}")        
         return y
-    w = inner()
-    #print(y)
-    return w
+    result = inner()
+    return result       # propogate the result to global scope
 
-try:
-    print(f(5))
-except UnboundLocalError as e:
-    print(e)
+print(f(5))
     
 

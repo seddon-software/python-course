@@ -16,7 +16,7 @@ In this example, the closure has 2 items (x and y).  Note that only mutable item
 included in this closure (so variable a is not part of the closure).
 '''
 
-from utils import *     # for displayClosures
+from utils import displayClosures
 
 def f():
     a = [100]; print(f"a:{id(a):x}")
