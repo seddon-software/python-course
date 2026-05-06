@@ -38,3 +38,9 @@ print( powers(quad, 17) )
 # raising to the seventh power will only be used once
 # so just provide a lambda
 print( powers(lambda x:x**7, 2))
+
+# perhaps we don't know which power will be used
+thePower = int(input("Enter a power: "))
+theValue = int(input("Enter a value: "))
+
+print( powers(lambda x:x**thePower, theValue) )

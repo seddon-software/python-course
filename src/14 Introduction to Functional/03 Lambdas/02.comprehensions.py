@@ -2,8 +2,8 @@
 Comprehensions
 ==============
 
-lambdas are often used in comprehensions.  Although lambdas use lazy evaluation, inside the list comprehension
-we use:
+lambdas are often used in comprehensions.  Although lambdas use lazy evaluation, inside the list 
+comprehension we use:
             (lambda x: x**2)(x)
 
 to evaluate the lambda immediately.
