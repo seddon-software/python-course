@@ -6,7 +6,6 @@ the original tests to make sure enhancements do not introduce errors into the ex
 The following are the most popular modules provided by Python for this purpose:
             PyTest
             Unittest
-            Nose2
 
 Testing gives you the confidence that your code does what you expect it to do. Traditionally you write
 code and then you write your tests.  Agile methodolgy promotes Test Driven Development (TDD).  With TDD
@@ -19,7 +18,7 @@ should pass or you need to make corrections before it passes.
 New tests are introduced on this scheme.  Write test - FAIL - write implementation - PASS,  Repeat.
 In the Eclipse framework when tests fail, Eclipse draws a red bar across the screen.  When a test passes, 
 Eclipse draws a green bar.  With TDD you cycle between RED and GREEN as you develop your tests and code.
-Unfortunately, VSCode doesn't have this facility.  However pytest does color tests results in RED and GREEN,
-but doesn't draw the bar across the screen.
+Unfortunately, VSCode doesn't have this facility (but can be introduced with user written code).  
+However pytest does color tests results in RED and GREEN, but doesn't draw the bar across the screen.
 '''
 
