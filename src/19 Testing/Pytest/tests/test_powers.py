@@ -1,6 +1,6 @@
-import sys
-sys.path.append("..")
-from src.powers import * 
+import sys, os
+sys.path.append("../src")
+from powers import * 
 
 
 
@@ -13,4 +13,5 @@ def test_cube_of_4_is_64():
 def test_quad_of_4_is_256(): 
     assert quad(4) == 256 
 
-
+if __name__ == "__main__":
+    os.system(f"pytest '{__file__}'")

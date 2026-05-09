@@ -8,7 +8,7 @@ Note that I've included some tests that are intended to fail.  This is just done
 '''
 
 import pytest
-import sys
+import sys, os
 sys.path.append("..")
 from src.Point import *
 
@@ -48,3 +48,5 @@ def test_DistanceIsFromOriginIs5usingBuggyRoutine(pointUnderTest):
     """distance of fixture from origin is 5"""
     assert 5 == pointUnderTest.buggy_get_distance()
 
+if __name__ == "__main__":
+    os.system(f"pytest '{__file__}'")

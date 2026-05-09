@@ -7,6 +7,5 @@ The decorators are:
 '''
 
 import os
-
-# os.system("pytest mytests/test_Point_with_skips.py")
-os.system("pytest mytests/test_Point_with_skips.py --no-header")
+os.chdir("tests")
+os.system("pytest test_Point_with_skips.py --no-header")

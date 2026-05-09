@@ -10,24 +10,27 @@ files to both "src" and "test" directories.
 To install pytest use:
             pip install pytest --user
 
-All the tests are in the folder "mytests"  We use os.system to simulate running tests from the command line.
+All the tests are in the folder "tests"  We use os.system to simulate running tests from the command line.
 '''
 
 import os; os.system("clear")
 
 print("all src and test directories must contain '__init__.py'")
-
-print("files under test")
-os.system("tree ../src -I __pycache__")     # ignore pyc files
-
+print("files being tested")
+os.system("tree ./src -I __pycache__")     # ignore pyc files
 print("test files")
-os.system("tree mytests -I __pycache__")
+os.system("tree ./tests -I __pycache__")
 
-# look at the tests
 os.system("clear")
-os.system("cat mytests/test_Point.py")
+print("look at first file being tested: Point.py")
+os.system("cat ./src/Point.py")
 
-# run tests
 os.system("clear")
-os.system("pytest mytests/test_Point.py")
+print("look at the tests: test_Point.py")
+os.system("cat tests/test_Point.py")
+
+os.system("clear")
+os.chdir("tests")
+print("use pytest to run tests")
+os.system("pytest test_Point.py")
 

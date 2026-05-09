@@ -11,6 +11,7 @@ In this test we will only run tests decorated with the mark "intended_to_fail", 
 
 import os
 
+os.chdir("tests")
 # only run tests with a given mark
 os.system("pytest -m intended_to_fail")
 

@@ -13,10 +13,9 @@ which defines
             @pytest.mark.intended_to_fail
 '''
 
-import sys
-sys.path.append("..")
-import pytest
-from src.Point import *
+import sys, os, pytest
+sys.path.append("../src")
+from Point import *         # make all the code in the file under test available to the test program
 
 
 # test fixtures are used to create objects with the same name as the fixture function
@@ -53,3 +52,5 @@ def test_DistanceIsFromOriginIs5usingBuggyRoutine(pointUnderTest):
     """distance of fixture from origin is 5"""
     assert 5 == pointUnderTest.buggy_get_distance()
 
+if __name__ == "__main__":
+    os.system(f"pytest '{__file__}'")
