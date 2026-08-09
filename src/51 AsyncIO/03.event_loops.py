@@ -5,14 +5,13 @@ asynchronous ‘tasks’ instead of relying on the kernel to perform the schedul
 
 Coroutines wrapped as tasks will be executed concurrently inside the event loop.  
 
-Normally we work implicitly with an event loops (see later examples), but here we work with the event loop
-explicitly to illustate what is happening more clearly.
+Normally we work implicitly with an event loops, but here we work with the event loop explicitly to illustate what 
+is happening more clearly.
 
-Note that all new style coroutine functions must be adorned with the "async" keyword and must be awaited by
-their calling coroutine.  To yield control a coroutine has to call:
-            asyncio.sleep()
-
-Even sleeping for 0 seconds is sufficient to yield control.
+Note that if you call asyncio.sleep(n) your code doesn't really sleep.  It just tells the event loop to 'suspend this 
+coroutine and resume it in approximately n seconds.'  The event loop is then free to execute other coroutines.  After
+n seconds the event loop moves your coroutine onto the ready queue.  The coroutine will then continue when it is
+it's turn.
 '''
 
 import asyncio

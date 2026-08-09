@@ -21,7 +21,7 @@ Unit test has a variety of checks (see later), not just assertEqual
 '''
 
 import sys
-sys.path.append("../src")
+sys.path.append("./src")
 
 from Point import *
 import unittest
@@ -64,4 +64,3 @@ class testPoint(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(testRunner=ColorRunner())
-    #unittest.main(exit=False)

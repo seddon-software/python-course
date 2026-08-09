@@ -17,9 +17,10 @@ import aiohttp
 import httpx
 import time
 
-sites = ["abc.com", "ibm.co.uk", "bbc.co.uk", "www.freeview.co.uk", "www.ietf.org"]
+sites = ["python.org", "ibm.co.uk", "bbc.co.uk", "www.freeview.co.uk", "www.ietf.org"]*10
 
 async def time_asynchronous(sites):
+    # get the data
     async def fetch(session, url):
         async with session.get(url) as response:
             data = await response.read()
@@ -27,10 +28,10 @@ async def time_asynchronous(sites):
 
     start = time.perf_counter()
 
-    # Send the responses without compression in a most 30 seconds.
+    # Send the responses without compression in at most 30 seconds.
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30), 
                                      headers={"Accept-Encoding": "identity"}) as session:
-        tasks = [fetch(session, f"https://{site}") for site in sites]
+        tasks = [asyncio.create_task(fetch(session, f"http://{site}")) for site in sites]
         results = await asyncio.gather(*tasks)
         bytesRead = sum(results)
 
@@ -44,7 +45,7 @@ def time_synchronous(sites):
 
     with httpx.Client(headers={"Accept-Encoding": "identity"}, follow_redirects=True, timeout=30.0) as client:
         for site in sites:
-            response = client.get(f"https://{site}")
+            response = client.get(f"http://{site}")
             bytesRead += len(response.content)
     end = time.perf_counter()
     print(f"{'synchronous':14s}: {bytesRead} bytes read in {end - start:.2f}s")

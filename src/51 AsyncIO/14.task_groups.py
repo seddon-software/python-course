@@ -1,9 +1,10 @@
-import asyncio
 '''
 TaskGroup (added in version 3.11) is an asynchronous context manager holding a group of tasks.  All tasks are awaited 
 when the context manager exits.  If one task fails then all the other tasks are cancelled (preventing wasted work and 
-inconsistent state).  Thus everything is guaranteed to finish or be cancelled.
+inconsistent state).  Thus the code is transactional (guaranteed to finish or else be cancelled).
 '''
+
+import asyncio
 
 async def Fib(n):
     async def fib(n):

@@ -17,14 +17,14 @@ import asyncio
 
 async def myCoroutine(future, x):
     async def fib(n):
-        await asyncio.sleep(0.01)
+        await asyncio.sleep(0.001)
         await asyncio.create_task(printDots())
         return n if n < 2 else await fib(n-1) + await fib(n-2)
     future.set_result(await fib(x))
 
 async def printDots():
     print(".", end="")
-    await asyncio.sleep(0.01)
+    await asyncio.sleep(0.1)
     
 async def main(n):
     future = asyncio.Future()
@@ -33,6 +33,6 @@ async def main(n):
     # retreive result from the future
     print(f"fib({n}) = {future.result()}")
 
-# Start event loop and run until completed
+# Start event loop and run until completed (print dots while waiting for fib(11) to complete)
 if __name__ == '__main__':
-    asyncio.run(main(9))
+    asyncio.run(main(11))

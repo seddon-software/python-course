@@ -8,7 +8,16 @@
     await causes the current coroutine function to suspend and delegates execution of the awaitable 
     coroutine object to the event loop, which will schedule it as needed.
 
-    A coroutine yields control when it awaits another coroutine object
+    A coroutine yields control when it awaits another coroutine object,
+
+    All coroutine functions must be defined using the `async` keyword. A coroutine must be awaited by another 
+    coroutine (or run by an appropriate event loop).  To suspend a coroutine and yield control to the event loop, 
+    use `await`. For example:
+
+        await asyncio.sleep(1)
+
+    While the coroutine is suspended, the event loop can run other tasks.
+    Even sleeping for 0 seconds is sufficient to yield control.
 '''
 
 import asyncio

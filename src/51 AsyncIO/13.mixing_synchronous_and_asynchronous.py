@@ -3,6 +3,23 @@ Sometimes you want to reuse some synchronous code in an asynchronous application
 You can run such code either in separate threads or in separate process.
 
 The code below shows the normal approach.
+
+The example shows how to use existing synchronous functions inside an asyncio program without rewriting them as async def.
+
+Threads:
+=======
+    asyncio.to_thread(Fib1, 37) runs the synchronous function in a worker thread, keeping the asyncio event loop free.
+
+Processes:
+=========
+    ProcessPoolExecutor runs the function in separate Python processes. This is particularly useful for CPU-intensive work, 
+    such as the recursive Fibonacci calculation.
+
+create_task() / run_in_executor():
+=================================
+    The four Fibonacci calculations are submitted before their results are awaited, so they can run concurrently.
+    Threads don't normally provide true parallel execution of Python CPU-bound code because of the GIL. Separate processes 
+    can execute CPU-bound Python code in parallel on different CPU cores.
 '''
 
 import asyncio

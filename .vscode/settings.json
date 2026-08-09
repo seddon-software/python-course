@@ -15,7 +15,7 @@
     "python.testing.unittestEnabled": false,
     "python.testing.promptToConfigure": false,
     "git.ignoreLimitWarning": true,
-    "workbench.sideBar.location": "right",
+    "workbench.sideBar.location": "left",
     "debug.terminal.clearBeforeReusing": true,
     "notebook.find.filters": {
         

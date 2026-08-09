@@ -11,7 +11,7 @@ Testing gives you the confidence that your code does what you expect it to do. T
 code and then you write your tests.  Agile methodolgy promotes Test Driven Development (TDD).  With TDD
 you write your tests before coding in an incremental fashion.
 
-The life cycle is as follows.  First you write a test, then you run it and it fails because you haven't
+The TDD life cycle is as follows:  First you write a test, then you run it and it fails because you haven't
 written the corresponding code.  Then you write the implementation code and test again.  This time it 
 should pass or you need to make corrections before it passes. 
 

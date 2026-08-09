@@ -53,5 +53,3 @@ threads = create_and_start_threads()
 print(f"expected value of counters:{N * NUMBER_OF_THREADS:8}")
 print(f"actual value of counter1:  {counter1}")
 print(f"actual value of counter2:  {counter2}")
-
-

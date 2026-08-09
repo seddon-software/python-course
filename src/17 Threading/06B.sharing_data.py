@@ -1,6 +1,6 @@
 '''
 The statement:
-    counter _+= 1
+    counter += 1
 should not be thread safe, but seems to be in CPython.  However, if you run this example using PyPy then 
 += will not be thread safe. 
 

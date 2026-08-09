@@ -17,7 +17,7 @@ and check that get_distance() throws an exception (it doesn't) then the test int
 '''
 
 import sys
-sys.path.append("../src")
+sys.path.append("./src")
 
 from Point import TooFarException
 from Point import *
