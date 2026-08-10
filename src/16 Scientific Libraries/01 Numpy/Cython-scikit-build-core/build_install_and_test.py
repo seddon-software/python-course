@@ -6,19 +6,21 @@ import os, sys, subprocess, time, glob
 
 def setupTempDirectory():
     tempDirectory = os.path.expandvars("$HOME/tmp")
-    if os.path.isdir(tempDirectory):
-        return      # nothing to do
 
-    os.system("clear")
-    print(f"setting up TEMP directory: {tempDirectory}")
-    time.sleep(5)
-    # make sure the permissions are ok
-    os.system(f"mkdir -p {tempDirectory}")
-    os.system(f"chmod 777 {tempDirectory}")
-    # create a copy of the current environment
+    if not os.path.isdir(tempDirectory):
+        os.system("clear")
+        print(f"setting up TEMP directory: {tempDirectory}")
+        time.sleep(5)
+
+        os.makedirs(tempDirectory, exist_ok=True)
+        os.chmod(tempDirectory, 0o777)
+
+    # Create a copy of the current environment
     env = os.environ.copy()
-    # add a new environment variable
+
+    # Add the temporary directory
     env["TEMP"] = tempDirectory
+
     return env
 
 env = setupTempDirectory()
