@@ -44,7 +44,7 @@ def execute(message, cmd, shell=False):
 try:
     import pipx
 except:
-    execute(message="install pipx", cmd="pip3 install pipx", shell=True)
+    execute(message="install pipx", cmd="python -m pip install pipx", shell=True)
 
 execute(message="build extension module with pipx", cmd="python -m pipx run build")
 execute(message="install extension module with pip", cmd="python -m pip install --force-reinstall .")
