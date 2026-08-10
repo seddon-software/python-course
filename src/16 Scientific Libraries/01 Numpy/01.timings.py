@@ -16,6 +16,9 @@ is running, but can provide significant speed increases, especially for operatio
 Note the nested fstrings specifying formats as in:
             R = "20s"
             print(f"{'for loop:':{R}} {forLoop(n)}")
+
+You will see slightly different results from these equivalent calculations.  This is a result of python, numpy and numba performing
+the additions in different orders; this affects how rounding errors are handled. 
 '''
 
 EXCLUDE_C_EXAMPLE=False
@@ -45,7 +48,7 @@ def numpyMethod(n):
 '''
 Numba translates Python functions to optimized machine code at runtime.
 Numba will try to compile the code to a native binary (nopython mode), but will
-produce errors when this is not possible
+produce errors when this is not possible rather than default to using the python interpreter.
 '''
 @numba.jit(nopython=True, parallel=True)
 def parallelNumpy_with_numba(n):

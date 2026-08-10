@@ -20,11 +20,14 @@ def setupTempDirectory():
 
 env = setupTempDirectory()
 
+def red(text):
+    return f"\033[31m{text}\033[0m"
+
 def execute(message, cmd, shell=False):
     global env
     time.sleep(5)
     os.system("clear")
-    print(message)
+    print(f"{red(cmd)}\n{message}")
     print("="*len(message))
     input('?')
     if shell:
