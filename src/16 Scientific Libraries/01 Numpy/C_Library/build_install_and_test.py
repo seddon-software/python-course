@@ -1,4 +1,4 @@
-import os, time
+import os, sys, time
 import subprocess
 
 def setupTempDirectory():
