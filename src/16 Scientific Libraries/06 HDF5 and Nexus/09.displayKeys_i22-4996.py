@@ -1,5 +1,6 @@
 '''
-In this example we extract attributes from a Diamond Nexus file.  Note you can use the Dawn app to see the same information.
+In this example we extract attributes from a Diamond Nexus file.  
+Note you can use the Dawn app to see the same information.
 '''
 
 import os

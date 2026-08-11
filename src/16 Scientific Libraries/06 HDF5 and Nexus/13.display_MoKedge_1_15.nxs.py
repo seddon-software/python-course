@@ -1,11 +1,13 @@
 '''
-In this example we take a Nexus file and smooth the data using a Savgol filter.
+This example reads experimental energy/intensity data from a Nexus file, uses a Savitzky–Golay filter to smooth the 
+noisy measurements, calculates their successive differences, and plots both the original and smoothed data.
+
 Note the use of Unicode variable names when setting up the smoothed plot.
     k̂wargs = {'linewidth':3, 'color':'blue'}
     ...
     plt.plot(X, Ŷ, **k̂wargs)    # smoothed plot
 
-The Unicode variable names are not necessary, but make the code easier to read.
+The Unicode variable names are not necessary, but make the code easier to read (I think?).
 '''
 
 import h5py

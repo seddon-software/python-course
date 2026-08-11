@@ -14,7 +14,11 @@ and supplying the appropriate key.
 
 import h5py
 import pandas as pd
-
+try:
+    import tables
+except:
+    import os
+    os.system("python -m pip install tables")
 
 OXFORD_DATA = "data/oxford_2022.txt"
 LERWICK_DATA = "data/lerwick.txt"

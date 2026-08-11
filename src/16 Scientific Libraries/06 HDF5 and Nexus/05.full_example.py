@@ -1,4 +1,11 @@
 '''
+HDF5 is a general-purpose file format for storing large, structured datasets, whereas NeXus is a scientific data 
+standard built on HDF5 that specifies how experimental data should be organised and what the data represents. 
+Thus, a .nxs NeXus file is essentially an HDF5 file arranged according to NeXus conventions, giving standardised 
+meaning to things such as experiments, detectors, measurements and energy values.
+
+At Diamond, Nexus files are produced on the beamlines.
+
 A NeXus file can be viewed as a computer file system. Just as files are stored in folders, NeXus fields are 
 stored in groups. The group hierarchy is designed to make it easy to navigate a NeXus file.
 
