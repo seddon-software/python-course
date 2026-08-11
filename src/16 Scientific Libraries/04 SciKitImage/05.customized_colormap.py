@@ -44,6 +44,11 @@ def load_image(infilename):
     data = np.asarray( img, dtype="int32" )
     return data
 
+set_title("original image")
+image = io.imread("images/chris.jpg")
+plt.imshow(image, interpolation = "none")
+plt.show()
+
 image = io.imread("images/chris.jpg", as_gray=True)
 
 

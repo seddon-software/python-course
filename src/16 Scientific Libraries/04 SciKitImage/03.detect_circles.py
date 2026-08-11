@@ -17,6 +17,9 @@ from skimage.draw import circle_perimeter
 import pandas as pd
 pd.set_option('display.max_rows', None)
 
+def set_title(title):
+    figure = plt.gcf()
+    figure.canvas.manager.set_window_title(title)
 
 def removeNearDuplicates(df):
     df = df.reset_index(drop=True)
@@ -37,6 +40,11 @@ def removeNearDuplicates(df):
     # drop=True discards the old index
     df = df.reset_index(drop=True)
     return df
+
+set_title("original image")
+image = io.imread("images/tablets.jpg")
+plt.imshow(image, interpolation = "none")
+plt.show()
 
 # perform edge detection on grayscale image
 image = io.imread("images/tablets.jpg", as_gray=True) * 256

@@ -87,7 +87,7 @@ data = np.array(
 # duplicate image
 data = np.vstack((data, data))
 data = np.hstack((data, data))
-data = data.astype(np.float_)
+data = data.astype(np.float64)
 
 set_title("black and white image")
 plt.imshow(data, interpolation = "none")
@@ -109,8 +109,8 @@ for item in props:
     b = item['bbox']
     x = (b[0] + b[2])/2
     y = (b[1] + b[3])/2
-    n = item['Label']
-    message = str(item['Label']) + " : " + str(item['FilledArea'])
+    n = item['label']
+    message = str(item['label']) + " : " + str(item['area_filled'])
     plt.text(x, y, message, color="white")
 
 plt.imshow(labels, interpolation = "none", cmap = "jet")

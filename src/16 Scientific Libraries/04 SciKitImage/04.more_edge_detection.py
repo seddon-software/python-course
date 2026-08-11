@@ -4,7 +4,7 @@ More Edge Detection
 This example shows what you can do with edge detection.  This is edge detection on an image of me, where I vary
 some edge detection parameters.
 
-So we can see multiple attempts, I've set MatPlotLib to "interactive on":
+To allow us to see multiple attempts, I've set MatPlotLib to "interactive on":
             plt.ion()
 '''
 
@@ -12,6 +12,7 @@ import os, sys
 import numpy as np
 import scipy.ndimage as nd
 import matplotlib.pyplot as plt
+import skimage.io as io
 import skimage.morphology as morphology
 import skimage.feature as feature
 from PIL import Image
@@ -38,6 +39,11 @@ def load_image(infilename):
     data = np.asarray( img, dtype="int32" )
     return data
 
+set_title("original image")
+image = io.imread("images/chris.jpg")
+plt.imshow(image, interpolation = "none")
+plt.show()
+
 plt.ion()
 image = load_image("images/chris.jpg")
 image = image / 256.0
@@ -47,3 +53,4 @@ for sigma in [3, 2]:
     for threshold in range(20, 40, 2):
         for spread in range(0, 6, 2):
             doit(image, sigma, threshold, spread, dt=0.1)
+plt.ioff()

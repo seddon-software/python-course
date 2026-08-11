@@ -1,5 +1,18 @@
+'''
+Train and Predict
+=================
+This is the equivalent tensor flow version.
+
+TensorFlow is an open-source machine-learning framework developed by Google. It is used to build, train and run neural 
+networks and other AI models, particularly for large-scale applications.
+'''
 import pandas as pd
 import numpy as np
+try:
+    import tensorflow
+except:
+    import os
+    os.system("python -m pip install tensorflow")
 import tensorflow as tf
 
 # -----------------------

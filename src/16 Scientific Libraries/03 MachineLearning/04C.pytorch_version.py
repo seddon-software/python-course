@@ -1,14 +1,20 @@
 '''
 Train and Predict
 =================
-Given that the dataset contains 150 records of irises, we can use it to train our estimator.  To do that, we split
-the dataframe into two parts: 
-            data:    contains the first 4 columns of the dataframe (the key characteristics)
-            species: contains the species (column 5)
+This is the equivalent pytorch version.
+PyTorch is an open-source machine-learning framework developed by Meta. It is used to build, train and run neural networks 
+and other AI models, and is especially popular in research and modern AI development.
+
+Like TensorFlow, it uses tensors for numerical computation and provides automatic differentiation to train neural networks.
 '''
 
 import pandas as pd
 import numpy as np
+try:
+    import torch
+except:
+    import os
+    os.system("python -m pip install torch")
 import torch
 import torch.nn as nn  # base class for all neural networks in PyTorch
 import torch.optim as optim

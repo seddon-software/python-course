@@ -10,11 +10,19 @@ Note the function:
 
 which uses indexing to convert greylevels less than or equal to a given threshold to black (=0) and
 all other pixels to white (=255).
+
+You may need to (see try block):
+    python -m pip install scikit-image
 '''
 
 import numpy as np
 import matplotlib.pyplot as plt
 import PIL.Image as Image
+try:
+    import skimage
+except:
+    import os
+    os.system("python -m pip install scikit-image")
 import skimage.measure as measure
 import skimage.morphology as morphology
 import scipy.ndimage as nd

@@ -5,6 +5,11 @@ There are alternative ways to present our results.  We can use Seaborn as shown 
 '''
 
 import pandas as pd
+try:
+    import seaborn
+except:
+    import os
+    os.system("python -m pip install seaborn")
 import seaborn as sns
 import matplotlib.pyplot as plt
 pd.set_option('display.max_rows', None)

@@ -10,7 +10,6 @@ Let's begin by creating some Numpy arrays:
 import numpy as np
 import os
 os.system("clear")
-
 np.set_printoptions(precision=3)
 
 # create array filled with 1's

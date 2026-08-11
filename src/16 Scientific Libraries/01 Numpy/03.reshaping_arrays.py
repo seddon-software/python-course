@@ -32,6 +32,8 @@ os.system("clear")
 a = np.arange(24); print(a)
 # reshape it
 b = a.reshape(2,3,4); print(b)
+# view a diagram
+os.system("open images/Slide1.jpg")
 a[13] = 99
 print(a)
 print(b)

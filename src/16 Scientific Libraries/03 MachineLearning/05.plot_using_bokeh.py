@@ -8,6 +8,11 @@ using:
 '''
 
 import pandas as pd
+try:
+    import bokeh
+except:
+    import os
+    os.system("python -m pip install bokeh")
 from bokeh.plotting import figure, show, output_file
 from bokeh.transform import factor_cmap, factor_mark
 from bokeh.io import output_notebook

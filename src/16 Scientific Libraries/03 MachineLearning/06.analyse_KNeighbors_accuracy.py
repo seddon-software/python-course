@@ -19,9 +19,16 @@ Now we predict results for our test set:
 and then compare with the actual results (Y_test)
             return metrics.accuracy_score(Y_test, prediction)
 
-Looks as though n=7 gives the best results.
-'''
+The first graph shows the results of the estimator for various values of K where is the number of nearest neighbours 
+used in the estimation.  It looks as though K=7 gives the best results.
 
+The second graph fixes K = 10 and varies test_size from 0.1 to 0.9, showing how the amount of training data affects accuracy.
+'''
+try:
+    import sklearn
+except:
+    import os
+    os.system("python -m pip install scikit-learn")
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
