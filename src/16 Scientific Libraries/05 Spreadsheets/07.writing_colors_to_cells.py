@@ -8,19 +8,24 @@ Setting colours for cells is based around the "PaternFill" class:
 where color is defined in hex.
 '''
 
+
 import os
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
 import openpyxl
 
+fileName = 'data/colored.xlsx'
+# delete old spreadsheet
+cmd = f"rm {fileName}"
+os.system(cmd)
+
 def writeToCell(row, col, color):
     cell = f"{row}{col}"
     fill = PatternFill(start_color=f"{color}", fill_type = "solid")
     ws.cell(row, col).fill = fill
 
-fileName = 'data/colored.xlsx'
-wb = load_workbook(filename=fileName)
+wb = Workbook()
 ws = wb.active
 ws.title = "writing colors to cells"
 

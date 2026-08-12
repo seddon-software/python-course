@@ -14,6 +14,10 @@ from openpyxl import Workbook
 wb = Workbook()
 
 fileName = 'data/empty.xlsx'
+# delete old spreadsheet
+cmd = f"rm {fileName}"
+os.system(cmd)
+
 ws1 = wb.active  # get the first (and only) worksheet
 ws2 = wb.create_sheet("Sheet A3")     # insert at the end (default)
 ws0 = wb.create_sheet("Sheet A1", 0)  # insert at first position

@@ -20,8 +20,12 @@ def coroutine(worksheet, range):
             worksheet[id] = value 
     return
 
-# define workbook
 fileName = 'data/writingToRangeOfCells.xlsx'
+# delete old spreadsheet
+cmd = f"rm {fileName}"
+os.system(cmd)
+
+# define workbook
 wb = xl.Workbook()
 ws = wb.active
 ws.title = "writing to range of cells"

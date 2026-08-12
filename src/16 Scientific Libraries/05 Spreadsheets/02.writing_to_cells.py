@@ -20,6 +20,10 @@ from openpyxl.utils import get_column_letter
 import datetime
 
 fileName = 'data/writingToCells.xlsx'
+# delete old spreadsheet
+cmd = f"rm {fileName}"
+os.system(cmd)
+
 wb = Workbook()
 ws = wb.active
 ws.title = "writing to cells"
@@ -27,6 +31,9 @@ ws.title = "writing to cells"
 # various ways of writing to cells
 ws['A1'] = datetime.datetime.now()
 ws['A1'].number_format = 'yyyy-mm-dd h:mm:ss'
+# make column wide enough to see the date
+ws.column_dimensions["A"].width = 20
+
 ws['B1'] = 42
 c = ws.cell(row=3, column=1)
 c.value = 43

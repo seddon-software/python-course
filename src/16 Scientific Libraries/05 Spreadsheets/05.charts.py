@@ -24,6 +24,10 @@ def addTitle(cell1, cell2, text):
     ws.merge_cells(merge)
  
 fileName = 'data/charts.xlsx'
+# delete old spreadsheet
+cmd = f"rm {fileName}"
+os.system(cmd)
+
 wb = Workbook()
 ws = wb.active
 

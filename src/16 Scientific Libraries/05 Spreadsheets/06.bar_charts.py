@@ -12,9 +12,13 @@ I think this is because openpyxl was tested on Excel and charts behave slightly 
 
 import os
 from openpyxl import Workbook
-from openpyxl.chart import (
-    Reference,
-)
+from openpyxl.chart import Reference
+
+
+fileName = 'data/barCharts.xlsx'
+# delete old spreadsheet
+cmd = f"rm {fileName}"
+os.system(cmd)
 
 wb = Workbook()
 ws = wb.active
@@ -47,7 +51,6 @@ chart.set_categories(yData)
 chart.shape = 4
 ws.add_chart(chart, "B10")
 
-fileName = 'data/barCharts.xlsx' 
 wb.save(fileName)
 
 os.system(f"libreoffice {fileName}")

@@ -74,8 +74,12 @@ def setDays(year, iterator, comments=False):
 
 
 def main():
-    # define workbook
     fileName = 'data/calendar.xlsx'
+    # delete old spreadsheet
+    cmd = f"rm {fileName}"
+    os.system(cmd)
+
+    # define workbook
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = f"{YEAR}"

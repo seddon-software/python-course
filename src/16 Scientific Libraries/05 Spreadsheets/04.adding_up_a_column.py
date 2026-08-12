@@ -17,11 +17,16 @@ Note: You can use Ctrl-Q to quit from LibreOffice
 
 import os
 from openpyxl import Workbook
+from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 import datetime
 
 from openpyxl.reader.excel import load_workbook
 
+# delete old spreadsheet
+fileName = 'data/computing.xlsx'
+cmd = f"rm {fileName}"
+os.system(cmd)
 
 wb = Workbook()
 ws = wb.active
@@ -32,19 +37,13 @@ print("adding some sample data to column 1")
 for row in range(3, 20):
         c = ws.cell(row=row, column=1)
         c.value = row * 10
-fileName = 'data/computing.xlsx'
 wb.save(fileName)
-
-cmd = f"libreoffice {fileName}&"
-os.system(cmd)
 
 # wait for spreadsheet to be ready
 import time
 time.sleep(5)
 
 # compute sum of column 1
-
-# put a breakpoint after this line
 print("Computing sum of column 1")
 wb = load_workbook(fileName, read_only=False)
 ws = wb.active
@@ -55,6 +54,7 @@ for row in range(3, 20):
         sum += int(c.value)
 
 ws['A22'] = sum
+ws['A22'].font = Font(bold=True)
 wb.save(fileName)
 
 cmd = f"libreoffice {fileName}"
