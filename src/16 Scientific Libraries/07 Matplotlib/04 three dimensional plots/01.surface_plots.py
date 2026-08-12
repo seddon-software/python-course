@@ -64,12 +64,12 @@ Y = np.array([
     [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]])
 
 R = np.sqrt(X**5 + 8*X*Y**0.5)
-Z = np.sin(R)
+Z = np.sin(2*R)
 print(f"shape of X = {X.shape}")
 print(f"shape of Y = {Y.shape}")
 print(f"shape of Z = {Z.shape}")
 
-ax.plot_surface(X, Y, Z, cmap=cm.coolwarm)
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.coolwarm)
 plt.show()
 
 

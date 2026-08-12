@@ -14,7 +14,9 @@ word args.
 
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
+plt.gcf().canvas.manager.set_window_title("Simple Plot")
 ax = plt.subplot()      # create single figure with one axis
 x = np.arange(1, 10, 0.1)
 y = x**2

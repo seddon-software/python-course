@@ -22,6 +22,7 @@ barWidth = 0.75
 # matplotlib.pyplot.bar(x, height, width=0.8, bottom=None, *, align='center', data=None, **kwargs)[source]
 p1 = plt.bar(X, Bottoms, barWidth, yerr=errorBarsBottoms)    # returns all the artists
 p2 = plt.bar(X, Tops, barWidth, bottom=Bottoms, yerr=errorBarsTops)
+plt.gcf().canvas.manager.set_window_title("Bar Plots")
 
 plt.xlabel('X Axis')
 plt.ylabel('Y Axis')

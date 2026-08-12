@@ -26,6 +26,7 @@ for fig in [fig1, fig2, fig3]:
     for n in range(1, 5):
         ax = fig.add_subplot(2, 2, n, title=f"axes-{n}")
         ax.set_facecolor(colors[n-1])
+    fig.canvas.manager.set_window_title("Multiple Figures and Axes")
 
 print(f"type of Axes: {type(ax)}")
 plt.tight_layout()

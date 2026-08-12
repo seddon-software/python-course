@@ -9,12 +9,21 @@ you will need to modify the JSON in .vscode/launch.json to look like:
         }
 '''
 
+import webbrowser
+
 # use this to edit launch.json
-import os
-os.system("clear")
-os.system("vim ../../../../.vscode/launch.json")
+def edit_launch_json():
+    import os
+    os.system("clear")
+    os.system("vim ../../../../.vscode/launch.json")
 
-# use this to see matplotlib documentaion
-# import webbrowser
-# webbrowser.open("https://matplotlib.org/stable/api/index.html")
+# alternatively, use this to see matplotlib documentaion
+def matplotlib_documentaion():
+    webbrowser.open("https://matplotlib.org/stable/api/index.html")
 
+def view_gallery():
+    webbrowser.open("https://matplotlib.org/stable/gallery/index.html")
+
+# edit_launch_json()
+# matplotlib_documentaion()
+view_gallery()

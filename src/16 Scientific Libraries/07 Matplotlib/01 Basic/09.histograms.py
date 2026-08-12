@@ -22,6 +22,7 @@ np.set_printoptions(precision=2, suppress=True, formatter={'float_kind': lambda 
 # get samples from an exponential distribution
 samples = np.random.exponential(1, 1000)
 
+plt.gcf().canvas.manager.set_window_title("Histogram")
 plt.hist(samples, bins=30, edgecolor='black')
 plt.xlabel('Value')
 plt.ylabel('Frequency')

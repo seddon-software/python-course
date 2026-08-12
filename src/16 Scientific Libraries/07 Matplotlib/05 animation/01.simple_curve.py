@@ -20,7 +20,7 @@ import matplotlib.animation as animation
 fig, ax = plt.subplots(figsize=(7, 4))
 
 
-N = 20      # number of points in curve
+N = 50      # number of points in curve
 
 # Generating x values 
 x = list(range(N))
@@ -39,6 +39,8 @@ def update(frame):
     # update the artist
     line.set_xdata(x)
     line.set_ydata(y)
+    line.set_color(plt.cm.jet(frame / 100)) # vary colour
+    line.set_linewidth(10)
     return line         # return the artist (not required in this case because blit by default is False)
 
 # Creating a FuncAnimation object

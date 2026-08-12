@@ -58,7 +58,7 @@ from functools import partial
 
 def update_plot(data, sc, ax, frame):
     sc._offsets3d = data[frame]
-    print(data[frame])
+    # print(data[frame])
     ax.view_init(elev=30, azim=frame%720, roll=frame%720)      # change azimuth and roll to make things more interesting
     return sc
 
