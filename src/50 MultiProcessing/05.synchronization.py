@@ -18,6 +18,7 @@ import random, os
 
 def fn(lock):
     for n in range(10):
+        time.sleep(0)       # yield control
         if synchronize: lock.acquire()
         print(f"This is ", end="")
         time.sleep(random.random())

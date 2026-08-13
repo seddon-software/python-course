@@ -6,7 +6,7 @@ a global list called "results" and attempt to populate it from a subprocess.  Wh
 will see the global variable doesn't appear to get updated.
 
 This is because there are 2 global variables! one in each process.  The global variable in the subprocess does
-get updated, but we are looking at the second global variable that doesn't get updated.
+get updated, but we are looking at the global variable that doesn't get updated.
 '''
 
 import multiprocessing as mp

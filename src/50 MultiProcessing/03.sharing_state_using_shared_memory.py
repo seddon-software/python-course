@@ -20,7 +20,7 @@ Amongst other things you can use
             (ii) multiprocessing.Array : for arrays
 
 Examples of these two mechanisms are given below.  Note that Python creates wrapper objects for "size" and 
-"results" and these need casting to see the values stored in shared memory.
+"results" and you access these values through the wrapper.
 '''
 
 import multiprocessing as mp
