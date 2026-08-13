@@ -12,7 +12,7 @@ try:
     import requests
 except:
     import os
-    os.system("pip install requests")
+    os.system("pip install requests --user")
     import requests
 
 def work():
