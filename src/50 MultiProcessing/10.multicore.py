@@ -15,9 +15,9 @@ def some_calculation(x):
         x * x
 
 import time
-time.sleep(5)
 if __name__ == '__main__': 
     print(f"There are {cpu_count()} CPUs on this machine")
-    p = Pool(processes=2*cpu_count())
+    time.sleep(5)           # start htop in another terminal
+    p = Pool(processes=cpu_count())
     p.map(some_calculation, range(cpu_count()))
 
