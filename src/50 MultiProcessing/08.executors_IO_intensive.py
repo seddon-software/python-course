@@ -8,8 +8,12 @@ of processes.
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
 import timeit
-import requests
-
+try:
+    import requests
+except:
+    import os
+    os.system("python -m install requests")
+    import requests
 
 def work():
     requests.get("https://docs.python.org/3/")
