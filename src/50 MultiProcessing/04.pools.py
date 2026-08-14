@@ -8,6 +8,10 @@ Not: The map function has 2 parameters:
     parameter-2:    the iterable to transform
 
 Thus all items in the iterable get transformed.
+
+Note: every argument passed to a worker and every result returned gets pickled, piped, and unpickled — that's serialization overhead on 
+both sides of every task.  For large objects (big NumPy arrays, large dicts/lists, big strings), this overhead can dominate or even 
+exceed the actual computation time, especially if work itself is fast.
 '''
 
 POOL_SIZE = 12
