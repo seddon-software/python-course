@@ -2,8 +2,8 @@
 Timer decorator
 ===============
 
-Write a "timer" decorator that calculates the time a function takes to execute.  THe decorator should be parametrised with a count.
-Call the decorated function "count" times and print the average execution time.  Take a look at the logging decorator to give you 
+Write a "timer" decorator that calculates the time a function takes to execute.  THe decorator should be parametrised with a "count".
+Call the decorated function multiple ("count") times and print the average execution time.  Take a look at the logging decorator to give you 
 an idea of what to do.
 
 The function being decorated may have arbitary parameters (possibly named), so you will need to use the pattern: fn(*args, **kwargs).  

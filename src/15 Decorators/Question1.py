@@ -50,9 +50,8 @@ def YourSolution():
           return n**4
 
 
-     # create a Python array of x points without using numpy(np.linspace)
-
-     # use (uncomment) the same matplotlib code
+     # create a Python array of x points using a comprehension (or equivalent)
+     # uncomment below - to use the same matplotlib code
      # ax = plt.subplot()      # create single figure with one axis
      # plt.gcf().canvas.manager.set_window_title('Your Solution')
      # plt.grid()
