@@ -10,6 +10,7 @@ Here is a valid program with a user defined class.  The main point of interest i
 Note too, that although @staticmethod is not required for static methods in Python3, mypy reports an error
 if is missing for class methods not taking any parameters (but note __add__ has parameters and mypy doesn't 
 report an error).
+
 '''
 
 ############################################################

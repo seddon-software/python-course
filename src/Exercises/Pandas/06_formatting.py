@@ -1,5 +1,5 @@
 '''
-Use Pandas to read the file "../MiniProject/wtk_site_metadata.csv"
+Use Pandas to read the file "wtk_site_metadata.csv"
 Create the same dataframe 'Rhode Island' as in the previous exercise.
 Print the dataframe without the index, display every row to a precision of 2
 decimal places
@@ -10,7 +10,7 @@ pd.set_option('display.precision', 2)
 pd.set_option('display.width', None)
 pd.set_option('display.max_rows', None)
 
-df = pd.read_csv("../MiniProject/wtk_site_metadata.csv")
+df = pd.read_csv("wtk_site_metadata.csv")
 df = df[df['State'] == 'Rhode Island']
 df = df[['longitude', 'latitude']]
 df = df.reset_index()

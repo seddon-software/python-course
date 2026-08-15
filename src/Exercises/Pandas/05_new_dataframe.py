@@ -1,5 +1,5 @@
 '''
-Use Pandas to read the file "../MiniProject/wtk_site_metadata.csv"
+Use Pandas to read the file "wtk_site_metadata.csv"
 Create a new dataframe containing rows with state equal to 'Rhode Island'.
 Retain the 'longitude' and 'latitude' columns.
 Reset the index such that it starts at 1.
@@ -7,7 +7,7 @@ Reset the index such that it starts at 1.
 
 import pandas as pd
 
-df = pd.read_csv("../MiniProject/wtk_site_metadata.csv")
+df = pd.read_csv("wtk_site_metadata.csv")
 df = df[df['State'] == 'Rhode Island']
 df = df[['longitude', 'latitude']]
 df = df.reset_index()
